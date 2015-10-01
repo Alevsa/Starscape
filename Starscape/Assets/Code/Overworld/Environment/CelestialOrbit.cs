@@ -38,6 +38,7 @@ public class CelestialOrbit : MonoBehaviour
 	{
 		centripetalForce();
 		velocity();
+		gameObject.transform.position = gameObject.transform.position;
 		
 	}
 	
