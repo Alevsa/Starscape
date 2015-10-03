@@ -5,8 +5,8 @@ public class OverworldMovement : MonoBehaviour {
 
 	private OverworldStats stats;
 	private float speed = 0f;
-	
-	private Vector3 forwardForce;
+	private int speedState = 0;
+	private float warpTurning = 1f;
 	
 	void Start () 
 	{
@@ -22,44 +22,69 @@ public class OverworldMovement : MonoBehaviour {
 	
 	public void turn(float axis)
 	{
-		transform.Rotate(new Vector3(0f, axis * stats.turnRate, 0f));
+		transform.Rotate(0f, axis * stats.turnRate * warpTurning * Time.deltaTime, 0f,  Space.World);
 	}
 	
+	// Currently there are two speed states, impulse and warp. warp is very fast has a delay when you start it and difficult to maneouver.
+	// impulse is slower but more precise. The idea is you warp between starts and navigate to planets on impulse.
 	public void accelerationHandler(float axis)
 	{
 		if (axis == 1f)
 		{
-			StartCoroutine("Accelerate");	
+			switch(speedState)
+			{
+				case 0 : 
+					StartCoroutine("Accelerate", stats.impulsePower);
+					speedState++;	
+					break;
+				case 1 : 
+					warpTurning = stats.warpTurnRate;
+					StartCoroutine("Warp");
+					speedState++;
+					break;
+			}
+			
 		}
 		else if (axis == -1f)
 		{
-			StartCoroutine("Decelerate");
+			switch(speedState)
+			{ 
+				case 1 : 
+					StartCoroutine("Decelerate", 0f);
+					speedState--;	
+					break;
+				case 2 : 
+					warpTurning = 1f;
+					StartCoroutine("Decelerate", stats.impulsePower);
+					speedState--;
+					break;
+			}
 		}
 	}
 	
-	private IEnumerator ImpulsePower()
+	private IEnumerator Warp()
 	{
-		
+		for (float i = 0f; i<stats.warpChargeTime; i+=Time.deltaTime)
+		{
+			Debug.Log(i);
+			// Exponential function, starts out very low for a while then rapidly grows.
+			speed = stats.warpSpeed*Mathf.Exp(i-stats.warpChargeTime);
+			yield return null;
+		}	
 	}
 	
-	private IEnumerator WarpSpeed()
-	{
-	
-	}
-	
-	private IEnumerator Accelerate() 
-	{
-		
-		while (speed < stats.maxSpeed)
+	private IEnumerator Accelerate(float amount) 
+	{	
+		while (speed < amount)
 		{
 			speed += stats.acceleration;
 			yield return null;
 		}
 	}
 	
-	private IEnumerator Decelerate() 
+	private IEnumerator Decelerate(float amount) 
 	{
-		while (speed > 0f)
+		while (speed > amount)
 		{
 			speed -= stats.acceleration;
 			yield return null;
@@ -68,6 +93,6 @@ public class OverworldMovement : MonoBehaviour {
 	
 	void movement () 
 	{
-		transform.position += transform.forward * speed * 0.0001f;
+		gameObject.transform.Translate(Vector3.forward * speed * Time.deltaTime);
 	}
 }
