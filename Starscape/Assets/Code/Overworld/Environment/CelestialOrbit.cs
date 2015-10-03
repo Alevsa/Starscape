@@ -5,7 +5,7 @@ public class CelestialOrbit : MonoBehaviour
 {
 	public GameObject focus;
 	public bool clockwise;
-	public float orbitalPeriod = 60f;
+	public float orbitalPeriod = 450f;
 	private float orbitalSpeed = 360f/60f;
 	private Vector3 axis = Vector3.down;
 	

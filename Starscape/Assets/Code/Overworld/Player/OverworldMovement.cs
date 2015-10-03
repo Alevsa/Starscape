@@ -66,7 +66,6 @@ public class OverworldMovement : MonoBehaviour {
 	{
 		for (float i = 0f; i<stats.warpChargeTime; i+=Time.deltaTime)
 		{
-			Debug.Log(i);
 			// Exponential function, starts out very low for a while then rapidly grows.
 			speed = stats.warpSpeed*Mathf.Exp(i-stats.warpChargeTime);
 			yield return null;
