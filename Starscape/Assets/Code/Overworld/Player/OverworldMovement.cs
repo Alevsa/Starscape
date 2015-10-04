@@ -16,7 +16,6 @@ public class OverworldMovement : MonoBehaviour {
 
 	void Update () 
 	{
-		Debug.Log(speed);
 		movement();
 	}
 	
