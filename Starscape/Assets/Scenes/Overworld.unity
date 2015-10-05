@@ -159,6 +159,7 @@ GameObject:
   - 65: {fileID: 134918672}
   - 114: {fileID: 134918675}
   - 114: {fileID: 134918674}
+  - 54: {fileID: 134918676}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -236,6 +237,21 @@ MonoBehaviour:
   impulsePower: 5
   warpChargeTime: 5
   warpTurnRate: .300000012
+--- !u!54 &134918676
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 134918670}
+  serializedVersion: 2
+  m_Mass: 1.00000001e-07
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &184794623
 Prefab:
   m_ObjectHideFlags: 0
@@ -533,7 +549,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441334, guid: 12271f597a7e2884fb8970611875f711, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 162458, guid: 12271f597a7e2884fb8970611875f711, type: 2}
       propertyPath: m_Name
@@ -1429,6 +1445,24 @@ MonoBehaviour:
   maxSpeed: 10
   visionRange: 10
   acceleration: .100000001
+  despawnRange: 150
+--- !u!114 &1896124676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1896124674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a260a733d3875f04881ef66d726c63b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleScenes:
+  - Battle1
+  enemies:
+  - {fileID: 181280, guid: ca9fbddb2f30d6644b67c458275d1cc2, type: 2}
+  - {fileID: 181280, guid: ca9fbddb2f30d6644b67c458275d1cc2, type: 2}
+  spawnDistance: 200
 --- !u!135 &1896124677
 SphereCollider:
   m_ObjectHideFlags: 0

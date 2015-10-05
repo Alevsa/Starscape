@@ -19,7 +19,6 @@ public class SpawnController : MonoBehaviour
 		GameObject[] temp = GameObject.FindGameObjectsWithTag("Spawner"); 
 		foreach (GameObject tmp in temp)
 		{
-			Debug.Log(tmp);
 			spawners.Add(tmp);
 		}
 		spawners.Add(defaultSpawner);

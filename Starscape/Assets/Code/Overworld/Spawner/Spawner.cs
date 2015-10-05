@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
 	public bool active = false;
 	// Chance is in percent per frame, might change this to per second at some point or change it to check every ten seconds.
 	public float spawnChance = 0.0001f;
-	public float spawnDistance = 20f;
+	public float spawnDistance = 120f;
 	public int maxEnemies = 4;
 	public GameObject[] enemies; 
 	

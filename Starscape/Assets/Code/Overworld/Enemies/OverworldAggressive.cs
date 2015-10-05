@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class OverworldAggressive : MonoBehaviour 
@@ -6,7 +6,6 @@ public class OverworldAggressive : MonoBehaviour
 	// THINGS TO DO:
 	//
 	// Fade in
-	// Despawn at great distances
 	
 	#region Variables
 	private GameObject focus;
@@ -17,6 +16,7 @@ public class OverworldAggressive : MonoBehaviour
 	private float speed = 0f;
 	public float visionRange = 20f;
 	public float acceleration = 0.1f;
+	public float despawnRange = 150f;
 	private int excluding;
 	private Rigidbody body;
 	private bool inPursuit = false;
@@ -58,6 +58,8 @@ public class OverworldAggressive : MonoBehaviour
 	#region Update
 	void Update () 
 	{	
+		despawnCheck();
+		
 		if (inPursuit)
 		{
 			bored = true;
@@ -128,7 +130,7 @@ public class OverworldAggressive : MonoBehaviour
 	
 	#region Sees if the player is in range
 	// It's not based on a cone or anything because generally people on ships will look in all directions, Though it would make
-	// sense to implement a cone for a sea monster enemy idea I had. More on that later though.
+	// sense to implement a cone for a sea (space) monster enemy idea I had. More on that later though. 
 	bool iCanSeePlayer()
 	{
 		if (Vector3.Magnitude(player.transform.position - gameObject.transform.position) <= visionRange)
@@ -144,13 +146,14 @@ public class OverworldAggressive : MonoBehaviour
 	#endregion
 	
 	#region Finds next waypoint
+	// Here it looks at hte nearest waypoints, it wont go back to the same waypoint twice in a row, and each time a waypoint is selected
+	// it gets weighted more heavily so that the enemy doesnt patrol between the same two waypoints forever.
 	public GameObject returnNearestValidWaypoint(GameObject origin)
 	{
 		float[] waypointDistance = new float[waypoints.Length];
 		for (int i = 0; i < waypoints.Length; i++) 
 		{
 			waypointDistance[i] = Vector3.Magnitude(origin.transform.position - waypoints[i].transform.position)*visited[i];
-			Debug.Log(waypointDistance[i]);
 		}
 		int minIndex = 0;
 		float minDistance = Mathf.Infinity;
@@ -164,7 +167,6 @@ public class OverworldAggressive : MonoBehaviour
 		}
 		excluding = minIndex;
 		visited[minIndex] += 2;
-		Debug.Log(minIndex);
 		return waypoints[minIndex];
 		
 	}
@@ -179,8 +181,12 @@ public class OverworldAggressive : MonoBehaviour
 		}
 	}
 	
-	void despawn()
+	void despawnCheck()
 	{
-		Destroy(gameObject);
+		if (Vector3.Distance(player.transform.position, transform.position) > despawnRange)
+		{
+			
+			Destroy(gameObject);
+		}
 	}
 }
