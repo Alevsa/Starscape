@@ -56,8 +56,6 @@ public class SpawnController : MonoBehaviour
 	{
 		for (int i = 0; i < spawners.Count - 1; i++)
 		{
-			Debug.Log(i);
-			Debug.Log(spawners[i]);
 			if (Vector3.Distance(player.transform.position, spawners[i].transform.position) < spawners[i].GetComponent<Spawner>().range)
 			{
 				spawners[i].GetComponent<Spawner>().active = true;
