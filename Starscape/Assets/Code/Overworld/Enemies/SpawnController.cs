@@ -17,13 +17,11 @@ public class SpawnController : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player");
 		defaultSpawner = GameObject.FindGameObjectWithTag("DefaultSpawner");
 		GameObject[] temp = GameObject.FindGameObjectsWithTag("Spawner"); 
-		Debug.Log(temp);
 		foreach (GameObject tmp in temp)
 		{
 			Debug.Log(tmp);
 			spawners.Add(tmp);
 		}
-		Debug.Log(defaultSpawner);
 		spawners.Add(defaultSpawner);
 		disableAllSpawners();
 		StartCoroutine("CheckSpawners");
@@ -38,7 +36,7 @@ public class SpawnController : MonoBehaviour
 			if (timer > checkInterval)
 			{
 				disableAllSpawners();
-				spawners[returnActiveSpawner()].GetComponent<Spawner>().active = true;
+				activateSpawner();
 				timer = 0f;
 			}
 			yield return null;
@@ -54,21 +52,18 @@ public class SpawnController : MonoBehaviour
 	}
 	
 	// Returns the index of the spawner that should be active.
-	private int returnActiveSpawner()
+	private void activateSpawner()
 	{
-		// If there's only the default spawner.
-		if (spawners.Count == 1)
+		for (int i = 0; i < spawners.Count - 1; i++)
 		{
-			return 0;
-		}
-		for (int i = 0; i < spawners.Count - 2; i++)
-		{
+			Debug.Log(i);
+			Debug.Log(spawners[i]);
 			if (Vector3.Distance(player.transform.position, spawners[i].transform.position) < spawners[i].GetComponent<Spawner>().range)
 			{
-				return i;
+				spawners[i].GetComponent<Spawner>().active = true;
+				break;
 			}
 		}
-		
-		return (spawners.Count-1);
+		spawners[spawners.Count-1].GetComponent<Spawner>().active = true;
 	}
 }
