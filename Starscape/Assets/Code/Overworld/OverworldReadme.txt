@@ -42,4 +42,9 @@ will rotate independently while the parent container orbits both the moon and th
 -> OverworldStats.cs
 
 These scripts are intertwined so I will describe them together. The player gameObject should be tagged
-as "Player" and contain OverworldMovement.cs and OverworldStats.cs
+as "Player" and contain OverworldMovement.cs and OverworldStats.cs, it also should have a kinematic rigidbody
+attached and a collider set to trigger.
+
+OverWorldMovement.cs reads in the stats from the OverWorldStats.cs to decide how fast things should move, 
+acceleration etc, OverWorldController.cs is put on a separate gameObject and reads in all player input then 
+calls the appropriate method from the OverWorldMovement.cs . 

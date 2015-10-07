@@ -38,6 +38,7 @@ public class OverworldMovement : MonoBehaviour {
 					break;
 				case 1 : 
 					warpTurning = stats.warpTurnRate;
+					stats.warping = true;
 					StartCoroutine("Warp");
 					speedState++;
 					break;
@@ -54,6 +55,8 @@ public class OverworldMovement : MonoBehaviour {
 					break;
 				case 2 : 
 					warpTurning = 1f;
+					stats.warping = false;
+					StopCoroutine("Warp");
 					StartCoroutine("Decelerate", stats.impulsePower);
 					speedState--;
 					break;
