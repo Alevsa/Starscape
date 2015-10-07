@@ -9,5 +9,5 @@ public class OverworldStats : MonoBehaviour
 	public float impulsePower = 1f;
 	public float warpChargeTime = 5f;
 	public float warpTurnRate = 1f;
-	public bool warping = false;
+	[HideInInspector] public float speed = 0f;
 }

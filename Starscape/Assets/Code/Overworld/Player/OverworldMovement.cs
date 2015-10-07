@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OverworldMovement : MonoBehaviour {
-
+public class OverworldMovement : MonoBehaviour 
+{
+//++ TO DO ++
+//
+// If you switch into speed state 1 then rapidly back to state 0 you will have the incorrect speed.
 	private OverworldStats stats;
 	private float speed = 0f;
 	private int speedState = 0;
@@ -11,12 +14,15 @@ public class OverworldMovement : MonoBehaviour {
 	void Start () 
 	{
 		stats = GetComponent<OverworldStats> ();
+		stats.speed = speed;
 	}
 	
 
 	void Update () 
 	{
 		movement();
+		stats.speed = speed;
+		Debug.Log(speed);
 	}
 	
 	public void turn(float axis)
@@ -38,7 +44,6 @@ public class OverworldMovement : MonoBehaviour {
 					break;
 				case 1 : 
 					warpTurning = stats.warpTurnRate;
-					stats.warping = true;
 					StartCoroutine("Warp");
 					speedState++;
 					break;
@@ -55,9 +60,15 @@ public class OverworldMovement : MonoBehaviour {
 					break;
 				case 2 : 
 					warpTurning = 1f;
-					stats.warping = false;
 					StopCoroutine("Warp");
-					StartCoroutine("Decelerate", stats.impulsePower);
+					if(speed > stats.impulsePower)
+					{
+						StartCoroutine("Decelerate", stats.impulsePower);
+					}
+					else
+					{
+						StartCoroutine("Accelerate", stats.impulsePower);
+					}
 					speedState--;
 					break;
 			}
@@ -95,5 +106,19 @@ public class OverworldMovement : MonoBehaviour {
 	void movement () 
 	{
 		gameObject.transform.Translate(Vector3.forward * speed * Time.deltaTime);
+		setToZero();
+	}
+	
+	// Stops slight movement when at a speed ~0.
+	void setToZero()
+	{
+		if(speed < 0f)
+		{
+			speed = 0f;
+		}
+		else if (speedState == 0f && speed < 0.3f && speed > 0f)
+		{
+			speed -= 0.08f;
+		}
 	}
 }
