@@ -3,16 +3,11 @@ using System.Collections;
 
 public class CameraBasic : MonoBehaviour 
 {
-	public GameObject focus;
-	public float zoom = 50f;
-	
-	void Start () 
-	{
-		focus = GameObject.FindGameObjectWithTag("Player");
-	}
-	
+	public GameObject Focus;
+	public float Zoom = 50f;
+
 	void Update () 
 	{
-		transform.position = new Vector3(focus.transform.position.x, zoom, focus.transform.position.z);
+		transform.position = new Vector3(Focus.transform.position.x, Zoom, Focus.transform.position.z);
 	}
 }
