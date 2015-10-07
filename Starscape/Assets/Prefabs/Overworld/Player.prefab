@@ -37,6 +37,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &144148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 421920}
+  - 212: {fileID: 21267848}
+  m_Layer: 8
+  m_Name: PlayerUIArrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &148760
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,6 +174,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 426588}
   m_RootOrder: 5
+--- !u!4 &421920
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144148}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
+  m_LocalPosition: {x: 0, y: 1.5, z: 1.10000002}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 426588}
+  m_RootOrder: 6
 --- !u!4 &426588
 Transform:
   m_ObjectHideFlags: 1
@@ -174,6 +202,7 @@ Transform:
   - {fileID: 402610}
   - {fileID: 448756}
   - {fileID: 416558}
+  - {fileID: 421920}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &448756
@@ -454,6 +483,7 @@ MonoBehaviour:
   impulsePower: 5
   warpChargeTime: 5
   warpTurnRate: .300000012
+  speed: 0
 --- !u!114 &11482924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -465,6 +495,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984cf809619fcb84db38643bbd506309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &21267848
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144148}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 7067b028d307f42dda44fb212680da64, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
