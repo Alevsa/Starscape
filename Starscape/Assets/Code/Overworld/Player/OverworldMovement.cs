@@ -6,6 +6,7 @@ public class OverworldMovement : MonoBehaviour
 //++ TO DO ++
 //
 // If you switch into speed state 1 then rapidly back to state 0 you will have the incorrect speed.
+//
 	private OverworldStats stats;
 	private float speed = 0f;
 	private int speedState = 0;
@@ -22,7 +23,7 @@ public class OverworldMovement : MonoBehaviour
 	{
 		movement();
 		stats.speed = speed;
-		Debug.Log(speed);
+		//Debug.Log(speed);
 	}
 	
 	public void turn(float axis)
@@ -38,11 +39,12 @@ public class OverworldMovement : MonoBehaviour
 		{
 			switch(speedState)
 			{
-				case 0 : 
+				case 0 :
 					StartCoroutine("Accelerate", stats.impulsePower);
 					speedState++;	
 					break;
 				case 1 : 
+					stopCoroutines();
 					warpTurning = stats.warpTurnRate;
 					StartCoroutine("Warp");
 					speedState++;
@@ -55,12 +57,13 @@ public class OverworldMovement : MonoBehaviour
 			switch(speedState)
 			{ 
 				case 1 : 
+					stopCoroutines();
 					StartCoroutine("Decelerate", 0f);
 					speedState--;	
 					break;
 				case 2 : 
 					warpTurning = 1f;
-					StopCoroutine("Warp");
+					stopCoroutines();
 					if(speed > stats.impulsePower)
 					{
 						StartCoroutine("Decelerate", stats.impulsePower);
@@ -73,6 +76,15 @@ public class OverworldMovement : MonoBehaviour
 					break;
 			}
 		}
+	}
+	
+	// If you don't stop them between states then it causes some very odd behavior. Where different coroutines are trying
+	// to achieve different things conflicting things. They stop eachother from completing and make stuff happen.
+	private void stopCoroutines()
+	{
+		StopCoroutine("Accelerate");
+		StopCoroutine("Decelerate");
+		StopCoroutine("Warp");
 	}
 	
 	private IEnumerator Warp()
