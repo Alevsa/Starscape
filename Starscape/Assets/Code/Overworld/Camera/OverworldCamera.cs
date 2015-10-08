@@ -1,39 +1,39 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class OverworldCamera : MonoBehaviour 
 {
-	private GameObject focus;
-	public float zoomFactor = 1f;
-	public float zoomTime = 5f;
-	private float zoomMinimum = 1f;
-	private OverworldStats stats = null;
+	private GameObject m_Focus;
+	public float ZoomFactor = 3f;
+	public float ZoomTime = 5f;
+	private float m_ZoomMinimum = 1f;
+	private OverworldStats m_Stats = null;
 	private float v = 0f;
 	
 	void Start () 
 	{
-		focus = GameObject.FindGameObjectWithTag("Player");
-		stats = focus.GetComponent<OverworldStats>();
-		zoomMinimum = stats.impulsePower * zoomFactor;
+		m_Focus = GameObject.FindGameObjectWithTag("Player");
+		m_Stats = m_Focus.GetComponent<OverworldStats>();
+		m_ZoomMinimum = m_Stats.ImpulsePower * ZoomFactor;
 	}
 	
 	void Update () 
 	{
-		float zoom = getZoom();
-		zoom = Mathf.SmoothDamp(transform.position.y, zoom, ref v, zoomTime);
-		transform.position = new Vector3(focus.transform.position.x, zoom, focus.transform.position.z);
+		float m_zoom = GetZoom();
+		m_zoom = Mathf.SmoothDamp(transform.position.y, m_zoom, ref v, ZoomTime);
+		transform.position = new Vector3(m_Focus.transform.position.x, m_zoom, m_Focus.transform.position.z);
 	}
 	
-	float getZoom()
-	{
-		float zoom = stats.speed * zoomFactor;
-		if (zoom > zoomMinimum)
+	float GetZoom()
+	{	
+		float m_Zoom = m_Stats.Speed * ZoomFactor;
+		if (m_Zoom > m_ZoomMinimum)
 		{
-			return zoom;
+			return m_Zoom;
 		}
 		else 
 		{
-			return zoomMinimum;
+			return m_ZoomMinimum;
 		}
 	}
 }

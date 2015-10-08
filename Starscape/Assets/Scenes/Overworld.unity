@@ -268,8 +268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focus: {fileID: 1170414629}
-  clockwise: 1
-  orbitalPeriod: 20
+  Clockwise: 0
+  OrbitalPeriod: 450
 --- !u!1 &482228160
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,9 +460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b465e34d092b8b443b3dec96e7ff4a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focus: {fileID: 134918670}
-  zoomFactor: 2.5
-  zoomTime: 1
+  ZoomFactor: 4
+  ZoomTime: 5
 --- !u!1001 &1075857696
 Prefab:
   m_ObjectHideFlags: 0
@@ -615,8 +614,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focus: {fileID: 482228160}
-  clockwise: 0
-  orbitalPeriod: 450
+  Clockwise: 0
+  OrbitalPeriod: 450
 --- !u!114 &1170414633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,7 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d433506a2662a564aa629c7ca28dba89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayLength: 360
+  DayLength: 60
 --- !u!1 &1271875232
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d433506a2662a564aa629c7ca28dba89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayLength: -2400
+  DayLength: 60
 --- !u!23 &1271875236
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -730,7 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be128fb4add4cf4b88e6f6ded072756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 134918670}
+  Player: {fileID: 0}
 --- !u!4 &1562266549
 Transform:
   m_ObjectHideFlags: 0
@@ -807,6 +806,22 @@ Prefab:
     - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
       propertyPath: warpSpeed
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
+      propertyPath: ImpulsePower
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
+      propertyPath: WarpSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
+      propertyPath: TurnRate
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
+      propertyPath: WarpTurnRate
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}

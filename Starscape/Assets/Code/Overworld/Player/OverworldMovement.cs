@@ -5,74 +5,74 @@ public class OverworldMovement : MonoBehaviour
 {
 //++ TO DO ++
 //
-// If you switch into speed state 1 then rapidly back to state 0 you will have the incorrect speed.
+// If you switch into m_Speed state 1 then rapidly back to state 0 you will have the incorrect m_Speed.
 //
-	private OverworldStats stats;
-	private float speed = 0f;
-	private int speedState = 0;
-	private float warpTurning = 1f;
+	private OverworldStats m_Stats;
+	private float m_Speed = 0f;
+	private int m_SpeedState = 0;
+	private float m_warpTurning = 1f;
 	
 	void Start () 
 	{
-		stats = GetComponent<OverworldStats> ();
-		stats.speed = speed;
+		m_Stats = GetComponent<OverworldStats> ();
+		m_Stats.Speed = m_Speed;
 	}
 	
 
 	void Update () 
 	{
-		movement();
-		stats.speed = speed;
-		//Debug.Log(speed);
+		Movement();
+		m_Stats.Speed = m_Speed;
+		//Debug.Log(m_Speed);
 	}
 	
-	public void turn(float axis)
+	public void Turn(float axis)
 	{
-		transform.Rotate(0f, axis * stats.turnRate * warpTurning * Time.deltaTime, 0f,  Space.World);
+		transform.Rotate(0f, axis * m_Stats.TurnRate * m_warpTurning * Time.deltaTime, 0f,  Space.World);
 	}
 	
-	// Currently there are two speed states, impulse and warp. warp is very fast has a delay when you start it and difficult to maneouver.
+	// Currently there are two m_Speed states, impulse and warp. warp is very fast has a delay when you start it and difficult to maneouver.
 	// impulse is slower but more precise. The idea is you warp between starts and navigate to planets on impulse.
-	public void accelerationHandler(float axis)
+	public void AccelerationHandler(float axis)
 	{
 		if (axis == 1f)
 		{
-			switch(speedState)
+			switch(m_SpeedState)
 			{
 				case 0 :
-					StartCoroutine("Accelerate", stats.impulsePower);
-					speedState++;	
+					StartCoroutine("Accelerate", m_Stats.ImpulsePower);
+					m_SpeedState++;	
 					break;
 				case 1 : 
-					stopCoroutines();
-					warpTurning = stats.warpTurnRate;
+					StopCoroutines();
+					m_warpTurning = m_Stats.WarpTurnRate;
 					StartCoroutine("Warp");
-					speedState++;
+					m_SpeedState++;
 					break;
 			}
 			
 		}
 		else if (axis == -1f)
 		{
-			switch(speedState)
+			switch(m_SpeedState)
 			{ 
 				case 1 : 
-					stopCoroutines();
+					StopCoroutines();
 					StartCoroutine("Decelerate", 0f);
-					speedState--;	
+					m_SpeedState--;	
 					break;
 				case 2 : 
-					warpTurning = 1f;
-					stopCoroutines();
-					if(speed > stats.impulsePower)
+					m_warpTurning = 1f;
+					StopCoroutines();
+					if(m_Speed > m_Stats.ImpulsePower)
 					{
-						StartCoroutine("Decelerate", stats.impulsePower);
+						StartCoroutine("Decelerate", m_Stats.ImpulsePower);
 					}
 					else
 					{
-						StartCoroutine("Accelerate", stats.impulsePower);
+						StartCoroutine("Accelerate", m_Stats.ImpulsePower);
 					}
-					speedState--;
+					m_SpeedState--;
 					break;
 			}
 		}
@@ -80,7 +80,7 @@ public class OverworldMovement : MonoBehaviour
 	
 	// If you don't stop them between states then it causes some very odd behavior. Where different coroutines are trying
 	// to achieve different things conflicting things. They stop eachother from completing and make stuff happen.
-	private void stopCoroutines()
+	private void StopCoroutines()
 	{
 		StopCoroutine("Accelerate");
 		StopCoroutine("Decelerate");
@@ -89,48 +89,48 @@ public class OverworldMovement : MonoBehaviour
 	
 	private IEnumerator Warp()
 	{
-		for (float i = 0f; i<stats.warpChargeTime; i+=Time.deltaTime)
+		for (float i = 0f; i<m_Stats.WarpChargeTime; i+=Time.deltaTime)
 		{
 			// Exponential function, starts out very low for a while then rapidly grows.
-			speed = stats.warpSpeed*Mathf.Exp(i-stats.warpChargeTime);
+			m_Speed = m_Stats.WarpSpeed*Mathf.Exp(i-m_Stats.WarpChargeTime);
 			yield return null;
 		}	
 	}
 	
 	private IEnumerator Accelerate(float amount) 
 	{	
-		while (speed < amount)
+		while (m_Speed < amount)
 		{
-			speed += stats.acceleration;
+			m_Speed += m_Stats.Acceleration;
 			yield return null;
 		}
 	}
 	
 	private IEnumerator Decelerate(float amount) 
 	{
-		while (speed > amount)
+		while (m_Speed > amount)
 		{
-			speed -= stats.acceleration;
+			m_Speed -= m_Stats.Acceleration;
 			yield return null;
 		}
 	}
 	
-	void movement () 
+	void Movement () 
 	{
-		gameObject.transform.Translate(Vector3.forward * speed * Time.deltaTime);
-		setToZero();
+		gameObject.transform.Translate(Vector3.forward * m_Speed * Time.deltaTime);
+		SetToZero();
 	}
 	
-	// Stops slight movement when at a speed ~0.
-	void setToZero()
+	// Stops slight movement when at a m_Speed ~0.
+	void SetToZero()
 	{
-		if(speed < 0f)
+		if(m_Speed < 0f)
 		{
-			speed = 0f;
+			m_Speed = 0f;
 		}
-		else if (speedState == 0f && speed < 0.3f && speed > 0f)
+		else if (m_SpeedState == 0f && m_Speed < 0.3f && m_Speed > 0f)
 		{
-			speed -= 0.08f;
+			m_Speed -= 0.08f;
 		}
 	}
 }

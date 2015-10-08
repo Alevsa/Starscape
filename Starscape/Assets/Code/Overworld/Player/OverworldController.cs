@@ -4,15 +4,15 @@ using System.Collections;
 public class OverworldController : MonoBehaviour 
 {
 	//Ship to be controlled
-	public GameObject player;
-	private OverworldMovement handlerMovement;
+	public GameObject Player;
+	private OverworldMovement m_HandlerMovement;
 	private bool moveInUse = false;
 	
 	// Use this for initialization
 	void Start () 
 	{
-		player = GameObject.FindGameObjectWithTag("Player");
-		handlerMovement = player.GetComponent<OverworldMovement>();
+		Player = GameObject.FindGameObjectWithTag("Player");
+		m_HandlerMovement = Player.GetComponent<OverworldMovement>();
 	}
 	
 	void Update () 
@@ -23,14 +23,14 @@ public class OverworldController : MonoBehaviour
 	//In-game handling
 	void InGameInput() 
 	{
-		handlerMovement.turn(Input.GetAxisRaw("Turn"));
+		m_HandlerMovement.Turn(Input.GetAxisRaw("Turn"));
 		
 		#region Acceleration that only triggers on button press
 		if (Input.GetAxisRaw("Accelerate") != 0)
 		{
 			if(moveInUse == false)
 			{
-				handlerMovement.accelerationHandler(Input.GetAxisRaw("Accelerate"));
+				m_HandlerMovement.AccelerationHandler(Input.GetAxisRaw("Accelerate"));
 				moveInUse = true;
 			}
 		}

@@ -3,16 +3,16 @@ using System.Collections;
 
 public class PlanetaryRotation : MonoBehaviour
 {
-	public float dayLength = 60f;
-	private float degreesPerSecond = 360f/60f;
+	public float DayLength = 60f;
+	private float m_DegreesPerSecond = 360f/60f;
 	
 	void Start()
 	{
-		degreesPerSecond = 360f / dayLength;
+		m_DegreesPerSecond = 360f / DayLength;
 	}
 	
 	void FixedUpdate () 
 	{
-		gameObject.transform.Rotate(new Vector3(0f,degreesPerSecond,0f));
+		gameObject.transform.Rotate(new Vector3(0f,m_DegreesPerSecond,0f));
 	}
 }

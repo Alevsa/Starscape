@@ -3,11 +3,11 @@ using System.Collections;
 
 public class OverworldStats : MonoBehaviour 
 {
-	public float turnRate = 50f;
-	public float acceleration = 0.25f;
-	public float warpSpeed = 40f;
-	public float impulsePower = 1f;
-	public float warpChargeTime = 5f;
-	public float warpTurnRate = 1f;
-	[HideInInspector] public float speed = 0f;
+	public float TurnRate = 50f;
+	public float Acceleration = 0.25f;
+	public float WarpSpeed = 40f;
+	public float ImpulsePower = 1f;
+	public float WarpChargeTime = 5f;
+	public float WarpTurnRate = 1f;
+	[HideInInspector] public float Speed = 0f;
 }

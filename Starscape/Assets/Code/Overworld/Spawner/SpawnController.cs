@@ -4,25 +4,25 @@ using System.Collections.Generic;
 
 public class SpawnController : MonoBehaviour 
 {
-	private List<GameObject> spawners;
-	private int activeSpawnerIndex;
-	public GameObject defaultSpawner;
-	public GameObject player;
-	public float checkInterval = 10f;
-	private float timer = 0f;
+	private List<GameObject> m_Spawners;
+	private int m_ActiveSpawnerIndex;
+	public GameObject DefaultSpawner;
+	public GameObject Player;
+	public float CheckInterval = 10f;
+	private float m_Timer = 0f;
 	
 	void Start()
 	{
-		spawners = new List<GameObject>();
-		player = GameObject.FindGameObjectWithTag("Player");
-		defaultSpawner = GameObject.FindGameObjectWithTag("DefaultSpawner");
+		m_Spawners = new List<GameObject>();
+		Player = GameObject.FindGameObjectWithTag("Player");
+		DefaultSpawner = GameObject.FindGameObjectWithTag("DefaultSpawner");
 		GameObject[] temp = GameObject.FindGameObjectsWithTag("Spawner"); 
 		foreach (GameObject tmp in temp)
 		{
-			spawners.Add(tmp);
+			m_Spawners.Add(tmp);
 		}
-		spawners.Add(defaultSpawner);
-		disableAllSpawners();
+		m_Spawners.Add(DefaultSpawner);
+		DisableAllSpawners();
 		StartCoroutine("CheckSpawners");
 	}
 	
@@ -31,36 +31,36 @@ public class SpawnController : MonoBehaviour
 	{
 		while (true)
 		{
-			timer += Time.deltaTime;
-			if (timer > checkInterval)
+			m_Timer += Time.deltaTime;
+			if (m_Timer > CheckInterval)
 			{
-				disableAllSpawners();
-				activateSpawner();
-				timer = 0f;
+				DisableAllSpawners();
+				ActivateSpawner();
+				m_Timer = 0f;
 			}
 			yield return null;
 		}
 	}
 
-	private void disableAllSpawners()
+	private void DisableAllSpawners()
 	{
-		foreach (GameObject spawner in spawners)
+		foreach (GameObject spawner in m_Spawners)
 		{
-			spawner.GetComponent<Spawner>().active = false;
+			spawner.GetComponent<Spawner>().Active = false;
 		}
 	}
 	
 	// Returns the index of the spawner that should be active.
-	private void activateSpawner()
+	private void ActivateSpawner()
 	{
-		for (int i = 0; i < spawners.Count - 1; i++)
+		for (int i = 0; i < m_Spawners.Count - 1; i++)
 		{
-			if (Vector3.Distance(player.transform.position, spawners[i].transform.position) < spawners[i].GetComponent<Spawner>().range)
+			if (Vector3.Distance(Player.transform.position, m_Spawners[i].transform.position) < m_Spawners[i].GetComponent<Spawner>().Range)
 			{
-				spawners[i].GetComponent<Spawner>().active = true;
+				m_Spawners[i].GetComponent<Spawner>().Active = true;
 				break;
 			}
 		}
-		spawners[spawners.Count-1].GetComponent<Spawner>().active = true;
+		m_Spawners[m_Spawners.Count-1].GetComponent<Spawner>().Active = true;
 	}
 }
