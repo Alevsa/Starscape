@@ -65,7 +65,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -85,6 +84,9 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!127 &5
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!1 &134918670 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 127066, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
@@ -128,13 +130,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 413774, guid: 326419df6dd3b014e8565282f260ba5c, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .400000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 413774, guid: 326419df6dd3b014e8565282f260ba5c, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .400000006
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 326419df6dd3b014e8565282f260ba5c, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &654120563 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 142968, guid: 30ca8e3bbe7db684691fcb0860c642e6, type: 2}
-  m_PrefabInternal: {fileID: 1142261862}
 --- !u!1 &909371934
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +210,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -388,10 +393,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 2009260, guid: c6614d616756b544997779174b97c7f1, type: 2}
-      propertyPath: orthographic size
-      value: 150
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6614d616756b544997779174b97c7f1, type: 2}
   m_IsPrefabParent: 0
@@ -469,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be128fb4add4cf4b88e6f6ded072756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 134918670}
+  Player: {fileID: 0}
 --- !u!4 &1562266549
 Transform:
   m_ObjectHideFlags: 0
@@ -493,9 +494,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7b84fd367896648b7424395e3b4fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSpawner: {fileID: 654120563}
-  player: {fileID: 134918670}
-  checkInterval: .100000001
+  DefaultSpawner: {fileID: 0}
+  Player: {fileID: 0}
+  CheckInterval: 10
 --- !u!1001 &1589488733
 Prefab:
   m_ObjectHideFlags: 0
