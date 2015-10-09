@@ -9,6 +9,7 @@ TagManager:
   - DefaultSpawner
   - Waypoint
   - Star
+  - PlayerBattle
   layers:
   - Default
   - TransparentFX

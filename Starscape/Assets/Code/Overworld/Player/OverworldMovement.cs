@@ -49,8 +49,7 @@ public class OverworldMovement : MonoBehaviour
 					StartCoroutine("Warp");
 					m_SpeedState++;
 					break;
-			}
-			
+			}	
 		}
 		else if (axis == -1f)
 		{
