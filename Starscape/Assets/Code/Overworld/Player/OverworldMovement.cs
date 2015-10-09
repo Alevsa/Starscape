@@ -11,6 +11,9 @@ public class OverworldMovement : MonoBehaviour
 	private float m_Speed = 0f;
 	private int m_SpeedState = 0;
 	private float m_warpTurning = 1f;
+	private Coroutine m_Accelerate;
+	private Coroutine m_Decelerate;
+	private Coroutine m_Warp;
 	
 	void Start () 
 	{
@@ -40,13 +43,14 @@ public class OverworldMovement : MonoBehaviour
 			switch(m_SpeedState)
 			{
 				case 0 :
-					StartCoroutine("Accelerate", m_Stats.ImpulsePower);
+					StopCoroutines();
+					m_Accelerate = StartCoroutine(Accelerate(m_Speed, m_Stats.ImpulsePower));
 					m_SpeedState++;	
 					break;
 				case 1 : 
 					StopCoroutines();
 					m_warpTurning = m_Stats.WarpTurnRate;
-					StartCoroutine("Warp");
+					m_Warp = StartCoroutine("Warp");
 					m_SpeedState++;
 					break;
 			}	
@@ -57,7 +61,7 @@ public class OverworldMovement : MonoBehaviour
 			{ 
 				case 1 : 
 					StopCoroutines();
-					StartCoroutine("Decelerate", 0f);
+					m_Decelerate = StartCoroutine(Decelerate(m_Speed, 0f));
 					m_SpeedState--;	
 					break;
 				case 2 : 
@@ -65,11 +69,11 @@ public class OverworldMovement : MonoBehaviour
 					StopCoroutines();
 					if(m_Speed > m_Stats.ImpulsePower)
 					{
-						StartCoroutine("Decelerate", m_Stats.ImpulsePower);
+						m_Decelerate = StartCoroutine(Decelerate(m_Speed, m_Stats.ImpulsePower));
 					}
 					else
 					{
-						StartCoroutine("Accelerate", m_Stats.ImpulsePower);
+						m_Accelerate = StartCoroutine(Accelerate(m_Speed , m_Stats.ImpulsePower));
 					}
 					m_SpeedState--;
 					break;
@@ -81,9 +85,12 @@ public class OverworldMovement : MonoBehaviour
 	// to achieve different things conflicting things. They stop eachother from completing and make stuff happen.
 	private void StopCoroutines()
 	{
-		StopCoroutine("Accelerate");
-		StopCoroutine("Decelerate");
-		StopCoroutine("Warp");
+		if (m_Accelerate != null)
+			StopCoroutine(m_Accelerate);
+		if (m_Decelerate != null)
+			StopCoroutine(m_Decelerate);
+		if (m_Warp != null)
+			StopCoroutine(m_Warp);
 	}
 	
 	private IEnumerator Warp()
@@ -96,20 +103,20 @@ public class OverworldMovement : MonoBehaviour
 		}	
 	}
 	
-	private IEnumerator Accelerate(float amount) 
+	private IEnumerator Accelerate(float initial, float target) 
 	{	
-		while (m_Speed < amount)
+		for (float i = initial; i<target; i+= m_Stats.Acceleration * Time.deltaTime)
 		{
-			m_Speed += m_Stats.Acceleration;
+			m_Speed = i;
 			yield return null;
 		}
 	}
 	
-	private IEnumerator Decelerate(float amount) 
+	private IEnumerator Decelerate(float initial, float target) 
 	{
-		while (m_Speed > amount)
+		for (float i = initial; i>target; i-= m_Stats.Acceleration * Time.deltaTime)
 		{
-			m_Speed -= m_Stats.Acceleration;
+			m_Speed = i;
 			yield return null;
 		}
 	}
