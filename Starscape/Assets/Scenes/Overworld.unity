@@ -827,6 +827,10 @@ Prefab:
       propertyPath: WarpTurnRate
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
+      propertyPath: Acceleration
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
   m_IsPrefabParent: 0

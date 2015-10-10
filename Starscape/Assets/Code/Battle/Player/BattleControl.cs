@@ -36,11 +36,49 @@ public class BattleControl : MonoBehaviour
 		else if (Input.GetAxisRaw("Accelerate") == 1)
 		{
 			m_HandlerMovement.Accelerate();
+		}	
+		m_HandlerMovement.HandleMouse(GetXAxis(), GetYAxis());		
+	}
+
+	
+	float GetYAxis()
+	{
+		if (Input.mousePosition.y < (((100-m_HandlerMovement.Deadzone) / 200f) * Screen.height))
+		{
+			Debug.Log("up");
+			return -1f;
 		}
-		rotateShip();		
+		else if (Input.mousePosition.y > (((100-m_HandlerMovement.Deadzone) / 200f) * Screen.height) + m_HandlerMovement.Deadzone)
+		{
+			Debug.Log("down");
+			return 1f;		
+		}	
+		else 
+		{
+			Debug.Log("neutral");
+			return 0f;	
+		}
 	}
 	
-	void rotateShip()
+	float GetXAxis()
+	{
+		if (Input.mousePosition.x < (((100-m_HandlerMovement.Deadzone) / 200f) * Screen.width))
+		{
+			Debug.Log("left");
+			return -1f;
+		}
+		else if (Input.mousePosition.x > (((100-m_HandlerMovement.Deadzone) / 200f) * Screen.width) + m_HandlerMovement.Deadzone)
+		{
+			Debug.Log("right");
+			return 1f;	
+		}
+		else 
+		{
+			Debug.Log("neutral");
+			return 0f;	
+		}
+	}
+	void RotateShip()
 	{
 		m_HandlerMovement.HandleMouse(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 	}
