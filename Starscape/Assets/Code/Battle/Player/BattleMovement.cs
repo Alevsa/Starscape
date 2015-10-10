@@ -52,7 +52,7 @@ public class BattleMovement : MonoBehaviour
 	{
 		if (m_Speed > 0f)
 		{
-			m_Speed -= m_Stats.Deceleration;
+			m_Speed -= m_Stats.Deceleration*Time.deltaTime;
 		}
 	} 
 
