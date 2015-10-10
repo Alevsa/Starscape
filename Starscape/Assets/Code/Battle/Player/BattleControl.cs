@@ -37,44 +37,44 @@ public class BattleControl : MonoBehaviour
 		{
 			m_HandlerMovement.Accelerate();
 		}	
+		Debug.Log(Input.mousePosition);
 		m_HandlerMovement.HandleMouse(GetXAxis(), GetYAxis());		
 	}
-
 	
 	float GetYAxis()
 	{
-		if (Input.mousePosition.y < (((100-m_HandlerMovement.Deadzone) / 200f) * Screen.height))
+		if (Input.mousePosition.y < (((100f-m_HandlerMovement.Deadzone) / 200f) * Screen.height))
 		{
-			Debug.Log("up");
+			//Debug.Log("up");
 			return -1f;
 		}
-		else if (Input.mousePosition.y > (((100-m_HandlerMovement.Deadzone) / 200f) * Screen.height) + m_HandlerMovement.Deadzone)
+		else if (Input.mousePosition.y > ((((100f-m_HandlerMovement.Deadzone) / 200f)) + (m_HandlerMovement.Deadzone/100f)) * Screen.height)
 		{
-			Debug.Log("down");
+			//Debug.Log("down");
 			return 1f;		
 		}	
 		else 
 		{
-			Debug.Log("neutral");
+			//Debug.Log("neutral");
 			return 0f;	
 		}
 	}
 	
 	float GetXAxis()
 	{
-		if (Input.mousePosition.x < (((100-m_HandlerMovement.Deadzone) / 200f) * Screen.width))
+		if (Input.mousePosition.x < (((100f-m_HandlerMovement.Deadzone) / 200f) * Screen.width))
 		{
-			Debug.Log("left");
+			//Debug.Log("left");
 			return -1f;
 		}
-		else if (Input.mousePosition.x > (((100-m_HandlerMovement.Deadzone) / 200f) * Screen.width) + m_HandlerMovement.Deadzone)
+		else if (Input.mousePosition.x > ((((100f-m_HandlerMovement.Deadzone) / 200f)) + (m_HandlerMovement.Deadzone/100f)) * Screen.width)
 		{
-			Debug.Log("right");
+			//Debug.Log("right");
 			return 1f;	
 		}
 		else 
 		{
-			Debug.Log("neutral");
+			//Debug.Log("neutral");
 			return 0f;	
 		}
 	}

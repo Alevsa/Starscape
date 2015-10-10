@@ -26,7 +26,7 @@ public class BattleMovement : MonoBehaviour
 	
 	void FixedUpdate()
 	{	
-		//MaintainLevel();
+		MaintainLevel();
 		Movement();
 	}
 
@@ -58,12 +58,10 @@ public class BattleMovement : MonoBehaviour
 
 	public void HandleMouse(float x, float y)
 	{	 
-	/*
 		if (x == 0f && y == 0f)
 		{
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, Gyroscope.transform.rotation, RightingRate);
 		}
-	*/
 		transform.Rotate( m_Stats.TurnRate * y * Time.deltaTime,  m_Stats.TurnRate * x *Time.deltaTime, 0f );
 	}
 }
