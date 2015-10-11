@@ -715,7 +715,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gyroscope: {fileID: 1024184700}
   RightingRate: 1
-  Deadzone: 20
+  Deadzone: 100
+  ContstrainedZone: 20
 --- !u!54 &1390004890
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -817,6 +818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ship: {fileID: 1390004883}
+  debugging: {fileID: 195064, guid: 3474bdb09e43da94fadbd3727e6cec2a, type: 2}
 --- !u!1 &1977934281
 GameObject:
   m_ObjectHideFlags: 0
