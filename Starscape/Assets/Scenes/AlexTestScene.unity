@@ -653,10 +653,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3134ac6274767bf4db09cc749c390af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurnRate: 100
-  Acceleration: 500
-  Deceleration: 60
-  MaxSpeed: 500
+  TurnRate: 150
+  Acceleration: 10000
+  Deceleration: 10000
+  MaxSpeed: 10000
   Health: 50
   Armour: 5
 --- !u!23 &1390004886
@@ -714,9 +714,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gyroscope: {fileID: 1024184700}
-  RightingRate: 1
-  Deadzone: 100
-  ContstrainedZone: 20
+  RightingRate: 2
+  ConstrainedAngle: 45
+  ConstrainingThreshold: .699999988
 --- !u!54 &1390004890
 Rigidbody:
   m_ObjectHideFlags: 0

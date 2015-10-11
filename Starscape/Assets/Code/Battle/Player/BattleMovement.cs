@@ -8,10 +8,8 @@ public class BattleMovement : MonoBehaviour
 	private float m_Speed;
 	public GameObject Gyroscope;
 	public float RightingRate = 1f;
-	// Deadzone is a percentage
-	public float Deadzone = 10f;
-	// Constrained zone should never be less than the deadzone.
-	public float ContstrainedZone = 20f;
+	public float ConstrainedAngle = 30f;
+	public float ConstrainingThreshold = 0.7f;
 	
 	void Start()
 	{	
@@ -58,7 +56,15 @@ public class BattleMovement : MonoBehaviour
 			m_Speed -= m_Stats.Deceleration*Time.deltaTime;
 		}
 	} 
-
+	
+	public void ConstrainedRotation(float magnitude)
+	{
+		if (Mathf.Abs(transform.rotation.eulerAngles.x) < ConstrainedAngle)
+		{
+			transform.Rotate( m_Stats.TurnRate * magnitude * Time.deltaTime, 0f, 0f );
+		}
+	}
+	
 	public void HandleMouse(float x, float y)
 	{	 
 		if (x == 0f && y == 0f)
@@ -66,6 +72,14 @@ public class BattleMovement : MonoBehaviour
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, Gyroscope.transform.rotation, RightingRate);
 		}
 		
-		transform.Rotate( m_Stats.TurnRate * y * Time.deltaTime,  m_Stats.TurnRate * x *Time.deltaTime, 0f );
+		if (Mathf.Abs(y) < ConstrainingThreshold )
+		{
+			ConstrainedRotation(y);
+		}
+		else 
+		{
+			transform.Rotate( m_Stats.TurnRate * y * Time.deltaTime, 0f, 0f );
+		}
+		transform.Rotate( 0f,  m_Stats.TurnRate * x *Time.deltaTime, 0f );
 	}
 }
