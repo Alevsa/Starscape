@@ -121,8 +121,11 @@ MonoBehaviour:
   Acceleration: 1
   Deceleration: 1
   MaxSpeed: 10
+  MaxReverseSpeed: 0
   Health: 10
   Armour: 1
+  AltitudeChangeRate: 0
+  RollRate: 0
 --- !u!23 &298804973
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -173,7 +176,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 298804971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .699999988, y: 0, z: .079917118}
+  m_LocalPosition: {x: .699998677, y: 1.60932541e-06, z: .0799253285}
   m_LocalScale: {x: .5, y: 2, z: 2.5}
   m_Children: []
   m_Father: {fileID: 1390004884}
@@ -503,8 +506,11 @@ MonoBehaviour:
   Acceleration: 1
   Deceleration: 1
   MaxSpeed: 10
+  MaxReverseSpeed: 0
   Health: 10
   Armour: 1
+  AltitudeChangeRate: 0
+  RollRate: 0
 --- !u!23 &1106400063
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -634,7 +640,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1390004883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: .0223015081, y: -.0351613835, z: .0620680377}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1977934286}
@@ -657,8 +663,11 @@ MonoBehaviour:
   Acceleration: 10000
   Deceleration: 10000
   MaxSpeed: 10000
+  MaxReverseSpeed: 5000
   Health: 50
   Armour: 5
+  AltitudeChangeRate: 1000
+  RollRate: 100
 --- !u!23 &1390004886
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -714,9 +723,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gyroscope: {fileID: 1024184700}
-  RightingRate: 2
-  ConstrainedAngle: 45
-  ConstrainingThreshold: .699999988
+  RightingRate: 1
+  AltitudeChange: 0
 --- !u!54 &1390004890
 Rigidbody:
   m_ObjectHideFlags: 0

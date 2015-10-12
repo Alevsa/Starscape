@@ -30,34 +30,29 @@ public class BattleControl : MonoBehaviour
 	//In-game handling
 	void InGameInput() 
 	{
-		
-		if (Input.GetAxisRaw("Accelerate") == -1)
-		{
+	
+		if (Input.GetAxisRaw("Accelerate") == -1f)
 			m_HandlerMovement.Decelerate();
-		}
-		else if (Input.GetAxisRaw("Accelerate") == 1)
-		{
+		else if (Input.GetAxisRaw("Accelerate") == 1f)
 			m_HandlerMovement.Accelerate();
-		}	
-		Debug.Log(Input.GetAxis("Joystick Y"));
-		m_HandlerMovement.HandleMouse(Input.GetAxis("Joystick X"), Input.GetAxis("Joystick Y"));	
+		
+		if (Input.GetAxisRaw("Stabilise") == 1f)
+			m_HandlerMovement.SnapRotation();
+		
+		
+		m_HandlerMovement.Roll(Input.GetAxisRaw("Roll"));		
+		Debug.Log (Input.GetAxisRaw("Change Altitude"));
+		m_HandlerMovement.AltitudeChange = (Input.GetAxisRaw("Change Altitude"));
+		m_HandlerMovement.PitchYaw(Input.GetAxis("Joystick X"), Input.GetAxis("Joystick Y"));
 	}
 	
-	
-	// TO DO: Make these methods convert mouse position to values like the joystick movement
-	float GetYAxis()
+	float MouseYToJoyStickAxis()
 	{
 		return 0f;
 	}
 	
-	float GetXAxis()
+	float MouseXToJoyStickAxis()
 	{
 		return 0f;
-	}
-	
-	// Delete this
-	void RotateShip()
-	{
-		m_HandlerMovement.HandleMouse(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 	}
 }

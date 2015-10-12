@@ -8,8 +8,7 @@ public class BattleMovement : MonoBehaviour
 	private float m_Speed;
 	public GameObject Gyroscope;
 	public float RightingRate = 1f;
-	public float ConstrainedAngle = 30f;
-	public float ConstrainingThreshold = 0.7f;
+	[HideInInspector] public float AltitudeChange = 0f;
 	
 	void Start()
 	{	
@@ -27,11 +26,13 @@ public class BattleMovement : MonoBehaviour
 	
 	void FixedUpdate()
 	{	
-		MaintainLevel();
+		MaintainGyroscopeLevel();
+		ChangeAltitude(AltitudeChange);
 		Movement();
+		SnapToZero();
 	}
 
-	void MaintainLevel()
+	void MaintainGyroscopeLevel()
 	{
 		Gyroscope.transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, 0f);
 	}
@@ -49,37 +50,43 @@ public class BattleMovement : MonoBehaviour
 		}
 	}
 	
+	public void ChangeAltitude(float direction)
+	{
+		m_Body.AddRelativeForce(Vector3.up * direction * m_Stats.AltitudeChangeRate * Time.fixedDeltaTime);
+	}
+
 	public void Decelerate()
 	{
-		if (m_Speed > 0f)
+		if (m_Speed > -1f * m_Stats.MaxReverseSpeed)
 		{
 			m_Speed -= m_Stats.Deceleration*Time.deltaTime;
 		}
 	} 
 	
-	public void ConstrainedRotation(float magnitude)
+	public void PitchYaw(float x, float y)
 	{
-		if (Mathf.Abs(transform.rotation.eulerAngles.x) < ConstrainedAngle)
-		{
-			transform.Rotate( m_Stats.TurnRate * magnitude * Time.deltaTime, 0f, 0f );
-		}
+		transform.Rotate( m_Stats.TurnRate * y * Time.deltaTime,m_Stats.TurnRate * x *Time.deltaTime, 0f );
 	}
 	
-	public void HandleMouse(float x, float y)
+	public void SnapRotation()
 	{	 
-		if (x == 0f && y == 0f)
+		transform.rotation = Quaternion.RotateTowards(transform.rotation, Gyroscope.transform.rotation, RightingRate);
+	}
+	
+	public void Roll(float direction)
+	{
+		transform.Rotate( 0f, 0f, Time.deltaTime * direction * m_Stats.RollRate );
+	}
+	
+	void SnapToZero()
+	{
+		if(m_Speed < 0.03f * m_Stats.MaxSpeed & m_Speed > 0f)
 		{
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, Gyroscope.transform.rotation, RightingRate);
+			m_Speed = Mathf.Lerp(m_Speed, 0f, Time.time);
 		}
-		
-		if (Mathf.Abs(y) < ConstrainingThreshold )
+		else if (m_Speed > 0.03f * m_Stats.MaxReverseSpeed && m_Speed < 0f)
 		{
-			ConstrainedRotation(y);
+			m_Speed = Mathf.Lerp(m_Speed, 0f, Time.time);
 		}
-		else 
-		{
-			transform.Rotate( m_Stats.TurnRate * y * Time.deltaTime, 0f, 0f );
-		}
-		transform.Rotate( 0f,  m_Stats.TurnRate * x *Time.deltaTime, 0f );
 	}
 }

@@ -7,8 +7,11 @@ abstract public class ShipComponent : MonoBehaviour
 	public float Acceleration;
 	public float Deceleration;
 	public float MaxSpeed;
+	public float MaxReverseSpeed;
 	public float Health;
 	public float Armour;
+	public float AltitudeChangeRate;
+	public float RollRate;
 	
 	
 	
