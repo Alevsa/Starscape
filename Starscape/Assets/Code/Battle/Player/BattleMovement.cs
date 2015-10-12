@@ -27,7 +27,6 @@ public class BattleMovement : MonoBehaviour
 	void FixedUpdate()
 	{	
 		MaintainGyroscopeLevel();
-		ChangeAltitude(AltitudeChange);
 		Movement();
 		SnapToZero();
 	}
@@ -50,9 +49,12 @@ public class BattleMovement : MonoBehaviour
 		}
 	}
 	
-	public void ChangeAltitude(float direction)
+	public void HandBrake()
 	{
-		m_Body.AddRelativeForce(Vector3.up * direction * m_Stats.AltitudeChangeRate * Time.fixedDeltaTime);
+		if (m_Speed > 0f)
+		{
+			m_Speed -= m_Stats.Deceleration*Time.deltaTime;
+		}
 	}
 
 	public void Decelerate()

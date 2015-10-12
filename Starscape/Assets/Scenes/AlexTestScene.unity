@@ -723,7 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gyroscope: {fileID: 1024184700}
-  RightingRate: 1
+  RightingRate: 2
   AltitudeChange: 0
 --- !u!54 &1390004890
 Rigidbody:

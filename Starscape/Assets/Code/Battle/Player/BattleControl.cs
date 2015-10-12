@@ -35,14 +35,13 @@ public class BattleControl : MonoBehaviour
 			m_HandlerMovement.Decelerate();
 		else if (Input.GetAxisRaw("Accelerate") == 1f)
 			m_HandlerMovement.Accelerate();
-		
+		else if (Input.GetAxisRaw("Hand Brake") == 1f)
+			m_HandlerMovement.HandBrake();		
 		if (Input.GetAxisRaw("Stabilise") == 1f)
 			m_HandlerMovement.SnapRotation();
 		
 		
-		m_HandlerMovement.Roll(Input.GetAxisRaw("Roll"));		
-		Debug.Log (Input.GetAxisRaw("Change Altitude"));
-		m_HandlerMovement.AltitudeChange = (Input.GetAxisRaw("Change Altitude"));
+		m_HandlerMovement.Roll(Input.GetAxisRaw("Roll"));
 		m_HandlerMovement.PitchYaw(Input.GetAxis("Joystick X"), Input.GetAxis("Joystick Y"));
 	}
 	
