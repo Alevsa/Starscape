@@ -5,7 +5,7 @@ public class OverworldAggressive : MonoBehaviour
 {
 	// THINGS TO DO:
 	//
-	// Fade in
+	// Fade in // Might be pointless cause they spawn out of range anyway.
 	
 	#region Variables
 	private GameObject m_Focus;
@@ -81,7 +81,7 @@ public class OverworldAggressive : MonoBehaviour
 	}
 	#endregion
 	
-	#region Move toward m_Focus/waypoint
+	#region Move toward focus/waypoint
 	void moveToFocus()
 	{
 		#region Accelerates
