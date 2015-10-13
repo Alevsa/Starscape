@@ -181,8 +181,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144148}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: 1.5, z: 1.10000002}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: 0, y: 11.6300001, z: 1.10000002}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 426588}
   m_RootOrder: 6
@@ -477,13 +477,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb320d76d34ecd24db1672670a5efa0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnRate: 80
-  acceleration: .25
-  warpSpeed: 60
-  impulsePower: 5
-  warpChargeTime: 5
-  warpTurnRate: .300000012
-  speed: 0
+  TurnRate: 50
+  Acceleration: .25
+  WarpSpeed: 40
+  ImpulsePower: 1
+  WarpChargeTime: 5
+  WarpTurnRate: 1
+  Speed: 0
 --- !u!114 &11482924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -518,7 +518,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7067b028d307f42dda44fb212680da64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000

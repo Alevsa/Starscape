@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,31 +7,52 @@ public class MinimapIcons : MonoBehaviour
 {
 	public string ImageName;
 	public string[] TagsToFind;
-	public float IconDimensions;
-	public float MaximumDistance;
+    public float[] MaximumDistances;
+    public Color[] ColorsOfPointers;
+
+    public Image Pointer;
+    public float Speed;
 
 	private List<GameObject> m_Objects;
-	private List<GameObject> m_Icons;
-
+    private Dictionary<GameObject, Image> m_Pointers;
 	private GameObject m_Player;
+
+    private Camera m_Camera;
+    private Transform m_Canvas;
+    private Plane[] m_Planes;
+
+    private const float m_MinDim = 0.05f;
+    private const float m_MaxDim = 0.95f;
+    private const float m_ZDim = 5f;
 	
 	void Start () 
 	{
-		m_Player = GameObject.FindGameObjectWithTag("Player");
+        m_Pointers = new Dictionary<GameObject, Image>();
+
+        m_Player = GameObject.FindGameObjectWithTag("Player");
+        m_Canvas = transform.FindChild("MinimapCanvas");
+        m_Camera = GetComponent<Camera>();
+
 		FindObjects();
-		DetermineIcons ();
-	}
+    }
 
 	void Update () 
 	{
 		foreach (GameObject obj in m_Objects) 
 		{
-			if(CheckDistance(obj.transform.position))
-				DisplayIcon(obj);
+			if(CheckPointer(obj))
+				CreatePointer(obj);
 			else
-				DestroyIcon(obj);
+				DestroyPointer(obj);
 		}
-	}
+
+
+        foreach (KeyValuePair<GameObject, Image> con in m_Pointers)
+        {
+            con.Value.transform.position = Vector3.MoveTowards(con.Value.transform.position, GetLocation(con.Key.transform.position), Speed * Time.deltaTime);
+            con.Value.transform.LookAt(con.Key.transform.position);
+        }
+    }
 
 	private void FindObjects()
 	{
@@ -46,38 +68,87 @@ public class MinimapIcons : MonoBehaviour
 		}
 	}
 
-	private void DetermineIcons()
+	private bool CheckPointer(GameObject obj)
 	{
-		m_Icons = new List<GameObject>();
+        Vector3 playerLocation = m_Player.transform.position;
+		float distance = Vector3.Distance(obj.transform.position, playerLocation);
 
-		foreach (GameObject obj in m_Objects) 
-		{
-			GameObject icon = obj.transform.Find(ImageName).gameObject;
-			icon.transform.localScale = new Vector3(IconDimensions, IconDimensions);
-			m_Icons.Add (icon);
-		}
+        m_Planes = GeometryUtility.CalculateFrustumPlanes(m_Camera);
+        if (GeometryUtility.TestPlanesAABB(m_Planes, obj.GetComponent<MeshRenderer>().bounds))
+            return false;
+        else if (distance > MaximumDistances[0])
+            return false;
+        else
+            return true;
 	}
 
-	private bool CheckDistance(Vector3 objLocation)
+	private void CreatePointer(GameObject obj)
 	{
-		Vector3 playerLocation = m_Player.transform.position;
-		float distance = Vector3.Distance(objLocation, playerLocation);
-		if(distance < MaximumDistance)
-			return true;
-		else
-			return false;
+        if (!m_Pointers.ContainsKey(obj))
+        {
+            Image pointer = Instantiate(Pointer, GetLocation(obj.transform.position), transform.rotation) as Image;
+            pointer.transform.SetParent(m_Canvas);
+            pointer.GetComponent<Image>().color = ColorsOfPointers[0];
+            m_Pointers.Add(obj, pointer);
+        }   
 	}
 
-	private void DisplayIcon(GameObject obj)
-	{
-	}
+    private Vector3 GetLocation(Vector3 objLoc)
+    {
+        Vector3 botLeftCam = m_Camera.ViewportToWorldPoint(new Vector3(0, 0, m_Camera.nearClipPlane));
+        Vector3 topRightCam = m_Camera.ViewportToWorldPoint(new Vector3(1, 1, m_Camera.nearClipPlane));
+        Vector3 location = new Vector3();
 
-	private void DetermineIconPosition()
-	{
-	}
+        if (CheckBetween(objLoc.x, botLeftCam.x, topRightCam.x))
+        {
+            if (objLoc.z < botLeftCam.z)
+                location = new Vector3(m_Camera.WorldToViewportPoint(objLoc).x, m_MinDim, m_ZDim);
+            if (objLoc.z > topRightCam.z)
+                location = new Vector3(m_Camera.WorldToViewportPoint(objLoc).x, m_MaxDim, m_ZDim);
+        }
 
-	private void DestroyIcon(GameObject obj)
-	{
-	}
+        else if (CheckBetween(objLoc.z, botLeftCam.z, topRightCam.z))
+        {
+            if (objLoc.x < botLeftCam.x)
+                location = new Vector3(m_MinDim, m_Camera.WorldToViewportPoint(objLoc).y, m_ZDim);
+            if (objLoc.x > botLeftCam.x)
+                location = new Vector3(m_MaxDim, m_Camera.WorldToViewportPoint(objLoc).y, m_ZDim);
+        }
 
+        else
+            location = GetDiagonalLocation(objLoc, botLeftCam, topRightCam);
+
+        return m_Camera.ViewportToWorldPoint(location);
+    }
+
+    private Vector3 GetDiagonalLocation(Vector3 objLoc, Vector3 botCam, Vector3 topCam)
+    {
+        Vector3 location = new Vector3(m_MaxDim, m_MaxDim, m_ZDim);
+
+        if(objLoc.z < botCam.z && objLoc.x < botCam.x)
+           location = new Vector3(m_MinDim, m_MinDim, m_ZDim);
+        if (objLoc.z > botCam.z && objLoc.x < botCam.x)
+           location = new Vector3(m_MinDim, m_MaxDim, m_ZDim);
+        if (objLoc.z < topCam.z && objLoc.x > topCam.x)
+           location = new Vector3(m_MaxDim, m_MinDim, m_ZDim);
+       
+        return location;
+    }
+
+    private bool CheckBetween(float one, float two, float three)
+    {
+        if (one > two && one < three)
+            return true;
+        else
+            return false;
+    }
+
+    private void DestroyPointer(GameObject obj)
+	{
+        if (m_Pointers.ContainsKey(obj))
+        { 
+            Destroy(m_Pointers[obj].gameObject);
+            m_Pointers.Remove(obj);
+        }
+    }
 }
