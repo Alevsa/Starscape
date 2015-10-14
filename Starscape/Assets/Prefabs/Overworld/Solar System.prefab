@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ce26d4f5585534bb3e3a0b92a6815e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focus: {fileID: 112128}
+  Focus: {fileID: 112128}
   Clockwise: 0
   OrbitalPeriod: 450
 --- !u!114 &11456082
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ce26d4f5585534bb3e3a0b92a6815e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focus: {fileID: 155558}
+  Focus: {fileID: 155558}
   Clockwise: 0
   OrbitalPeriod: 450
 --- !u!114 &11494654

@@ -170,7 +170,8 @@ MonoBehaviour:
   - 300
   ColorsOfPointers:
   - {r: 1, g: .641379356, b: 0, a: 1}
-  Pointer: {fileID: 0}
+  Pointer: {fileID: 11413030, guid: db72e38f7f6582e44afe2e21f34fdc28, type: 2}
+  Speed: 50
 --- !u!114 &11481414
 MonoBehaviour:
   m_ObjectHideFlags: 1

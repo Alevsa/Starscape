@@ -4,7 +4,7 @@ using System.Collections;
 public class PlanetaryRotation : MonoBehaviour
 {
 	public float DayLength = 60f;
-	private float m_DegreesPerSecond = 360f/60f;
+    private float m_DegreesPerSecond;
 	
 	void Start()
 	{

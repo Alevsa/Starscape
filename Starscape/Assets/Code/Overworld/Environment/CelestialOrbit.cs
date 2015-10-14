@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CelestialOrbit : MonoBehaviour 
 {
-	public GameObject focus;
+	public GameObject Focus;
 	public bool Clockwise;
 	public float OrbitalPeriod = 450f;
 	private float m_OrbitalSpeed = 360f/60f;
@@ -24,7 +24,7 @@ public class CelestialOrbit : MonoBehaviour
 	
 	void Update()
 	{
-		transform.RotateAround(focus.transform.position, m_Axis, m_OrbitalSpeed*Time.deltaTime);
+		transform.RotateAround(Focus.transform.position, m_Axis, m_OrbitalSpeed*Time.deltaTime);
 	}
 
 
