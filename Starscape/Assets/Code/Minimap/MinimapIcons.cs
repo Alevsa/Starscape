@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -50,7 +51,7 @@ public class MinimapIcons : MonoBehaviour
         foreach (KeyValuePair<GameObject, Image> con in m_Pointers)
         {
             con.Value.transform.position = Vector3.MoveTowards(con.Value.transform.position, GetLocation(con.Key.transform.position), Speed * Time.deltaTime);
-            Vector3 dir = new Vector3(con.Key.transform.position.x, -200, con.Key.transform.position.z);
+            Vector3 dir = new Vector3(con.Key.transform.position.x, -400, con.Key.transform.position.z);
             con.Value.transform.LookAt(dir);
         }
     }
@@ -73,11 +74,11 @@ public class MinimapIcons : MonoBehaviour
 	{
         Vector3 playerLocation = m_Player.transform.position;
 		float distance = Vector3.Distance(obj.transform.position, playerLocation);
-
+        int index = Array.IndexOf(TagsToFind, obj.tag);
         m_Planes = GeometryUtility.CalculateFrustumPlanes(m_Camera);
         if (GeometryUtility.TestPlanesAABB(m_Planes, obj.GetComponent<MeshRenderer>().bounds))
             return false;
-        else if (distance > MaximumDistances[0])
+        else if (distance > MaximumDistances[index])
             return false;
         else
             return true;
@@ -89,15 +90,16 @@ public class MinimapIcons : MonoBehaviour
         {
             Image pointer = Instantiate(Pointer, GetLocation(obj.transform.position), transform.rotation) as Image;
             pointer.transform.SetParent(m_Canvas);
-            pointer.GetComponent<Image>().color = ColorsOfPointers[0];
+            int index = Array.IndexOf(TagsToFind, obj.tag);
+            pointer.GetComponent<Image>().color = ColorsOfPointers[index];
             m_Pointers.Add(obj, pointer);
         }   
 	}
 
     private Vector3 GetLocation(Vector3 objLoc)
     {
-        Vector3 botLeftCam = m_Camera.ViewportToWorldPoint(new Vector3(0, 0, m_Camera.nearClipPlane));
-        Vector3 topRightCam = m_Camera.ViewportToWorldPoint(new Vector3(1, 1, m_Camera.nearClipPlane));
+        Vector3 botLeftCam = m_Camera.ViewportToWorldPoint(new Vector3(m_MinDim, m_MinDim, m_Camera.nearClipPlane));
+        Vector3 topRightCam = m_Camera.ViewportToWorldPoint(new Vector3(m_MaxDim, m_MaxDim, m_Camera.nearClipPlane));
         Vector3 location = new Vector3();
 
         if (CheckBetween(objLoc.x, botLeftCam.x, topRightCam.x))
