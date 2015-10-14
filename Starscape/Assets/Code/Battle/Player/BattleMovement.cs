@@ -5,7 +5,6 @@ public class BattleMovement : MonoBehaviour
 {
 	private ShipCore m_Stats;
 	private Rigidbody m_Body;
-	public float Speed {get; private set;}
 	public GameObject Gyroscope;
 	public float RightingRate = 1f;
 	[HideInInspector] public float AltitudeChange = 0f;
@@ -38,34 +37,34 @@ public class BattleMovement : MonoBehaviour
 	
 	void Movement()
 	{
-		m_Body.AddRelativeForce(Vector3.forward * Speed * Time.fixedDeltaTime);
+		m_Body.AddRelativeForce(Vector3.forward * m_Stats.Speed * Time.fixedDeltaTime);
 	}
 	
 	public void Accelerate()
 	{
-		if (Speed < m_Stats.MaxSpeed)
+		if (m_Stats.Speed < m_Stats.MaxSpeed)
 		{
-			Speed += m_Stats.Acceleration*Time.deltaTime;
+			m_Stats.Speed += m_Stats.Acceleration*Time.deltaTime;
 		}
 	}
 	
 	public void HandBrake()
 	{
-		if (Speed > 0f)
+		if (m_Stats.Speed > 0f)
 		{
-			Speed -= m_Stats.Deceleration*Time.deltaTime;
+			m_Stats.Speed -= m_Stats.Deceleration*Time.deltaTime;
 		}
-		else if (Speed < 0f)
+		else if (m_Stats.Speed < 0f)
 		{
-			Speed += m_Stats.Deceleration*Time.deltaTime;
+			m_Stats.Speed += m_Stats.Deceleration*Time.deltaTime;
 		}
 	}
 
 	public void Decelerate()
 	{
-		if (Speed > -1f * m_Stats.MaxReverseSpeed)
+		if (m_Stats.Speed > -1f * m_Stats.MaxReverseSpeed)
 		{
-			Speed -= m_Stats.Deceleration*Time.deltaTime;
+			m_Stats.Speed -= m_Stats.Deceleration*Time.deltaTime;
 		}
 	} 
 	
@@ -86,13 +85,13 @@ public class BattleMovement : MonoBehaviour
 	
 	void SnapToZero()
 	{
-		if(Speed < 0.03f * m_Stats.MaxSpeed & Speed > 0f)
+		if(m_Stats.Speed < 0.03f * m_Stats.MaxSpeed & m_Stats.Speed > 0f)
 		{
-			Speed = Mathf.Lerp(Speed, 0f, Time.time);
+			m_Stats.Speed = Mathf.Lerp(m_Stats.Speed, 0f, Time.time);
 		}
-		else if (Speed > 0.03f * m_Stats.MaxReverseSpeed && Speed < 0f)
+		else if (m_Stats.Speed > 0.03f * m_Stats.MaxReverseSpeed && m_Stats.Speed < 0f)
 		{
-			Speed = Mathf.Lerp(Speed, 0f, Time.time);
+			m_Stats.Speed = Mathf.Lerp(m_Stats.Speed, 0f, Time.time);
 		}
 	}
 	

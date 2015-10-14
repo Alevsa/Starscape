@@ -3,127 +3,50 @@ using System.Collections;
 
 public class BattleCamera : MonoBehaviour 
 {
-/*
-	private GameObject m_Focus;
-	private BattleMovement m_Movement; 
-	private GameObject m_Pointer;
-	public float RotateSpeed = 2f;
-	public float ZoomFactor = 0.006f;
-	public float CameraOffset = 7f;
-
-	void Start()
-	{
-		m_Focus = GameObject.FindGameObjectWithTag("PlayerBattle");
-		m_Movement = m_Focus.GetComponent<BattleMovement>();
-		#region Get pointer
-		for (int i = 0; i<transform.childCount; i++)
-		{	
-			GameObject obj = transform.GetChild(i).gameObject;
-			if (obj.tag == "Pointer")
-			{
-				m_Pointer = obj;
-			}
-		}
-		#endregion
-	}
-	
-	void Update()
-	{
-		Debug.Log(m_Focus.transform.forward);
-		m_Pointer.transform.LookAt(m_Focus.transform);
-		gameObject.transform.position = m_Focus.transform.position + (-1f) * m_Focus.transform.forward * ZoomFactor * Mathf.Abs(m_Movement.Speed) - m_Focus.transform.forward * CameraOffset;
-		gameObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, m_Focus.transform.rotation, RotateSpeed); 
-	}
-	*/
-	
-/*
-	public Transform Target;
-	public float Distance = 5f;
-	public float Height = 4f;
-	
-	public float RotationDamping = 3f;
-	
-	
-	void LateUpdate () 
-	{
-		CameraChase();
-	}
-	
-	void CameraChase()
-	{
-		if (!Target)
-			return;
-		
-		var wantedRotationAngleSide = Target.eulerAngles.y;
-		var currentRotationAngleSide = transform.eulerAngles.y;
-		
-		var wantedRotationAngleUp = Target.eulerAngles.x;
-		var currentRotationAngleUp = transform.eulerAngles.x;
-		
-		currentRotationAngleSide = Mathf.LerpAngle(currentRotationAngleSide, wantedRotationAngleSide, RotationDamping * Time.deltaTime);
-		
-		currentRotationAngleUp = Mathf.LerpAngle(currentRotationAngleUp, wantedRotationAngleUp, RotationDamping * Time.deltaTime);
-		
-		var currentRotation = Quaternion.Euler(currentRotationAngleUp, currentRotationAngleSide, 0);
-		
-		transform.position = Target.position;
-		transform.position -= currentRotation * Vector3.forward * Distance;
-		
-		transform.LookAt(Target);
-		
-		transform.position += transform.up * Height;
-	}
-*/
-/*
+	// TO DO: Fix horrible camera jitter, it happens when you're moving. Not sure why yet.
 	private Transform m_Focus;
-	private BattleMovement m_Movement; 
-	//private GameObject m_Pointer;
-	public Transform DesiredPosition;
-	public float Damping = 1f;
-	public float RotateSpeed = 2f;
-	public float ZoomFactor = 0.006f;
-	public float CameraOffset = 7f;
-	
-	void Start()
-	{
-		m_Focus = GameObject.FindGameObjectWithTag("PlayerBattle").transform;
-		m_Movement = m_Focus.GetComponent<BattleMovement>();
-	}
-	
-	void LateUpdate()
-	{
-		transform.LookAt(m_Focus);
-		SetDesiredPosition();
-		transform.position = Vector3.MoveTowards(transform.position, DesiredPosition.position, Damping * Time.deltaTime);	
-	}
-	
-	void SetDesiredPosition()
-	{
-		DesiredPosition.position = m_Focus.position + m_Focus.forward*(-1f)*(CameraOffset + (ZoomFactor * m_Movement.Speed)); 
-	}
-*/
-
-	private Transform m_Focus;
-	private BattleMovement m_Movement; 
+	private ShipCore m_Stats;
 	private Vector3 m_DesiredPosition;
-	public float Damping = 1f;
+	public float Height = 2f;
+	public float DampingFactor = 0.1f;
+	public float RotationDampingFactor = 1f;
+	private float m_RotationDamping;
+	private float m_Damping;
 	public float ZoomFactor = 0.004f;
 	public float CameraOffset = 7f;
-	
+	public float DampingOffset = 1f;
+	public float RotationDampingOffset = 1f;
+
 	void Start()
 	{
 		m_Focus = GameObject.FindGameObjectWithTag("PlayerBattle").transform;
-		m_Movement = m_Focus.GetComponent<BattleMovement>();
+		m_Stats = m_Focus.GetComponent<ShipCore>();
 	}
-	
-	void LateUpdate()
+	// I'll try and explain what's happening here cause it's probably intimidating for you who didn't write it.
+	//
+	// The damping is how quickly the camera will get into position. When the ship is moving quickly it needs to move into position more quickly
+	// Hence multiplying the damping by the speed. The offset is important because when speed is 0 we don't want the camera to go inside the player's
+	// ship. Rotation damping is the same except for rotation, it doesnt depend on speed though instead it depends on turn rate. The desired position is
+	// just a position behing hte player that we want the camera to move to, then we do the movetoward method to get there and the rotate toward to 
+	// gradually reach the correct position.
+	//
+	// The various factors, (RotationDampingFactor, DampingFactor etc) all need fine tuning in the inspector so that the rotation is slow enough to allow
+	// the player to see the ship rotate (else it feels like the player is controlling the camera rather than the ship) yet fast enough that it's still 
+	// playable.
+	//
+	// Finally the MoveTowards/RotateTowards methods need to get faster the further from the desired position they are, otherwise the player would be able
+	// to move/rotate faster than the camera leading to unwanted behavior. This is done by finding the distance between the position/rotation then multiplying
+	// it by the damping.
+	//
+	// enjoy ur wall of text.
+	void Update()
 	{
-		transform.localPosition = Vector3.back * ZoomFactor * Mathf.Abs(m_Movement.Speed) + Vector3.back * CameraOffset; 
+		m_Damping = (Mathf.Abs(m_Stats.Speed) * DampingFactor) + DampingOffset;
+		m_RotationDamping = Mathf.Abs(m_Stats.TurnRate) + RotationDampingOffset;
+		m_DesiredPosition = (-1f) * (m_Focus.forward * ZoomFactor * Mathf.Abs(m_Stats.Speed) + (m_Focus.forward * CameraOffset) + (m_Focus.up * - Height));		
+		m_DesiredPosition += m_Focus.position;
+		transform.localPosition = Vector3.MoveTowards(transform.position, m_DesiredPosition, m_Damping*Time.deltaTime*Vector3.Distance(transform.position, m_DesiredPosition));
+		transform.rotation = Quaternion.RotateTowards(transform.rotation, m_Focus.rotation, m_RotationDamping*Time.deltaTime*Vector3.Distance(transform.rotation.eulerAngles, m_Focus.rotation.eulerAngles));
 	}
 	
-	// Ordinary look at causes the camera to flip out when you do loop the loops and stuff so I needed to make a more constrained version
-	void MyLookAt()
-	{
-	
-	}
 }
