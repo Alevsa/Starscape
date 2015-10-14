@@ -36,6 +36,7 @@ public class BattleCamera : MonoBehaviour
 	}
 	*/
 	
+/*
 	public Transform Target;
 	public float Distance = 5f;
 	public float Height = 4f;
@@ -72,5 +73,57 @@ public class BattleCamera : MonoBehaviour
 		
 		transform.position += transform.up * Height;
 	}
+*/
+/*
+	private Transform m_Focus;
+	private BattleMovement m_Movement; 
+	//private GameObject m_Pointer;
+	public Transform DesiredPosition;
+	public float Damping = 1f;
+	public float RotateSpeed = 2f;
+	public float ZoomFactor = 0.006f;
+	public float CameraOffset = 7f;
 	
+	void Start()
+	{
+		m_Focus = GameObject.FindGameObjectWithTag("PlayerBattle").transform;
+		m_Movement = m_Focus.GetComponent<BattleMovement>();
+	}
+	
+	void LateUpdate()
+	{
+		transform.LookAt(m_Focus);
+		SetDesiredPosition();
+		transform.position = Vector3.MoveTowards(transform.position, DesiredPosition.position, Damping * Time.deltaTime);	
+	}
+	
+	void SetDesiredPosition()
+	{
+		DesiredPosition.position = m_Focus.position + m_Focus.forward*(-1f)*(CameraOffset + (ZoomFactor * m_Movement.Speed)); 
+	}
+*/
+
+	private Transform m_Focus;
+	private BattleMovement m_Movement; 
+	private Vector3 m_DesiredPosition;
+	public float Damping = 1f;
+	public float ZoomFactor = 0.004f;
+	public float CameraOffset = 7f;
+	
+	void Start()
+	{
+		m_Focus = GameObject.FindGameObjectWithTag("PlayerBattle").transform;
+		m_Movement = m_Focus.GetComponent<BattleMovement>();
+	}
+	
+	void LateUpdate()
+	{
+		transform.localPosition = Vector3.back * ZoomFactor * Mathf.Abs(m_Movement.Speed) + Vector3.back * CameraOffset; 
+	}
+	
+	// Ordinary look at causes the camera to flip out when you do loop the loops and stuff so I needed to make a more constrained version
+	void MyLookAt()
+	{
+	
+	}
 }

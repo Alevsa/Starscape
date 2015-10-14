@@ -65,7 +65,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -85,6 +84,9 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!127 &5
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!1 &134918670 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 127066, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
@@ -200,7 +202,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -585,6 +586,22 @@ Prefab:
     - target: {fileID: 426588, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
+      propertyPath: Acceleration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
+      propertyPath: ImpulsePower
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
+      propertyPath: TurnRate
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
+      propertyPath: WarpSpeed
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
