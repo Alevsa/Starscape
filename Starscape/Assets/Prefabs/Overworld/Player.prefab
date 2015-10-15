@@ -477,12 +477,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb320d76d34ecd24db1672670a5efa0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurnRate: 50
-  Acceleration: .25
-  WarpSpeed: 40
-  ImpulsePower: 1
+  TurnRate: 60
+  Acceleration: 5
+  WarpSpeed: 100
+  ImpulsePower: 10
   WarpChargeTime: 5
-  WarpTurnRate: 1
+  WarpTurnRate: .5
   Speed: 0
 --- !u!114 &11482924
 MonoBehaviour:

@@ -407,38 +407,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 426588, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
       propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
-      propertyPath: speed
-      value: 50000
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
-      propertyPath: impulsePower
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
-      propertyPath: warpSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
-      propertyPath: ImpulsePower
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
-      propertyPath: WarpSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
-      propertyPath: TurnRate
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
-      propertyPath: WarpTurnRate
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400844, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
-      propertyPath: Acceleration
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
