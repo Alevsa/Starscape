@@ -171,7 +171,7 @@ MonoBehaviour:
   ColorsOfPointers:
   - {r: 1, g: .641379356, b: 0, a: 1}
   Pointer: {fileID: 11413030, guid: db72e38f7f6582e44afe2e21f34fdc28, type: 2}
-  Speed: 50
+  Speed: 100
 --- !u!114 &11481414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,7 +275,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: Speed
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 160766}

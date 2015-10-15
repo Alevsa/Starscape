@@ -15,7 +15,7 @@ public class MinimapIcons : MonoBehaviour
     public float Speed;
 
 	private List<GameObject> m_Objects;
-    private Dictionary<GameObject, Image> m_Pointers;
+    private Dictionary<GameObject, GameObject> m_Pointers;
 	private GameObject m_Player;
 
     private Camera m_Camera;
@@ -28,7 +28,7 @@ public class MinimapIcons : MonoBehaviour
 	
 	void Start () 
 	{
-        m_Pointers = new Dictionary<GameObject, Image>();
+        m_Pointers = new Dictionary<GameObject, GameObject>();
 
         m_Player = GameObject.FindGameObjectWithTag("Player");
         m_Canvas = transform.FindChild("MinimapCanvas");
@@ -48,7 +48,7 @@ public class MinimapIcons : MonoBehaviour
 		}
 
 
-        foreach (KeyValuePair<GameObject, Image> con in m_Pointers)
+        foreach (KeyValuePair<GameObject, GameObject> con in m_Pointers)
         {
             con.Value.transform.position = Vector3.MoveTowards(con.Value.transform.position, GetLocation(con.Key.transform.position), Speed * Time.deltaTime);
             Vector3 dir = new Vector3(con.Key.transform.position.x, -400, con.Key.transform.position.z);
@@ -88,8 +88,11 @@ public class MinimapIcons : MonoBehaviour
 	{
         if (!m_Pointers.ContainsKey(obj))
         {
-            Image pointer = Instantiate(Pointer, GetLocation(obj.transform.position), transform.rotation) as Image;
+            GameObject pointer = ObjectPooler.Current.GetPooledObject();
+            pointer.transform.position = GetLocation(obj.transform.position); 
+            pointer.transform.rotation = transform.rotation; 
             pointer.transform.SetParent(m_Canvas);
+            pointer.SetActive(true);
             int index = Array.IndexOf(TagsToFind, obj.tag);
             pointer.GetComponent<Image>().color = ColorsOfPointers[index];
             m_Pointers.Add(obj, pointer);
@@ -150,7 +153,7 @@ public class MinimapIcons : MonoBehaviour
 	{
         if (m_Pointers.ContainsKey(obj))
         { 
-            Destroy(m_Pointers[obj].gameObject);
+            m_Pointers[obj].SetActive(false);
             m_Pointers.Remove(obj);
         }
     }

@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 438792}
-  - 114: {fileID: 11469852}
+  - 114: {fileID: 11454806}
   m_Layer: 0
   m_Name: ObjectPooler
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11469852
+--- !u!114 &11454806
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -36,11 +36,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 120982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6248e5e8b31792478e31664aee1a363, type: 3}
+  m_Script: {fileID: 11500000, guid: 05a9e2c90ec5dc7488a830610b78dfff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PooledObject: {fileID: 0}
-  PooledAmount: 10
+  PooledObject: {fileID: 184028, guid: db72e38f7f6582e44afe2e21f34fdc28, type: 2}
+  PooledAmount: 5
   WillGrow: 1
 --- !u!1001 &100100000
 Prefab:
