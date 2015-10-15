@@ -5,10 +5,10 @@ public class BattleControl : MonoBehaviour
 {	
 	//Ship to be controlled
 	public GameObject Ship;
+	public bool MouseControls = false;
 	private BattleMovement m_HandlerMovement;
 	private float m_RotDamping;
-	
-	public GameObject debugging;
+	public float Deadzone = 0.05f;
 	
 	// Use this for initialization
 	void Start () 
@@ -42,16 +42,27 @@ public class BattleControl : MonoBehaviour
 		
 		
 		m_HandlerMovement.Roll(Input.GetAxisRaw("Roll"));
-		m_HandlerMovement.PitchYaw(Input.GetAxis("Joystick X"), Input.GetAxis("Joystick Y"));
+		if (MouseControls)
+			m_HandlerMovement.PitchYaw(MouseXToJoyStickAxis(), MouseYToJoyStickAxis());
+		else
+			m_HandlerMovement.PitchYaw(Input.GetAxis("Joystick X"), Input.GetAxis("Joystick Y"));
 	}
 	
+	#region Converts mouse coordinates to joystick input, imagine the mouse cursor as the top of the joystick, that's how it works.
 	float MouseYToJoyStickAxis()
 	{
-		return 0f;
+		float y = ((Input.mousePosition.y - (0.5f * Screen.height)) / Screen.height) * 2f;  
+		if (Mathf.Abs(y) < Deadzone)
+			return 0;
+		else return y;
 	}
 	
 	float MouseXToJoyStickAxis()
 	{
-		return 0f;
+		float x = ((Input.mousePosition.x - (0.5f * Screen.width)) / Screen.width) * 2f;  
+		if (Mathf.Abs(x) < Deadzone)
+			return 0;
+		else return x;
 	}
+	#endregion
 }

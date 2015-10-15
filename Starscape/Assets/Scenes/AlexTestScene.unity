@@ -3411,7 +3411,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ship: {fileID: 1390004883}
-  debugging: {fileID: 195064, guid: 3474bdb09e43da94fadbd3727e6cec2a, type: 2}
+  MouseControls: 1
+  Deadzone: .0500000007
 --- !u!1 &1968636538
 GameObject:
   m_ObjectHideFlags: 0
