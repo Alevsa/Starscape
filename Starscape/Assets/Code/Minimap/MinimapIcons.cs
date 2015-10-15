@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 public class MinimapIcons : MonoBehaviour 
@@ -88,7 +87,7 @@ public class MinimapIcons : MonoBehaviour
 	{
         if (!m_Pointers.ContainsKey(obj))
         {
-            GameObject pointer = ObjectPooler.Current.GetPooledObject();
+            GameObject pointer = ObjectPooler.Current.GetPooledObject(0);
             pointer.transform.position = GetLocation(obj.transform.position); 
             pointer.transform.rotation = transform.rotation; 
             pointer.transform.SetParent(m_Canvas);

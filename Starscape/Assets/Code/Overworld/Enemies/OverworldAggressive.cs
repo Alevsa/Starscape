@@ -186,7 +186,7 @@ public class OverworldAggressive : MonoBehaviour
 		if (Vector3.Distance(m_Player.transform.position, transform.position) > DespawnRange)
 		{
 			
-			Destroy(gameObject);
+			gameObject.SetActive(false);
 		}
 	}
 }

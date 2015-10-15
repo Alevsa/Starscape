@@ -31,7 +31,10 @@ public class Spawner : MonoBehaviour
 		float x = SpawnDistance*Mathf.Sin(angle);
 		float z = SpawnDistance*Mathf.Cos(angle);
 		Vector3 spawnPosition = m_Player.transform.position + new Vector3(x, 0, z);
-		GameObject obj = (GameObject)Instantiate(Enemies[0], spawnPosition, Quaternion.identity);
+		GameObject obj = ObjectPooler.Current.GetPooledObject(1);
 		obj.transform.parent = gameObject.transform;
+        obj.transform.position = spawnPosition;
+        obj.transform.rotation = gameObject.transform.rotation;
+        obj.SetActive(true);
 	}
 }
