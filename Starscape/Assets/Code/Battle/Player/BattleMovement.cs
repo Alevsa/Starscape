@@ -5,6 +5,8 @@ public class BattleMovement : MonoBehaviour
 {
 	private ShipCore m_Stats;
 	private Rigidbody m_Body;
+	private float m_Yaw = 0f;
+	private float m_Pitch = 0f;
 	public GameObject Gyroscope;
 	public float RightingRate = 1f;
 	[HideInInspector] public float AltitudeChange = 0f;
@@ -37,6 +39,7 @@ public class BattleMovement : MonoBehaviour
 	
 	void Movement()
 	{
+		transform.Rotate( m_Stats.TurnRate * m_Pitch * Time.deltaTime,m_Stats.TurnRate * m_Yaw *Time.deltaTime, 0f );
 		m_Body.AddRelativeForce(Vector3.forward * m_Stats.Speed * Time.fixedDeltaTime);
 	}
 	
@@ -70,7 +73,8 @@ public class BattleMovement : MonoBehaviour
 	
 	public void PitchYaw(float x, float y)
 	{
-		transform.Rotate( m_Stats.TurnRate * y * Time.deltaTime,m_Stats.TurnRate * x *Time.deltaTime, 0f );
+		m_Yaw = x;
+		m_Pitch = y;
 	}
 	
 	public void SnapRotation()

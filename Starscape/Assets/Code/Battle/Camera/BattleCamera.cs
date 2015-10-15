@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BattleCamera : MonoBehaviour 
 {
-	// TO DO: Fix horrible camera jitter, it happens when you're moving. Not sure why yet.
+	// TO DO: ???
 	private Transform m_Focus;
 	private ShipCore m_Stats;
 	private Vector3 m_DesiredPosition;
@@ -16,6 +16,7 @@ public class BattleCamera : MonoBehaviour
 	public float CameraOffset = 7f;
 	public float DampingOffset = 1f;
 	public float RotationDampingOffset = 1f;
+	public float SnapThreshold = 50f;
 
 	void Start()
 	{
@@ -39,14 +40,15 @@ public class BattleCamera : MonoBehaviour
 	// it by the damping.
 	//
 	// enjoy ur wall of text.
-	void Update()
+	
+	// Also this has to go in fixed update as it's chasing a physics object, if it's not in fixed update it'll have more/less frames than the object and jitter.
+	void FixedUpdate()
 	{
 		m_Damping = (Mathf.Abs(m_Stats.Speed) * DampingFactor) + DampingOffset;
-		m_RotationDamping = Mathf.Abs(m_Stats.TurnRate) + RotationDampingOffset;
 		m_DesiredPosition = (-1f) * (m_Focus.forward * ZoomFactor * Mathf.Abs(m_Stats.Speed) + (m_Focus.forward * CameraOffset) + (m_Focus.up * - Height));		
 		m_DesiredPosition += m_Focus.position;
 		transform.localPosition = Vector3.MoveTowards(transform.position, m_DesiredPosition, m_Damping*Time.deltaTime*Vector3.Distance(transform.position, m_DesiredPosition));
+		m_RotationDamping = Mathf.Abs(m_Stats.TurnRate) + RotationDampingOffset;
 		transform.rotation = Quaternion.RotateTowards(transform.rotation, m_Focus.rotation, m_RotationDamping*Time.deltaTime*Vector3.Distance(transform.rotation.eulerAngles, m_Focus.rotation.eulerAngles));
 	}
-	
 }

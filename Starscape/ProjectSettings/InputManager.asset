@@ -137,10 +137,10 @@ InputManager:
     m_Name: Roll
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: joystick button 4
-    positiveButton: joystick button 5
-    altNegativeButton: q
-    altPositiveButton: e
+    negativeButton: joystick button 5
+    positiveButton: joystick button 4
+    altNegativeButton: e
+    altPositiveButton: q
     gravity: 0
     dead: 0
     sensitivity: 0
