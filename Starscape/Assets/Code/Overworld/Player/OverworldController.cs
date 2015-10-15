@@ -22,8 +22,11 @@ public class OverworldController : MonoBehaviour
 	
 	//In-game handling
 	void InGameInput() 
-	{
-		m_HandlerMovement.Turn(Input.GetAxisRaw("Turn"));
+	{	
+		if (Input.GetAxisRaw("Turn") != 0f)
+			m_HandlerMovement.Turn(Input.GetAxisRaw("Turn"));
+		else
+			m_HandlerMovement.Turn(Input.GetAxis("Joystick X"));
 		
 		#region Acceleration that only triggers on button press
 		if (Input.GetAxisRaw("Accelerate") != 0)
