@@ -2258,7 +2258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3134ac6274767bf4db09cc749c390af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurnRate: 150
+  TurnRate: 100
   Acceleration: 10000
   Deceleration: 10000
   MaxSpeed: 10000
@@ -2323,7 +2323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gyroscope: {fileID: 1024184700}
   RightingRate: 2
-  AltitudeChange: 0
+  RollMagnitude: 0
 --- !u!54 &1390004890
 Rigidbody:
   m_ObjectHideFlags: 0
