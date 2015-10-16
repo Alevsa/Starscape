@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
 	
 	void Update () 
 	{
-		if (Random.value < SpawnChance && gameObject.transform.childCount < MaxEnemies && Active)
+		if (Random.value < SpawnChance*Time.deltaTime && gameObject.transform.childCount < MaxEnemies && Active)
 		{
 			Spawn();
 		}

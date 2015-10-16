@@ -65,7 +65,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -85,6 +84,9 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!127 &5
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!1001 &126074466
 Prefab:
   m_ObjectHideFlags: 0
@@ -165,6 +167,14 @@ Prefab:
     - target: {fileID: 453392, guid: 2800ad09876481d499b03b78ca32b8e5, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471672, guid: 2800ad09876481d499b03b78ca32b8e5, type: 2}
+      propertyPath: ZoomTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471672, guid: 2800ad09876481d499b03b78ca32b8e5, type: 2}
+      propertyPath: ZoomFactor
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2800ad09876481d499b03b78ca32b8e5, type: 2}
@@ -306,7 +316,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11499200, guid: 30ca8e3bbe7db684691fcb0860c642e6, type: 2}
       propertyPath: SpawnChance
-      value: 9.99999975e-05
+      value: .100000001
       objectReference: {fileID: 0}
     - target: {fileID: 11499200, guid: 30ca8e3bbe7db684691fcb0860c642e6, type: 2}
       propertyPath: Enemies.Array.data[0]
