@@ -40,8 +40,8 @@ public class BattleControl : MonoBehaviour
 		if (Input.GetAxisRaw("Stabilise") == 1f)
 			m_HandlerMovement.SnapRotation();
 		
+		m_HandlerMovement.RollMagnitude = (Input.GetAxisRaw("Roll"));
 		
-		m_HandlerMovement.Roll(Input.GetAxisRaw("Roll"));
 		if (MouseControls)
 			m_HandlerMovement.PitchYaw(MouseXToJoyStickAxis(), MouseYToJoyStickAxis());
 		else

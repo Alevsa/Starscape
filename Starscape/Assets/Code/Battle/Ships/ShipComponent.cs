@@ -10,7 +10,7 @@ abstract public class ShipComponent : MonoBehaviour
 	public float MaxReverseSpeed;
 	public float Health;
 	public float Armour;
-	public float Speed;
+	[HideInInspector]public float Speed;
 	public float RollRate;
 	
 	

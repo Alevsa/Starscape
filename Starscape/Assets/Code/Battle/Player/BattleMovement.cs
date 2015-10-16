@@ -5,22 +5,14 @@ public class BattleMovement : MonoBehaviour
 {
 	private ShipCore m_Stats;
 	private Rigidbody m_Body;
-	private float m_Yaw = 0f;
-	private float m_Pitch = 0f;
+	[HideInInspector]private float m_Yaw = 0f;
+	[HideInInspector]private float m_Pitch = 0f;
 	public GameObject Gyroscope;
 	public float RightingRate = 1f;
-	[HideInInspector] public float AltitudeChange = 0f;
+	[HideInInspector] public float RollMagnitude = 0f;
 	
 	void Start()
 	{	
-		for (int i = 0; i<transform.childCount; i++)
-		{	
-			GameObject obj = transform.GetChild(i).gameObject;
-			if (obj.tag == "Pointer")
-			{
-				Gyroscope = obj;
-			}
-		}
 		m_Stats = GetComponent<ShipCore> ();
 		m_Body = GetComponent<Rigidbody> ();
 	}
@@ -39,7 +31,8 @@ public class BattleMovement : MonoBehaviour
 	
 	void Movement()
 	{
-		transform.Rotate( m_Stats.TurnRate * m_Pitch * Time.deltaTime,m_Stats.TurnRate * m_Yaw *Time.deltaTime, 0f );
+		Roll(RollMagnitude);
+		transform.Rotate( m_Stats.TurnRate * m_Pitch * Time.fixedDeltaTime,m_Stats.TurnRate * m_Yaw *Time.fixedDeltaTime, 0f );
 		m_Body.AddRelativeForce(Vector3.forward * m_Stats.Speed * Time.fixedDeltaTime);
 	}
 	
@@ -47,7 +40,7 @@ public class BattleMovement : MonoBehaviour
 	{
 		if (m_Stats.Speed < m_Stats.MaxSpeed)
 		{
-			m_Stats.Speed += m_Stats.Acceleration*Time.deltaTime;
+			m_Stats.Speed += m_Stats.Acceleration*Time.fixedDeltaTime;
 		}
 	}
 	
@@ -55,11 +48,11 @@ public class BattleMovement : MonoBehaviour
 	{
 		if (m_Stats.Speed > 0f)
 		{
-			m_Stats.Speed -= m_Stats.Deceleration*Time.deltaTime;
+			m_Stats.Speed -= m_Stats.Deceleration*Time.fixedDeltaTime;
 		}
 		else if (m_Stats.Speed < 0f)
 		{
-			m_Stats.Speed += m_Stats.Deceleration*Time.deltaTime;
+			m_Stats.Speed += m_Stats.Deceleration*Time.fixedDeltaTime;
 		}
 	}
 
@@ -67,7 +60,7 @@ public class BattleMovement : MonoBehaviour
 	{
 		if (m_Stats.Speed > -1f * m_Stats.MaxReverseSpeed)
 		{
-			m_Stats.Speed -= m_Stats.Deceleration*Time.deltaTime;
+			m_Stats.Speed -= m_Stats.Deceleration*Time.fixedDeltaTime;
 		}
 	} 
 	
@@ -84,7 +77,7 @@ public class BattleMovement : MonoBehaviour
 	
 	public void Roll(float direction)
 	{
-		transform.Rotate( 0f, 0f, Time.deltaTime * direction * m_Stats.RollRate );
+		transform.Rotate( 0f, 0f, Time.fixedDeltaTime * direction * m_Stats.RollRate );
 	}
 	
 	void SnapToZero()
