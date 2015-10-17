@@ -3,8 +3,8 @@ using System.Collections;
 
 public class WeaponController : MonoBehaviour
 {
-    private Weapon m_EquippedPrimaryWeapon;
-    private Weapon m_EquippedSecondaryWeapon;
+    public Weapon m_EquippedPrimaryWeapon;
+    public Weapon m_EquippedSecondaryWeapon;
 
     public void FirePrimaryWeapon()
     {
