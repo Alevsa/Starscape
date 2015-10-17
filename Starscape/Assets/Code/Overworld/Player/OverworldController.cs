@@ -6,7 +6,7 @@ public class OverworldController : MonoBehaviour
 	//Ship to be controlled
 	public GameObject Player;
 	private OverworldMovement m_HandlerMovement;
-	private bool moveInUse = false;
+	private bool MoveInUse = false;
 	
 	// Use this for initialization
 	void Start () 
@@ -31,15 +31,15 @@ public class OverworldController : MonoBehaviour
 		#region Acceleration that only triggers on button press
 		if (Input.GetAxisRaw("Accelerate") != 0)
 		{
-			if(moveInUse == false)
+			if(MoveInUse == false)
 			{
 				m_HandlerMovement.AccelerationHandler(Input.GetAxisRaw("Accelerate"));
-				moveInUse = true;
+				MoveInUse = true;
 			}
 		}
 		if( Input.GetAxisRaw("Accelerate") == 0)
 		{
-			moveInUse = false;
+			MoveInUse = false;
 		}  
 		#endregion
 	}

@@ -7,6 +7,7 @@ public class BattleCamera : MonoBehaviour
 	private Transform m_Focus;
 	private ShipCore m_Stats;
 	private Vector3 m_DesiredPosition;
+	public Transform Pointer;
 	public float Height = 2f;
 	public float DampingFactor = 0.1f;
 	public float RotationDampingFactor = 1f;
@@ -17,6 +18,7 @@ public class BattleCamera : MonoBehaviour
 	public float DampingOffset = 1f;
 	public float RotationDampingOffset = 1f;
 	public float SnapThreshold = 50f;
+	private bool m_Flipped;
 
 	void Start()
 	{
@@ -44,11 +46,31 @@ public class BattleCamera : MonoBehaviour
 	// Also this has to go in fixed update as it's chasing a physics object, if it's not in fixed update it'll have more/less frames than the object and jitter.
 	void FixedUpdate()
 	{
+		Pointer.rotation = m_Focus.rotation;
 		m_Damping = (Mathf.Abs(m_Stats.Speed) * DampingFactor) + DampingOffset;
-		m_DesiredPosition = (-1f) * (m_Focus.forward * ZoomFactor * Mathf.Abs(m_Stats.Speed) + (m_Focus.forward * CameraOffset) + (m_Focus.up * - Height));		
+		if (m_Flipped)
+		{
+			Pointer.Rotate(0,180,0f);
+			m_DesiredPosition = (m_Focus.forward * ZoomFactor * Mathf.Abs(m_Stats.Speed) + (m_Focus.forward * CameraOffset) + (m_Focus.up * - Height));	
+		}
+		else
+		{
+			m_DesiredPosition = (-1f) * (m_Focus.forward * ZoomFactor * Mathf.Abs(m_Stats.Speed) + (m_Focus.forward * CameraOffset) + (m_Focus.up * - Height));		
+		}
 		m_DesiredPosition += m_Focus.position;
-		transform.localPosition = Vector3.MoveTowards(transform.position, m_DesiredPosition, m_Damping*Time.deltaTime*Vector3.Distance(transform.position, m_DesiredPosition));
 		m_RotationDamping = Mathf.Abs(m_Stats.TurnRate) + RotationDampingOffset;
-		transform.rotation = Quaternion.RotateTowards(transform.rotation, m_Focus.rotation, m_RotationDamping*Time.deltaTime*Vector3.Distance(transform.rotation.eulerAngles, m_Focus.rotation.eulerAngles));
+		
+		transform.localPosition = Vector3.MoveTowards(transform.position, m_DesiredPosition, m_Damping*Time.deltaTime*Vector3.Distance(transform.position, m_DesiredPosition));
+		transform.rotation = Quaternion.RotateTowards(transform.rotation,  Pointer.rotation, m_RotationDamping*Time.deltaTime*(Vector3.Distance(transform.rotation.eulerAngles, m_Focus.rotation.eulerAngles)+1f));
+		
+		//else 
+		//{
+		//	transform.rotation = Quaternion.RotateTowards(transform.rotation, m_Focus.rotation, m_RotationDamping*Time.deltaTime*Vector3.Distance(transform.rotation.eulerAngles, m_Focus.rotation.eulerAngles));
+		//}
+	}
+	
+	public void Flip()
+	{
+		m_Flipped = !m_Flipped;	
 	}
 }

@@ -10,6 +10,7 @@ public class BattleMovement : MonoBehaviour
 	public GameObject Gyroscope;
 	public float RightingRate = 1f;
 	[HideInInspector] public float RollMagnitude = 0f;
+	[HideInInspector] public bool StabiliserActive;
 	
 	void Start()
 	{	
@@ -19,6 +20,8 @@ public class BattleMovement : MonoBehaviour
 	
 	void FixedUpdate()
 	{	
+		if (StabiliserActive)
+			SnapRotation();
 		MaintainGyroscopeLevel();
 		Movement();
 		SnapToZero();

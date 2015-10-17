@@ -7,6 +7,7 @@ public class BattleControl : MonoBehaviour
 	public GameObject Ship;
 	public bool MouseControls = false;
 	private BattleMovement m_HandlerMovement;
+	public BattleCamera m_HandlerCamera;
 	private float m_RotDamping;
 	public float Deadzone = 0.05f;
 	
@@ -37,10 +38,16 @@ public class BattleControl : MonoBehaviour
 			m_HandlerMovement.Accelerate();
 		else if (Input.GetAxisRaw("Hand Brake") == 1f)
 			m_HandlerMovement.HandBrake();		
-		if (Input.GetAxisRaw("Stabilise") == 1f)
-			m_HandlerMovement.SnapRotation();
 		
-		m_HandlerMovement.RollMagnitude = (Input.GetAxisRaw("Roll"));
+		m_HandlerMovement.RollMagnitude = Input.GetAxisRaw("Roll");
+		
+		if (Input.GetButtonDown("Rear View"))
+			m_HandlerCamera.Flip();
+			
+		if (Input.GetButton("Stabilise"))
+			m_HandlerMovement.StabiliserActive = true;
+		else	
+			m_HandlerMovement.StabiliserActive = false;
 		
 		if (MouseControls)
 			m_HandlerMovement.PitchYaw(MouseXToJoyStickAxis(), MouseYToJoyStickAxis());
