@@ -2348,8 +2348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d801e3af96b1b44938d62866f59053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gyroscope: {fileID: 1024184700}
-  RightingRate: 2
+  Gyroscope: {fileID: 1024184701}
   RollMagnitude: 0
   StabiliserActive: 0
 --- !u!54 &1390004890

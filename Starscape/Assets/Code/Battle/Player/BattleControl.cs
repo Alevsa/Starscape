@@ -31,10 +31,9 @@ public class BattleControl : MonoBehaviour
 	//In-game handling
 	void InGameInput() 
 	{
-	
-		if (Input.GetAxisRaw("Accelerate") == -1f)
+		if (Input.GetAxisRaw("Battle Accelerate") < 0f)
 			m_HandlerMovement.Decelerate();
-		else if (Input.GetAxisRaw("Accelerate") == 1f)
+		else if (Input.GetAxisRaw("Battle Accelerate") > 0f)
 			m_HandlerMovement.Accelerate();
 		else if (Input.GetAxisRaw("Hand Brake") == 1f)
 			m_HandlerMovement.HandBrake();		
