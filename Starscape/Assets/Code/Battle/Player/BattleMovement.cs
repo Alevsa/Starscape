@@ -17,6 +17,9 @@ public class BattleMovement : MonoBehaviour
 	// Roll magnitute and stabiliser active are variables that you set from a controller to start rolling/stabilising, you do this
 	// rather than calling the methods directly so that they can be called within fixedupdate, which is important. So don't call 
 	// those methods directly unless you want the movement to be jittery and awful. 
+	//
+	// 4k, Acceleration 8k deceleration 8k maxspeed 4k max reverse are reasonable starting stats, it's fast and maneouverable enough
+	// I think but with enough room to upgrade before it gets too fast. Mass 1 drag 1 angular drag 1.
 	private ShipCore m_Stats;
 	private Rigidbody m_Body;
 	[HideInInspector]private float m_Yaw = 0f;
@@ -36,7 +39,8 @@ public class BattleMovement : MonoBehaviour
 		if (StabiliserActive)
 			SnapRotation();
 		Movement();
-		SnapToZero();
+		//Debug.Log(m_Body.velocity);
+		Debug.Log(m_Stats.Speed);
 	}
 	// We need to keep the gyroscope facing the right way all the time, dont want the stabiliser to move you left/right, just put you 
 	// flat on the XZ plane.
@@ -97,17 +101,4 @@ public class BattleMovement : MonoBehaviour
 	{
 		transform.Rotate( 0f, 0f, Time.fixedDeltaTime * direction * m_Stats.RollRate );
 	}
-	
-	void SnapToZero()
-	{
-		if(m_Stats.Speed < 0.03f * m_Stats.MaxSpeed & m_Stats.Speed > 0f)
-		{
-			m_Stats.Speed = Mathf.Lerp(m_Stats.Speed, 0f, Time.time);
-		}
-		else if (m_Stats.Speed > 0.03f * m_Stats.MaxReverseSpeed && m_Stats.Speed < 0f)
-		{
-			m_Stats.Speed = Mathf.Lerp(m_Stats.Speed, 0f, Time.time);
-		}
-	}
-	
 }

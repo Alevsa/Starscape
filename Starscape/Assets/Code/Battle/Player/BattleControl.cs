@@ -31,6 +31,7 @@ public class BattleControl : MonoBehaviour
 	//In-game handling
 	void InGameInput() 
 	{
+		Debug.Log(Input.GetAxisRaw("Battle Accelerate"));
 		if (Input.GetAxisRaw("Battle Accelerate") < 0f)
 			m_HandlerMovement.Decelerate();
 		else if (Input.GetAxisRaw("Battle Accelerate") > 0f)
