@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Projectile : MonoBehaviour {
+public class Projectile : MonoBehaviour
+{
+    public float Speed;
 
-	// Use this for initialization
-	void Start () {
-	
+	void Update ()
+    {
+        MoveForward();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    protected void MoveForward()
+    {
+        transform.position += Vector3.forward * Speed * Time.deltaTime;
+    }
 }

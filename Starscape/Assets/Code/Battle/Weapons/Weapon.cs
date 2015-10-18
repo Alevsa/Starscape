@@ -11,6 +11,9 @@ public class Weapon : MonoBehaviour
 
     public virtual void Fire()
     {
-
+        GameObject proj = ObjectPooler.Current.GetPooledObject(0);
+        proj.transform.position = transform.position;
+        proj.transform.SetParent(transform);
+        proj.SetActive(true);
     }
 }
