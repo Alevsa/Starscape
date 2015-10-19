@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 438792}
   - 114: {fileID: 11454806}
   m_Layer: 0
-  m_Name: ObjectPooler
+  m_Name: GenericObjectPooler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,9 +39,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a9e2c90ec5dc7488a830610b78dfff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PooledObjects:
-  - {fileID: 149702, guid: bb3f0bf6bbb1ed942a77e1717fba45ad, type: 2}
-  PooledAmounts: 0a000000
+  PooledObjects: []
+  PooledAmounts: 
   WillGrow: 1
 --- !u!1001 &100100000
 Prefab:
@@ -51,7 +50,23 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: PooledObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PooledAmounts.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: PooledAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PooledObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 149702, guid: bb3f0bf6bbb1ed942a77e1717fba45ad, type: 2}
+    - target: {fileID: 0}
+      propertyPath: PooledAmounts.Array.data[0]
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
