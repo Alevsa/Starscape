@@ -9,15 +9,14 @@ public class PlayerLoader : MonoBehaviour
 	// no duplicate players will be generated as the loader is only called on initialisation. To save 
 	// we just need to figure out how to save the loader scene.
 	
-	private GameObject overworldController;
-	private GameObject m_OverworldPlayer;
+	public GameObject OverworldPlayer = null;
 	private string m_Scene = "Overworld";
 	
 	void Start()
 	{
 		DontDestroyOnLoad(gameObject);
-		m_OverworldPlayer = GameObject.FindGameObjectWithTag("Player");
-		DontDestroyOnLoad(m_OverworldPlayer);
+		OverworldPlayer = GameObject.FindGameObjectWithTag("Player");
+		DontDestroyOnLoad(OverworldPlayer);
 		Application.LoadLevel(m_Scene);
 	}
 	
@@ -33,10 +32,10 @@ public class PlayerLoader : MonoBehaviour
 	
 	private void RememberScene()
 	{
-		if (m_Scene != "Loader")
-		{
+		if (m_Scene == "Loader")
+			m_Scene = "Overworld";
+		else 
 			m_Scene = Application.loadedLevelName;
-		}
 	}
 	
 	
@@ -46,11 +45,11 @@ public class PlayerLoader : MonoBehaviour
 	{
 		if (Application.loadedLevelName == "Overworld")
 		{
-			m_OverworldPlayer.SetActive(true);
+			OverworldPlayer.SetActive(true);
 		}
 		else 
 		{
-			m_OverworldPlayer.SetActive(false);
+			OverworldPlayer.SetActive(false);
 		}
 	}
 	#endregion

@@ -54,7 +54,7 @@ public class BattleControl : MonoBehaviour
 		if (MouseControls)
 			m_HandlerMovement.PitchYaw(MouseXToJoyStickAxis(), MouseYToJoyStickAxis());
 		else
-			m_HandlerMovement.PitchYaw(Input.GetAxis("Joystick X"), Input.GetAxis("Joystick Y"));
+			m_HandlerMovement.PitchYaw(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         if (Input.GetButton("Fire"))
             m_PlayerWeapons.FirePrimaryWeapon();

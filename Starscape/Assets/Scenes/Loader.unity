@@ -129,6 +129,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1189186812 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 127066, guid: 7e0679c2327e1a84aa19390d0201afd4, type: 2}
+  m_PrefabInternal: {fileID: 1189186811}
 --- !u!1001 &1214457824
 Prefab:
   m_ObjectHideFlags: 0
@@ -168,6 +172,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400686, guid: 931da3a363cf7c74eb0d532748fdb547, type: 2}
+      propertyPath: OverworldPlayer
+      value: 
+      objectReference: {fileID: 1189186812}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 931da3a363cf7c74eb0d532748fdb547, type: 2}
   m_IsPrefabParent: 0
