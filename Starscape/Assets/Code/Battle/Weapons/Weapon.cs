@@ -1,19 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
     public GameObject Projectile;
     public float Ammo;
     public float FireRate;
-    public float Cooldown;
-    public float Damage;
+    protected float m_Timer;
 
-    public virtual void Fire()
+    void Start()
     {
-        GameObject proj = ObjectPooler.Current.GetPooledObject(0);
-        proj.transform.position = transform.position;
-        proj.transform.SetParent(transform);
-        proj.SetActive(true);
+    }
+
+    void Update()
+    {
+        m_Timer += Time.deltaTime;
+    }
+
+    public virtual void Fire(List<Transform> firingPoints)
+    {
     }
 }

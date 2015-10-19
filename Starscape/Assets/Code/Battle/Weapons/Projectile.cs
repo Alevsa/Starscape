@@ -8,10 +8,17 @@ public class Projectile : MonoBehaviour
 	void Update ()
     {
         MoveForward();
+        Invoke("Destroy", 2f);
 	}
 
-    protected void MoveForward()
+    protected virtual void MoveForward()
     {
         transform.position += Vector3.forward * Speed * Time.deltaTime;
+    }
+
+    protected virtual void Destroy()
+    {
+        gameObject.SetActive(false);
+        CancelInvoke();
     }
 }

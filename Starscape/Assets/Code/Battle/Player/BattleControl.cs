@@ -10,13 +10,16 @@ public class BattleControl : MonoBehaviour
 	public BattleCamera m_HandlerCamera;
 	private float m_RotDamping;
 	public float Deadzone = 0.05f;
+
+    private WeaponController m_PlayerWeapons;
 	
 	// Use this for initialization
 	void Start () 
 	{
 		Ship = GameObject.FindGameObjectWithTag("PlayerBattle");
 		m_HandlerMovement = Ship.GetComponent<BattleMovement>();
-	}
+        m_PlayerWeapons = Ship.GetComponent<WeaponController>();
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -31,7 +34,6 @@ public class BattleControl : MonoBehaviour
 	//In-game handling
 	void InGameInput() 
 	{
-		Debug.Log(Input.GetAxisRaw("Battle Accelerate"));
 		if (Input.GetAxisRaw("Battle Accelerate") < 0f)
 			m_HandlerMovement.Decelerate();
 		else if (Input.GetAxisRaw("Battle Accelerate") > 0f)
@@ -53,7 +55,10 @@ public class BattleControl : MonoBehaviour
 			m_HandlerMovement.PitchYaw(MouseXToJoyStickAxis(), MouseYToJoyStickAxis());
 		else
 			m_HandlerMovement.PitchYaw(Input.GetAxis("Joystick X"), Input.GetAxis("Joystick Y"));
-	}
+
+        if (Input.GetButton("Fire"))
+            m_PlayerWeapons.FirePrimaryWeapon();
+    }
 	
 	#region Converts mouse coordinates to joystick input, imagine the mouse cursor as the top of the joystick, that's how it works.
 	float MouseYToJoyStickAxis()

@@ -380,6 +380,18 @@ Prefab:
       propertyPath: Gyroscope
       value: 
       objectReference: {fileID: 1024184701}
+    - target: {fileID: 11454354, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
+      propertyPath: EquippedPrimaryWeapon
+      value: 
+      objectReference: {fileID: 173980, guid: cbd4db5a7d26d6e499d7b35502fba6de, type: 2}
+    - target: {fileID: 127838, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
+      propertyPath: m_Name
+      value: FiringPointTwo
+      objectReference: {fileID: 0}
+    - target: {fileID: 159846, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
+      propertyPath: m_Name
+      value: FiringPointOne
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
   m_IsPrefabParent: 0
@@ -2472,52 +2484,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 493556, guid: 31bb6b85615fd7b43a80d14ebc565c40, type: 2}
   m_PrefabInternal: {fileID: 1508996396}
---- !u!1001 &1606503263
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 425208, guid: cf9e34dbd9275424a90c45f89c363f94, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 19.8199997
-      objectReference: {fileID: 0}
-    - target: {fileID: 425208, guid: cf9e34dbd9275424a90c45f89c363f94, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 425208, guid: cf9e34dbd9275424a90c45f89c363f94, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -47.6199989
-      objectReference: {fileID: 0}
-    - target: {fileID: 425208, guid: cf9e34dbd9275424a90c45f89c363f94, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: .707106829
-      objectReference: {fileID: 0}
-    - target: {fileID: 425208, guid: cf9e34dbd9275424a90c45f89c363f94, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 425208, guid: cf9e34dbd9275424a90c45f89c363f94, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 425208, guid: cf9e34dbd9275424a90c45f89c363f94, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .707106709
-      objectReference: {fileID: 0}
-    - target: {fileID: 425208, guid: cf9e34dbd9275424a90c45f89c363f94, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 11448862, guid: cf9e34dbd9275424a90c45f89c363f94, type: 2}
-      propertyPath: Speed
-      value: 200
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: cf9e34dbd9275424a90c45f89c363f94, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1637483641
 GameObject:
   m_ObjectHideFlags: 0

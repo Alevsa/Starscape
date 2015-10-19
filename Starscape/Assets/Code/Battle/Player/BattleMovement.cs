@@ -40,7 +40,7 @@ public class BattleMovement : MonoBehaviour
 			SnapRotation();
 		Movement();
 		//Debug.Log(m_Body.velocity);
-		Debug.Log(m_Stats.Speed);
+		//Debug.Log(m_Stats.Speed);
 	}
 	// We need to keep the gyroscope facing the right way all the time, dont want the stabiliser to move you left/right, just put you 
 	// flat on the XZ plane.
