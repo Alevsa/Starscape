@@ -13,6 +13,6 @@ public class PlanetaryRotation : MonoBehaviour
 	
 	void FixedUpdate () 
 	{
-		gameObject.transform.Rotate(new Vector3(0f,m_DegreesPerSecond,0f));
+		gameObject.transform.Rotate(new Vector3(0f,m_DegreesPerSecond*Time.deltaTime,0f));
 	}
 }
