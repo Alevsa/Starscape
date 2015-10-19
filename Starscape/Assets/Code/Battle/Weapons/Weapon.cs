@@ -9,10 +9,6 @@ public abstract class Weapon : MonoBehaviour
     public float FireRate;
     protected float m_Timer;
 
-    void Start()
-    {
-    }
-
     void Update()
     {
         m_Timer += Time.deltaTime;

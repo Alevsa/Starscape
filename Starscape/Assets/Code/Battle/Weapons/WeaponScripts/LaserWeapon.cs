@@ -6,12 +6,17 @@ public class LaserWeapon : Weapon
 {
     public override void Fire(List<Transform> firingPoints)
     {
-        for (int i = 0; i < 2; i++)
+        if (m_Timer > FireRate)
         {
-            GameObject proj = ObjectPooler.Current.GetPooledObject(0);
-            proj.transform.position = firingPoints[i].position;
-            proj.transform.rotation = firingPoints[i].rotation;
-            proj.SetActive(true);
+            for (int i = 0; i < 2; i++)
+            {
+                GameObject proj = ObjectPooler.Current.GetPooledObject(0);
+                proj.transform.position = firingPoints[i].position;
+                proj.transform.rotation = firingPoints[i].rotation;
+                proj.SetActive(true);
+            }
+
+            m_Timer = 0;
         }
     }
 }

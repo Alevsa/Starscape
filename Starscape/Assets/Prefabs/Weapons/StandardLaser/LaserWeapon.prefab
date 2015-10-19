@@ -39,9 +39,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d860ec93a7f2741b3e9f9668005911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 134218, guid: cf9e34dbd9275424a90c45f89c363f94, type: 2}
+  Projectile: {fileID: 149702, guid: bb3f0bf6bbb1ed942a77e1717fba45ad, type: 2}
   Ammo: 100
-  FireRate: 0
+  FireRate: .5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -52,14 +52,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: Projectile
       value: 
-      objectReference: {fileID: 134218, guid: cf9e34dbd9275424a90c45f89c363f94, type: 2}
+      objectReference: {fileID: 149702, guid: bb3f0bf6bbb1ed942a77e1717fba45ad, type: 2}
     - target: {fileID: 0}
       propertyPath: Ammo
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: FireRate
-      value: 0
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
