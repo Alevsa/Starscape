@@ -185,7 +185,7 @@ public class OverworldAggressive : MonoBehaviour
 	{
 		if (Vector3.Distance(m_Player.transform.position, transform.position) > DespawnRange)
 		{	
-			transform.SetParent(GameObject.Find("ObjectPooler").transform);
+			transform.SetParent(GameObject.Find("OverworldObjectPooler").transform);
 			gameObject.SetActive(false);
 		}
 	}
