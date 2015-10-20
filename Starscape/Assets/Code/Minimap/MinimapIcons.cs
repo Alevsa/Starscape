@@ -50,7 +50,7 @@ public class MinimapIcons : MonoBehaviour
         foreach (KeyValuePair<GameObject, GameObject> con in m_Pointers)
         {
             con.Value.transform.position = Vector3.MoveTowards(con.Value.transform.position, GetLocation(con.Key.transform.position), Speed * Time.deltaTime);
-            Vector3 dir = new Vector3(con.Key.transform.position.x, -400, con.Key.transform.position.z);
+            Vector3 dir = new Vector3(con.Key.transform.position.x, -10000, con.Key.transform.position.z);
             con.Value.transform.LookAt(dir);
         }
     }
