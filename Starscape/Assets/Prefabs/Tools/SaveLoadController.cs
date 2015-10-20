@@ -20,14 +20,14 @@ public static class SaveLoadController {
 		return res;
 	}
 
-	public static void SavePlayerHealth (float health)
+	public static void SavePlayerHealth (string partName, float health)
 	{
-		PlayerPrefs.SetFloat ("pHealth", health);
+		PlayerPrefs.SetFloat ("p" + partName + "Health", health);
 	}
 
-	public static float GetPlayerHealth ()
+	public static float GetPlayerHealth (string partName)
 	{
-		float res = PlayerPrefs.GetFloat ("pHealth");
+		float res = PlayerPrefs.GetFloat ("p" + partName + "Health");
 
 		return res;
 	}
