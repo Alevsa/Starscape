@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public static class SaveLoadController {
-
+public static class SaveLoadController 
+{	
 	public static void SavePlayerPosition (Vector3 pos)
 	{
 		PlayerPrefs.SetFloat ("pXpos", pos.x);

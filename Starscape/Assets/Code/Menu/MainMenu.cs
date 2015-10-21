@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
 	public void NewGame()
 	{
-		Application.LoadLevel("Loader");
+		Application.LoadLevel("Overworld");
 	}
 	
 	public void Load()
