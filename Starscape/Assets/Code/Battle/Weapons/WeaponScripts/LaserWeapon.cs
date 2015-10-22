@@ -11,8 +11,7 @@ public class LaserWeapon : Weapon
             for (int i = 0; i < 2; i++)
             {
                 GameObject proj = ObjectPooler.Current.GetPooledObject(0);
-                proj.transform.position = firingPoints[i].position;
-                proj.transform.rotation = firingPoints[i].rotation;
+				proj.GetComponent<Projectile>().SetParams(SetProjectileParams());
                 proj.SetActive(true);
             }
 

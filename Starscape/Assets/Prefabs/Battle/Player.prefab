@@ -8,8 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 424484}
-  m_Layer: 0
-  m_Name: WeaponMountTwo
+  m_Layer: 10
+  m_Name: FiringPointTwo
   m_TagString: Untagged
   m_Icon: {fileID: -3545028842045912814, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ GameObject:
   - 114: {fileID: 11488820}
   - 54: {fileID: 5451114}
   - 114: {fileID: 11454354}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: PlayerBattle
   m_Icon: {fileID: 0}
@@ -45,8 +45,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 476722}
-  m_Layer: 0
-  m_Name: WeaponMountOne
+  m_Layer: 10
+  m_Name: FiringPointOne
   m_TagString: Untagged
   m_Icon: {fileID: -3545028842045912814, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ GameObject:
   - 65: {fileID: 6523508}
   - 23: {fileID: 2387912}
   - 114: {fileID: 11474620}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - 65: {fileID: 6562070}
   - 23: {fileID: 2354314}
   - 114: {fileID: 11495004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9aca1cbb0e42ed438470ae79716895c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EquippedPrimaryWeapon: {fileID: 11421930, guid: cbd4db5a7d26d6e499d7b35502fba6de,
+  EquippedPrimaryWeapon: {fileID: 173980, guid: cbd4db5a7d26d6e499d7b35502fba6de,
     type: 2}
   EquippedSecondaryWeapon: {fileID: 0}
 --- !u!114 &11474620

@@ -40,6 +40,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Projectile: {fileID: 149702, guid: bb3f0bf6bbb1ed942a77e1717fba45ad, type: 2}
+  Damage: 2
+  Speed: 100
   Ammo: 100
   FireRate: .5
 --- !u!1001 &100100000
@@ -60,6 +62,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: FireRate
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Speed
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

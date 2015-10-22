@@ -37,6 +37,9 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+--- !u!127 &3
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -65,7 +68,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -316,18 +318,6 @@ Prefab:
       propertyPath: Gyroscope
       value: 
       objectReference: {fileID: 1024184701}
-    - target: {fileID: 11454354, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
-      propertyPath: EquippedPrimaryWeapon
-      value: 
-      objectReference: {fileID: 173980, guid: cbd4db5a7d26d6e499d7b35502fba6de, type: 2}
-    - target: {fileID: 127838, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
-      propertyPath: m_Name
-      value: FiringPointTwo
-      objectReference: {fileID: 0}
-    - target: {fileID: 159846, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
-      propertyPath: m_Name
-      value: FiringPointOne
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
   m_IsPrefabParent: 0
@@ -667,6 +657,10 @@ Prefab:
       propertyPath: m_HandlerCamera
       value: 
       objectReference: {fileID: 1977934287}
+    - target: {fileID: 11471178, guid: 56bd7087b134d9344b2feb1e33f5b6dc, type: 2}
+      propertyPath: MouseControls
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56bd7087b134d9344b2feb1e33f5b6dc, type: 2}
   m_IsPrefabParent: 0
@@ -1493,6 +1487,79 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 493556, guid: 31bb6b85615fd7b43a80d14ebc565c40, type: 2}
   m_PrefabInternal: {fileID: 261812558}
+--- !u!1 &878358359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 878358363}
+  - 33: {fileID: 878358362}
+  - 135: {fileID: 878358361}
+  - 23: {fileID: 878358360}
+  m_Layer: 0
+  m_Name: DeathStar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &878358360
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878358359}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!135 &878358361
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878358359}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &878358362
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878358359}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &878358363
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878358359}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 611}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &887299391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,6 +2097,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 476080, guid: 4f810ed62b5bc7e408c6c6a682049555, type: 2}
       propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420194, guid: 4f810ed62b5bc7e408c6c6a682049555, type: 2}
+      propertyPath: Height
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
