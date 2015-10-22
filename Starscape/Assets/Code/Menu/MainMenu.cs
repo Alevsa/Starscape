@@ -18,6 +18,11 @@ public class MainMenu : MonoBehaviour
 	
 	}
 	
+	public void Credits()
+	{
+	
+	}
+	
 	// Make it ask if you're sure
 	public void Quit()
 	{
