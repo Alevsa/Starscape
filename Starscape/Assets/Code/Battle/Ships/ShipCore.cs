@@ -13,17 +13,24 @@ public class ShipCore : ShipComponent
 			Acceleration += peripheral.Acceleration;
 			Deceleration += peripheral.Deceleration;
 			MaxSpeed += peripheral.MaxSpeed;
-			Health += peripheral.Health;
+			MaxHealth += peripheral.MaxHealth;
+			MaxReverseSpeed += peripheral.MaxReverseSpeed;
+			RollRate += peripheral.RollRate;
 		}
 	}
 	
 	void Update()
 	{
-	
+		if (Health <= 0 && Alive)
+			Die ();
 	}
 	
 	void Die()
 	{
-	
+		Alive = false;
+		TurnRate = 0f;
+		Acceleration = 0f;
+		Deceleration = 0f;
+		RollRate = 0f;
 	}
 }

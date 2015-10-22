@@ -8,14 +8,15 @@ abstract public class ShipComponent : MonoBehaviour
 	public float Deceleration;
 	public float MaxSpeed;
 	public float MaxReverseSpeed;
+	public float MaxHealth;
 	public float Health;
 	public float Armour;
+	public bool Alive;
 	[HideInInspector]public float Speed;
 	public float RollRate;
 	
-	
-	
-	// On collider enter event to take damage will go here.
-	// 
-	//OnColl
+	public virtual void TakeDamage(float damage)
+	{
+		Health -= damage;
+	}
 }
