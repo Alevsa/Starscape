@@ -10,8 +10,9 @@ public class LaserWeapon : Weapon
         {
             for (int i = 0; i < 2; i++)
             {
+                float playerSpeed = Mathf.Abs(GameObject.FindGameObjectWithTag("PlayerBattle").GetComponent<ShipCore>().Speed /100);
                 GameObject proj = ObjectPooler.Current.GetPooledObject(0);
-				proj.GetComponent<Projectile>().SetParams(SetProjectileParams());
+                proj.GetComponent<Projectile>().SetParams(Damage, playerSpeed + Speed, firingPoints[i], HitLayers);
                 proj.SetActive(true);
             }
 

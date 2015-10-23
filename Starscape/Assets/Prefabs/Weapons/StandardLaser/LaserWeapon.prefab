@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 423376}
   - 114: {fileID: 11421930}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LaserWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Projectile: {fileID: 149702, guid: bb3f0bf6bbb1ed942a77e1717fba45ad, type: 2}
   Damage: 2
-  Speed: 100
+  Speed: 300
+  HitLayers:
+    serializedVersion: 2
+    m_Bits: 4294964223
   Ammo: 100
   FireRate: .5
 --- !u!1001 &100100000
@@ -69,7 +72,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Speed
-      value: 100
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: HitLayers.m_Bits
+      value: 4294964223
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: IgnoredLayers.m_Bits
+      value: 4294964223
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

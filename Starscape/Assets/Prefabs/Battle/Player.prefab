@@ -328,8 +328,10 @@ MonoBehaviour:
   Deceleration: 1
   MaxSpeed: 10
   MaxReverseSpeed: 0
+  MaxHealth: 0
   Health: 10
   Armour: 1
+  Alive: 0
   Speed: 0
   RollRate: 0
 --- !u!114 &11484394
@@ -348,8 +350,10 @@ MonoBehaviour:
   Deceleration: 8000
   MaxSpeed: 8000
   MaxReverseSpeed: 4000
+  MaxHealth: 0
   Health: 50
   Armour: 5
+  Alive: 0
   Speed: 0
   RollRate: 100
 --- !u!114 &11488820
@@ -382,8 +386,10 @@ MonoBehaviour:
   Deceleration: 1
   MaxSpeed: 10
   MaxReverseSpeed: 0
+  MaxHealth: 0
   Health: 10
   Armour: 1
+  Alive: 0
   Speed: 0
   RollRate: 0
 --- !u!1001 &100100000

@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
 	private float m_Speed;
 	private Vector3 m_Direction;
 	private Vector3 m_PrevPosition;
-	private LayerMask m_LayerMask;
+	private LayerMask m_HitLayers;
 	
 	void Update ()
     {
@@ -17,14 +17,15 @@ public class Projectile : MonoBehaviour
         Invoke("Destroy", 2f);
 	}
 
-	public void SetParams(ProjectileParams param)
+	public void SetParams(float dmg, float speed, Transform firingPoint, LayerMask hitLayer)
 	{
-		m_Damage = param.Damage;
-		m_Speed = param.Speed;
-		transform.rotation = param.Transform.rotation;
-		m_Direction = param.Transform.forward;
-		m_LayerMask = param.HitLayers;
-		transform.Rotate(90, 0, 0);
+		m_Damage = dmg;
+		m_Speed = speed;
+		m_HitLayers = hitLayer;
+
+        m_Direction = firingPoint.forward;
+        transform.position = firingPoint.position;
+        transform.rotation = firingPoint.rotation;
 	}
 
     protected virtual void MoveForward()
@@ -41,9 +42,9 @@ public class Projectile : MonoBehaviour
 	protected virtual void CheckCollisions()
 	{
 		RaycastHit hit;
-		if(Physics.Linecast(m_PrevPosition, transform.position, out hit, m_LayerMask))
+		if(Physics.Linecast(m_PrevPosition, transform.position, out hit, m_HitLayers))
 		{
-			Debug.Log ("Collision!");
+			Debug.Log ("Collision! - " + hit.transform.gameObject.name);
 			hit.transform.gameObject.SendMessage("TakeDamage", m_Damage);
 			Destroy ();
 		}
