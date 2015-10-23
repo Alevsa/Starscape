@@ -3,6 +3,8 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour 
 {
+	public GameObject CreditsPanel;
+
 	public void NewGame()
 	{
 		Application.LoadLevel("Overworld");
@@ -20,7 +22,10 @@ public class MainMenu : MonoBehaviour
 	
 	public void Credits()
 	{
-	
+		if (!CreditsPanel.activeSelf)
+			CreditsPanel.SetActive(true);
+		else 
+			CreditsPanel.SetActive(false);
 	}
 	
 	// Make it ask if you're sure
