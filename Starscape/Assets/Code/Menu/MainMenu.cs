@@ -8,39 +8,25 @@ public class MainMenu : MonoBehaviour
 	public GameObject NewGamePanel = null;
 	public GameObject LoadPanel = null;
 	
-	public void NewGame()
+	public void TogglePanel(GameObject panel)
 	{
-		Application.LoadLevel("Overworld");
-	}
-	
-	public void Load()
-	{
-	
-	}
-	
-	public void Options()
-	{
-	
-	}
-	
-	public void Credits()
-	{
-		if (CreditsPanel)
+		if (panel.activeSelf)
+		{
 			CloseAllWindows();
+		}
 		else
+		{
 			CloseAllWindows(); 
-			CreditsPanel.SetActive(true);
+			panel.SetActive(true);
+		}
 	}
 	
 	public void CloseAllWindows()
 	{
 		CreditsPanel.SetActive(false);
-		if (OptionsPanel)
-			OptionsPanel.SetActive(false);
-		if (NewGamePanel)
-			NewGamePanel.SetActive(false);
-		if (LoadPanel)
-			LoadPanel.SetActive(false);
+		OptionsPanel.SetActive(false);
+		NewGamePanel.SetActive(false);
+		LoadPanel.SetActive(false);
 	}
 	// Make it ask if you're sure
 	public void Quit()
