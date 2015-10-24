@@ -13,6 +13,7 @@ public class LaserWeapon : Weapon
                 float playerSpeed = Mathf.Abs(GameObject.FindGameObjectWithTag("PlayerBattle").GetComponent<ShipCore>().Speed /100);
                 GameObject proj = ObjectPooler.Current.GetPooledObject(0);
                 proj.GetComponent<Projectile>().SetParams(Damage, playerSpeed + Speed, firingPoints[i], HitLayers);
+                proj.transform.Rotate(90, 0, 0);
                 proj.SetActive(true);
             }
 

@@ -10,6 +10,7 @@ TagManager:
   - Waypoint
   - Star
   - PlayerBattle
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Planets
   - Player
   - Projectile
-  - 
+  - Enemy
   - 
   - 
   - 

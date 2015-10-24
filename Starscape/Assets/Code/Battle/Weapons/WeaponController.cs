@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public class WeaponController : MonoBehaviour
 {
+    public string WeapMountName;
     public GameObject EquippedPrimaryWeapon;
     public GameObject EquippedSecondaryWeapon;
 
-    private GameObject m_Player;
     private Weapon m_PrimWeap;
     private Weapon m_SecWeap;
 
@@ -15,13 +15,9 @@ public class WeaponController : MonoBehaviour
 
     public void Start()
     {
-        m_Player = GameObject.FindGameObjectWithTag("PlayerBattle");
-        transform.parent = m_Player.transform;
-        transform.position = m_Player.transform.position;
-
         m_FiringPoints = new List<Transform>();
-        foreach (Transform tran in m_Player.transform)
-            if (tran.gameObject.name.Contains("FiringPoint"))
+        foreach (Transform tran in transform)
+            if (tran.gameObject.name.Contains(WeapMountName))
                 m_FiringPoints.Add(tran);
 
         if (EquippedPrimaryWeapon != null)
@@ -42,17 +38,17 @@ public class WeaponController : MonoBehaviour
 
     public void EquipPrimaryWeapon(GameObject weap)
     {
-        GameObject w = Instantiate(weap, transform.position, transform.rotation) as GameObject;
-        w.transform.SetParent(transform);
-        EquippedPrimaryWeapon = w;
-        m_PrimWeap = w.GetComponent<Weapon>();
+        GameObject weapon = Instantiate(weap, transform.position, transform.rotation) as GameObject;
+        weapon.transform.SetParent(transform);
+        EquippedPrimaryWeapon = weapon;
+        m_PrimWeap = weapon.GetComponent<Weapon>();
     }
 
     public void EquipSecondaryWeapon(GameObject weap)
     {
-        GameObject w = Instantiate(weap, transform.position, transform.rotation) as GameObject;
-        w.transform.SetParent(transform);
-        EquippedSecondaryWeapon = w;
-        m_SecWeap = w.GetComponent<Weapon>();
+        GameObject weapon = Instantiate(weap, transform.position, transform.rotation) as GameObject;
+        weapon.transform.SetParent(transform);
+        EquippedSecondaryWeapon = weapon;
+        m_SecWeap = weapon.GetComponent<Weapon>();
     }
 }

@@ -9,7 +9,8 @@ public class Projectile : MonoBehaviour
 	private Vector3 m_Direction;
 	private Vector3 m_PrevPosition;
 	private LayerMask m_HitLayers;
-	
+    private Transform m_InitTrans;
+
 	void Update ()
     {
         MoveForward();
@@ -26,6 +27,7 @@ public class Projectile : MonoBehaviour
         m_Direction = firingPoint.forward;
         transform.position = firingPoint.position;
         transform.rotation = firingPoint.rotation;
+        m_InitTrans = firingPoint;
 	}
 
     protected virtual void MoveForward()
@@ -35,8 +37,8 @@ public class Projectile : MonoBehaviour
 
     protected virtual void Destroy()
     {
-        gameObject.SetActive(false);
         CancelInvoke();
+        gameObject.SetActive(false);
     }
 
 	protected virtual void CheckCollisions()
@@ -46,9 +48,10 @@ public class Projectile : MonoBehaviour
 		{
 			Debug.Log ("Collision! - " + hit.transform.gameObject.name);
 			hit.transform.gameObject.SendMessage("TakeDamage", m_Damage);
+            transform.position = m_InitTrans.position;
 			Destroy ();
 		}
 
-		m_PrevPosition = transform.position;
+        m_PrevPosition = transform.position;
 	}
 }
