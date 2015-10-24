@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 	public GameObject OptionsPanel = null;
 	public GameObject NewGamePanel = null;
 	public GameObject LoadPanel = null;
+	public GameObject QuitPanel = null;
 	
 	public void TogglePanel(GameObject panel)
 	{
@@ -27,6 +28,7 @@ public class MainMenu : MonoBehaviour
 		OptionsPanel.SetActive(false);
 		NewGamePanel.SetActive(false);
 		LoadPanel.SetActive(false);
+		QuitPanel.SetActive(false);
 	}
 	// Make it ask if you're sure
 	public void Quit()
