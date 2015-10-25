@@ -3,31 +3,53 @@ using System.Collections;
 
 public static class SaveLoadController 
 {	
+	public static void SetSaveSlot (int num)
+	{
+		if ((num <= 0) || (num > 3))
+			return;
+
+		PlayerPrefs.SetInt ("ActiveSlot", num);
+	}
+
+	public static void SetPlayerName (string name)
+	{
+		int activeSlot = PlayerPrefs.GetInt ("ActiveSlot");
+		PlayerPrefs.SetString (activeSlot + "playerName", name); 
+	}
+
 	public static void SavePlayerPosition (Vector3 pos)
 	{
-		PlayerPrefs.SetFloat ("pXpos", pos.x);
-		PlayerPrefs.SetFloat ("pYpos", pos.y);
-		PlayerPrefs.SetFloat ("pZpos", pos.z);
+		int activeSlot = PlayerPrefs.GetInt ("ActiveSlot");
+
+		PlayerPrefs.SetFloat (activeSlot + "pXpos", pos.x);
+		PlayerPrefs.SetFloat (activeSlot + "pYpos", pos.y);
+		PlayerPrefs.SetFloat (activeSlot + "pZpos", pos.z);
 	}
 
 	public static Vector3 GetSavedPlayerPosition ()
 	{
+		int activeSlot = PlayerPrefs.GetInt ("ActiveSlot");
+
 		Vector3 res;
-		res.x = PlayerPrefs.GetFloat ("pXpos");
-		res.y = PlayerPrefs.GetFloat ("pYpos");
-		res.z = PlayerPrefs.GetFloat ("pZpos");
+		res.x = PlayerPrefs.GetFloat (activeSlot + "pXpos");
+		res.y = PlayerPrefs.GetFloat (activeSlot + "pYpos");
+		res.z = PlayerPrefs.GetFloat (activeSlot + "pZpos");
 
 		return res;
 	}
 
 	public static void SavePlayerHealth (string partName, float health)
 	{
-		PlayerPrefs.SetFloat ("p" + partName + "Health", health);
+		int activeSlot = PlayerPrefs.GetInt ("ActiveSlot");
+
+		PlayerPrefs.SetFloat (activeSlot + "p" + partName + "Health", health);
 	}
 
 	public static float GetPlayerHealth (string partName)
 	{
-		float res = PlayerPrefs.GetFloat ("p" + partName + "Health");
+		int activeSlot = PlayerPrefs.GetInt ("ActiveSlot");
+
+		float res = PlayerPrefs.GetFloat (activeSlot + "p" + partName + "Health");
 
 		return res;
 	}
