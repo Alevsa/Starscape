@@ -63,7 +63,7 @@ public class BattleControl : MonoBehaviour
 	#region Converts mouse coordinates to joystick input, imagine the mouse cursor as the top of the joystick, that's how it works.
 	float MouseYToJoyStickAxis()
 	{
-		float y = ((Input.mousePosition.y - (0.5f * Screen.height)) / Screen.height) * 2f;  
+		float y = -1f * (((Input.mousePosition.y - (0.5f * Screen.height)) / Screen.height) * 2f);  
 		if (Mathf.Abs(y) < Deadzone)
 			return 0;
 		else return y;
@@ -71,7 +71,7 @@ public class BattleControl : MonoBehaviour
 	
 	float MouseXToJoyStickAxis()
 	{
-		float x = ((Input.mousePosition.x - (0.5f * Screen.width)) / Screen.width) * 2f;  
+		float x = (((Input.mousePosition.x - (0.5f * Screen.width)) / Screen.width) * 2f);  
 		if (Mathf.Abs(x) < Deadzone)
 			return 0;
 		else return x;
