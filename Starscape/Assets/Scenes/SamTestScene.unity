@@ -2068,7 +2068,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11420194, guid: 4f810ed62b5bc7e408c6c6a682049555, type: 2}
       propertyPath: Height
-      value: 2
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023690, guid: 4f810ed62b5bc7e408c6c6a682049555, type: 2}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023690, guid: 4f810ed62b5bc7e408c6c6a682049555, type: 2}
+      propertyPath: far clip plane
+      value: 10000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f810ed62b5bc7e408c6c6a682049555, type: 2}
