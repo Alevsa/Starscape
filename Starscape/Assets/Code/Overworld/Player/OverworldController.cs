@@ -13,6 +13,7 @@ public class OverworldController : MonoBehaviour
 	{
 		Player = GameObject.FindGameObjectWithTag("Player");
 		m_HandlerMovement = Player.GetComponent<OverworldMovement>();
+		Player.transform.position = SaveLoadController.GetSavedPlayerPosition();
 	}
 	
 	void Update () 

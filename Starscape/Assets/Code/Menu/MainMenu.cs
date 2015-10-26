@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MainMenu : MonoBehaviour 
@@ -8,6 +9,19 @@ public class MainMenu : MonoBehaviour
 	public GameObject NewGamePanel = null;
 	public GameObject LoadPanel = null;
 	public GameObject QuitPanel = null;
+	public string[] slotNames = null;
+	public Text[] LoadSlotText = null;
+	public Text[] SaveSlotText = null;
+	
+	void Start()
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			SaveLoadController.SetSaveSlot(i);
+			SaveSlotText[i].text = SaveLoadController.GetPlayerName().ToUpper();
+			LoadSlotText[i].text = SaveLoadController.GetPlayerName().ToUpper();
+		}
+	}
 	
 	public void TogglePanel(GameObject panel)
 	{
@@ -19,6 +33,23 @@ public class MainMenu : MonoBehaviour
 		{
 			CloseAllWindows(); 
 			panel.SetActive(true);
+		}
+	}
+	
+	public void NewGame(int slot)
+	{
+		SaveLoadController.SetSaveSlot(slot);
+		// clear data
+		// set new name
+		Application.LoadLevel("Overworld");
+	}
+	
+	public void LoadGame(int slot)
+	{
+		if (SaveLoadController.GetPlayerName() != "EMPTY SLOT")
+		{
+			SaveLoadController.SetSaveSlot(slot);
+			Application.LoadLevel("Overworld");
 		}
 	}
 	
@@ -34,10 +65,5 @@ public class MainMenu : MonoBehaviour
 	public void Quit()
 	{
 		Application.Quit();
-	}
-	
-	public void NewGame(int slot)
-	{
-		Application.LoadLevel("Overworld");
 	}
 }
