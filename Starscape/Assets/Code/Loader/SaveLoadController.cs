@@ -59,4 +59,11 @@ public static class SaveLoadController
 
 		return res;
 	}
+
+	public static void EraseSaveSlot (int slot)
+	{
+		SetSaveSlot (slot);
+		SetPlayerName ("");
+		SavePlayerPosition (new Vector3 (-1F, -1F, -1F));
+	}
 }
