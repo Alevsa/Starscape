@@ -3,6 +3,11 @@ using System.Collections;
 
 public static class SaveLoadController 
 {	
+	// Playername
+	// Player Position
+	// Player Health
+	// Part health
+	
 	public static void SetSaveSlot (int num)
 	{
 		if ((num <= 0) || (num > 3))

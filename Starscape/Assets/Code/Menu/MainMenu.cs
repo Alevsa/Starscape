@@ -39,8 +39,9 @@ public class MainMenu : MonoBehaviour
 	public void NewGame(int slot)
 	{
 		SaveLoadController.SetSaveSlot(slot);
-		// clear data
-		// set new name
+		SaveLoadController.EraseSaveSlot(slot);
+		SaveLoadController.SavePlayerPosition(new Vector3(0,0,0));
+		SaveLoadController.SetPlayerName("Jack Example");
 		Application.LoadLevel("Overworld");
 	}
 	
