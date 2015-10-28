@@ -11,14 +11,14 @@ public class MainMenu : MonoBehaviour
 	public GameObject QuitPanel = null;
 	public string[] slotNames = null;
 	public Text[] LoadSlotText = null;
-	public Text[] SaveSlotText = null;
+	public InputField[] SaveSlotText = null;
 	
 	void Start()
 	{
 		for (int i = 0; i < 3; i++)
 		{
 			SaveLoadController.SetSaveSlot(i);
-			SaveSlotText[i].text = SaveLoadController.GetPlayerName().ToUpper();
+			SaveSlotText[i].placeholder.GetComponent<Text>().text = SaveLoadController.GetPlayerName();
 			LoadSlotText[i].text = SaveLoadController.GetPlayerName().ToUpper();
 		}
 	}
@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviour
 		SaveLoadController.SetSaveSlot(slot);
 		SaveLoadController.EraseSaveSlot(slot);
 		SaveLoadController.SavePlayerPosition(new Vector3(0,0,0));
-		SaveLoadController.SetPlayerName("Jack Example");
+		SaveLoadController.SetPlayerName();
 		Application.LoadLevel("Overworld");
 	}
 	
