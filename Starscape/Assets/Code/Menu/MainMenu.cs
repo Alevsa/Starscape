@@ -6,21 +6,27 @@ public class MainMenu : MonoBehaviour
 {
 	public GameObject CreditsPanel = null;
 	public GameObject OptionsPanel = null;
-	public GameObject NewGamePanel = null;
-	public GameObject LoadPanel = null;
+	public GameObject PlayPanel = null;
 	public GameObject QuitPanel = null;
+	
+	public Button[] PlayButtons = null;
+	public InputField[] PlayInputs = null;
+	private int m_ActiveInputField;
+	
 	public string[] slotNames = null;
-	public Text[] LoadSlotText = null;
-	public InputField[] SaveSlotText = null;
 	
 	void Start()
 	{
 		for (int i = 0; i < 3; i++)
 		{
 			SaveLoadController.SetSaveSlot(i);
-			SaveSlotText[i].placeholder.GetComponent<Text>().text = SaveLoadController.GetPlayerName();
-			LoadSlotText[i].text = SaveLoadController.GetPlayerName().ToUpper();
 		}
+		InitialisePlayPanel();
+	}
+	
+	void Update()
+	{
+		InputFieldControl();
 	}
 	
 	public void TogglePanel(GameObject panel)
@@ -35,16 +41,16 @@ public class MainMenu : MonoBehaviour
 			panel.SetActive(true);
 		}
 	}
-	
+
 	public void NewGame(int slot)
 	{
 		SaveLoadController.SetSaveSlot(slot);
-		SaveLoadController.EraseSaveSlot(slot);
 		SaveLoadController.SavePlayerPosition(new Vector3(0,0,0));
-		SaveLoadController.SetPlayerName();
+		SaveLoadController.SetPlayerName(PlayInputs[slot].text);
 		Application.LoadLevel("Overworld");
 	}
 	
+	// Fix this
 	public void LoadGame(int slot)
 	{
 		if (SaveLoadController.GetPlayerName() != "EMPTY SLOT")
@@ -58,9 +64,54 @@ public class MainMenu : MonoBehaviour
 	{
 		CreditsPanel.SetActive(false);
 		OptionsPanel.SetActive(false);
-		NewGamePanel.SetActive(false);
-		LoadPanel.SetActive(false);
+		PlayPanel.SetActive(false);
 		QuitPanel.SetActive(false);
+	}
+	
+	public void InitialisePlayPanel()
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			SaveLoadController.SetSaveSlot(i);
+			if (SaveLoadController.GetPlayerName() == "")
+			{
+				Debug.Log("Hello");
+				PlayButtons[i].gameObject.SetActive(false);
+				PlayInputs[i].placeholder.GetComponent<Text>().text = "EMPTY SLOT";
+				PlayInputs[i].gameObject.SetActive(true);
+			}
+			else 
+			{
+				PlayButtons[i].gameObject.SetActive(true);
+				PlayButtons[i].GetComponentInChildren<Text>().text = SaveLoadController.GetPlayerName();
+				PlayInputs[i].gameObject.SetActive(false);
+			}
+		}
+	}
+	
+	public void InputFieldControl()
+	{		
+		bool inputFocused = false;
+		for (int i = 0; i < 3; i++)
+		{
+			if (PlayInputs[i].isFocused)
+			{
+				m_ActiveInputField = i;
+				inputFocused = true;
+			}
+		}
+		if (Input.GetButtonDown("Submit") && inputFocused)
+		{
+			NewGame(m_ActiveInputField);
+		}
+	
+	}
+	
+	public void DeleteFile(int slot)
+	{
+		SaveLoadController.EraseSaveSlot(slot);
+		SaveLoadController.SetSaveSlot(slot);
+		InitialisePlayPanel();
 	}
 	// Make it ask if you're sure
 	public void Quit()

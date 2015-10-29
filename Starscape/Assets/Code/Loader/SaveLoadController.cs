@@ -25,7 +25,7 @@ public static class SaveLoadController
 	public static string GetPlayerName()
 	{
 		int activeSlot = PlayerPrefs.GetInt ("ActiveSlot");
-		return PlayerPrefs.GetString(activeSlot + "playerName", "EMPTY SLOT");
+		return PlayerPrefs.GetString(activeSlot + "playerName");
 	}
 	
 	public static void SavePlayerPosition (Vector3 pos)
