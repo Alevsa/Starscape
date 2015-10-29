@@ -56,7 +56,7 @@ public class BattleControl : MonoBehaviour
 		else
 			m_HandlerMovement.PitchYaw(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        if (Input.GetButton("Fire"))
+        if (Input.GetButtonDown("Fire"))
             m_PlayerWeapons.FirePrimaryWeapon();
     }
 	
