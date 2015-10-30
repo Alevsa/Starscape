@@ -13,8 +13,6 @@ public class MainMenu : MonoBehaviour
 	public InputField[] PlayInputs = null;
 	private int m_ActiveInputField;
 	
-	public string[] slotNames = null;
-	
 	void Start()
 	{
 		for (int i = 0; i < 3; i++)
@@ -75,7 +73,6 @@ public class MainMenu : MonoBehaviour
 			SaveLoadController.SetSaveSlot(i);
 			if (SaveLoadController.GetPlayerName() == "")
 			{
-				Debug.Log("Hello");
 				PlayButtons[i].gameObject.SetActive(false);
 				PlayInputs[i].placeholder.GetComponent<Text>().text = "EMPTY SLOT";
 				PlayInputs[i].gameObject.SetActive(true);
@@ -104,7 +101,6 @@ public class MainMenu : MonoBehaviour
 		{
 			NewGame(m_ActiveInputField);
 		}
-	
 	}
 	
 	public void DeleteFile(int slot)
