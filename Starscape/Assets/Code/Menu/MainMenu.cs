@@ -45,7 +45,7 @@ public class MainMenu : MonoBehaviour
 		SaveLoadController.SetSaveSlot(slot);
 		SaveLoadController.SavePlayerPosition(new Vector3(0,0,0));
 		SaveLoadController.SetPlayerName(PlayInputs[slot].text);
-		Application.LoadLevel("Overworld");
+		InitialisePlayPanel();
 	}
 	
 	// Fix this
@@ -105,8 +105,8 @@ public class MainMenu : MonoBehaviour
 	
 	public void DeleteFile(int slot)
 	{
-		SaveLoadController.EraseSaveSlot(slot);
 		SaveLoadController.SetSaveSlot(slot);
+		SaveLoadController.EraseSaveSlot(slot);
 		InitialisePlayPanel();
 	}
 	// Make it ask if you're sure

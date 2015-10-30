@@ -10,7 +10,7 @@ public static class SaveLoadController
 	
 	public static void SetSaveSlot (int num)
 	{
-		if ((num <= 0) || (num > 3))
+		if ((num < 0) || (num > 2))
 			return;
 
 		PlayerPrefs.SetInt ("ActiveSlot", num);
