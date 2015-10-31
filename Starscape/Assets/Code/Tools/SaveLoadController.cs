@@ -71,4 +71,35 @@ public static class SaveLoadController
 		SetPlayerName ("");
 		SavePlayerPosition (new Vector3 (-1F, -1F, -1F));
 	}
+	
+	public static void SetYAxisInversion (bool inverted)
+	{
+		if (inverted)
+			PlayerPrefs.SetInt("yInverted", -1);
+		else
+			PlayerPrefs.SetInt("yInverted", 1);
+	}
+	
+	public static int GetYAxisInversion()
+	{
+		return PlayerPrefs.GetInt("yInverted", 1);
+	}
+	
+	public static void SetMouseControl (bool mouseControl)
+	{
+		if (mouseControl)
+			PlayerPrefs.SetInt("MouseControls", 1);
+		else
+			PlayerPrefs.SetInt("MouseControls", 0);		
+	}
+	
+	public static bool GetMouseControl ()
+	{
+		if (PlayerPrefs.GetInt("MouseControls") == 1)
+			return true;
+		else 
+			return false;
+	}
+	
+	
 }

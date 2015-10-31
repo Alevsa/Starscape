@@ -9,6 +9,8 @@ public class MainMenu : MonoBehaviour
 	public GameObject PlayPanel = null;
 	public GameObject QuitPanel = null;
 	
+	public Toggle MouseControlToggle = null;
+	public Toggle InvertedYAxis = null;
 	public Button[] PlayButtons = null;
 	public InputField[] PlayInputs = null;
 	private int m_ActiveInputField;
@@ -19,6 +21,15 @@ public class MainMenu : MonoBehaviour
 		{
 			SaveLoadController.SetSaveSlot(i);
 		}
+		if (SaveLoadController.GetYAxisInversion() == -1)
+			InvertedYAxis.isOn = true;
+		else 
+			InvertedYAxis.isOn = false;
+		
+		if (SaveLoadController.GetMouseControl())
+			MouseControlToggle.isOn = true;
+		else
+			MouseControlToggle.isOn = false;		
 		InitialisePlayPanel();
 	}
 	
@@ -109,6 +120,17 @@ public class MainMenu : MonoBehaviour
 		SaveLoadController.EraseSaveSlot(slot);
 		InitialisePlayPanel();
 	}
+	
+	public void ToggleMouseControlOption()
+	{
+		SaveLoadController.SetMouseControl(MouseControlToggle.isOn);
+	}
+	
+	public void ToggleInversionOption()
+	{
+		SaveLoadController.SetYAxisInversion(InvertedYAxis.isOn);
+	}
+	
 	// Make it ask if you're sure
 	public void Quit()
 	{

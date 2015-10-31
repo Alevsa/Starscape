@@ -5,7 +5,6 @@ public class BattleControl : MonoBehaviour
 {	
 	//Ship to be controlled
 	public GameObject Ship;
-	public bool MouseControls = false;
 	private BattleMovement m_HandlerMovement;
 	public BattleCamera m_HandlerCamera;
 	private float m_RotDamping;
@@ -51,11 +50,10 @@ public class BattleControl : MonoBehaviour
 		else	
 			m_HandlerMovement.StabiliserActive = false;
 		
-		if (MouseControls)
-			m_HandlerMovement.PitchYaw(MouseXToJoyStickAxis(), MouseYToJoyStickAxis());
+		if (SaveLoadController.GetMouseControl())
+			m_HandlerMovement.PitchYaw(MouseXToJoyStickAxis(), MouseYToJoyStickAxis() * SaveLoadController.GetYAxisInversion());
 		else
-			m_HandlerMovement.PitchYaw(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-
+			m_HandlerMovement.PitchYaw(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") * SaveLoadController.GetYAxisInversion());
         if (Input.GetButtonDown("Fire"))
             m_PlayerWeapons.FirePrimaryWeapon();
     }
