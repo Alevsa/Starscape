@@ -6,6 +6,7 @@ public class OverworldController : MonoBehaviour
 	//Ship to be controlled
 	public GameObject Player;
 	private OverworldMovement m_HandlerMovement;
+	public PauseMenu PauseMenuController;
 	private bool MoveInUse = false;
 	
 	// Use this for initialization
@@ -38,10 +39,14 @@ public class OverworldController : MonoBehaviour
 				MoveInUse = true;
 			}
 		}
-		if( Input.GetAxisRaw("Accelerate") == 0)
+		if (Input.GetAxisRaw("Accelerate") == 0)
 		{
 			MoveInUse = false;
 		}  
+		if (Input.GetButtonDown("Pause"))
+			PauseMenuController.TogglePauseMenu();
+			
+		
 		#endregion
 	}
 
