@@ -68,7 +68,7 @@ public static class SaveLoadController
 	public static void EraseSaveSlot (int slot)
 	{
 		SetSaveSlot (slot);
-		SetPlayerName ("");
+		SetPlayerName (null);
 		SavePlayerPosition (new Vector3 (-1F, -1F, -1F));
 	}
 	

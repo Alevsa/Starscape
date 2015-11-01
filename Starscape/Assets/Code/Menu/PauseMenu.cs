@@ -50,7 +50,7 @@ public class PauseMenu : MonoBehaviour
 	
 	public void Quit()
 	{
-		Application.Quit();
+		Application.LoadLevel("MainMenu");
 	}
 	
 	public void ToggleMouseControlOption()

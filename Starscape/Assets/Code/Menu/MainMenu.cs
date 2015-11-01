@@ -79,22 +79,29 @@ public class MainMenu : MonoBehaviour
 	
 	public void InitialisePlayPanel()
 	{
+		bool initialState = PlayPanel.activeSelf;
+		PlayPanel.SetActive(true);
 		for (int i = 0; i < 3; i++)
 		{
+			Debug.Log(i);
+			Debug.Log(SaveLoadController.GetPlayerName());
 			SaveLoadController.SetSaveSlot(i);
 			if (SaveLoadController.GetPlayerName() == "")
 			{
+				Debug.Log("Blank slot");
 				PlayButtons[i].gameObject.SetActive(false);
 				PlayInputs[i].placeholder.GetComponent<Text>().text = "EMPTY SLOT";
 				PlayInputs[i].gameObject.SetActive(true);
 			}
 			else 
 			{
+				Debug.Log("There's something here");
 				PlayButtons[i].gameObject.SetActive(true);
 				PlayButtons[i].GetComponentInChildren<Text>().text = SaveLoadController.GetPlayerName();
 				PlayInputs[i].gameObject.SetActive(false);
 			}
 		}
+		PlayPanel.SetActive(initialState);
 	}
 	
 	public void InputFieldControl()

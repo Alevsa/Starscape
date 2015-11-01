@@ -1065,6 +1065,22 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11409200, guid: bb188bf50dd2a8647b2cb3532595b704, type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417432, guid: bb188bf50dd2a8647b2cb3532595b704, type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401608, guid: bb188bf50dd2a8647b2cb3532595b704, type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420260, guid: bb188bf50dd2a8647b2cb3532595b704, type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb188bf50dd2a8647b2cb3532595b704, type: 2}
   m_IsPrefabParent: 0
