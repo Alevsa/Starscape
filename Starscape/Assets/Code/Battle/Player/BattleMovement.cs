@@ -101,4 +101,9 @@ public class BattleMovement : MonoBehaviour
 	{
 		transform.Rotate( 0f, 0f, Time.fixedDeltaTime * direction * m_Stats.RollRate );
 	}
+	
+	public void TurnToward(Quaternion focus)
+	{
+		transform.rotation = Quaternion.RotateTowards(transform.rotation, focus, m_Stats.TurnRate * Time.fixedDeltaTime);
+	}
 }
