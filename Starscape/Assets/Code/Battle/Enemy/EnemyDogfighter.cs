@@ -10,11 +10,17 @@ public class EnemyDogfighter : MonoBehaviour
 	private ShipCore m_core;
 	private BattleMovement m_BattleMovement;
 	private WeaponController m_weapon;
+	public Transform[] FiringPoints;
 	public float MaxVariation = 1.5f;
 	public float MinVariation = 0.7f;
 		
 	void Start () 
 	{
+		if (FiringPoints.Length == 0)
+		{
+			FiringPoints = new Transform[1];
+			FiringPoints[0] = transform;
+		}
 		m_weapon = gameObject.GetComponent<WeaponController>();
 		m_core = gameObject.GetComponent<ShipCore>();
 		m_BattleMovement = gameObject.GetComponent<BattleMovement>();
@@ -30,17 +36,23 @@ public class EnemyDogfighter : MonoBehaviour
 	
 	void FireControl()
 	{
-		if (Physics.Raycast(transform.position, transform.forward, Mathf.Infinity, EnemyLayer))
+		foreach (Transform pos in FiringPoints)
 		{
-			m_weapon.FirePrimaryWeapon();
+			Debug.DrawLine(pos.position, transform.forward*400f, Color.white);
+			if (Physics.Raycast(pos.position, transform.forward, Mathf.Infinity, EnemyLayer))
+			{
+				m_weapon.FirePrimaryWeapon();
+				break;
+			}
 		}
 	}
 	
 	void MovementControl()
 	{
+		Debug.Log(m_core.Speed);
 		float stopTime = (m_core.Speed * Time.fixedDeltaTime) / (m_core.Deceleration * Time.fixedDeltaTime);
 		float distance = 0.5f * ((m_core.Speed * Time.fixedDeltaTime) / stopTime);
-		Debug.DrawLine(transform.position, transform.forward*distance, Color.white);
+		
 		if (Physics.Raycast(transform.position, transform.forward * distance, EnemyLayer))
 			BreakOff();
 		else
@@ -50,13 +62,13 @@ public class EnemyDogfighter : MonoBehaviour
 	
 	void BreakOff()
 	{
-		Debug.Log("Breaking Off");
+		//Debug.Log("Breaking Off");
 		m_BattleMovement.Decelerate();
 	}
 	
 	void Pursue()
 	{
-		Debug.Log("In pursuit");
+		//Debug.Log("In pursuit");
 		Pointer.LookAt(focus);
 		m_BattleMovement.TurnToward(Pointer.rotation);
 		m_BattleMovement.Accelerate();

@@ -122,7 +122,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.16999996, y: -0, z: -1.88}
+  m_LocalPosition: {x: .470999986, y: -.0820000023, z: -.158000007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 484962}
@@ -146,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.16999996, y: 0, z: 1.88}
+  m_LocalPosition: {x: -1.86800003, y: 0, z: .0710000023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 484962}
@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.25, y: 0, z: -.0299999993}
+  m_LocalPosition: {x: 22, y: 40.8199997, z: -26.1000004}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 405574}
@@ -373,6 +373,9 @@ MonoBehaviour:
     m_Bits: 4294963199
   focus: {fileID: 0}
   Pointer: {fileID: 465250}
+  FiringPoints:
+  - {fileID: 405574}
+  - {fileID: 479830}
   MaxVariation: 1.5
   MinVariation: .699999988
 --- !u!114 &11472078
