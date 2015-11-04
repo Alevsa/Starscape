@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ShipCore : ShipComponent
 {
+	public GameObject Explosion;
 	private ShipPeripheral[] m_ShipPeripherals; 
 	void Start () 
 	{
@@ -39,5 +40,17 @@ public class ShipCore : ShipComponent
 		Acceleration = 0f;
 		Deceleration = 0f;
 		RollRate = 0f;
+		GameObject deathExplosion = Instantiate(Explosion, transform.position, transform.rotation) as GameObject;
+		deathExplosion.transform.SetParent(transform);
+		
+		//StartCoroutine("DeathAnimation");
 	}
+	/*
+	IEnumerator DeathAnimation()
+	{
+		for (float i = 0; i < DeathExplosions; i+= Time.deltaTime)
+		{
+			
+		}
+	}*/
 }

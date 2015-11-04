@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
 	private LayerMask m_HitLayers;
     private Transform m_InitTrans;
 
-	void Update ()
+	void FixedUpdate ()
     {
         MoveForward();
 		CheckCollisions();

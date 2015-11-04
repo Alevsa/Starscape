@@ -242,11 +242,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
       propertyPath: PooledObjects.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
       propertyPath: PooledAmounts.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 491900, guid: 5613b8497c26c95498399d611afb8931, type: 2}
       propertyPath: m_LocalPosition.x
@@ -286,7 +286,27 @@ Prefab:
       objectReference: {fileID: 149702, guid: ff98c811e695f9647949af0e1dd698c1, type: 2}
     - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
       propertyPath: PooledAmounts.Array.data[1]
-      value: 10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
+      propertyPath: PooledAmounts.Array.data[2]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
+      propertyPath: PooledAmounts.Array.data[0]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
+      propertyPath: PooledObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 149702, guid: ff98c811e695f9647949af0e1dd698c1, type: 2}
+    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
+      propertyPath: PooledObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 149702, guid: ff98c811e695f9647949af0e1dd698c1, type: 2}
+    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
+      propertyPath: PooledAmounts.Array.data[3]
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5613b8497c26c95498399d611afb8931, type: 2}
@@ -1856,7 +1876,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11465276, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
       propertyPath: focus
@@ -2695,6 +2715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9aca1cbb0e42ed438470ae79716895c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Alive: 1
   WeapMountName: FiringPoint
   EquippedPrimaryWeapon: {fileID: 173980, guid: cbd4db5a7d26d6e499d7b35502fba6de,
     type: 2}

@@ -274,8 +274,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1, z: 4}
+  m_Center: {x: -1, y: 0, z: 0}
 --- !u!114 &11409224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -293,7 +293,7 @@ MonoBehaviour:
   MaxSpeed: 10
   MaxReverseSpeed: 10
   MaxHealth: 10
-  Health: 101
+  Health: 5
   Armour: 10
   Alive: 0
   Speed: 0
@@ -309,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9aca1cbb0e42ed438470ae79716895c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Alive: 1
   WeapMountName: 
   EquippedPrimaryWeapon: {fileID: 173980, guid: 6ad22ab1def2bef4491406452f5d193c,
     type: 2}
@@ -330,7 +331,7 @@ MonoBehaviour:
   MaxSpeed: 10
   MaxReverseSpeed: 10
   MaxHealth: 10
-  Health: 10
+  Health: 5
   Armour: 10
   Alive: 0
   Speed: 0
@@ -351,9 +352,9 @@ MonoBehaviour:
   Deceleration: 8000
   MaxSpeed: 4000
   MaxReverseSpeed: 4000
-  MaxHealth: 50
+  MaxHealth: 1
   Health: 50
-  Armour: 5
+  Armour: 0
   Alive: 0
   Speed: 0
   RollRate: 100

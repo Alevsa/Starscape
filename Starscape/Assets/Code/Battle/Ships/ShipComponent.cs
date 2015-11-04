@@ -14,6 +14,7 @@ abstract public class ShipComponent : MonoBehaviour
 	public bool Alive = true;
 	[HideInInspector]public float Speed;
 	public float RollRate;
+	public int DeathExplosions = 3;
 	
 	public virtual void TakeDamage(float damage)
 	{
