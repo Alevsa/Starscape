@@ -10,12 +10,15 @@ public class EnemyDogfighter : MonoBehaviour
 	private ShipCore m_core;
 	private BattleMovement m_BattleMovement;
 	private WeaponController m_weapon;
-	
+	public float MaxVariation = 1.5f;
+	public float MinVariation = 0.7f;
+		
 	void Start () 
 	{
 		m_weapon = gameObject.GetComponent<WeaponController>();
 		m_core = gameObject.GetComponent<ShipCore>();
 		m_BattleMovement = gameObject.GetComponent<BattleMovement>();
+		StatRandomiser(MaxVariation, MinVariation);
 	}
 	
 
@@ -57,6 +60,17 @@ public class EnemyDogfighter : MonoBehaviour
 		Pointer.LookAt(focus);
 		m_BattleMovement.TurnToward(Pointer.rotation);
 		m_BattleMovement.Accelerate();
+	}
+	
+	public void StatRandomiser(float min, float max)
+	{
+		m_core.Acceleration *= Random.Range(min, max);
+		m_core.Deceleration *= Random.Range(min, max);  
+		m_core.MaxSpeed  *= Random.Range(min, max);  
+		m_core.TurnRate *= Random.Range(min, max);  
+		m_core.MaxHealth *= Random.Range(min, max);  
+		m_core.MaxReverseSpeed *= Random.Range(min, max);  
+		
 	}
 	
 	public void MoveToPoint()
