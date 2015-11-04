@@ -240,6 +240,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
+      propertyPath: PooledObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
+      propertyPath: PooledAmounts.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 491900, guid: 5613b8497c26c95498399d611afb8931, type: 2}
       propertyPath: m_LocalPosition.x
       value: -24.2841091
@@ -271,6 +279,14 @@ Prefab:
     - target: {fileID: 491900, guid: 5613b8497c26c95498399d611afb8931, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
+      propertyPath: PooledObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 149702, guid: ff98c811e695f9647949af0e1dd698c1, type: 2}
+    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
+      propertyPath: PooledAmounts.Array.data[1]
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5613b8497c26c95498399d611afb8931, type: 2}
@@ -1097,6 +1113,7 @@ GameObject:
   - 114: {fileID: 476098329}
   - 54: {fileID: 476098328}
   - 114: {fileID: 476098327}
+  - 114: {fileID: 476098334}
   m_Layer: 12
   m_Name: Enemy
   m_TagString: Enemy
@@ -1120,7 +1137,6 @@ MonoBehaviour:
     m_Bits: 4294963199
   focus: {fileID: 1390004884}
   Pointer: {fileID: 1878646378}
-  m_DangerouslyClose: 0
 --- !u!54 &476098328
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1213,6 +1229,21 @@ Transform:
   - {fileID: 1878646378}
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &476098334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 476098326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9aca1cbb0e42ed438470ae79716895c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeapMountName: 
+  EquippedPrimaryWeapon: {fileID: 173980, guid: 6ad22ab1def2bef4491406452f5d193c,
+    type: 2}
+  EquippedSecondaryWeapon: {fileID: 0}
 --- !u!4 &488944602 stripped
 Transform:
   m_PrefabParentObject: {fileID: 493556, guid: 31bb6b85615fd7b43a80d14ebc565c40, type: 2}
@@ -2564,7 +2595,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1237360144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .189999998, y: -.449999988, z: 3.50300002}
+  m_LocalPosition: {x: -1.16999996, y: 0, z: 1.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 476098333}
@@ -2994,7 +3025,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1508968202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.219999999, y: -.439999998, z: 3.49300003}
+  m_LocalPosition: {x: -1.16999996, y: -0, z: -1.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 476098333}

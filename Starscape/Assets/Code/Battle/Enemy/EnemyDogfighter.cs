@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyDogfighter : MonoBehaviour 
 {
@@ -8,15 +9,31 @@ public class EnemyDogfighter : MonoBehaviour
 	public Transform Pointer;
 	private ShipCore m_core;
 	private BattleMovement m_BattleMovement;
+	private WeaponController m_weapon;
 	
 	void Start () 
 	{
+		m_weapon = gameObject.GetComponent<WeaponController>();
 		m_core = gameObject.GetComponent<ShipCore>();
 		m_BattleMovement = gameObject.GetComponent<BattleMovement>();
 	}
 	
 
 	void FixedUpdate () 
+	{
+		MovementControl();
+		FireControl();
+	}
+	
+	void FireControl()
+	{
+		if (Physics.Raycast(transform.position, transform.forward, Mathf.Infinity, EnemyLayer))
+		{
+			m_weapon.FirePrimaryWeapon();
+		}
+	}
+	
+	void MovementControl()
 	{
 		float stopTime = (m_core.Speed * Time.fixedDeltaTime) / (m_core.Deceleration * Time.fixedDeltaTime);
 		float distance = 0.5f * ((m_core.Speed * Time.fixedDeltaTime) / stopTime);
@@ -26,6 +43,7 @@ public class EnemyDogfighter : MonoBehaviour
 		else
 			Pursue();
 	}
+	
 	
 	void BreakOff()
 	{
