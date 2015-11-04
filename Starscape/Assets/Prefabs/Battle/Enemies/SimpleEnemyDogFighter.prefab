@@ -63,6 +63,7 @@ GameObject:
   - 54: {fileID: 5497938}
   - 114: {fileID: 11465276}
   - 114: {fileID: 11414366}
+  - 82: {fileID: 8293558}
   m_Layer: 12
   m_Name: SimpleEnemyDogFighter
   m_TagString: Enemy
@@ -158,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22, y: 40.8199997, z: -26.1000004}
+  m_LocalPosition: {x: 1.3647213, y: 0, z: -.000118255615}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 405574}
@@ -276,6 +277,75 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 4}
   m_Center: {x: -1, y: 0, z: 0}
+--- !u!82 &8293558
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154016}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1333df89c1e0093428b8ef22588efc60, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 5
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11409224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -293,11 +363,12 @@ MonoBehaviour:
   MaxSpeed: 10
   MaxReverseSpeed: 10
   MaxHealth: 10
-  Health: 5
+  Health: 1
   Armour: 10
   Alive: 0
   Speed: 0
   RollRate: 0
+  DeathExplosions: 3
 --- !u!114 &11414366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -331,11 +402,12 @@ MonoBehaviour:
   MaxSpeed: 10
   MaxReverseSpeed: 10
   MaxHealth: 10
-  Health: 5
+  Health: 1
   Armour: 10
   Alive: 0
   Speed: 0
   RollRate: 0
+  DeathExplosions: 3
 --- !u!114 &11439712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,11 +425,17 @@ MonoBehaviour:
   MaxSpeed: 4000
   MaxReverseSpeed: 4000
   MaxHealth: 1
-  Health: 50
+  Health: 1
   Armour: 0
   Alive: 0
   Speed: 0
   RollRate: 100
+  DeathExplosions: 3
+  Explosion: {fileID: 100004, guid: ac8c1c4fd62d44c809ced6a1696a9d62, type: 2}
+  Gibs:
+  - {fileID: 173356, guid: 575528bb91309ae408f523fb4b25573c, type: 2}
+  - {fileID: 149396, guid: 5bd41f6e4a4e3684d81455c771e83d2c, type: 2}
+  - {fileID: 163240, guid: eface8c29ae10a14ebf94910e20971c7, type: 2}
 --- !u!114 &11465276
 MonoBehaviour:
   m_ObjectHideFlags: 1
