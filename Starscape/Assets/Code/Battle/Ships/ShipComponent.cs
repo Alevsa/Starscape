@@ -11,7 +11,7 @@ abstract public class ShipComponent : MonoBehaviour
 	public float MaxHealth;
 	public float Health;
 	public float Armour;
-	public bool Alive;
+	public bool Alive = true;
 	[HideInInspector]public float Speed;
 	public float RollRate;
 	

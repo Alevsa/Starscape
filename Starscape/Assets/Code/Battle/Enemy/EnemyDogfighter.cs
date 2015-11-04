@@ -13,7 +13,11 @@ public class EnemyDogfighter : MonoBehaviour
 	public Transform[] FiringPoints;
 	public float MaxVariation = 1.5f;
 	public float MinVariation = 0.7f;
-		
+	
+	///
+	/// TO DO:
+	/// Make the distance check from the player more intelligent
+	///
 	void Start () 
 	{
 		if (FiringPoints.Length == 0)
@@ -38,7 +42,7 @@ public class EnemyDogfighter : MonoBehaviour
 	{
 		foreach (Transform pos in FiringPoints)
 		{
-			Debug.DrawLine(pos.position, transform.forward*400f, Color.white);
+			//Debug.DrawLine(pos.position, transform.forward*400f, Color.white);
 			if (Physics.Raycast(pos.position, transform.forward, Mathf.Infinity, EnemyLayer))
 			{
 				m_weapon.FirePrimaryWeapon();
@@ -49,7 +53,7 @@ public class EnemyDogfighter : MonoBehaviour
 	
 	void MovementControl()
 	{
-		Debug.Log(m_core.Speed);
+		//Debug.Log(m_core.Speed);
 		float stopTime = (m_core.Speed * Time.fixedDeltaTime) / (m_core.Deceleration * Time.fixedDeltaTime);
 		float distance = 0.5f * ((m_core.Speed * Time.fixedDeltaTime) / stopTime);
 		

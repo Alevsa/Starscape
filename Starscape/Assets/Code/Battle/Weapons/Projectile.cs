@@ -46,8 +46,12 @@ public class Projectile : MonoBehaviour
 		RaycastHit hit;
 		if(Physics.Linecast(m_PrevPosition, transform.position, out hit, m_HitLayers))
 		{
-			Debug.Log ("Collision! - " + hit.transform.gameObject.name);
-			hit.transform.gameObject.SendMessage("TakeDamage", m_Damage);
+			//Debug.Log ("Collision! - " + hit.transform.gameObject.name);
+			ShipCore hitCore = hit.transform.gameObject.GetComponent<ShipCore>();
+			if (hitCore != null)
+			{
+				hitCore.TakeDamage(m_Damage);
+			}
             transform.position = m_InitTrans.position;
 			Destroy ();
 		}

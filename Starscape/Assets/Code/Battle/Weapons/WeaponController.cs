@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class WeaponController : MonoBehaviour
 {
+	[HideInInspector]public bool Alive = true;
     public string WeapMountName;
     public GameObject EquippedPrimaryWeapon;
     public GameObject EquippedSecondaryWeapon;
@@ -28,12 +29,14 @@ public class WeaponController : MonoBehaviour
 
     public void FirePrimaryWeapon()
     {
-        m_PrimWeap.Fire(m_FiringPoints);
+    	if (Alive)
+       		m_PrimWeap.Fire(m_FiringPoints);
     }
 
     public void FireSecondaryWeapon()
     {
-        m_SecWeap.Fire(m_FiringPoints);
+    	if (Alive)
+        	m_SecWeap.Fire(m_FiringPoints);
     }
 
     public void EquipPrimaryWeapon(GameObject weap)

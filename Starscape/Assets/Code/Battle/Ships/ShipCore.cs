@@ -7,6 +7,7 @@ public class ShipCore : ShipComponent
 	void Start () 
 	{
 		m_ShipPeripherals = GetComponentsInChildren<ShipPeripheral>();
+		Alive = true;
 		foreach(ShipPeripheral peripheral in m_ShipPeripherals)
 		{
 			TurnRate += peripheral.TurnRate;
@@ -26,7 +27,13 @@ public class ShipCore : ShipComponent
 	}
 	
 	void Die()
-	{
+	{	
+		Debug.Log("Dead");
+		WeaponController weapons = gameObject.GetComponent<WeaponController>();
+		if (weapons != null)
+		{
+			weapons.Alive = false;
+		}
 		Alive = false;
 		TurnRate = 0f;
 		Acceleration = 0f;
