@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class WeaponController : MonoBehaviour
 {
 	[HideInInspector]public bool Alive = true;
+	private AudioController m_AudioController; 
+	public AudioClip FireSound;
     public string WeapMountName;
     public GameObject EquippedPrimaryWeapon;
     public GameObject EquippedSecondaryWeapon;
@@ -16,6 +18,7 @@ public class WeaponController : MonoBehaviour
 
     public void Start()
     {
+    	m_AudioController = gameObject.GetComponent<AudioController>();
         m_FiringPoints = new List<Transform>();
         foreach (Transform tran in transform)
             if (tran.gameObject.name.Contains(WeapMountName))
@@ -30,6 +33,10 @@ public class WeaponController : MonoBehaviour
     public void FirePrimaryWeapon()
     {
     	if (Alive)
+    		if (FireSound != null && m_PrimWeap.ICanFire())
+    		{
+       			m_AudioController.PlaySound(FireSound);
+       		}
        		m_PrimWeap.Fire(m_FiringPoints);
     }
 

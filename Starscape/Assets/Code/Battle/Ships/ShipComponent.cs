@@ -3,7 +3,7 @@ using System.Collections;
 
 abstract public class ShipComponent : MonoBehaviour 
 {
-	private AudioSource m_ExplosionSound;
+	private AudioController m_AudioController;
 	public AudioClip[] ExplosionSounds;
 	public AudioClip HitExplosionSound;
 	public GameObject Explosion;
@@ -27,13 +27,16 @@ abstract public class ShipComponent : MonoBehaviour
 	public virtual void Start()
 	{
 		NumberOfGibs += Random.Range(0, 4);
-		m_ExplosionSound = gameObject.GetComponent<AudioSource>();
+		m_AudioController = gameObject.GetComponent<AudioController>();
 	}
 	
 	public virtual void TakeDamage(float damage)
 	{	
-		m_ExplosionSound.clip = HitExplosionSound;
-		m_ExplosionSound.Play();
+		if (HitExplosionSound != null)
+		{
+			m_AudioController.PlaySound(HitExplosionSound);
+		}
+		
 		if (damage - Armour <= 0)
 			Health -= 1;				
 		else
@@ -42,10 +45,9 @@ abstract public class ShipComponent : MonoBehaviour
 	
 	protected virtual void DeathAnimation()
 	{
-		if (m_ExplosionSound != null)
+		if (ExplosionSounds != null)
 		{
-			m_ExplosionSound.clip = ExplosionSounds[Random.Range(0, ExplosionSounds.Length)];
-			m_ExplosionSound.Play();
+			m_AudioController.PlaySound(ExplosionSounds[Random.Range(0, ExplosionSounds.Length)]);
 		}		
 		GameObject deathExplosion = Instantiate(Explosion, transform.position, transform.rotation) as GameObject;
 		for (int i = 0; i < NumberOfGibs; i++)

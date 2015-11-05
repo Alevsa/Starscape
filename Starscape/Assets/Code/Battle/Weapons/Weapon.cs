@@ -17,7 +17,14 @@ public abstract class Weapon : MonoBehaviour
     {
         m_Timer += Time.deltaTime;
     }
-
+	
+	public bool ICanFire()
+	{
+		if (m_Timer > FireRate)
+			return true;
+		else return false;
+	}
+	
     public virtual void Fire(List<Transform> firingPoints)
     {
     }
