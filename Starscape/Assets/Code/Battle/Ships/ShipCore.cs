@@ -29,7 +29,7 @@ public class ShipCore : ShipComponent
 	
 	void Die()
 	{	
-		Debug.Log("Dead");
+		//Debug.Log("Dead");
 		WeaponController weapons = gameObject.GetComponent<WeaponController>();
 		if (weapons != null)
 		{

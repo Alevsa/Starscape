@@ -24,7 +24,7 @@ public class ShipPeripheral : ShipComponent
 	public override void TakeDamage(float damage)
 	{
 		base.TakeDamage(damage);
-		Debug.Log("hit");
+		//Debug.Log("hit");
 		m_Core.TakeDamage(damage);
 	}
 	

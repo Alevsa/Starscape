@@ -53,6 +53,12 @@ public class Projectile : MonoBehaviour
 			{
 				hitThing.TakeDamage(m_Damage);
 			}
+		// Doesn't work, not sure if it's even efficient to use object pooling in this situation
+		/*	GameObject obj = ObjectPooler.Current.GetPooledObject(2);
+			obj.GetComponent<ParticleSystem>().Play();
+			obj.transform.parent = gameObject.transform;
+			obj.transform.position = gameObject.transform.position;*/
+		
 			Instantiate(Explosion, transform.position, transform.rotation);
             transform.position = m_InitTrans.position;
 			Destroy ();
