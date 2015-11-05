@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
 	private Vector3 m_PrevPosition;
 	private LayerMask m_HitLayers;
     private Transform m_InitTrans;
+    public GameObject Explosion;
 
 	void FixedUpdate ()
     {
@@ -47,11 +48,12 @@ public class Projectile : MonoBehaviour
 		if(Physics.Linecast(m_PrevPosition, transform.position, out hit, m_HitLayers))
 		{
 			//Debug.Log ("Collision! - " + hit.transform.gameObject.name);
-			ShipCore hitCore = hit.transform.gameObject.GetComponent<ShipCore>();
-			if (hitCore != null)
+			ShipComponent hitThing = hit.transform.gameObject.GetComponent<ShipComponent>();
+			if (hitThing != null)
 			{
-				hitCore.TakeDamage(m_Damage);
+				hitThing.TakeDamage(m_Damage);
 			}
+			Instantiate(Explosion, transform.position, transform.rotation);
             transform.position = m_InitTrans.position;
 			Destroy ();
 		}

@@ -286,7 +286,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1333df89c1e0093428b8ef22588efc60, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 61234629e4b45fe4b8c95b5a219d378c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -357,6 +357,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExplosionSounds: []
+  Explosion: {fileID: 0}
+  Gibs: []
+  NumberOfGibs: 4
   TurnRate: 10
   Acceleration: 10
   Deceleration: 10
@@ -396,6 +400,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExplosionSounds: []
+  Explosion: {fileID: 0}
+  Gibs: []
+  NumberOfGibs: 4
   TurnRate: 10
   Acceleration: 10
   Deceleration: 10
@@ -419,6 +427,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3134ac6274767bf4db09cc749c390af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExplosionSounds:
+  - {fileID: 8300000, guid: 627c60dc0939c274992865272545cf47, type: 3}
+  - {fileID: 8300000, guid: 1333df89c1e0093428b8ef22588efc60, type: 3}
+  - {fileID: 8300000, guid: 61234629e4b45fe4b8c95b5a219d378c, type: 3}
+  Explosion: {fileID: 100004, guid: ac8c1c4fd62d44c809ced6a1696a9d62, type: 2}
+  Gibs:
+  - {fileID: 173356, guid: 575528bb91309ae408f523fb4b25573c, type: 2}
+  - {fileID: 149396, guid: 5bd41f6e4a4e3684d81455c771e83d2c, type: 2}
+  - {fileID: 163240, guid: eface8c29ae10a14ebf94910e20971c7, type: 2}
+  NumberOfGibs: 4
   TurnRate: 100
   Acceleration: 4000
   Deceleration: 8000
@@ -431,11 +449,6 @@ MonoBehaviour:
   Speed: 0
   RollRate: 100
   DeathExplosions: 3
-  Explosion: {fileID: 100004, guid: ac8c1c4fd62d44c809ced6a1696a9d62, type: 2}
-  Gibs:
-  - {fileID: 173356, guid: 575528bb91309ae408f523fb4b25573c, type: 2}
-  - {fileID: 149396, guid: 5bd41f6e4a4e3684d81455c771e83d2c, type: 2}
-  - {fileID: 163240, guid: eface8c29ae10a14ebf94910e20971c7, type: 2}
 --- !u!114 &11465276
 MonoBehaviour:
   m_ObjectHideFlags: 1
