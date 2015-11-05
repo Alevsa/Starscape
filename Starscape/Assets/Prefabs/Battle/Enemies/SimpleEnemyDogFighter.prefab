@@ -63,7 +63,7 @@ GameObject:
   - 54: {fileID: 5497938}
   - 114: {fileID: 11465276}
   - 114: {fileID: 11414366}
-  - 82: {fileID: 8293558}
+  - 114: {fileID: 11413522}
   m_Layer: 12
   m_Name: SimpleEnemyDogFighter
   m_TagString: Enemy
@@ -277,75 +277,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 4}
   m_Center: {x: -1, y: 0, z: 0}
---- !u!82 &8293558
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154016}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 61234629e4b45fe4b8c95b5a219d378c, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 5
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!114 &11409224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -358,6 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionSounds: []
+  HitExplosionSound: {fileID: 0}
   Explosion: {fileID: 0}
   Gibs: []
   NumberOfGibs: 4
@@ -372,7 +304,18 @@ MonoBehaviour:
   Alive: 0
   Speed: 0
   RollRate: 0
-  DeathExplosions: 3
+--- !u!114 &11413522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159bacb8b37e35c4c9d5aa60f3642401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioChannels: 4
 --- !u!114 &11414366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -385,6 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alive: 1
+  FireSound: {fileID: 8300000, guid: 2eddcb3801b7aa44cb5c0a2bff399c6d, type: 3}
   WeapMountName: 
   EquippedPrimaryWeapon: {fileID: 173980, guid: 6ad22ab1def2bef4491406452f5d193c,
     type: 2}
@@ -401,6 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionSounds: []
+  HitExplosionSound: {fileID: 0}
   Explosion: {fileID: 0}
   Gibs: []
   NumberOfGibs: 4
@@ -415,7 +360,6 @@ MonoBehaviour:
   Alive: 0
   Speed: 0
   RollRate: 0
-  DeathExplosions: 3
 --- !u!114 &11439712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -429,8 +373,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplosionSounds:
   - {fileID: 8300000, guid: 627c60dc0939c274992865272545cf47, type: 3}
-  - {fileID: 8300000, guid: 1333df89c1e0093428b8ef22588efc60, type: 3}
   - {fileID: 8300000, guid: 61234629e4b45fe4b8c95b5a219d378c, type: 3}
+  HitExplosionSound: {fileID: 8300000, guid: 1333df89c1e0093428b8ef22588efc60, type: 3}
   Explosion: {fileID: 100004, guid: ac8c1c4fd62d44c809ced6a1696a9d62, type: 2}
   Gibs:
   - {fileID: 173356, guid: 575528bb91309ae408f523fb4b25573c, type: 2}
@@ -448,7 +392,6 @@ MonoBehaviour:
   Alive: 0
   Speed: 0
   RollRate: 100
-  DeathExplosions: 3
 --- !u!114 &11465276
 MonoBehaviour:
   m_ObjectHideFlags: 1
