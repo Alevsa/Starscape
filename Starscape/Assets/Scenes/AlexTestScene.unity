@@ -829,8 +829,8 @@ Transform:
   - {fileID: 1606956201}
   - {fileID: 35240730}
   - {fileID: 564809721}
-  - {fileID: 1514776365}
   - {fileID: 950140999}
+  - {fileID: 1514776365}
   m_Father: {fileID: 0}
   m_RootOrder: 10
 --- !u!4 &390835133 stripped
@@ -1228,7 +1228,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11465276, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
       propertyPath: focus
@@ -1960,7 +1960,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11465276, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
       propertyPath: focus
@@ -2482,6 +2482,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11484394, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
+      propertyPath: Gibs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11484394, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
+      propertyPath: ExplosionSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404070, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2518,6 +2526,22 @@ Prefab:
       propertyPath: Gyroscope
       value: 
       objectReference: {fileID: 1024184701}
+    - target: {fileID: 11484394, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
+      propertyPath: ExplosionSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 61234629e4b45fe4b8c95b5a219d378c, type: 3}
+    - target: {fileID: 11484394, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
+      propertyPath: Gibs.Array.data[0]
+      value: 
+      objectReference: {fileID: 173356, guid: 575528bb91309ae408f523fb4b25573c, type: 2}
+    - target: {fileID: 11484394, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
+      propertyPath: Gibs.Array.data[1]
+      value: 
+      objectReference: {fileID: 149396, guid: 5bd41f6e4a4e3684d81455c771e83d2c, type: 2}
+    - target: {fileID: 11484394, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
+      propertyPath: Gibs.Array.data[2]
+      value: 
+      objectReference: {fileID: 163240, guid: eface8c29ae10a14ebf94910e20971c7, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
   m_IsPrefabParent: 0
@@ -4608,6 +4632,10 @@ Prefab:
       propertyPath: focus
       value: 
       objectReference: {fileID: 1390004884}
+    - target: {fileID: 11414366, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
+      propertyPath: FireSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 369816508f74457438b35b44f61a67ce, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
   m_IsPrefabParent: 0

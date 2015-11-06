@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyDogfighter : MonoBehaviour 
 {
+	private ShipCore m_TargetCore;
 	public LayerMask EnemyLayer;
 	public Transform focus;
 	public Transform Pointer;
@@ -20,6 +21,7 @@ public class EnemyDogfighter : MonoBehaviour
 	///
 	void Start () 
 	{
+		m_TargetCore = focus.GetComponent<ShipCore>();
 		if (FiringPoints.Length == 0)
 		{
 			FiringPoints = new Transform[1];
@@ -43,7 +45,7 @@ public class EnemyDogfighter : MonoBehaviour
 		foreach (Transform pos in FiringPoints)
 		{
 			//Debug.DrawLine(pos.position, transform.forward*400f, Color.white);
-			if (Physics.Raycast(pos.position, transform.forward, Mathf.Infinity, EnemyLayer))
+			if (Physics.Raycast(pos.position, transform.forward, Mathf.Infinity, EnemyLayer) && m_TargetCore.Alive)
 			{
 				m_weapon.FirePrimaryWeapon();
 				break;
@@ -57,7 +59,8 @@ public class EnemyDogfighter : MonoBehaviour
 		float stopTime = (m_core.Speed * Time.fixedDeltaTime) / (m_core.Deceleration * Time.fixedDeltaTime);
 		float distance = 0.5f * ((m_core.Speed * Time.fixedDeltaTime) / stopTime);
 		
-		if (Physics.Raycast(transform.position, transform.forward * distance, EnemyLayer))
+		//if (Physics.Raycast(transform.position, transform.forward * distance, EnemyLayer))
+		if (Vector3.Distance(transform.position, focus.transform.position) < distance && m_TargetCore.Alive)
 			BreakOff();
 		else
 			Pursue();
@@ -67,7 +70,7 @@ public class EnemyDogfighter : MonoBehaviour
 	void BreakOff()
 	{
 		//Debug.Log("Breaking Off");
-		m_BattleMovement.Decelerate();
+		m_BattleMovement.HandBrake();
 	}
 	
 	void Pursue()

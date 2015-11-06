@@ -56,4 +56,9 @@ abstract public class ShipComponent : MonoBehaviour
 		}
 	}
 	
+	public virtual void OnCollisionEnter(Collision other)
+	{
+	
+	}
+	
 }

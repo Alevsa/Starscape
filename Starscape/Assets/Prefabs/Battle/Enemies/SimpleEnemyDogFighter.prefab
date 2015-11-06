@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alive: 1
-  FireSound: {fileID: 8300000, guid: 2eddcb3801b7aa44cb5c0a2bff399c6d, type: 3}
+  FireSound: {fileID: 8300000, guid: 5e1ff0191769d6c41b7b2c7c4befc04c, type: 3}
   WeapMountName: 
   EquippedPrimaryWeapon: {fileID: 173980, guid: 6ad22ab1def2bef4491406452f5d193c,
     type: 2}
@@ -380,7 +380,7 @@ MonoBehaviour:
   - {fileID: 173356, guid: 575528bb91309ae408f523fb4b25573c, type: 2}
   - {fileID: 149396, guid: 5bd41f6e4a4e3684d81455c771e83d2c, type: 2}
   - {fileID: 163240, guid: eface8c29ae10a14ebf94910e20971c7, type: 2}
-  NumberOfGibs: 4
+  NumberOfGibs: 100
   TurnRate: 100
   Acceleration: 4000
   Deceleration: 8000
