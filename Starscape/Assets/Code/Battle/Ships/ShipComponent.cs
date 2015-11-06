@@ -6,10 +6,11 @@ abstract public class ShipComponent : MonoBehaviour
 	private AudioController m_AudioController;
 	public AudioClip[] ExplosionSounds;
 	public AudioClip HitExplosionSound;
+	public AudioClip CollisionSound = null;
 	public GameObject Explosion;
 	public GameObject[] Gibs;
 	public int NumberOfGibs = 4;
-	
+	public float CollisionDamage = 0.25f;
 	
 	public float TurnRate;
 	public float Acceleration;
@@ -26,6 +27,10 @@ abstract public class ShipComponent : MonoBehaviour
 	
 	public virtual void Start()
 	{
+		/*if (CollisionSound = null)
+		{
+			CollisionSound = HitExplosionSound;
+		}*/
 		NumberOfGibs += Random.Range(0, 4);
 		m_AudioController = gameObject.GetComponent<AudioController>();
 	}
@@ -58,7 +63,9 @@ abstract public class ShipComponent : MonoBehaviour
 	
 	public virtual void OnCollisionEnter(Collision other)
 	{
-	
+		Health -= CollisionDamage * MaxHealth;
+		//Debug.Log(CollisionSound);
+		m_AudioController.PlaySound(CollisionSound);
 	}
 	
 }

@@ -46,6 +46,18 @@ public class BattleCamera : MonoBehaviour
 	// Also this has to go in fixed update as it's chasing a physics object, if it's not in fixed update it'll have more/less frames than the object and jitter.
 	void FixedUpdate()
 	{
+		if (m_Stats.Alive)
+		{
+			CameraMovement();
+		}
+		//else 
+		//{
+		//	transform.rotation = Quaternion.RotateTowards(transform.rotation, m_Focus.rotation, m_RotationDamping*Time.deltaTime*Vector3.Distance(transform.rotation.eulerAngles, m_Focus.rotation.eulerAngles));
+		//}
+	}
+	
+	private void CameraMovement()
+	{
 		Pointer.rotation = m_Focus.rotation;
 		m_Damping = (Mathf.Abs(m_Stats.Speed) * DampingFactor) + DampingOffset;
 		if (m_Flipped)
@@ -63,10 +75,6 @@ public class BattleCamera : MonoBehaviour
 		transform.localPosition = Vector3.MoveTowards(transform.position, m_DesiredPosition, m_Damping*Time.deltaTime*Vector3.Distance(transform.position, m_DesiredPosition));
 		transform.rotation = Quaternion.RotateTowards(transform.rotation,  Pointer.rotation, m_RotationDamping*Time.deltaTime*(Vector3.Distance(transform.rotation.eulerAngles, m_Focus.rotation.eulerAngles)+1f));
 		
-		//else 
-		//{
-		//	transform.rotation = Quaternion.RotateTowards(transform.rotation, m_Focus.rotation, m_RotationDamping*Time.deltaTime*Vector3.Distance(transform.rotation.eulerAngles, m_Focus.rotation.eulerAngles));
-		//}
 	}
 	
 	public void Flip()
