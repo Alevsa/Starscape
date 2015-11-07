@@ -4,10 +4,12 @@ using System.Collections.Generic;
 
 public class EnemyDogfighter : MonoBehaviour 
 {
+	private float m_DangerDistance;
 	private ShipCore m_TargetCore;
 	public LayerMask EnemyLayer;
-	public Transform focus;
+	public Transform Focus;
 	public Transform Pointer;
+	private Transform m_Target;
 	private ShipCore m_core;
 	private BattleMovement m_BattleMovement;
 	private WeaponController m_weapon;
@@ -21,7 +23,7 @@ public class EnemyDogfighter : MonoBehaviour
 	///
 	void Start () 
 	{
-		m_TargetCore = focus.GetComponent<ShipCore>();
+		m_TargetCore = Focus.GetComponent<ShipCore>();
 		if (FiringPoints.Length == 0)
 		{
 			FiringPoints = new Transform[1];
@@ -31,13 +33,19 @@ public class EnemyDogfighter : MonoBehaviour
 		m_core = gameObject.GetComponent<ShipCore>();
 		m_BattleMovement = gameObject.GetComponent<BattleMovement>();
 		StatRandomiser(MaxVariation, MinVariation);
+		m_DangerDistance = m_core.MaxSpeed * 0.02f;
+		m_Target = Focus.GetComponent<Collider>().transform;
 	}
 	
 
 	void FixedUpdate () 
 	{
-		MovementControl();
-		FireControl();
+		if (Focus != null)
+		{
+			MovementControl();
+			FireControl();
+		}
+		else Halt();
 	}
 	
 	void FireControl()
@@ -54,31 +62,75 @@ public class EnemyDogfighter : MonoBehaviour
 	}
 	
 	void MovementControl()
-	{
-		//Debug.Log(m_core.Speed);
-		float stopTime = (m_core.Speed * Time.fixedDeltaTime) / (m_core.Deceleration * Time.fixedDeltaTime);
-		float distance = 0.5f * ((m_core.Speed * Time.fixedDeltaTime) / stopTime);
-		
-		//if (Physics.Raycast(transform.position, transform.forward * distance, EnemyLayer))
-		if (Vector3.Distance(transform.position, focus.transform.position) < distance && m_TargetCore.Alive)
-			BreakOff();
-		else
+	{	
+		if (Physics.Raycast(transform.position, transform.forward, m_DangerDistance, EnemyLayer))
+		{
+			EvasiveManoeuvers();
+		}
+		else if (Vector3.Distance(m_Target.transform.position, transform.position) > m_DangerDistance)
+		{
 			Pursue();
+		}
+		else 
+		{
+			SlowPursuit();
+		}
 	}
 	
-	
-	void BreakOff()
+	void Halt()
 	{
-		//Debug.Log("Breaking Off");
+	//	Debug.Log("Breaking Off");
+		m_BattleMovement.HandBrake();
+	}
+	
+	void TurnToTarget()
+	{
+		Pointer.LookAt(m_Target);
+		m_BattleMovement.TurnToward(Pointer.rotation);
+	}
+	
+	void SlowPursuit()
+	{
+		TurnToTarget();
 		m_BattleMovement.HandBrake();
 	}
 	
 	void Pursue()
 	{
-		//Debug.Log("In pursuit");
-		Pointer.LookAt(focus);
-		m_BattleMovement.TurnToward(Pointer.rotation);
+	//	Debug.Log("In pursuit");
+		TurnToTarget();
 		m_BattleMovement.Accelerate();
+	}
+	
+	void EvasiveManoeuvers()
+	{
+		m_BattleMovement.PitchYaw(ScannerSweep(30f, 30f, transform.right), ScannerSweep(30f, 30f, transform.up));
+	}
+	
+	// Multiplying a vector by a quaternion rotates the vector, so basically we're sweeping the area to find somewhere clear to turn to
+	float ScannerSweep(float angle, float increment, Vector3 axis)
+	{
+		if (increment * angle > 360f)
+		{
+			return 0f; 
+		}
+		Quaternion p = Quaternion.Euler(axis * angle);
+		if (!Physics.Raycast(transform.position, p * transform.position, m_DangerDistance, EnemyLayer))
+		{
+			return 1f;
+		}
+		else if (!Physics.Raycast(transform.position, p * -transform.position , m_DangerDistance, EnemyLayer))
+		{
+			return -1f;
+		}
+		else if (!Physics.Raycast(transform.position, transform.position + transform.forward, m_DangerDistance, EnemyLayer))
+		{
+			return 0f;
+		}
+		else 
+		{
+			return ScannerSweep(angle + increment, increment++, axis);
+		}
 	}
 	
 	public void StatRandomiser(float min, float max)

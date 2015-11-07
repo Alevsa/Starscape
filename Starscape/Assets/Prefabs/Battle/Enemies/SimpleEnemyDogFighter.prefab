@@ -385,7 +385,7 @@ MonoBehaviour:
   - {fileID: 173356, guid: 575528bb91309ae408f523fb4b25573c, type: 2}
   - {fileID: 149396, guid: 5bd41f6e4a4e3684d81455c771e83d2c, type: 2}
   - {fileID: 163240, guid: eface8c29ae10a14ebf94910e20971c7, type: 2}
-  NumberOfGibs: 100
+  NumberOfGibs: 4
   CollisionDamage: .25
   TurnRate: 100
   Acceleration: 4000
@@ -412,7 +412,7 @@ MonoBehaviour:
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 4294963199
-  focus: {fileID: 0}
+  Focus: {fileID: 0}
   Pointer: {fileID: 465250}
   FiringPoints:
   - {fileID: 405574}

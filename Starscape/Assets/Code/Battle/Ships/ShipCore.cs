@@ -46,21 +46,23 @@ public class ShipCore : ShipComponent
 	
 	protected override void DeathAnimation()
 	{
+	/*
 		foreach (ShipPeripheral peripheral in m_ShipPeripherals)
 		{
 			peripheral.SwitchOffSmoke();
 		}
-		
+	*/	
 		base.DeathAnimation();
 		Renderer[] renderers = GetComponentsInChildren<Renderer>();
 		foreach (Renderer r in renderers)
 		{
 			r.enabled = false;
 		}
-		Collider[] collider = gameObject.GetComponents<Collider>();
+		Collider[] collider = gameObject.GetComponentsInChildren<Collider>();
 		foreach (Collider col in collider)
 		{
 			col.enabled = false;
 		}
+		//Destroy(gameObject);
 	}
 }

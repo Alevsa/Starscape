@@ -48,11 +48,24 @@ abstract public class ShipComponent : MonoBehaviour
 			Health -= damage - Armour;
 	}
 	
+	protected virtual IEnumerator DeathClock(float time)
+	{
+		for (float i = time; i > -1f; i -= Time.deltaTime)
+		{
+			Debug.Log(i);
+			if (i<0f)
+				Destroy(gameObject);
+			yield return null;
+		}
+	}
+	
 	protected virtual void DeathAnimation()
 	{
 		if (ExplosionSounds != null)
 		{
-			m_AudioController.PlaySound(ExplosionSounds[Random.Range(0, ExplosionSounds.Length)]);
+			int x = Random.Range(0, ExplosionSounds.Length);
+			m_AudioController.PlaySound(ExplosionSounds[x]);
+			StartCoroutine("DeathClock", ExplosionSounds[x].length);
 		}		
 		GameObject deathExplosion = Instantiate(Explosion, transform.position, transform.rotation) as GameObject;
 		for (int i = 0; i < NumberOfGibs; i++)

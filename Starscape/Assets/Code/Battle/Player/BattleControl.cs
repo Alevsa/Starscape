@@ -9,6 +9,7 @@ public class BattleControl : MonoBehaviour
 	public BattleCamera m_HandlerCamera;
 	private float m_RotDamping;
 	public float Deadzone = 0.05f;
+	public PauseMenu PauseMenuController;
 
     private WeaponController m_PlayerWeapons;
 	
@@ -23,7 +24,8 @@ public class BattleControl : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		InGameInput ();
+		if (Ship != null)
+			InGameInput ();
 	}
 	
 	void MenuInput() {
@@ -56,6 +58,9 @@ public class BattleControl : MonoBehaviour
 			m_HandlerMovement.PitchYaw(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") * SaveLoadController.GetYAxisInversion());
         if (Input.GetButtonDown("Fire"))
             m_PlayerWeapons.FirePrimaryWeapon();
+            
+		if (Input.GetButtonDown("Pause"))
+			PauseMenuController.TogglePauseMenu();
     }
 	
 	#region Converts mouse coordinates to joystick input, imagine the mouse cursor as the top of the joystick, that's how it works.
