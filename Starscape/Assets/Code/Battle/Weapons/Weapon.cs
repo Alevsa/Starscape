@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public GameObject Projectile;
 	public float Damage;
 	public float Speed;
 	public LayerMask HitLayers;
@@ -12,7 +11,9 @@ public abstract class Weapon : MonoBehaviour
     public float Ammo;
     public float FireRate;
     protected float m_Timer;
-	
+
+    public int PoolIndex;
+
     void Update()
     {
         m_Timer += Time.deltaTime;

@@ -39,7 +39,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d860ec93a7f2741b3e9f9668005911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 149702, guid: bb3f0bf6bbb1ed942a77e1717fba45ad, type: 2}
   Damage: 2
   Speed: 800
   HitLayers:
@@ -47,6 +46,7 @@ MonoBehaviour:
     m_Bits: 4294961151
   Ammo: 100
   FireRate: 3
+  PoolIndex: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -57,7 +57,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: Projectile
       value: 
-      objectReference: {fileID: 149702, guid: bb3f0bf6bbb1ed942a77e1717fba45ad, type: 2}
+      objectReference: {fileID: 154838, guid: 87d68ff5826f68847960223208e3e61d, type: 2}
     - target: {fileID: 0}
       propertyPath: Ammo
       value: 100
@@ -85,6 +85,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: IgnoredLayers.m_Bits
       value: 4294964223
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PoolIndex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
