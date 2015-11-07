@@ -26,7 +26,9 @@ public class Projectile : MonoBehaviour
 		m_HitLayers = hitLayer;
 
         m_Direction = firingPoint.forward;
-        m_Direction += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+        m_Direction += new Vector3(Input.GetAxis("Horizontal")/5, Input.GetAxis("Vertical")/5, 0);
+        m_Direction.Normalize();
+        Debug.Log(m_Direction);
         transform.position = firingPoint.position;
         transform.rotation = firingPoint.rotation;
         m_InitTrans = firingPoint;
