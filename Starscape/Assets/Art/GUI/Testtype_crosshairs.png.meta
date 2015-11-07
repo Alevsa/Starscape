@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: b1cd868566a4ab94ca2732dbd0f97c62
+timeCreated: 1446896787
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Testtype_crosshairs_0
+    21300002: Testtype_crosshairs_1
+    21300004: Testtype_crosshairs_2
+    21300006: Testtype_crosshairs_3
+    21300008: Testtype_crosshairs_4
+    21300010: Testtype_crosshairs_5
+    21300012: Testtype_crosshairs_6
+    21300014: Testtype_crosshairs_7
+    21300016: Testtype_crosshairs_8
+    21300018: Testtype_crosshairs_9
+    21300020: Testtype_crosshairs_10
+    21300022: Testtype_crosshairs_11
+    21300024: Testtype_crosshairs_12
+    21300026: Testtype_crosshairs_13
+    21300028: Testtype_crosshairs_14
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Testtype_crosshairs_0
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 6
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_1
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 60
+        width: 41
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_2
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 118
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 118
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_4
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 60
+        width: 41
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_5
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 6
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_6
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 118
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_7
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 60
+        width: 41
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_8
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 6
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_9
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 118
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_10
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 60
+        width: 41
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_11
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 6
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 118
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_13
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 60
+        width: 41
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Testtype_crosshairs_14
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 6
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

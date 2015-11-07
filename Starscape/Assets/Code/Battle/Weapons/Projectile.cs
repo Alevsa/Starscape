@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
 
 	void FixedUpdate ()
     {
-        MoveForward();
+        Move();
 		CheckCollisions();
         Invoke("Destroy", 2f);
 	}
@@ -26,12 +26,13 @@ public class Projectile : MonoBehaviour
 		m_HitLayers = hitLayer;
 
         m_Direction = firingPoint.forward;
+        m_Direction += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
         transform.position = firingPoint.position;
         transform.rotation = firingPoint.rotation;
         m_InitTrans = firingPoint;
 	}
 
-    protected virtual void MoveForward()
+    protected virtual void Move()
     {
         transform.position += m_Direction * m_Speed * Time.deltaTime;
     }

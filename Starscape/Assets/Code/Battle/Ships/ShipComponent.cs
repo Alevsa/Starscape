@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+    
 abstract public class ShipComponent : MonoBehaviour 
 {
 	private AudioController m_AudioController;
@@ -11,8 +11,8 @@ abstract public class ShipComponent : MonoBehaviour
 	public GameObject[] Gibs;
 	public int NumberOfGibs = 4;
 	public float CollisionDamage = 0.25f;
-	
-	public float TurnRate;
+
+    public float TurnRate;
 	public float Acceleration;
 	public float Deceleration;
 	public float MaxSpeed;
@@ -23,9 +23,9 @@ abstract public class ShipComponent : MonoBehaviour
 	public bool Alive = true;
 	[HideInInspector]public float Speed;
 	public float RollRate;
-	//public int DeathExplosions = 3;
-	
-	public virtual void Start()
+    //public int DeathExplosions = 3;
+
+    public virtual void Start()
 	{
 		/*if (CollisionSound = null)
 		{
