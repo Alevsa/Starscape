@@ -26,8 +26,8 @@ public class Projectile : MonoBehaviour
 		m_HitLayers = hitLayer;
 
         m_Direction = firingPoint.forward;
-        m_Direction += firingPoint.right * Input.GetAxis("Horizontal");
-        m_Direction += firingPoint.up * Input.GetAxis("Vertical");
+        //m_Direction += firingPoint.right * Input.GetAxis("Horizontal");
+        //m_Direction += firingPoint.up * Input.GetAxis("Vertical");
         m_Direction.Normalize();
         Debug.Log(m_Direction);
         transform.position = firingPoint.position;
