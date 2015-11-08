@@ -7,19 +7,23 @@ public class EnemyDogfighter : MonoBehaviour
 	private float m_DangerDistance;
 	private ShipCore m_TargetCore;
 	public LayerMask EnemyLayer;
+	public LayerMask PlayerLayer;
 	public Transform Focus;
 	public Transform Pointer;
-	private Transform m_Target;
+	public Transform m_Target;
 	private ShipCore m_core;
 	private BattleMovement m_BattleMovement;
 	private WeaponController m_weapon;
 	public Transform[] FiringPoints;
 	public float MaxVariation = 1.5f;
 	public float MinVariation = 0.7f;
+	public float SearchResolution = 3f;
+	public float FindPathFrequency = 10f;
+	private bool m_InMotion;
 	
 	///
 	/// TO DO:
-	/// Make the distance check from the player more intelligent
+	/// Make it work
 	///
 	void Start () 
 	{
@@ -33,8 +37,8 @@ public class EnemyDogfighter : MonoBehaviour
 		m_core = gameObject.GetComponent<ShipCore>();
 		m_BattleMovement = gameObject.GetComponent<BattleMovement>();
 		StatRandomiser(MaxVariation, MinVariation);
-		m_DangerDistance = m_core.MaxSpeed * 0.02f;
-		m_Target = Focus.GetComponent<Collider>().transform;
+		m_DangerDistance = m_core.MaxSpeed * 0.05f;
+		m_Target = Focus.GetComponentInChildren<Collider>().transform;
 	}
 	
 
@@ -52,9 +56,10 @@ public class EnemyDogfighter : MonoBehaviour
 	{
 		foreach (Transform pos in FiringPoints)
 		{
-			//Debug.DrawLine(pos.position, transform.forward*400f, Color.white);
-			if (Physics.Raycast(pos.position, transform.forward, Mathf.Infinity, EnemyLayer) && m_TargetCore.Alive)
+			Debug.DrawLine(pos.position, transform.forward*400f, Color.white);
+			if (Physics.Raycast(pos.position, Vector3.forward, Mathf.Infinity, PlayerLayer) && m_TargetCore.Alive)
 			{
+				//Debug.Log("Shoot");
 				m_weapon.FirePrimaryWeapon();
 				break;
 			}
@@ -63,17 +68,24 @@ public class EnemyDogfighter : MonoBehaviour
 	
 	void MovementControl()
 	{	
-		if (Physics.Raycast(transform.position, transform.forward, m_DangerDistance, EnemyLayer))
+		Debug.Log(m_Target.position);
+		//Debug.Log(m_DangerDistance);
+		//Debug.DrawLine(transform.position, 2*transform.forward, Color.red);
+		if (!m_InMotion)
 		{
-			EvasiveManoeuvers();
-		}
-		else if (Vector3.Distance(m_Target.transform.position, transform.position) > m_DangerDistance)
-		{
-			Pursue();
-		}
-		else 
-		{
-			SlowPursuit();
+			if (!Physics.Linecast(transform.position, Focus.position, EnemyLayer))
+			{
+				if (Vector3.Distance(Focus.position, transform.position) < m_DangerDistance)
+				{
+					SlowPursuit();
+				}
+				else 
+					Pursue();
+			}
+			else 
+			{
+				EvasiveManoeuvers();
+			}
 		}
 	}
 	
@@ -83,53 +95,68 @@ public class EnemyDogfighter : MonoBehaviour
 		m_BattleMovement.HandBrake();
 	}
 	
-	void TurnToTarget()
+	void TurnToTarget(Vector3 target)
 	{
-		Pointer.LookAt(m_Target);
+		Pointer.LookAt(target);
 		m_BattleMovement.TurnToward(Pointer.rotation);
 	}
 	
 	void SlowPursuit()
 	{
-		TurnToTarget();
-		m_BattleMovement.HandBrake();
+		//Debug.Log("Slow pursuit");
+		TurnToTarget(m_Target.position);
+		if (m_core.Speed > m_TargetCore.Speed)
+		{
+			m_BattleMovement.HandBrake();
+		}
 	}
 	
 	void Pursue()
 	{
-	//	Debug.Log("In pursuit");
-		TurnToTarget();
+		//Debug.Log("In pursuit");
+		TurnToTarget(m_Target.position);
 		m_BattleMovement.Accelerate();
 	}
 	
 	void EvasiveManoeuvers()
 	{
-		m_BattleMovement.PitchYaw(ScannerSweep(30f, 30f, transform.right), ScannerSweep(30f, 30f, transform.up));
+		//Debug.Log("EvasiveManoeuvers");
+		Vector3 horizontalDirection = ScannerSweep(SearchResolution, 1f, transform.right);
+		Vector3 verticalDirection = ScannerSweep(SearchResolution, 1f, transform.forward);
+		Vector3 direction = horizontalDirection + verticalDirection;
+		StartCoroutine("MoveToPoint", direction);
 	}
 	
 	// Multiplying a vector by a quaternion rotates the vector, so basically we're sweeping the area to find somewhere clear to turn to
-	float ScannerSweep(float angle, float increment, Vector3 axis)
+	Vector3 ScannerSweep(float angle, float increment, Vector3 axis)
 	{
 		if (increment * angle > 360f)
 		{
-			return 0f; 
+			//Debug.Log("No route");
+			m_BattleMovement.HandBrake();
+			return new Vector3(0,0,0); 
 		}
-		Quaternion p = Quaternion.Euler(axis * angle);
-		if (!Physics.Raycast(transform.position, p * transform.position, m_DangerDistance, EnemyLayer))
+		Quaternion p = Quaternion.Euler(axis * angle * increment);
+		Vector3 rotatedVector = p * transform.position;
+		if (!Physics.Raycast(transform.position, rotatedVector, m_DangerDistance, EnemyLayer))
 		{
-			return 1f;
+			//Debug.Log(1);
+			return rotatedVector;
 		}
-		else if (!Physics.Raycast(transform.position, p * -transform.position , m_DangerDistance, EnemyLayer))
+		else if (!Physics.Raycast(transform.position, rotatedVector*-1f , m_DangerDistance, EnemyLayer))
 		{
-			return -1f;
+			//Debug.Log("-1");
+			return rotatedVector*-1f;
 		}
 		else if (!Physics.Raycast(transform.position, transform.position + transform.forward, m_DangerDistance, EnemyLayer))
 		{
-			return 0f;
+			//Debug.Log(0);
+			return new Vector3(0,0,0);
 		}
 		else 
 		{
-			return ScannerSweep(angle + increment, increment++, axis);
+			increment += 1f;
+			return ScannerSweep(angle, increment, axis);
 		}
 	}
 	
@@ -144,8 +171,21 @@ public class EnemyDogfighter : MonoBehaviour
 		
 	}
 	
-	public void MoveToPoint()
+	public IEnumerator MoveToPoint(Vector3 direction)
 	{
-	
+		m_InMotion = true;
+		float i = FindPathFrequency;
+		while (true)
+		{
+			i -= Time.fixedDeltaTime;
+			if ( i < 0f )
+			{
+				m_InMotion = false;
+				yield break;
+			}
+			TurnToTarget(direction * FindPathFrequency * m_core.MaxSpeed);
+			m_BattleMovement.Accelerate();
+			yield return null;
+		}
 	}
 }

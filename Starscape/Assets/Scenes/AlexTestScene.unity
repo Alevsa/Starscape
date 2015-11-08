@@ -3911,7 +3911,7 @@ GameObject:
   - 33: {fileID: 1964159241}
   - 65: {fileID: 1964159240}
   - 23: {fileID: 1964159239}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4604,6 +4604,10 @@ Prefab:
       propertyPath: Gyroscope
       value: 
       objectReference: {fileID: 1024184701}
+    - target: {fileID: 11465276, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
+      propertyPath: FindPathFrequency
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
   m_IsPrefabParent: 0

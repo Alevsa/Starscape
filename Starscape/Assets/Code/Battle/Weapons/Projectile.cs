@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
         //m_Direction += firingPoint.right * Input.GetAxis("Horizontal");
         //m_Direction += firingPoint.up * Input.GetAxis("Vertical");
         m_Direction.Normalize();
-        Debug.Log(m_Direction);
+//        Debug.Log(m_Direction);
         transform.position = firingPoint.position;
         transform.rotation = firingPoint.rotation;
         m_InitTrans = firingPoint;
