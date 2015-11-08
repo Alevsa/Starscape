@@ -69,7 +69,7 @@ public class EnemyDogfighter : MonoBehaviour
 			Debug.DrawLine(pos.position, pos.forward*400f, Color.white);
 			if (Physics.Raycast(pos.position, transform.forward, Mathf.Infinity, PlayerLayer) && m_TargetCore.Alive)
 			{
-				m_Weapon.FirePrimaryWeapon();
+				m_Weapon.FirePrimaryWeaponHold();
 				break;
 			}
 		}

@@ -953,7 +953,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11414366, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
       propertyPath: WeapMountName
-      value: 
+      value: FiringPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
