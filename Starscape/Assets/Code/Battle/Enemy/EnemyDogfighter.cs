@@ -13,7 +13,7 @@ public class EnemyDogfighter : MonoBehaviour
 	public Transform m_Target;
 	private ShipCore m_core;
 	private BattleMovement m_BattleMovement;
-	private WeaponController m_weapon;
+	private WeaponController m_Weapon;
 	public Transform[] FiringPoints;
 	public float MaxVariation = 1.5f;
 	public float MinVariation = 0.7f;
@@ -33,7 +33,7 @@ public class EnemyDogfighter : MonoBehaviour
 			FiringPoints = new Transform[1];
 			FiringPoints[0] = transform;
 		}
-		m_weapon = gameObject.GetComponent<WeaponController>();
+		m_Weapon = gameObject.GetComponent<WeaponController>();
 		m_core = gameObject.GetComponent<ShipCore>();
 		m_BattleMovement = gameObject.GetComponent<BattleMovement>();
 		StatRandomiser(MaxVariation, MinVariation);
@@ -44,6 +44,7 @@ public class EnemyDogfighter : MonoBehaviour
 
 	void FixedUpdate () 
 	{
+		Pointer.LookAt(Focus, Vector3.up);
 		if (Focus != null)
 		{
 			MovementControl();
@@ -57,10 +58,10 @@ public class EnemyDogfighter : MonoBehaviour
 		foreach (Transform pos in FiringPoints)
 		{
 			Debug.DrawLine(pos.position, transform.forward*400f, Color.white);
-			if (Physics.Raycast(pos.position, Vector3.forward, Mathf.Infinity, PlayerLayer) && m_TargetCore.Alive)
+			if (Physics.Raycast(pos.position, transform.forward, Mathf.Infinity, PlayerLayer) && m_TargetCore.Alive)
 			{
 				//Debug.Log("Shoot");
-				m_weapon.FirePrimaryWeapon();
+				m_Weapon.FirePrimaryWeapon();
 				break;
 			}
 		}
@@ -68,9 +69,9 @@ public class EnemyDogfighter : MonoBehaviour
 	
 	void MovementControl()
 	{	
-		Debug.Log(m_Target.position);
+		//Debug.Log(m_Target.position);
 		//Debug.Log(m_DangerDistance);
-		//Debug.DrawLine(transform.position, 2*transform.forward, Color.red);
+		Debug.DrawLine(transform.position, Pointer.forward * 400f, Color.red);
 		if (!m_InMotion)
 		{
 			if (!Physics.Linecast(transform.position, Focus.position, EnemyLayer))
@@ -97,7 +98,7 @@ public class EnemyDogfighter : MonoBehaviour
 	
 	void TurnToTarget(Vector3 target)
 	{
-		Pointer.LookAt(target);
+		Pointer.LookAt(target, Vector3.up);
 		m_BattleMovement.TurnToward(Pointer.rotation);
 	}
 	

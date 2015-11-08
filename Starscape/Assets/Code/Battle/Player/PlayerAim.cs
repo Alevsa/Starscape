@@ -3,7 +3,10 @@ using System.Collections;
 
 public class PlayerAim : MonoBehaviour
 {
-    public float CrosshairDistance;
+    public float CrosshairDistance = 50f;
+ 	public Transform Player;
+ 	
+ 	/*
     private Transform m_Crosshair;
 
 	// Use this for initialization
@@ -11,18 +14,20 @@ public class PlayerAim : MonoBehaviour
     {
         m_Crosshair = transform.Find("Crosshair");
 	}
+	*/
 	
 	void FixedUpdate ()
     {
+    	transform.rotation = Player.rotation;
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, CrosshairDistance))
+        if (Physics.Raycast(Player.position, Player.forward, out hit, CrosshairDistance))
         {
             if (hit.transform.gameObject.tag != "Projectile")
-                m_Crosshair.position = hit.point - transform.forward * 10;
+                transform.position = hit.point - transform.forward * 10;
         }
 
         else
-            m_Crosshair.position = transform.position + transform.forward * (CrosshairDistance -10);
+            transform.position = Player.position + Player.forward * (CrosshairDistance -10);
     }
 }
