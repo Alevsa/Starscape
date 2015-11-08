@@ -111,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.730000019, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.26919103, y: .491859257, z: 1}
   m_Children: []
   m_Father: {fileID: 484962}
@@ -123,7 +123,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .470999986, y: -.0820000023, z: -.158000007}
+  m_LocalPosition: {x: .5, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 484962}
@@ -147,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.86800003, y: 0, z: .0710000023}
+  m_LocalPosition: {x: -.5, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 484962}
@@ -159,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3647213, y: 0, z: -.000118255615}
+  m_LocalPosition: {x: 0, y: 0, z: -22.5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 405574}
@@ -176,7 +176,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.630000114, y: 0, z: -7.41332769e-07}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: .414690405, z: 3.78377342}
   m_Children: []
   m_Father: {fileID: 484962}
@@ -276,7 +276,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 4}
-  m_Center: {x: -1, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11409224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -411,14 +411,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLayer:
     serializedVersion: 2
-    m_Bits: 4294963199
+    m_Bits: 4096
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   Focus: {fileID: 0}
   Pointer: {fileID: 465250}
+  m_Target: {fileID: 0}
   FiringPoints:
   - {fileID: 405574}
   - {fileID: 479830}
   MaxVariation: 1.5
   MinVariation: .699999988
+  SearchResolution: 3
+  FindPathFrequency: 1
 --- !u!114 &11472078
 MonoBehaviour:
   m_ObjectHideFlags: 1
