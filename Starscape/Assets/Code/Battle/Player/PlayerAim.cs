@@ -5,16 +5,6 @@ public class PlayerAim : MonoBehaviour
 {
     public float CrosshairDistance = 50f;
  	public Transform Player;
- 	
- 	/*
-    private Transform m_Crosshair;
-
-	// Use this for initialization
-	void Start ()
-    {
-        m_Crosshair = transform.Find("Crosshair");
-	}
-	*/
 	
 	void FixedUpdate ()
     {

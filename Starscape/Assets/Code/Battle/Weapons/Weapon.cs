@@ -10,20 +10,28 @@ public abstract class Weapon : MonoBehaviour
 
     public float Ammo;
     public float FireRate;
-    protected float m_Timer;
 
     public int PoolIndex;
+
+    protected GameObject m_User;
+    protected float m_Timer;
 
     void Update()
     {
         m_Timer += Time.deltaTime;
     }
+
+    public void SetParams(GameObject user)
+    {
+        m_User = user;
+    }
 	
-	public bool ICanFire()
+	public bool CanFire()
 	{
 		if (m_Timer > FireRate)
 			return true;
-		else return false;
+		else
+            return false;
 	}
 	
     public virtual void Fire(List<Transform> firingPoints)

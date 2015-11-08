@@ -56,10 +56,13 @@ public class BattleControl : MonoBehaviour
 			m_HandlerMovement.PitchYaw(MouseXToJoyStickAxis(), MouseYToJoyStickAxis() * SaveLoadController.GetYAxisInversion());
 		else
 			m_HandlerMovement.PitchYaw(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") * SaveLoadController.GetYAxisInversion());
+
         if (Input.GetButtonDown("Fire"))
-            m_PlayerWeapons.FirePrimaryWeapon();
-            
-		if (Input.GetButtonDown("Pause"))
+            m_PlayerWeapons.FirePrimaryWeaponTap();
+        if (Input.GetButton("Fire"))
+            m_PlayerWeapons.FirePrimaryWeaponHold();
+
+        if (Input.GetButtonDown("Pause"))
 			PauseMenuController.TogglePauseMenu();
     }
 	

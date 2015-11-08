@@ -30,14 +30,29 @@ public class WeaponController : MonoBehaviour
             EquipSecondaryWeapon(EquippedSecondaryWeapon);
     }
 
-    public void FirePrimaryWeapon()
+    public void FirePrimaryWeaponTap()
     {
-    	if (Alive)
-    		if (FireSound != null && m_PrimWeap.ICanFire())
-    		{
-       			m_AudioController.PlaySound(FireSound);
-       		}
-       		m_PrimWeap.Fire(m_FiringPoints);
+        FirePrimWeap();
+    }
+
+    public void FirePrimaryWeaponHold()
+    {
+        if (m_PrimWeap.CanFire())
+        {
+            FirePrimWeap();
+        }
+    }
+
+    private void FirePrimWeap()
+    {
+        if (Alive)
+        {
+            if (FireSound != null)
+            {
+                m_AudioController.PlaySound(FireSound);
+                m_PrimWeap.Fire(m_FiringPoints);
+            }
+        }
     }
 
     public void FireSecondaryWeapon()
@@ -52,6 +67,7 @@ public class WeaponController : MonoBehaviour
         weapon.transform.SetParent(transform);
         EquippedPrimaryWeapon = weapon;
         m_PrimWeap = weapon.GetComponent<Weapon>();
+        m_PrimWeap.SetParams(gameObject);
     }
 
     public void EquipSecondaryWeapon(GameObject weap)
@@ -60,5 +76,6 @@ public class WeaponController : MonoBehaviour
         weapon.transform.SetParent(transform);
         EquippedSecondaryWeapon = weapon;
         m_SecWeap = weapon.GetComponent<Weapon>();
+        m_SecWeap.SetParams(gameObject);
     }
 }

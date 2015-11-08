@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 423376}
-  - 114: {fileID: 11421930}
+  - 114: {fileID: 11485918}
   m_Layer: 10
   m_Name: EnemyLaser
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11421930
+--- !u!114 &11485918
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -36,7 +36,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 173980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81d860ec93a7f2741b3e9f9668005911, type: 3}
+  m_Script: {fileID: 11500000, guid: e30b1ca6d0fef5d428f9d4d195306a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 2
