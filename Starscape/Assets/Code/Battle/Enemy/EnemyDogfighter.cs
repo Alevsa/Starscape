@@ -20,6 +20,8 @@ public class EnemyDogfighter : MonoBehaviour
 	public float SearchResolution = 3f;
 	public float FindPathFrequency = 10f;
 	private bool m_InMotion;
+	private Collider[] m_CoreCollider;
+	private float m_CastOffset;
 	
 	///
 	/// TO DO:
@@ -36,18 +38,25 @@ public class EnemyDogfighter : MonoBehaviour
 		m_Weapon = gameObject.GetComponent<WeaponController>();
 		m_core = gameObject.GetComponent<ShipCore>();
 		m_BattleMovement = gameObject.GetComponent<BattleMovement>();
+		
+		m_CoreCollider = gameObject.GetComponentsInChildren<Collider>();
+		m_CastOffset = GetLengthOfShip();
+		
 		StatRandomiser(MaxVariation, MinVariation);
 		m_DangerDistance = m_core.MaxSpeed * 0.05f;
 		m_Target = Focus.GetComponentInChildren<Collider>().transform;
+		
 	}
 	
 
 	void FixedUpdate () 
 	{
-		Pointer.LookAt(Focus, Vector3.up);
 		if (Focus != null)
 		{
-			MovementControl();
+		//	MovementControl();
+		Debug.DrawLine(transform.position, Pointer.forward * 400f, Color.red);
+		transform.LookAt(Focus);
+			
 			FireControl();
 		}
 		else Halt();
@@ -57,10 +66,9 @@ public class EnemyDogfighter : MonoBehaviour
 	{
 		foreach (Transform pos in FiringPoints)
 		{
-			Debug.DrawLine(pos.position, transform.forward*400f, Color.white);
+			Debug.DrawLine(pos.position, pos.forward*400f, Color.white);
 			if (Physics.Raycast(pos.position, transform.forward, Mathf.Infinity, PlayerLayer) && m_TargetCore.Alive)
 			{
-				//Debug.Log("Shoot");
 				m_Weapon.FirePrimaryWeapon();
 				break;
 			}
@@ -74,7 +82,7 @@ public class EnemyDogfighter : MonoBehaviour
 		Debug.DrawLine(transform.position, Pointer.forward * 400f, Color.red);
 		if (!m_InMotion)
 		{
-			if (!Physics.Linecast(transform.position, Focus.position, EnemyLayer))
+			if (!Physics.Linecast(transform.position + transform.forward * m_CastOffset, Focus.position, EnemyLayer))
 			{
 				if (Vector3.Distance(Focus.position, transform.position) < m_DangerDistance)
 				{
@@ -188,5 +196,19 @@ public class EnemyDogfighter : MonoBehaviour
 			m_BattleMovement.Accelerate();
 			yield return null;
 		}
+	}
+	
+	public float GetLengthOfShip()
+	{
+		float max = 0;
+		foreach (Collider col in m_CoreCollider)
+		{
+			float temp = Vector3.Magnitude(col.bounds.extents.z * transform.forward);
+			if (temp > max)
+			{
+				max = temp;
+			} 
+		}
+		return max;
 	}
 }
