@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -2031,7 +2029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &966876246
 Transform:
   m_ObjectHideFlags: 0
@@ -2046,7 +2044,7 @@ Transform:
   - {fileID: 202736614}
   - {fileID: 1873543895}
   - {fileID: 1013723648}
-  - {fileID: 1336757719}
+  - {fileID: 1100372910}
   m_Father: {fileID: 0}
   m_RootOrder: 7
 --- !u!1 &989019336
@@ -2212,19 +2210,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 966876246}
     m_Modifications:
     - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -25.2000008
       objectReference: {fileID: 0}
     - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -40.8199959
       objectReference: {fileID: 0}
     - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -22.5
+      value: 101.800003
       objectReference: {fileID: 0}
     - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2244,7 +2242,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11472078, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
       propertyPath: Gyroscope
@@ -2330,6 +2328,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1091604280}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1100372910 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
+  m_PrefabInternal: {fileID: 1068096139}
 --- !u!1001 &1112307545
 Prefab:
   m_ObjectHideFlags: 0
@@ -2694,11 +2696,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1336757718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 122.458557, y: 397.865509, z: 344.158386}
+  m_LocalPosition: {x: 147.658554, y: 438.685516, z: 219.858383}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 966876246}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
 --- !u!82 &1336757720
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2710,10 +2712,11 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ba2dc490f0caaaa4382b0a772b090a24, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .25
   m_Pitch: 1
   Loop: 1
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -3371,7 +3374,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AllowActivationOnStandalone: 0
+  m_ForceModuleActive: 0
 --- !u!114 &1554356535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3389,7 +3392,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-  m_AllowActivationOnMobileDevice: 0
+  m_ForceModuleActive: 0
 --- !u!114 &1554356536
 MonoBehaviour:
   m_ObjectHideFlags: 0
