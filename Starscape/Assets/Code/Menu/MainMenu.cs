@@ -14,6 +14,9 @@ public class MainMenu : MonoBehaviour
 	public Button[] PlayButtons = null;
 	public InputField[] PlayInputs = null;
 	private int m_ActiveInputField;
+
+    private GameObject m_CurrentPanel;
+    private bool m_Status;
 	
 	void Start()
 	{
@@ -40,15 +43,29 @@ public class MainMenu : MonoBehaviour
 	
 	public void TogglePanel(GameObject panel)
 	{
-		if (panel.activeSelf)
-		{
-			CloseAllWindows();
-		}
-		else
-		{
-			CloseAllWindows(); 
-			panel.SetActive(true);
-		}
+
+        if (m_CurrentPanel != panel)
+        {
+            if (m_CurrentPanel == null)
+            {
+                panel.GetComponent<Animator>().SetBool("SlideIn", true);
+            }
+
+            else
+            {
+                m_CurrentPanel.GetComponent<Animator>().SetBool("SlideIn", false);
+                panel.GetComponent<Animator>().SetBool("SlideIn", true);
+            }
+
+            m_CurrentPanel = panel;
+            m_Status = true;
+        }
+
+        else
+        {
+            m_CurrentPanel.GetComponent<Animator>().SetBool("SlideIn", m_Status);
+            m_Status = !m_Status;
+        }
 	}
 
 	public void NewGame(int slot)
@@ -58,8 +75,7 @@ public class MainMenu : MonoBehaviour
 		SaveLoadController.SetPlayerName(PlayInputs[slot].text);
 		InitialisePlayPanel();
 	}
-	
-	// Fix this
+
 	public void LoadGame(int slot)
 	{
 		if (SaveLoadController.GetPlayerName() != "EMPTY SLOT")
@@ -67,14 +83,6 @@ public class MainMenu : MonoBehaviour
 			SaveLoadController.SetSaveSlot(slot);
 			Application.LoadLevel("Overworld");
 		}
-	}
-	
-	public void CloseAllWindows()
-	{
-		CreditsPanel.SetActive(false);
-		OptionsPanel.SetActive(false);
-		PlayPanel.SetActive(false);
-		QuitPanel.SetActive(false);
 	}
 	
 	public void InitialisePlayPanel()
