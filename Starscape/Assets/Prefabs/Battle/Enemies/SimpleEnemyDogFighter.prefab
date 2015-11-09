@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alive: 1
-  FireSound: {fileID: 8300000, guid: 369816508f74457438b35b44f61a67ce, type: 3}
+  FireSound: {fileID: 8300000, guid: 6d83cac7a70d4c641bb67c4645f0a794, type: 3}
   WeapMountName: 
   EquippedPrimaryWeapon: {fileID: 173980, guid: 6ad22ab1def2bef4491406452f5d193c,
     type: 2}
@@ -378,10 +378,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionSounds:
-  - {fileID: 8300000, guid: 627c60dc0939c274992865272545cf47, type: 3}
-  - {fileID: 8300000, guid: 61234629e4b45fe4b8c95b5a219d378c, type: 3}
-  HitExplosionSound: {fileID: 8300000, guid: 1333df89c1e0093428b8ef22588efc60, type: 3}
-  CollisionSound: {fileID: 8300000, guid: 50705d2c5b4ee9a449b736985b5aee9f, type: 3}
+  - {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
+  - {fileID: 8300000, guid: b58f4523702840b40b32380813e303dd, type: 3}
+  HitExplosionSound: {fileID: 8300000, guid: 7da4f4d7dea8e0542bc97cb9ce472710, type: 3}
+  CollisionSound: {fileID: 8300000, guid: b58f4523702840b40b32380813e303dd, type: 3}
   PoolExplosionIndex: 3
   MinGibPoolIndex: 4
   MaxGibPoolIndex: 6

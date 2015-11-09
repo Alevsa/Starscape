@@ -22,10 +22,6 @@ public class EnemyDogfighter : MonoBehaviour
 	private Collider[] m_CoreCollider;
 	private float m_CastOffset;
 	
-	///
-	/// TO DO:
-	/// Make it work
-	///
 	void Start () 
 	{
 		m_TargetCore = Focus.GetComponent<ShipCore>();
@@ -46,7 +42,7 @@ public class EnemyDogfighter : MonoBehaviour
 		
 	}
 	
-
+	
 	void FixedUpdate () 
 	{
 		if (Focus != null)
@@ -72,24 +68,8 @@ public class EnemyDogfighter : MonoBehaviour
 	
 	void MovementControl()
 	{	
-		//Debug.Log(m_Target.position);
-		//Debug.Log(m_DangerDistance);
-		//Debug.DrawLine(transform.position, Pointer.forward * 400f, Color.red);
 		if (!m_InMotion)
 		{
-			/*
-			if (!Physics.Linecast(transform.position + transform.forward * m_CastOffset, Focus.position, PathingLayer))
-			{
-				if (Vector3.Distance(Focus.position, transform.position) < m_DangerDistance)
-				{
-					SlowPursuit();
-				}
-				else 
-				{
-					Pursue();
-				}
-			}
-			*/
 			if (Physics.Raycast(transform.position + transform.forward * m_CastOffset, transform.forward, m_DangerDistance, PathingLayer))
 			{
 				EvasiveManoeuvers();
@@ -110,7 +90,7 @@ public class EnemyDogfighter : MonoBehaviour
 	
 	void Halt()
 	{
-		Debug.Log("Stopping");
+		//Debug.Log("Stopping");
 		m_BattleMovement.HandBrake();
 	}
 	
@@ -122,24 +102,24 @@ public class EnemyDogfighter : MonoBehaviour
 	// Could still have collisions here. Change to compare velocities. 
 	void SlowPursuit()
 	{
-		Debug.Log("Slow pursuit");
+		//Debug.Log("Slow pursuit");
 		TurnToTarget(Focus.position);
 		//if (m_core.Speed > m_TargetCore.Speed)
 		//{
-			m_BattleMovement.HandBrake();
+		m_BattleMovement.HandBrake();
 		//}
 	}
 	
 	void Pursue()
 	{
-		Debug.Log("In pursuit");
+		//Debug.Log("In pursuit");
 		TurnToTarget(Focus.position);
 		m_BattleMovement.Accelerate();
 	}
 	
 	void EvasiveManoeuvers()
 	{
-		Debug.Log("EvasiveManoeuvers");
+		//Debug.Log("EvasiveManoeuvers");
 		Vector3 horizontalDirection = ScannerSweep(SearchResolution, 1f, transform.right);
 		Vector3 verticalDirection = ScannerSweep(SearchResolution, 1f, transform.forward);
 		Vector3 direction = horizontalDirection + verticalDirection;
