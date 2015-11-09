@@ -6,11 +6,10 @@ public class EnemyDogfighter : MonoBehaviour
 {
 	private float m_DangerDistance;
 	private ShipCore m_TargetCore;
-	public LayerMask EnemyLayer;
-	public LayerMask PlayerLayer;
+	public LayerMask PathingLayer;
+	public LayerMask WeaponsLayer;
 	public Transform Focus;
 	public Transform Pointer;
-	public Transform m_Target;
 	private ShipCore m_core;
 	private BattleMovement m_BattleMovement;
 	private WeaponController m_Weapon;
@@ -43,8 +42,7 @@ public class EnemyDogfighter : MonoBehaviour
 		m_CastOffset = GetLengthOfShip();
 		
 		StatRandomiser(MaxVariation, MinVariation);
-		m_DangerDistance = m_core.MaxSpeed * 0.05f;
-		m_Target = Focus.GetComponentInChildren<Collider>().transform;
+		m_DangerDistance = m_core.MaxSpeed * 0.02f;
 		
 	}
 	
@@ -53,10 +51,7 @@ public class EnemyDogfighter : MonoBehaviour
 	{
 		if (Focus != null)
 		{
-		//	MovementControl();
-		Debug.DrawLine(transform.position, Pointer.forward * 400f, Color.red);
-		transform.LookAt(Focus);
-			
+			MovementControl();
 			FireControl();
 		}
 		else Halt();
@@ -66,8 +61,8 @@ public class EnemyDogfighter : MonoBehaviour
 	{
 		foreach (Transform pos in FiringPoints)
 		{
-			Debug.DrawLine(pos.position, pos.forward*400f, Color.white);
-			if (Physics.Raycast(pos.position, transform.forward, Mathf.Infinity, PlayerLayer) && m_TargetCore.Alive)
+			//Debug.DrawLine(pos.position, pos.forward*400f, Color.white);
+			if (Physics.Raycast(pos.position, transform.forward, Mathf.Infinity, WeaponsLayer) && m_TargetCore.Alive)
 			{
 				m_Weapon.FirePrimaryWeaponHold();
 				break;
@@ -79,28 +74,43 @@ public class EnemyDogfighter : MonoBehaviour
 	{	
 		//Debug.Log(m_Target.position);
 		//Debug.Log(m_DangerDistance);
-		Debug.DrawLine(transform.position, Pointer.forward * 400f, Color.red);
+		//Debug.DrawLine(transform.position, Pointer.forward * 400f, Color.red);
 		if (!m_InMotion)
 		{
-			if (!Physics.Linecast(transform.position + transform.forward * m_CastOffset, Focus.position, EnemyLayer))
+			/*
+			if (!Physics.Linecast(transform.position + transform.forward * m_CastOffset, Focus.position, PathingLayer))
 			{
 				if (Vector3.Distance(Focus.position, transform.position) < m_DangerDistance)
 				{
 					SlowPursuit();
 				}
 				else 
+				{
 					Pursue();
+				}
 			}
-			else 
+			*/
+			if (Physics.Raycast(transform.position + transform.forward * m_CastOffset, transform.forward, m_DangerDistance, PathingLayer))
 			{
 				EvasiveManoeuvers();
+			}
+			else
+			{
+				if (Vector3.Distance(Focus.position, transform.position) < m_DangerDistance)
+				{
+					SlowPursuit();
+				}
+				else 
+				{
+					Pursue();
+				}
 			}
 		}
 	}
 	
 	void Halt()
 	{
-	//	Debug.Log("Breaking Off");
+		Debug.Log("Stopping");
 		m_BattleMovement.HandBrake();
 	}
 	
@@ -109,27 +119,27 @@ public class EnemyDogfighter : MonoBehaviour
 		Pointer.LookAt(target, Vector3.up);
 		m_BattleMovement.TurnToward(Pointer.rotation);
 	}
-	
+	// Could still have collisions here. Change to compare velocities. 
 	void SlowPursuit()
 	{
-		//Debug.Log("Slow pursuit");
-		TurnToTarget(m_Target.position);
-		if (m_core.Speed > m_TargetCore.Speed)
-		{
+		Debug.Log("Slow pursuit");
+		TurnToTarget(Focus.position);
+		//if (m_core.Speed > m_TargetCore.Speed)
+		//{
 			m_BattleMovement.HandBrake();
-		}
+		//}
 	}
 	
 	void Pursue()
 	{
-		//Debug.Log("In pursuit");
-		TurnToTarget(m_Target.position);
+		Debug.Log("In pursuit");
+		TurnToTarget(Focus.position);
 		m_BattleMovement.Accelerate();
 	}
 	
 	void EvasiveManoeuvers()
 	{
-		//Debug.Log("EvasiveManoeuvers");
+		Debug.Log("EvasiveManoeuvers");
 		Vector3 horizontalDirection = ScannerSweep(SearchResolution, 1f, transform.right);
 		Vector3 verticalDirection = ScannerSweep(SearchResolution, 1f, transform.forward);
 		Vector3 direction = horizontalDirection + verticalDirection;
@@ -147,17 +157,17 @@ public class EnemyDogfighter : MonoBehaviour
 		}
 		Quaternion p = Quaternion.Euler(axis * angle * increment);
 		Vector3 rotatedVector = p * transform.position;
-		if (!Physics.Raycast(transform.position, rotatedVector, m_DangerDistance, EnemyLayer))
+		if (!Physics.Raycast(transform.position, rotatedVector, m_DangerDistance, PathingLayer))
 		{
 			//Debug.Log(1);
 			return rotatedVector;
 		}
-		else if (!Physics.Raycast(transform.position, rotatedVector*-1f , m_DangerDistance, EnemyLayer))
+		else if (!Physics.Raycast(transform.position, rotatedVector*-1f , m_DangerDistance, PathingLayer))
 		{
 			//Debug.Log("-1");
 			return rotatedVector*-1f;
 		}
-		else if (!Physics.Raycast(transform.position, transform.position + transform.forward, m_DangerDistance, EnemyLayer))
+		else if (!Physics.Raycast(transform.position, transform.position + transform.forward, m_DangerDistance, PathingLayer))
 		{
 			//Debug.Log(0);
 			return new Vector3(0,0,0);

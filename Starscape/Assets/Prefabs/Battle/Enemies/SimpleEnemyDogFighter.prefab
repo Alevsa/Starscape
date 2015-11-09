@@ -67,7 +67,7 @@ GameObject:
   m_Layer: 12
   m_Name: SimpleEnemyDogFighter
   m_TagString: Enemy
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -409,15 +409,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a9a70223242f54bbda5f427b61d87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyLayer:
+  PathingLayer:
     serializedVersion: 2
-    m_Bits: 4096
-  PlayerLayer:
+    m_Bits: 4294964223
+  WeaponsLayer:
     serializedVersion: 2
     m_Bits: 1024
   Focus: {fileID: 0}
   Pointer: {fileID: 465250}
-  m_Target: {fileID: 0}
   FiringPoints:
   - {fileID: 405574}
   - {fileID: 479830}
