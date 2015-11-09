@@ -70,7 +70,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &155544
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,8 +291,9 @@ MonoBehaviour:
   ExplosionSounds: []
   HitExplosionSound: {fileID: 0}
   CollisionSound: {fileID: 0}
-  Explosion: {fileID: 0}
-  Gibs: []
+  PoolExplosionIndex: 0
+  MinGibPoolIndex: 0
+  MaxGibPoolIndex: 0
   NumberOfGibs: 4
   CollisionDamage: .25
   TurnRate: 10
@@ -349,8 +350,9 @@ MonoBehaviour:
   ExplosionSounds: []
   HitExplosionSound: {fileID: 0}
   CollisionSound: {fileID: 0}
-  Explosion: {fileID: 0}
-  Gibs: []
+  PoolExplosionIndex: 0
+  MinGibPoolIndex: 0
+  MaxGibPoolIndex: 0
   NumberOfGibs: 4
   CollisionDamage: .25
   TurnRate: 10
@@ -380,11 +382,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 61234629e4b45fe4b8c95b5a219d378c, type: 3}
   HitExplosionSound: {fileID: 8300000, guid: 1333df89c1e0093428b8ef22588efc60, type: 3}
   CollisionSound: {fileID: 8300000, guid: 50705d2c5b4ee9a449b736985b5aee9f, type: 3}
-  Explosion: {fileID: 100004, guid: ac8c1c4fd62d44c809ced6a1696a9d62, type: 2}
-  Gibs:
-  - {fileID: 173356, guid: 575528bb91309ae408f523fb4b25573c, type: 2}
-  - {fileID: 149396, guid: 5bd41f6e4a4e3684d81455c771e83d2c, type: 2}
-  - {fileID: 163240, guid: eface8c29ae10a14ebf94910e20971c7, type: 2}
+  PoolExplosionIndex: 3
+  MinGibPoolIndex: 4
+  MaxGibPoolIndex: 6
   NumberOfGibs: 4
   CollisionDamage: .25
   TurnRate: 100

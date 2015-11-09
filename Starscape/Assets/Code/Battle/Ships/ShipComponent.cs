@@ -7,8 +7,9 @@ abstract public class ShipComponent : MonoBehaviour
 	public AudioClip[] ExplosionSounds;
 	public AudioClip HitExplosionSound;
 	public AudioClip CollisionSound = null;
-	public GameObject Explosion;
-	public GameObject[] Gibs;
+    public int PoolExplosionIndex;
+    public int MinGibPoolIndex;
+    public int MaxGibPoolIndex;
 	public int NumberOfGibs = 4;
 	public float CollisionDamage = 0.25f;
 
@@ -66,12 +67,21 @@ abstract public class ShipComponent : MonoBehaviour
 			int x = Random.Range(0, ExplosionSounds.Length);
 			m_AudioController.PlaySound(ExplosionSounds[x]);
 			StartCoroutine("DeathClock", ExplosionSounds[x].length);
-		}		
-		GameObject deathExplosion = Instantiate(Explosion, transform.position, transform.rotation) as GameObject;
-		for (int i = 0; i < NumberOfGibs; i++)
-		{
-			Instantiate(Gibs[Random.Range(0, Gibs.Length)], transform.position, transform.rotation);
 		}
+
+        GameObject deathExplosion = ObjectPooler.Current.GetPooledObject(PoolExplosionIndex);
+        deathExplosion.transform.position = transform.position;
+        deathExplosion.transform.rotation = transform.rotation;
+        deathExplosion.SetActive(true);
+
+        for (int i = 0; i < NumberOfGibs; i++)
+		{
+            int randGib = Random.Range(MinGibPoolIndex, MaxGibPoolIndex);
+            GameObject gib = ObjectPooler.Current.GetPooledObject(randGib);
+            gib.transform.position = transform.position;
+            gib.transform.rotation = transform.rotation;
+            gib.SetActive(true);
+        }
 	}
 	
 	public virtual void OnCollisionEnter(Collision other)

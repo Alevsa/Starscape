@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -244,14 +242,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
-      propertyPath: PooledObjects.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
-      propertyPath: PooledAmounts.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 491900, guid: 5613b8497c26c95498399d611afb8931, type: 2}
       propertyPath: m_LocalPosition.x
       value: -24.2841091
@@ -284,46 +274,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
-      propertyPath: PooledObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 154838, guid: 87d68ff5826f68847960223208e3e61d, type: 2}
-    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
-      propertyPath: PooledAmounts.Array.data[1]
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
-      propertyPath: PooledAmounts.Array.data[2]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
-      propertyPath: PooledAmounts.Array.data[0]
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
-      propertyPath: PooledObjects.Array.data[2]
-      value: 
-      objectReference: {fileID: 100000, guid: 8e1dcf1924b1945fcaab73df0affd2ab, type: 2}
-    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
-      propertyPath: PooledObjects.Array.data[3]
-      value: 
-      objectReference: {fileID: 100000, guid: 8e1dcf1924b1945fcaab73df0affd2ab, type: 2}
-    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
-      propertyPath: PooledAmounts.Array.data[3]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
-      propertyPath: PooledObjects.Array.data[4]
-      value: 
-      objectReference: {fileID: 100000, guid: 8e1dcf1924b1945fcaab73df0affd2ab, type: 2}
-    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
-      propertyPath: PooledObjects.Array.data[5]
-      value: 
-      objectReference: {fileID: 100000, guid: 8e1dcf1924b1945fcaab73df0affd2ab, type: 2}
-    - target: {fileID: 11476022, guid: 5613b8497c26c95498399d611afb8931, type: 2}
-      propertyPath: PooledObjects.Array.data[6]
-      value: 
-      objectReference: {fileID: 100000, guid: 8e1dcf1924b1945fcaab73df0affd2ab, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5613b8497c26c95498399d611afb8931, type: 2}
   m_IsPrefabParent: 0
@@ -3371,7 +3321,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AllowActivationOnStandalone: 0
+  m_ForceModuleActive: 0
 --- !u!114 &1695089206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3389,7 +3339,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-  m_AllowActivationOnMobileDevice: 0
+  m_ForceModuleActive: 0
 --- !u!114 &1695089207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4477,6 +4427,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1

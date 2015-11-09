@@ -8,13 +8,19 @@ public class Giblets : MonoBehaviour
 	private Vector3 m_Velocity;
 	private Rigidbody m_Body;
 	public float Force = 10f;
+    public float MinTimeTillDestroy;
+    public float MaxTimeTillDestroy;
+    public int PoolExplosionIndex;
 	
-	void Start () 
+	void OnEnable () 
 	{
 		m_Body = gameObject.GetComponent<Rigidbody>();
 		m_EulerSpin = new Vector3(Random.value * Force, Random.value * Force, Random.value * Force);
 		m_Spin = Quaternion.Euler(m_EulerSpin);
 		m_Velocity = new Vector3(Random.value * Force, Random.value * Force, Random.value * Force);
+
+        float time = Random.Range(MinTimeTillDestroy, MaxTimeTillDestroy);
+        Invoke("Destroy", time);
 	}
 	
 	void FixedUpdate () 
@@ -22,4 +28,14 @@ public class Giblets : MonoBehaviour
 		m_Body.AddForce(m_Velocity);
 		transform.Rotate(m_EulerSpin);
 	}
+
+    private void Destroy()
+    {
+        CancelInvoke();
+        GameObject explosion = ObjectPooler.Current.GetPooledObject(PoolExplosionIndex);
+        explosion.transform.position = transform.position;
+        explosion.transform.rotation = transform.rotation;
+        explosion.SetActive(true);
+        gameObject.SetActive(false);
+    }
 }

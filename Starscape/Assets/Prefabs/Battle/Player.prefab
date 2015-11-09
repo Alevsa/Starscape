@@ -30,10 +30,11 @@ GameObject:
   - 114: {fileID: 11454354}
   - 114: {fileID: 11408472}
   - 65: {fileID: 6507052}
+  - 114: {fileID: 11416292}
   m_Layer: 10
   m_Name: Player
   m_TagString: PlayerBattle
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -108,7 +109,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 84.9000015}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 462202}
@@ -290,6 +291,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioChannels: 5
+--- !u!114 &11416292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 174
+    i1: 70
+    i2: 149
+    i3: 132
+    i4: 145
+    i5: 25
+    i6: 93
+    i7: 52
+    i8: 232
+    i9: 64
+    i10: 119
+    i11: 211
+    i12: 177
+    i13: 116
+    i14: 189
+    i15: 197
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &11454354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,11 +355,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 61234629e4b45fe4b8c95b5a219d378c, type: 3}
   HitExplosionSound: {fileID: 8300000, guid: 1333df89c1e0093428b8ef22588efc60, type: 3}
   CollisionSound: {fileID: 8300000, guid: 50705d2c5b4ee9a449b736985b5aee9f, type: 3}
-  Explosion: {fileID: 100000, guid: 8e1dcf1924b1945fcaab73df0affd2ab, type: 2}
-  Gibs:
-  - {fileID: 173356, guid: 575528bb91309ae408f523fb4b25573c, type: 2}
-  - {fileID: 149396, guid: 5bd41f6e4a4e3684d81455c771e83d2c, type: 2}
-  - {fileID: 163240, guid: eface8c29ae10a14ebf94910e20971c7, type: 2}
+  PoolExplosionIndex: 3
+  MinGibPoolIndex: 4
+  MaxGibPoolIndex: 6
   NumberOfGibs: 5
   CollisionDamage: 1
   TurnRate: 100

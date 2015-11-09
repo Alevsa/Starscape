@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
 	private Vector3 m_PrevPosition;
 	private LayerMask m_HitLayers;
     private Transform m_InitTrans;
-    public GameObject Explosion;
+    public int PoolExplosionIndex;
 
 	void FixedUpdate ()
     {
@@ -53,7 +53,11 @@ public class Projectile : MonoBehaviour
 				hitThing.TakeDamage(m_Damage);
 			}
 		
-			Instantiate(Explosion, transform.position, transform.rotation);
+            GameObject explosion = ObjectPooler.Current.GetPooledObject(PoolExplosionIndex);
+            explosion.transform.position = transform.position;
+            explosion.transform.rotation = transform.rotation;
+            explosion.SetActive(true);
+
             transform.position = m_InitTrans.position;
 			Destroy ();
 		}

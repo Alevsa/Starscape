@@ -41,7 +41,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PooledObjects:
   - {fileID: 149702, guid: bb3f0bf6bbb1ed942a77e1717fba45ad, type: 2}
-  PooledAmounts: 0a000000
+  - {fileID: 154838, guid: 87d68ff5826f68847960223208e3e61d, type: 2}
+  - {fileID: 199608, guid: 645747045dd64d043b3af06161fd6fef, type: 2}
+  - {fileID: 115382, guid: d57cb4b17c43f2b4281e42d2b99fb574, type: 2}
+  - {fileID: 173356, guid: 575528bb91309ae408f523fb4b25573c, type: 2}
+  - {fileID: 149396, guid: 5bd41f6e4a4e3684d81455c771e83d2c, type: 2}
+  - {fileID: 163240, guid: eface8c29ae10a14ebf94910e20971c7, type: 2}
+  PooledAmounts: 14000000140000001400000014000000140000001400000014000000
   WillGrow: 1
 --- !u!1001 &100100000
 Prefab:

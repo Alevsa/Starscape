@@ -8,16 +8,25 @@ public class PlayerAim : MonoBehaviour
 	
 	void FixedUpdate ()
     {
-    	transform.rotation = Player.rotation;
-        RaycastHit hit;
-
-        if (Physics.Raycast(Player.position, Player.forward, out hit, CrosshairDistance))
+        if (Player != null)
         {
-            if (hit.transform.gameObject.tag != "Projectile")
-                transform.position = hit.point - transform.forward * 10;
+            gameObject.SetActive(true);
+            transform.rotation = Player.rotation;
+            RaycastHit hit;
+
+            if (Physics.Raycast(Player.position, Player.forward, out hit, CrosshairDistance))
+            {
+                if (hit.transform.gameObject.tag != "Projectile")
+                    transform.position = hit.point - transform.forward * 10;
+            }
+
+            else
+                transform.position = Player.position + Player.forward * (CrosshairDistance - 10);
         }
 
         else
-            transform.position = Player.position + Player.forward * (CrosshairDistance -10);
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
