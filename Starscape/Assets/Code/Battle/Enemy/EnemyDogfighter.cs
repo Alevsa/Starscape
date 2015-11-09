@@ -21,7 +21,8 @@ public class EnemyDogfighter : MonoBehaviour
 	private bool m_InMotion;
 	private Collider[] m_CoreCollider;
 	private float m_CastOffset;
-	
+    public float Caution = 0.05f;
+
 	void Start () 
 	{
 		m_TargetCore = Focus.GetComponent<ShipCore>();
@@ -38,7 +39,7 @@ public class EnemyDogfighter : MonoBehaviour
 		m_CastOffset = GetLengthOfShip();
 		
 		StatRandomiser(MaxVariation, MinVariation);
-		m_DangerDistance = m_core.MaxSpeed * 0.02f;
+		m_DangerDistance = m_core.MaxSpeed * Caution;
 		
 	}
 	
