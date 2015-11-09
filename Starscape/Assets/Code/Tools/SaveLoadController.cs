@@ -16,10 +16,21 @@ public static class SaveLoadController
 		PlayerPrefs.SetInt ("ActiveSlot", num);
 	}
 
+	public static void SetTempSlot ()
+	{
+		PlayerPrefs.SetInt ("SuspendedSlot", PlayerPrefs.GetInt ("ActiveSlot"));
+		PlayerPrefs.SetInt ("ActiveSlot", 420);
+	}
+
+	public static void SwitchSlotToActive()
+	{
+		PlayerPrefs.SetInt ("ActiveSlot", PlayerPrefs.GetInt ("SuspendedSlot"));
+	}
+
 	public static void SetPlayerName (string name)
 	{
 		int activeSlot = PlayerPrefs.GetInt ("ActiveSlot");
-		PlayerPrefs.SetString (activeSlot + "playerName", name); 
+		PlayerPrefs.SetString (activeSlot + "playerName", name);
 	}
 	
 	public static string GetPlayerName()
