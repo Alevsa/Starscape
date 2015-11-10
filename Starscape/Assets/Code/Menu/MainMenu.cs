@@ -53,7 +53,10 @@ public class MainMenu : MonoBehaviour
 
             else
             {
+                m_CurrentPanel.transform.SetAsFirstSibling();
                 m_CurrentPanel.GetComponent<Animator>().SetBool("SlideIn", false);
+
+                panel.transform.SetAsLastSibling();
                 panel.GetComponent<Animator>().SetBool("SlideIn", true);
             }
 
