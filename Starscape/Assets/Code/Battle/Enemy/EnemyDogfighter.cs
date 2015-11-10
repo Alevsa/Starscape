@@ -5,15 +5,11 @@ using System.Collections.Generic;
 public class EnemyDogfighter : MonoBehaviour 
 {
 	private float m_DangerDistance;
-	private ShipCore m_TargetCore;
 	public LayerMask PathingLayer;
-	public LayerMask WeaponsLayer;
 	public Transform Focus;
 	public Transform Pointer;
 	private ShipCore m_core;
 	private BattleMovement m_BattleMovement;
-	private WeaponController m_Weapon;
-	public Transform[] FiringPoints;
 	public float MaxVariation = 1.5f;
 	public float MinVariation = 0.7f;
 	public float SearchResolution = 3f;
@@ -25,13 +21,6 @@ public class EnemyDogfighter : MonoBehaviour
 
 	void Start () 
 	{
-		m_TargetCore = Focus.GetComponent<ShipCore>();
-		if (FiringPoints.Length == 0)
-		{
-			FiringPoints = new Transform[1];
-			FiringPoints[0] = transform;
-		}
-		m_Weapon = gameObject.GetComponent<WeaponController>();
 		m_core = gameObject.GetComponent<ShipCore>();
 		m_BattleMovement = gameObject.GetComponent<BattleMovement>();
 		
@@ -49,22 +38,8 @@ public class EnemyDogfighter : MonoBehaviour
 		if (Focus != null)
 		{
 			MovementControl();
-			FireControl();
 		}
 		else Halt();
-	}
-	
-	void FireControl()
-	{
-		foreach (Transform pos in FiringPoints)
-		{
-			//Debug.DrawLine(pos.position, pos.forward*400f, Color.white);
-			if (Physics.Raycast(pos.position, transform.forward, Mathf.Infinity, WeaponsLayer) && m_TargetCore.Alive)
-			{
-				m_Weapon.FirePrimaryWeaponHold();
-				break;
-			}
-		}
 	}
 	
 	void MovementControl()
@@ -105,10 +80,7 @@ public class EnemyDogfighter : MonoBehaviour
 	{
 		//Debug.Log("Slow pursuit");
 		TurnToTarget(Focus.position);
-		//if (m_core.Speed > m_TargetCore.Speed)
-		//{
 		m_BattleMovement.HandBrake();
-		//}
 	}
 	
 	void Pursue()
