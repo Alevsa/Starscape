@@ -28,7 +28,7 @@ public class EnemyLaserController : MonoBehaviour
     {
         foreach (Transform pos in FiringPoints)
         {
-            Debug.DrawLine(pos.position, pos.forward*400f, Color.white);
+            //Debug.DrawLine(pos.position, pos.forward*400f, Color.white);
             if (Physics.Raycast(pos.position, transform.forward, Mathf.Infinity, WeaponsLayer) && Focus != null)
             {
                 m_Weapon.FirePrimaryWeaponHold();

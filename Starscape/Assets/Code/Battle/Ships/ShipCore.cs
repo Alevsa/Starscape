@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class ShipCore : ShipComponent
 {	
-	private ShipPeripheral[] m_ShipPeripherals; 
+	private ShipPeripheral[] m_ShipPeripherals;
+    public ShipPeripheral[] AdditionalPeripherals;
 	public override void Start () 
 	{
 		base.Start();
-		m_ShipPeripherals = GetComponentsInChildren<ShipPeripheral>();
+        m_ShipPeripherals = GetComponentsInChildren<ShipPeripheral>();
+        m_ShipPeripherals.Concat(AdditionalPeripherals);
 		Alive = true;
 		foreach(ShipPeripheral peripheral in m_ShipPeripherals)
 		{

@@ -64,6 +64,7 @@ GameObject:
   - 114: {fileID: 11465276}
   - 114: {fileID: 11414366}
   - 114: {fileID: 11413522}
+  - 114: {fileID: 11466632}
   m_Layer: 12
   m_Name: SimpleEnemyDogFighter
   m_TagString: Enemy
@@ -159,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.2000008, y: -40.8199959, z: 101.800003}
+  m_LocalPosition: {x: -40.8852768, y: -40.8199959, z: 36.8998833}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 405574}
@@ -412,19 +413,31 @@ MonoBehaviour:
   PathingLayer:
     serializedVersion: 2
     m_Bits: 4294964223
-  WeaponsLayer:
-    serializedVersion: 2
-    m_Bits: 1024
   Focus: {fileID: 0}
   Pointer: {fileID: 465250}
-  FiringPoints:
-  - {fileID: 405574}
-  - {fileID: 479830}
   MaxVariation: 1.5
   MinVariation: .699999988
   SearchResolution: 3
   FindPathFrequency: 1
   Caution: .0500000007
+--- !u!114 &11466632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f68b8735bdb8a641af4d12717a3d313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponsLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  FiringPoints:
+  - {fileID: 405574}
+  - {fileID: 479830}
+  Focus: {fileID: 0}
 --- !u!114 &11472078
 MonoBehaviour:
   m_ObjectHideFlags: 1
