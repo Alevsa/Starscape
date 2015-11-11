@@ -108,7 +108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 84.9000015}
+  m_LocalPosition: {x: -31.6200008, y: 70.3000031, z: 91.8300018}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 462202}
@@ -338,6 +338,7 @@ MonoBehaviour:
   Alive: 0
   Speed: 0
   RollRate: 100
+  AdditionalPeripherals: []
 --- !u!114 &11488820
 MonoBehaviour:
   m_ObjectHideFlags: 1

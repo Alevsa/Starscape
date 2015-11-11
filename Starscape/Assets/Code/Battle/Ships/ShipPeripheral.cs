@@ -3,16 +3,22 @@ using System.Collections;
 
 public class ShipPeripheral : ShipComponent 
 {
-	private ShipCore m_Core; 
+	private ShipCore m_Core;
+    public ShipCore ExternalCore;
 	private ParticleSystem[] m_SmokeEffects;
 	
 	public override void Start()
 	{	
 		base.Start();
-		m_SmokeEffects = GetComponentsInChildren<ParticleSystem>();
+		m_SmokeEffects = GetComponentsInParent<ParticleSystem>();
 		Alive = true;
 		m_Core = transform.GetComponentInParent<ShipCore>();
+        if (m_Core == null)
+        {
+            m_Core = ExternalCore;
+        }
 		SwitchOffSmoke();
+  
 	}
 	
 	void FixedUpdate()
@@ -24,8 +30,11 @@ public class ShipPeripheral : ShipComponent
 	public override void TakeDamage(float damage)
 	{
 		base.TakeDamage(damage);
-		//Debug.Log("hit");
-		m_Core.TakeDamage(damage);
+        //Debug.Log("hit");
+        if (m_Core != null)
+        {
+            m_Core.TakeDamage(damage);
+        }
 	}
 	
 	void Disabled()

@@ -68,6 +68,16 @@ abstract public class ShipComponent : MonoBehaviour
 			m_AudioController.PlaySound(ExplosionSounds[x]);
 			StartCoroutine("DeathClock", ExplosionSounds[x].length);
 		}
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in renderers)
+        {
+            r.enabled = false;
+        }
+        Collider[] collider = gameObject.GetComponentsInChildren<Collider>();
+        foreach (Collider col in collider)
+        {
+            col.enabled = false;
+        }
 
         GameObject deathExplosion = ObjectPooler.Current.GetPooledObject(PoolExplosionIndex);
         deathExplosion.transform.position = transform.position;

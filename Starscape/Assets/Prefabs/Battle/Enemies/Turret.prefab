@@ -204,9 +204,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104322}
-  m_LocalRotation: {x: -.998557329, y: 0, z: 0, w: .0536975302}
-  m_LocalPosition: {x: -.128999993, y: .0601504035, z: -.485999972}
-  m_LocalScale: {x: .049999997, y: .049999997, z: .049999997}
+  m_LocalRotation: {x: -.691943944, y: 0, z: 0, w: .721951246}
+  m_LocalPosition: {x: 106.690002, y: -12.4700003, z: 44.1379738}
+  m_LocalScale: {x: 1, y: 1.06832433, z: 1.06832433}
   m_Children:
   - {fileID: 470364}
   - {fileID: 402728}
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alive: 1
-  FireSound: {fileID: 8300000, guid: 54422d41fa66d4b40b48f0efb93261da, type: 3}
+  FireSound: {fileID: 8300000, guid: 6d83cac7a70d4c641bb67c4645f0a794, type: 3}
   WeapMountName: 
   EquippedPrimaryWeapon: {fileID: 173980, guid: 6ad22ab1def2bef4491406452f5d193c,
     type: 2}
@@ -460,6 +460,7 @@ MonoBehaviour:
   Alive: 1
   Speed: 0
   RollRate: 0
+  ExternalCore: {fileID: 0}
 --- !u!114 &11453768
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 public class ShipCore : ShipComponent
@@ -11,7 +11,8 @@ public class ShipCore : ShipComponent
 		base.Start();
         m_ShipPeripherals = GetComponentsInChildren<ShipPeripheral>();
         m_ShipPeripherals.Concat(AdditionalPeripherals);
-		Alive = true;
+
+        Alive = true;
 		foreach(ShipPeripheral peripheral in m_ShipPeripherals)
 		{
 			TurnRate += peripheral.TurnRate;
@@ -19,7 +20,8 @@ public class ShipCore : ShipComponent
 			Deceleration += peripheral.Deceleration;
 			MaxSpeed += peripheral.MaxSpeed;
 			MaxHealth += peripheral.MaxHealth;
-			MaxReverseSpeed += peripheral.MaxReverseSpeed;
+            Health += peripheral.MaxHealth;
+            MaxReverseSpeed += peripheral.MaxReverseSpeed;
 			RollRate += peripheral.RollRate;
 		}
 	}
@@ -49,23 +51,19 @@ public class ShipCore : ShipComponent
 	
 	protected override void DeathAnimation()
 	{
-	/*
 		foreach (ShipPeripheral peripheral in m_ShipPeripherals)
 		{
 			peripheral.SwitchOffSmoke();
 		}
-	*/	
-		base.DeathAnimation();
-		Renderer[] renderers = GetComponentsInChildren<Renderer>();
-		foreach (Renderer r in renderers)
-		{
-			r.enabled = false;
-		}
-		Collider[] collider = gameObject.GetComponentsInChildren<Collider>();
-		foreach (Collider col in collider)
-		{
-			col.enabled = false;
-		}
-		//Destroy(gameObject);
-	}
+        base.DeathAnimation();
+        //Destroy(gameObject);
+    }
+
+    private void PeripheralDeaths()
+    {
+        foreach (ShipPeripheral per in m_ShipPeripherals)
+        {
+            Health = 0;
+        }
+    }
 }
