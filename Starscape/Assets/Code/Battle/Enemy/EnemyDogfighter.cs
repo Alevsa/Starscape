@@ -18,6 +18,7 @@ public class EnemyDogfighter : MonoBehaviour
 	private Collider[] m_CoreCollider;
 	private float m_CastOffset;
     public float Caution = 0.05f;
+    private TargetingComputer m_TargetingComputer;
 
 	void Start () 
 	{
@@ -35,11 +36,15 @@ public class EnemyDogfighter : MonoBehaviour
 	
 	void FixedUpdate () 
 	{
-		if (Focus != null)
-		{
-			MovementControl();
-		}
-		else Halt();
+        if (Focus != null)
+        {
+            MovementControl();
+        }
+        else
+        {
+            Halt();
+            Focus = m_TargetingComputer.AquireTarget();
+        }
 	}
 	
 	void MovementControl()
