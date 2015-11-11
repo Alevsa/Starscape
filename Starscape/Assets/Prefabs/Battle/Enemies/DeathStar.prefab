@@ -13,6 +13,7 @@ GameObject:
   - 23: {fileID: 2388016}
   - 114: {fileID: 11484460}
   - 114: {fileID: 11478830}
+  - 114: {fileID: 11480072}
   m_Layer: 12
   m_Name: Turret
   m_TagString: Untagged
@@ -152,7 +153,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107286}
   m_LocalRotation: {x: -.961665511, y: .00788974576, z: .27271384, w: -.0276483372}
-  m_LocalPosition: {x: -.263000011, y: .0260000005, z: -.412}
+  m_LocalPosition: {x: -.26699999, y: .0260000005, z: -.419}
   m_LocalScale: {x: .0499999933, y: .0499999896, z: .0500000007}
   m_Children:
   - {fileID: 448512}
@@ -575,6 +576,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioChannels: 5
+--- !u!114 &11480072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159bacb8b37e35c4c9d5aa60f3642401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioChannels: 5
 --- !u!114 &11484460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -595,15 +608,15 @@ MonoBehaviour:
   MinGibPoolIndex: 4
   MaxGibPoolIndex: 6
   NumberOfGibs: 4
-  CollisionDamage: .25
+  CollisionDamage: 0
   TurnRate: 50
   Acceleration: 0
   Deceleration: 0
   MaxSpeed: 0
   MaxReverseSpeed: 0
   MaxHealth: 100
-  Health: 10
-  Armour: 100
+  Health: 100
+  Armour: 10000
   Alive: 1
   Speed: 0
   RollRate: 0
