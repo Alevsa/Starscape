@@ -12,6 +12,7 @@ TagManager:
   - PlayerBattle
   - Enemy
   - Projectile
+  - FriendlyShip
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Player
   - Projectile
   - Enemy
-  - 
+  - FriendlyShip
   - 
   - 
   - 

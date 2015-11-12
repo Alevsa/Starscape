@@ -22,6 +22,7 @@ public class EnemyDogfighter : MonoBehaviour
 
 	void Start () 
 	{
+        m_TargetingComputer = gameObject.GetComponent<TargetingComputer>();
 		m_core = gameObject.GetComponent<ShipCore>();
 		m_BattleMovement = gameObject.GetComponent<BattleMovement>();
 		
@@ -36,14 +37,14 @@ public class EnemyDogfighter : MonoBehaviour
 	
 	void FixedUpdate () 
 	{
-        if (Focus != null)
+        if (Focus == null)
         {
-            MovementControl();
+            Halt();
+            Focus = m_TargetingComputer.Focus;
         }
         else
         {
-            Halt();
-            Focus = m_TargetingComputer.AquireTarget();
+            MovementControl();
         }
 	}
 	

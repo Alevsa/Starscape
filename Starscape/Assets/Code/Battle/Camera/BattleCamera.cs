@@ -46,7 +46,7 @@ public class BattleCamera : MonoBehaviour
 	// Also this has to go in fixed update as it's chasing a physics object, if it's not in fixed update it'll have more/less frames than the object and jitter.
 	void FixedUpdate()
 	{
-		if (m_Stats.Alive)
+		if (m_Stats.Alive && m_Focus != null)
 		{
 			CameraMovement();
 		}
