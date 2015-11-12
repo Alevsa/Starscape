@@ -330,9 +330,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 163162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93a9a70223242f54bbda5f427b61d87a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7de61986406a2b4499f09bf091c65430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinSpeed: .400000006
   PathingLayer:
     serializedVersion: 2
     m_Bits: 4294964223
@@ -418,7 +419,7 @@ MonoBehaviour:
   Alive: 1
   FireSound: {fileID: 8300000, guid: 6d83cac7a70d4c641bb67c4645f0a794, type: 3}
   WeapMountName: 
-  EquippedPrimaryWeapon: {fileID: 173980, guid: cbd4db5a7d26d6e499d7b35502fba6de,
+  EquippedPrimaryWeapon: {fileID: 156786, guid: 7e18d88e5e0b5db41b96e1e43a1095ab,
     type: 2}
   EquippedSecondaryWeapon: {fileID: 0}
 --- !u!114 &11472576

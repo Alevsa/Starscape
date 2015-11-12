@@ -45,7 +45,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294961151
   Ammo: 100
-  FireRate: .100000001
+  FireRate: 1.5
   PoolIndex: 1
 --- !u!1001 &100100000
 Prefab:
@@ -68,7 +68,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: FireRate
-      value: .100000001
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: PoolIndex
