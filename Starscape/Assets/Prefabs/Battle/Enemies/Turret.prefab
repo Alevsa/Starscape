@@ -49,9 +49,10 @@ GameObject:
   - 114: {fileID: 11492736}
   - 114: {fileID: 11487886}
   - 114: {fileID: 11478530}
+  - 114: {fileID: 11445946}
   m_Layer: 12
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,11 +102,11 @@ GameObject:
   - 65: {fileID: 6541084}
   - 23: {fileID: 2387076}
   - 114: {fileID: 11416632}
-  - 114: {fileID: 11447482}
   - 114: {fileID: 11403860}
+  - 114: {fileID: 11409554}
   m_Layer: 12
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,6 +388,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioChannels: 5
+--- !u!114 &11409554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b1937d774724ea8dcebeefde3a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetedTag:
+  - PlayerBattle
+  - FriendlyShip
+  Focus: {fileID: 0}
 --- !u!114 &11415660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -437,18 +453,21 @@ MonoBehaviour:
   Speed: 0
   RollRate: 0
   ExternalCore: {fileID: 0}
---- !u!114 &11447482
+--- !u!114 &11445946
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177186}
+  m_GameObject: {fileID: 141866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 159bacb8b37e35c4c9d5aa60f3642401, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bb6b1937d774724ea8dcebeefde3a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioChannels: 5
+  TargetedTag:
+  - Player
+  - FriendlyShip
+  Focus: {fileID: 0}
 --- !u!114 &11478530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -526,7 +545,6 @@ MonoBehaviour:
   FiringPoints:
   - {fileID: 464076}
   - {fileID: 447310}
-  Focus: {fileID: 0}
 --- !u!135 &13513630
 SphereCollider:
   m_ObjectHideFlags: 1

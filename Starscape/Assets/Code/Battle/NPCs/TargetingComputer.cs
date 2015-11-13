@@ -31,7 +31,6 @@ public class TargetingComputer : MonoBehaviour
         if (Focus == null)
         {
             Focus = AquireTarget();
-
         }
     }
 }

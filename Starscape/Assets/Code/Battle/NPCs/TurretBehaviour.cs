@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TurretBehaviour : MonoBehaviour
 {
+    private TargetingComputer m_TargetingComputer;
     public Transform Focus;
     private ShipPeripheral m_TurretCore;
     public Transform Pointer;
@@ -11,12 +12,20 @@ public class TurretBehaviour : MonoBehaviour
 
     void Start()
     {
+        m_TargetingComputer = gameObject.GetComponent<TargetingComputer>();
         m_TurretCore = gameObject.GetComponent<ShipPeripheral>();
     }
 
     void FixedUpdate()
     {
-        AlignTurret();
+        if (Focus == null)
+        {
+            Focus = m_TargetingComputer.Focus;
+        }
+        else
+        {
+            AlignTurret();
+        }
     }
 
     void AlignTurret()
@@ -28,6 +37,7 @@ public class TurretBehaviour : MonoBehaviour
         }
         else
         {
+            Focus = null;
             Quaternion temp = Quaternion.Euler(new Vector3(DefaultAngle, 0f, 0f));
             transform.rotation = Quaternion.RotateTowards(transform.rotation, temp, m_TurretCore.TurnRate * Time.fixedDeltaTime);
         }
