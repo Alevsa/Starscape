@@ -8,7 +8,7 @@ public class ShipCore : ShipComponent
     public ShipPeripheral[] AdditionalPeripherals;
     public float DeathTime = 0f;
 
-	public override void Start () 
+	protected override void Start () 
 	{
 		base.Start();
         m_ShipPeripherals = GetComponentsInChildren<ShipPeripheral>();

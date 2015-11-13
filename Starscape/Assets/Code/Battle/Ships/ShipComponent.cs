@@ -26,7 +26,7 @@ abstract public class ShipComponent : MonoBehaviour
 	public float RollRate;
     //public int DeathExplosions = 3;
 
-    public virtual void Start()
+    protected virtual void Start()
 	{
 		/*if (CollisionSound = null)
 		{

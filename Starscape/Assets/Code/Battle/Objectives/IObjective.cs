@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class IObjective : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+interface IObjective
+{
+    bool Completed {get; set; }
+    bool Failed { get; set; }
+    void CheckCompletion();
+    void CheckFailure();
 }

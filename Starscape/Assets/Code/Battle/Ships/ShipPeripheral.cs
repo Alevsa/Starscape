@@ -7,7 +7,7 @@ public class ShipPeripheral : ShipComponent
     public ShipCore ExternalCore;
 	private ParticleSystem[] m_SmokeEffects;
 	
-	public override void Start()
+	protected override void Start()
 	{	
 		base.Start();
 		m_SmokeEffects = GetComponentsInParent<ParticleSystem>();

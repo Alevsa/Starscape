@@ -465,7 +465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetedTag:
-  - Player
+  - PlayerBattle
   - FriendlyShip
   Focus: {fileID: 0}
 --- !u!114 &11478530
