@@ -1,11 +1,13 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using System.Collections;
+using UnityEngine;
 
 public class ShipCore : ShipComponent
 {	
 	private ShipPeripheral[] m_ShipPeripherals;
     public ShipPeripheral[] AdditionalPeripherals;
+    public float DeathTime = 0f;
+
 	public override void Start () 
 	{
 		base.Start();
@@ -45,25 +47,29 @@ public class ShipCore : ShipComponent
 		Acceleration = 0f;
 		Deceleration = 0f;
 		RollRate = 0f;
-		DeathAnimation();
+        StartCoroutine("PeripheralDeaths");
 		//StartCoroutine("DeathAnimation");
 	}
-	
-	protected override void DeathAnimation()
-	{
-		foreach (ShipPeripheral peripheral in m_ShipPeripherals)
-		{
-			peripheral.SwitchOffSmoke();
-		}
-        base.DeathAnimation();
-        //Destroy(gameObject);
-    }
 
-    private void PeripheralDeaths()
+    private IEnumerator PeripheralDeaths()
     {
-        foreach (ShipPeripheral per in m_ShipPeripherals)
+        float[] peripheralDeathTime = new float[m_ShipPeripherals.Length];
+        for (int i = 0; i<m_ShipPeripherals.Length; i++)
         {
-            Health = 0;
+            peripheralDeathTime[i] = Random.Range(0, DeathTime);
+            yield return null;
         }
+        for (float i = DeathTime; i > 0; i -= Time.deltaTime)
+        {
+            for (int j = 0; j < m_ShipPeripherals.Length; j++)
+            {
+                if (i < peripheralDeathTime[j])
+                {
+                    m_ShipPeripherals[j].Health = 0f;
+                }
+            }
+            yield return null;
+        }
+        DeathAnimation();
     }
 }
