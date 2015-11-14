@@ -2000,6 +2000,7 @@ MonoBehaviour:
   - {fileID: 1983821450}
   BonusObjectives: []
   m_CurrentStage: 0
+  Player: {fileID: 1028899064}
 --- !u!4 &914066717
 Transform:
   m_ObjectHideFlags: 0
@@ -4702,7 +4703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385f82ecc4f000b47877ec13a02a7dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeLimit: 120
+  TimeLimit: 1
   Stage: 0
   Targets:
   - {fileID: 1301217296}

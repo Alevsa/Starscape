@@ -8,17 +8,19 @@ public class KillObjective : Objective
 
     public override void CheckCompletion()
     {
+        // Debug.Log(Targets.Count);
         if (Targets.Count == 0)
         {
             Completed = true;
         }
         else
         {
-            foreach (GameObject target in Targets)
+            for (int i = 0; i < Targets.Count; i++)
             {
-                if (target == null)
+                if (Targets[i] == null)
                 {
-                    Targets.Remove(target);
+                    Targets.RemoveAt(i);
+                    break;
                 }
             }
         }

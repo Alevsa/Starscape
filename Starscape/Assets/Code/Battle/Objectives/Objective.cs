@@ -34,7 +34,6 @@ public abstract class Objective : MonoBehaviour, IObjective
 
     public void Activate()
     {
-        Debug.Log("Hello");
         Failed = false;
         Completed = false;
         if (TimeLimit > 0f)

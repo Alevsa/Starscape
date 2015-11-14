@@ -3,14 +3,19 @@ using System.Collections.Generic;
 
 public class MissionControl : MonoBehaviour
 {
-    public Objective[] Objectives;
-    public BonusObjective[] BonusObjectives;
+    public List<Objective> Objectives;
+    public List<Objective> BonusObjectives;
     private List<Objective> m_ActiveObjectives;
     private int m_NumberOfStages = 0;
     public int m_CurrentStage = 0;
+    public GameObject Player;
 
+    // TO DO:
+    // Implement bonus objectives
+    // Make things happen on win/mission failure
     void Start()
     {
+        m_ActiveObjectives = new List<Objective>();
         foreach (Objective obj in Objectives)
         {
             if (obj.Stage > m_NumberOfStages)
@@ -23,13 +28,16 @@ public class MissionControl : MonoBehaviour
 
     void Update()
     {
-        CheckStageCompletion();
+        if (m_CurrentStage < m_NumberOfStages)
+        {
+            CheckStageCompletion();
+        }
         CheckStageFailure();
     }
 
     void SetActiveObjectives()
     {
-        Debug.Log("Hello");
+        //Debug.Log("Setting Active objects");
         m_ActiveObjectives.Clear();
         foreach (Objective obj in Objectives)
         {
@@ -38,10 +46,10 @@ public class MissionControl : MonoBehaviour
                 m_ActiveObjectives.Add(obj);
                 obj.Activate();
             }
-            if (m_ActiveObjectives.Count == 0)
-            {
-                Win();
-            }
+        }
+        if (m_ActiveObjectives.Count == 0)
+        {
+            Win();
         }
     }
 
@@ -64,11 +72,18 @@ public class MissionControl : MonoBehaviour
 
     void CheckStageFailure()
     {
-        foreach (Objective obj in m_ActiveObjectives)
+        if (Player == null)
         {
-            if (obj.Failed)
+            MissionFailed();
+        }
+        else
+        {
+            foreach (Objective obj in m_ActiveObjectives)
             {
-                MissionFailed();
+                if (obj.Failed)
+                {
+                    MissionFailed();
+                }
             }
         }
     }
@@ -79,6 +94,6 @@ public class MissionControl : MonoBehaviour
     }
     void Win()
     {
-            Debug.Log("You win");
+        Debug.Log("You win");
     }
 }
