@@ -393,18 +393,19 @@ MonoBehaviour:
   MaxGibPoolIndex: 6
   NumberOfGibs: 4
   CollisionDamage: 1
-  TurnRate: 100
+  TurnRate: 1000
   Acceleration: 4000
   Deceleration: 8000
   MaxSpeed: 4000
   MaxReverseSpeed: 4000
-  MaxHealth: 10
-  Health: 10
+  MaxHealth: 200
+  Health: 200
   Armour: 0
   Alive: 0
   Speed: 0
   RollRate: 100
   AdditionalPeripherals: []
+  DeathTime: 0
 --- !u!114 &11460766
 MonoBehaviour:
   m_ObjectHideFlags: 1

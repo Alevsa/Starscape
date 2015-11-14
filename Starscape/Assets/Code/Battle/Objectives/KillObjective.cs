@@ -1,23 +1,30 @@
 ﻿using UnityEngine;
-using System;
+using System.Collections.Generic;
 
-public class KillObjective : TimedObjective, IObjective
+// Objective is to kill all the Targets, may or may not have atime limit.
+public class KillObjective : Objective
 {  
-    public bool Completed { get; set; }
-    public bool Failed { get; set; }
-    public GameObject[] Targets;
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	}
+    public List<GameObject> Targets;
 
-    public void CheckCompletion()
+    public override void CheckCompletion()
     {
-        throw new NotImplementedException();
+        if (Targets.Count == 0)
+        {
+            Completed = true;
+        }
+        else
+        {
+            foreach (GameObject target in Targets)
+            {
+                if (target == null)
+                {
+                    Targets.Remove(target);
+                }
+            }
+        }
     }
 
-    public void CheckFailure()
+    public override void CheckFailure()
     {
         if (TimeLimit < 0f && m_IsTimed)
         {

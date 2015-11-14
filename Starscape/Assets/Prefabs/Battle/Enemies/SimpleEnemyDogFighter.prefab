@@ -396,13 +396,14 @@ MonoBehaviour:
   Deceleration: 8000
   MaxSpeed: 4000
   MaxReverseSpeed: 4000
-  MaxHealth: 100
-  Health: 100
+  MaxHealth: 10
+  Health: 10
   Armour: 0
   Alive: 0
   Speed: 0
   RollRate: 100
   AdditionalPeripherals: []
+  DeathTime: 0
 --- !u!114 &11465276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -414,6 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de61986406a2b4499f09bf091c65430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinSpeed: .400000006
   PathingLayer:
     serializedVersion: 2
     m_Bits: 4294956031

@@ -3,27 +3,12 @@ using UnityEngine;
 
 // Objective to keep the focus gameobject alive until the timer is over.
 
-public class SurviveObjective: TimedObjective, IObjective
+public class SurviveObjective: Objective, IObjective
 {
-    public bool Completed { get; set; }
-    public bool Failed { get; set; }
     private Coroutine m_Timer;
     public GameObject Focus;
 
-	protected override void Start()
-    {
-        Failed = false;
-        Completed = false;
-        base.Start();
-	}
-
-    protected void Update()
-    {
-        CheckCompletion();
-        CheckFailure();
-    }
-
-    public void CheckCompletion()
+    public override void CheckCompletion()
     {
         if (TimeLimit <= 0f)
         {
@@ -32,7 +17,7 @@ public class SurviveObjective: TimedObjective, IObjective
         }
     }
 
-    public void CheckFailure()
+    public override void CheckFailure()
     {
         if (Focus == null)
         {

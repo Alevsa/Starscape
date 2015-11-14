@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class RaceObjective : MonoBehaviour {
+public class RaceObjective : Objective
+{
+    public override void CheckCompletion()
+    {
+        throw new NotImplementedException();
+    }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public override void CheckFailure()
+    {
+        throw new NotImplementedException();
+    }
 }
