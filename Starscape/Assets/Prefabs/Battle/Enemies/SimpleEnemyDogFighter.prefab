@@ -303,7 +303,7 @@ MonoBehaviour:
   Deceleration: 10
   MaxSpeed: 10
   MaxReverseSpeed: 10
-  MaxHealth: 10
+  MaxHealth: 1
   Health: 1
   Armour: 10
   Alive: 0
@@ -363,7 +363,7 @@ MonoBehaviour:
   Deceleration: 10
   MaxSpeed: 10
   MaxReverseSpeed: 10
-  MaxHealth: 10
+  MaxHealth: 1
   Health: 1
   Armour: 10
   Alive: 0
@@ -396,8 +396,8 @@ MonoBehaviour:
   Deceleration: 8000
   MaxSpeed: 4000
   MaxReverseSpeed: 4000
-  MaxHealth: 10
-  Health: 10
+  MaxHealth: 1
+  Health: 1
   Armour: 0
   Alive: 0
   Speed: 0

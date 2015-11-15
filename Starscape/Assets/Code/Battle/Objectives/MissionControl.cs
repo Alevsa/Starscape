@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class MissionControl : MonoBehaviour
@@ -9,6 +10,7 @@ public class MissionControl : MonoBehaviour
     private int m_NumberOfStages = 0;
     public int m_CurrentStage = 0;
     public GameObject Player;
+    public Text MissionText;
 
     // TO DO:
     // Implement bonus objectives
@@ -28,7 +30,7 @@ public class MissionControl : MonoBehaviour
 
     void Update()
     {
-        if (m_CurrentStage < m_NumberOfStages)
+        if (m_CurrentStage <= m_NumberOfStages)
         {
             CheckStageCompletion();
         }
@@ -51,6 +53,21 @@ public class MissionControl : MonoBehaviour
         {
             Win();
         }
+        else
+        {
+            SetMissionText();
+        }
+    }
+
+    void SetMissionText()
+    {
+        string temp = "";
+        foreach (Objective obj in m_ActiveObjectives)
+        {
+            temp += obj.MissionText;
+            temp += "\n";
+        }
+        MissionText.text = temp;
     }
 
     void CheckStageCompletion()
@@ -90,10 +107,10 @@ public class MissionControl : MonoBehaviour
 
     void MissionFailed()
     {
-        Debug.Log("Mission Failed");
+        MissionText.text = "Mission failed";
     }
     void Win()
     {
-        Debug.Log("You win");
+        MissionText.text = "Mission Complete";
     }
 }

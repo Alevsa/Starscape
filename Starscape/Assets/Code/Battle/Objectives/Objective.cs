@@ -7,11 +7,11 @@ public abstract class Objective : MonoBehaviour, IObjective
     protected bool m_IsTimed;
     public int Stage;
     private Coroutine m_Timer;
+    public string MissionText;
 
     public bool Completed { get; set; }
     public bool Failed { get; set; }
     public int Priority { get; set; }
-    public string DescriptiveName { get; set; }
     public bool Active { get; set; }
 
     public abstract void CheckCompletion();
