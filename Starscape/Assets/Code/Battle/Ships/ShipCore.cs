@@ -48,13 +48,13 @@ public class ShipCore : ShipComponent
 		Deceleration = 0f;
 		RollRate = 0f;
         StartCoroutine("PeripheralDeaths");
-		//StartCoroutine("DeathAnimation");
-	}
+        //StartCoroutine("DeathAnimation");
+    }
 
     private IEnumerator PeripheralDeaths()
     {
         float[] peripheralDeathTime = new float[m_ShipPeripherals.Length];
-        for (int i = 0; i<m_ShipPeripherals.Length; i++)
+        for (int i = 0; i < m_ShipPeripherals.Length; i++)
         {
             peripheralDeathTime[i] = Random.Range(0, DeathTime);
             yield return null;

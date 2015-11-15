@@ -93,7 +93,7 @@ abstract public class ShipComponent : MonoBehaviour
             gib.SetActive(true);
         }
 	}
-	
+
 	public virtual void OnCollisionEnter(Collision other)
 	{
 		Health -= CollisionDamage * MaxHealth;

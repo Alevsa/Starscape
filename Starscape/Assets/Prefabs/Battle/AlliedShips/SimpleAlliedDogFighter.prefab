@@ -393,7 +393,7 @@ MonoBehaviour:
   MaxGibPoolIndex: 6
   NumberOfGibs: 4
   CollisionDamage: 1
-  TurnRate: 1000
+  TurnRate: 100
   Acceleration: 4000
   Deceleration: 8000
   MaxSpeed: 4000
