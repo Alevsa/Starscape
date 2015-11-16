@@ -138,6 +138,10 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 163690, guid: 60a1641b634aaf443b78dde7c9ed8b4f, type: 2}
   m_PrefabInternal: {fileID: 174381184}
+--- !u!1 &117599951 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 151232, guid: 60a1641b634aaf443b78dde7c9ed8b4f, type: 2}
+  m_PrefabInternal: {fileID: 174381184}
 --- !u!1001 &174381184
 Prefab:
   m_ObjectHideFlags: 0
@@ -555,6 +559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   PauseMenuController: {fileID: 83284632}
+  EnterPanel: {fileID: 94258234}
+  MainPanel: {fileID: 117599951}
 --- !u!4 &1562266549
 Transform:
   m_ObjectHideFlags: 0

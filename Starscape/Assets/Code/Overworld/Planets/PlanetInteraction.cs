@@ -1,30 +1,23 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class PlanetInteraction : MonoBehaviour
 {
-    public GameObject m_EnterPanel;
-    private UpdateText m_EnterText;
+    private OverworldController m_Controller;
 
     void Start()
     {
-        m_EnterText = m_EnterPanel.transform.FindChild("EnterText").GetComponent<UpdateText>();
+        m_Controller = GameObject.Find("Controller").GetComponent<OverworldController>();
     }
 
     void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == "Player")
-        {
-            m_EnterText.SetText(gameObject.name);
-            m_EnterPanel.SetActive(true);
-        }
+            m_Controller.SetPlanet(gameObject);
     }
 
     void OnTriggerExit(Collider col)
     {
         if (col.gameObject.tag == "Player")
-        {
-            m_EnterPanel.SetActive(false);
-        }
+            m_Controller.RemovePlanet();
     }
 }
