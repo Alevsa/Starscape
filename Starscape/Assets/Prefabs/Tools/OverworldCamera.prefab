@@ -50,9 +50,9 @@ Camera:
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
-  field of view: 60
+  field of view: 45
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 50
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -91,8 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b465e34d092b8b443b3dec96e7ff4a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ZoomFactor: 4
-  ZoomTime: 5
+  ZoomFactor: 10
+  ZoomTime: 1
+  ZoomOffset: 0
 --- !u!124 &12453804
 Behaviour:
   m_ObjectHideFlags: 1

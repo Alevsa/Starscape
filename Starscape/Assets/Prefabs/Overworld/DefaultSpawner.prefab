@@ -39,12 +39,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c9653353c6da84ca709ba3449334bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
-  active: 0
-  spawnChance: 9.99999975e-06
-  spawnDistance: 20
-  maxEnemies: 4
-  enemies:
+  Range: 0
+  Active: 0
+  SpawnChance: .100000001
+  SpawnDistance: 120
+  MaxEnemies: 4
+  Enemies:
   - {fileID: 190954, guid: 528f4f46a97d3074dbec50efafe1d7ba, type: 2}
 --- !u!1001 &100100000
 Prefab:
