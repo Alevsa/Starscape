@@ -7,4 +7,10 @@
   <planet id="Jord">
  	Jord is a pretty sweet planet. It's got breathable air, drinkable water and lots of animals to eat. 
 </planet>
+<planet id="Eskion">
+Despite being so close to its star Eskion is incredibly cold. With a thin inhospitable atmosphere no life can suvive here unaided. There is however a small scientific outpost embedded in an old military base.
+</planet>
+<planet id="Wight">
+With an average surface temperature of 223K Wight is almost completely barren. A few settlers eke out a meagre living among the tundra of the nothern pole. There's even a small spaceport that enjoys some prosperity from the sale of rare earths.
+</planet>
 </root>
