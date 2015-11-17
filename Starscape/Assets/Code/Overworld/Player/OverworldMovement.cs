@@ -14,6 +14,7 @@ public class OverworldMovement : MonoBehaviour
 	private Coroutine m_Accelerate;
 	private Coroutine m_Decelerate;
 	private Coroutine m_Warp;
+    public GameObject[] EngineFlare;
 	
 	void Start () 
 	{
@@ -95,6 +96,9 @@ public class OverworldMovement : MonoBehaviour
 	
 	private IEnumerator Warp()
 	{
+        foreach (GameObject flare in EngineFlare)
+            flare.SetActive(true);
+
 		for (float i = 0f; i<m_Stats.WarpChargeTime; i+=Time.deltaTime)
 		{
 			// Exponential function, starts out very low for a while then rapidly grows.
@@ -119,7 +123,10 @@ public class OverworldMovement : MonoBehaviour
 			m_Speed = i;
 			yield return null;
 		}
-	}
+
+        foreach (GameObject flare in EngineFlare)
+            flare.SetActive(false);
+    }
 	
 	void Movement () 
 	{

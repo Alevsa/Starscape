@@ -1,26 +1,30 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class OverworldController : MonoBehaviour 
 {
-	//Ship to be controlled
 	public GameObject Player;
-	private OverworldMovement m_HandlerMovement;
 	public PauseMenu PauseMenuController;
-	private bool m_MoveInUse = false;
+    private OverworldMovement m_HandlerMovement;
+    private bool m_MoveInUse = false;
 
     public GameObject EnterPanel;
     public GameObject MainPanel;
+    public Text TitleText;
+    public Text DescriptionText;
     private UpdateText m_EnterText;
     private GameObject m_CurrentPlanet;
-	
-	// Use this for initialization
+    private LoadPlanetInfo m_PlanetInfo;
+    private bool m_MainActive;
+
 	void Start () 
 	{
 		Player = GameObject.FindGameObjectWithTag("Player");
 		m_HandlerMovement = Player.GetComponent<OverworldMovement>();
 		Player.transform.position = SaveLoadController.GetSavedPlayerPosition();
         m_EnterText = EnterPanel.transform.FindChild("EnterText").GetComponent<UpdateText>();
+        m_PlanetInfo = new LoadPlanetInfo();
     }
 	
 	void Update () 
@@ -64,7 +68,8 @@ public class OverworldController : MonoBehaviour
     {
         m_CurrentPlanet = planet;
         m_EnterText.SetText(planet.name);
-        EnterPanel.SetActive(true);
+        if(!m_MainActive)
+            EnterPanel.SetActive(true);
     }
 
     public void RemovePlanet()
@@ -72,11 +77,15 @@ public class OverworldController : MonoBehaviour
         m_CurrentPlanet = null;
         EnterPanel.SetActive(false);
         MainPanel.SetActive(false);
+        m_MainActive = false;
     }
 
     private void OpenPlanetPane()
     {
+        m_MainActive = true;
         EnterPanel.SetActive(false);
+        TitleText.text = m_CurrentPlanet.name;
+        DescriptionText.text = m_PlanetInfo.GetPlanetInfo(m_CurrentPlanet.name);
         MainPanel.SetActive(true);
     }
 }

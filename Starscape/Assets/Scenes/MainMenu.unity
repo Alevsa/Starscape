@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 844831454}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &196583220
@@ -310,10 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2abbd6b90a9e8c4b80559ce010cd16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CreditsPanel: {fileID: 844641701}
-  OptionsPanel: {fileID: 1891570061}
   PlayPanel: {fileID: 844831454}
-  QuitPanel: {fileID: 2085013283}
   MouseControlToggle: {fileID: 1913346622}
   InvertedYAxis: {fileID: 630371532}
   PlayButtons:

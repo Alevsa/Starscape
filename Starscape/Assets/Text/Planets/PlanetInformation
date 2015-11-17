@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <planet id="default">
+    This is the default description
+  </planet>
+  <planet id="Jord">
+ 	Jord is a pretty sweet planet. It's got breathable air, drinkable water and lots of animals to eat. 
+</planet>
+</root>

@@ -4,11 +4,7 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour 
 {
-	public GameObject CreditsPanel = null;
-	public GameObject OptionsPanel = null;
-	public GameObject PlayPanel = null;
-	public GameObject QuitPanel = null;
-	
+	public GameObject PlayPanel = null;	
 	public Toggle MouseControlToggle = null;
 	public Toggle InvertedYAxis = null;
 	public Button[] PlayButtons = null;
@@ -32,7 +28,8 @@ public class MainMenu : MonoBehaviour
 		if (SaveLoadController.GetMouseControl())
 			MouseControlToggle.isOn = true;
 		else
-			MouseControlToggle.isOn = false;		
+			MouseControlToggle.isOn = false;	
+        	
 		InitialisePlayPanel();
 	}
 	

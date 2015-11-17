@@ -64,7 +64,7 @@ GameObject:
   - 222: {fileID: 22257646}
   - 114: {fileID: 11494980}
   m_Layer: 5
-  m_Name: Text
+  m_Name: DescriptionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &154162
 GameObject:
   m_ObjectHideFlags: 1
