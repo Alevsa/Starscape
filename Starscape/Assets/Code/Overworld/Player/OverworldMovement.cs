@@ -118,9 +118,9 @@ public class OverworldMovement : MonoBehaviour
 	
 	private IEnumerator Decelerate(float initial, float target) 
 	{
-		for (float i = initial; i>target; i-= m_Stats.Acceleration * Time.deltaTime)
+		for (float i = m_Stats.DecelerationTime; i > 0f; i-= Time.deltaTime)
 		{
-			m_Speed = i;
+			m_Speed = target + (i/m_Stats.DecelerationTime) * initial;
 			yield return null;
 		}
 

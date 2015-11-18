@@ -9,5 +9,6 @@ public class OverworldStats : MonoBehaviour
 	public float ImpulsePower = 1f;
 	public float WarpChargeTime = 5f;
 	public float WarpTurnRate = 1f;
+    public float DecelerationTime = 1f;
 	[HideInInspector] public float Speed = 0f;
 }
