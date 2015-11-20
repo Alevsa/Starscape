@@ -30,7 +30,7 @@ public class ShipPeripheral : ShipComponent
         //Debug.Log("hit");
         if (m_Core != null)
         {
-            m_Core.TakeDamage(damage);
+            m_Core.Health -= damage;
         }
     }
 
@@ -45,13 +45,5 @@ public class ShipPeripheral : ShipComponent
         m_Core.RollRate -= RollRate;
         DeathAnimation();
         KillChildren();
-    }
-
-    void KillChildren()
-    {
-        foreach (ShipPeripheral p in gameObject.GetComponentsInChildren<ShipPeripheral>())
-        {
-            p.Health = 0;
-        }
     }
 }

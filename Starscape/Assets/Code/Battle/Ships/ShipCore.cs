@@ -7,10 +7,10 @@ public class ShipCore : ShipComponent
 	private ShipPeripheral[] m_ShipPeripherals;
     public ShipPeripheral[] AdditionalPeripherals;
     public float DeathTime = 0f;
+    public float PeripheralHealthContribution = 0.6f;
 
 	protected override void Start () 
 	{
-		base.Start();
         m_ShipPeripherals = GetComponentsInChildren<ShipPeripheral>();
         m_ShipPeripherals.Concat(AdditionalPeripherals);
 
@@ -21,12 +21,12 @@ public class ShipCore : ShipComponent
 			Acceleration += peripheral.Acceleration;
 			Deceleration += peripheral.Deceleration;
 			MaxSpeed += peripheral.MaxSpeed;
-			MaxHealth += peripheral.MaxHealth;
-            Health += peripheral.MaxHealth;
+			MaxHealth += peripheral.MaxHealth * PeripheralHealthContribution;
             MaxReverseSpeed += peripheral.MaxReverseSpeed;
 			RollRate += peripheral.RollRate;
 		}
-	}
+        base.Start();
+    }
 	
 	void Update()
 	{

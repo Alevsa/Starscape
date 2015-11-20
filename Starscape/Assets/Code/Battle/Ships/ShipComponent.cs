@@ -28,10 +28,11 @@ abstract public class ShipComponent : MonoBehaviour
 
     protected virtual void Start()
 	{
-		/*if (CollisionSound = null)
+        /*if (CollisionSound = null)
 		{
 			CollisionSound = HitExplosionSound;
 		}*/
+        Health = MaxHealth;
 		NumberOfGibs += Random.Range(0, 4);
 		m_AudioController = gameObject.GetComponent<AudioController>();
 	}
@@ -100,5 +101,12 @@ abstract public class ShipComponent : MonoBehaviour
 		//Debug.Log(CollisionSound);
 		m_AudioController.PlaySound(CollisionSound);
 	}
-	
+
+    protected void KillChildren()
+    {
+        foreach (ShipPeripheral p in gameObject.GetComponentsInChildren<ShipPeripheral>())
+        {
+            p.Health -= p.Health;
+        }
+    }
 }
