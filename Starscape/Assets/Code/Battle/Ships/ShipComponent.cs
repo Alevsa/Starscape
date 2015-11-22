@@ -28,10 +28,14 @@ abstract public class ShipComponent : MonoBehaviour
 
     protected virtual void Start()
 	{
-        /*if (CollisionSound = null)
+        if (CollisionSound == null && HitExplosionSound != null)
 		{
 			CollisionSound = HitExplosionSound;
-		}*/
+		}
+        if (CollisionSound != null && HitExplosionSound == null)
+        {
+            HitExplosionSound = CollisionSound;
+        }
         Health = MaxHealth;
 		NumberOfGibs += Random.Range(0, 4);
 		m_AudioController = gameObject.GetComponent<AudioController>();
@@ -79,7 +83,6 @@ abstract public class ShipComponent : MonoBehaviour
         {
             col.enabled = false;
         }
-
         GameObject deathExplosion = ObjectPooler.Current.GetPooledObject(PoolExplosionIndex);
         deathExplosion.transform.position = transform.position;
         deathExplosion.transform.rotation = transform.rotation;
@@ -106,7 +109,7 @@ abstract public class ShipComponent : MonoBehaviour
     {
         foreach (ShipPeripheral p in gameObject.GetComponentsInChildren<ShipPeripheral>())
         {
-            p.Health -= p.Health;
+           p.Health -= p.Health;
         }
     }
 }

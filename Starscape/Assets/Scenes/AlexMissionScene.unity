@@ -112,11 +112,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 4229021}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .700000048, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalPosition: {x: 6.04999971, y: -.569999933, z: -0}
+  m_LocalScale: {x: .49999997, y: .899999976, z: .49999997}
   m_Children: []
-  m_Father: {fileID: 67633278}
-  m_RootOrder: 0
+  m_Father: {fileID: 1684124551}
+  m_RootOrder: 3
 --- !u!114 &4229023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +215,6 @@ GameObject:
   - 33: {fileID: 67633277}
   - 65: {fileID: 67633276}
   - 23: {fileID: 67633275}
-  - 114: {fileID: 67633274}
   - 114: {fileID: 67633273}
   m_Layer: 12
   m_Name: PowerShaft (3)
@@ -236,38 +235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioChannels: 5
---- !u!114 &67633274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 67633272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExplosionSounds:
-  - {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  HitExplosionSound: {fileID: 8300000, guid: 7da4f4d7dea8e0542bc97cb9ce472710, type: 3}
-  CollisionSound: {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  PoolExplosionIndex: 3
-  MinGibPoolIndex: 4
-  MaxGibPoolIndex: 6
-  NumberOfGibs: 100
-  CollisionDamage: 0
-  TurnRate: 0
-  Acceleration: 0
-  Deceleration: 0
-  MaxSpeed: 0
-  MaxReverseSpeed: 0
-  MaxHealth: 100
-  Health: 100
-  Armour: 50
-  Alive: 1
-  Speed: 0
-  RollRate: 0
-  ExternalCore: {fileID: 0}
 --- !u!23 &67633275
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -318,11 +285,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 67633272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.04999971, y: -1.20000005, z: 0}
-  m_LocalScale: {x: .25, y: .899999976, z: .25}
-  m_Children:
-  - {fileID: 4229022}
-  m_Father: {fileID: 1684124551}
+  m_LocalPosition: {x: 605, y: 32.5999985, z: -2.17982706e-05}
+  m_LocalScale: {x: 25, y: 90, z: 25}
+  m_Children: []
+  m_Father: {fileID: 1375779462}
   m_RootOrder: 3
 --- !u!1 &70980576
 GameObject:
@@ -367,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d433506a2662a564aa629c7ca28dba89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DayLength: 60
+  DayLength: 720
 --- !u!4 &85953958 stripped
 Transform:
   m_PrefabParentObject: {fileID: 489556, guid: e91f651453fa0ee4aaa2f4a808f5bba7, type: 2}
@@ -441,6 +407,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5613b8497c26c95498399d611afb8931, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &196069999 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11416632, guid: e91f651453fa0ee4aaa2f4a808f5bba7,
+    type: 2}
+  m_PrefabInternal: {fileID: 480430127}
+  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
 --- !u!1 &215671572
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,6 +486,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &251498756 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11416632, guid: e91f651453fa0ee4aaa2f4a808f5bba7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1518380664}
+  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
 --- !u!1 &268399345
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,7 +576,6 @@ GameObject:
   - 33: {fileID: 287845786}
   - 65: {fileID: 287845785}
   - 23: {fileID: 287845784}
-  - 114: {fileID: 287845783}
   - 114: {fileID: 287845782}
   m_Layer: 12
   m_Name: PowerShaft (6)
@@ -614,11 +591,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 287845780}
   m_LocalRotation: {x: 0, y: .382683456, z: 0, w: .923879504}
-  m_LocalPosition: {x: 4.40261316, y: -.75999999, z: 4.14960575}
-  m_LocalScale: {x: .25, y: .899999976, z: .25}
-  m_Children:
-  - {fileID: 288844994}
-  m_Father: {fileID: 1323066001}
+  m_LocalPosition: {x: 440.261322, y: 76.6000061, z: 414.960541}
+  m_LocalScale: {x: 25, y: 90, z: 25}
+  m_Children: []
+  m_Father: {fileID: 2101217873}
   m_RootOrder: 2
 --- !u!114 &287845782
 MonoBehaviour:
@@ -632,38 +608,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioChannels: 5
---- !u!114 &287845783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 287845780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExplosionSounds:
-  - {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  HitExplosionSound: {fileID: 8300000, guid: 7da4f4d7dea8e0542bc97cb9ce472710, type: 3}
-  CollisionSound: {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  PoolExplosionIndex: 3
-  MinGibPoolIndex: 4
-  MaxGibPoolIndex: 6
-  NumberOfGibs: 100
-  CollisionDamage: 0
-  TurnRate: 0
-  Acceleration: 0
-  Deceleration: 0
-  MaxSpeed: 0
-  MaxReverseSpeed: 0
-  MaxHealth: 100
-  Health: 100
-  Armour: 50
-  Alive: 1
-  Speed: 0
-  RollRate: 0
-  ExternalCore: {fileID: 0}
 --- !u!23 &287845784
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -733,12 +677,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 288844993}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .700000048, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalRotation: {x: 0, y: .382683456, z: 0, w: .923879504}
+  m_LocalPosition: {x: 4.40261316, y: -.129999995, z: 4.14960527}
+  m_LocalScale: {x: .5, y: .899999976, z: .5}
   m_Children: []
-  m_Father: {fileID: 287845781}
-  m_RootOrder: 0
+  m_Father: {fileID: 1323066001}
+  m_RootOrder: 2
 --- !u!114 &288844995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,6 +851,12 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 489556, guid: e91f651453fa0ee4aaa2f4a808f5bba7, type: 2}
   m_PrefabInternal: {fileID: 1091131834}
+--- !u!114 &351355474 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11416632, guid: e91f651453fa0ee4aaa2f4a808f5bba7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1236440944}
+  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
 --- !u!1001 &383671128
 Prefab:
   m_ObjectHideFlags: 0
@@ -1151,12 +1101,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 470998778}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .700000048, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalRotation: {x: 0, y: .382683456, z: 0, w: .923879504}
+  m_LocalPosition: {x: -4.40261316, y: -.129999995, z: -4.14960527}
+  m_LocalScale: {x: .5, y: .899999976, z: .5}
   m_Children: []
-  m_Father: {fileID: 942816488}
-  m_RootOrder: 0
+  m_Father: {fileID: 1323066001}
+  m_RootOrder: 3
 --- !u!114 &470998780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1460,7 +1410,7 @@ GameObject:
   - 65: {fileID: 572535000}
   - 23: {fileID: 572534999}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: MainShaft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1473,11 +1423,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 572534997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.699999988, z: 0}
-  m_LocalScale: {x: .5, y: 1, z: .5}
+  m_LocalPosition: {x: 0, y: 82.6000137, z: 0}
+  m_LocalScale: {x: 50, y: 100, z: 50}
   m_Children: []
-  m_Father: {fileID: 937138448}
-  m_RootOrder: 1
+  m_Father: {fileID: 1458079431}
+  m_RootOrder: 4
 --- !u!23 &572534999
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2051,7 +2001,6 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 2010002742}
-  - {fileID: 572534998}
   m_Father: {fileID: 70980577}
   m_RootOrder: 0
 --- !u!23 &937138449
@@ -2141,8 +2090,16 @@ MonoBehaviour:
   Alive: 1
   Speed: 0
   RollRate: 0
-  AdditionalPeripherals: []
-  DeathTime: 0
+  AdditionalPeripherals:
+  - {fileID: 1940315465}
+  - {fileID: 351355474}
+  - {fileID: 1569241109}
+  - {fileID: 1033003934}
+  - {fileID: 251498756}
+  - {fileID: 2077333694}
+  - {fileID: 196069999}
+  - {fileID: 1656320314}
+  DeathTime: 5
   PeripheralHealthContribution: .200000003
 --- !u!1 &942816487
 GameObject:
@@ -2155,7 +2112,6 @@ GameObject:
   - 33: {fileID: 942816493}
   - 65: {fileID: 942816492}
   - 23: {fileID: 942816491}
-  - 114: {fileID: 942816490}
   - 114: {fileID: 942816489}
   m_Layer: 12
   m_Name: PowerShaft (7)
@@ -2171,11 +2127,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 942816487}
   m_LocalRotation: {x: 0, y: .382683456, z: 0, w: .923879504}
-  m_LocalPosition: {x: -4.40261316, y: -.75999999, z: -4.14960575}
-  m_LocalScale: {x: .25, y: .899999976, z: .25}
-  m_Children:
-  - {fileID: 470998779}
-  m_Father: {fileID: 1323066001}
+  m_LocalPosition: {x: -440.261322, y: 76.6000061, z: -414.960541}
+  m_LocalScale: {x: 25, y: 90, z: 25}
+  m_Children: []
+  m_Father: {fileID: 2101217873}
   m_RootOrder: 3
 --- !u!114 &942816489
 MonoBehaviour:
@@ -2189,38 +2144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioChannels: 5
---- !u!114 &942816490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 942816487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExplosionSounds:
-  - {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  HitExplosionSound: {fileID: 8300000, guid: 7da4f4d7dea8e0542bc97cb9ce472710, type: 3}
-  CollisionSound: {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  PoolExplosionIndex: 3
-  MinGibPoolIndex: 4
-  MaxGibPoolIndex: 6
-  NumberOfGibs: 100
-  CollisionDamage: 0
-  TurnRate: 0
-  Acceleration: 0
-  Deceleration: 0
-  MaxSpeed: 0
-  MaxReverseSpeed: 0
-  MaxHealth: 100
-  Health: 100
-  Armour: 50
-  Alive: 1
-  Speed: 0
-  RollRate: 0
-  ExternalCore: {fileID: 0}
 --- !u!23 &942816491
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2319,7 +2242,6 @@ GameObject:
   - 33: {fileID: 968875915}
   - 65: {fileID: 968875914}
   - 23: {fileID: 968875913}
-  - 114: {fileID: 968875912}
   - 114: {fileID: 968875916}
   m_Layer: 12
   m_Name: PowerShaft
@@ -2335,44 +2257,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 968875910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.20000005, z: -6.04999971}
-  m_LocalScale: {x: .25, y: .899999976, z: .25}
-  m_Children:
-  - {fileID: 1216340679}
-  m_Father: {fileID: 1684124551}
+  m_LocalPosition: {x: -2.17982706e-05, y: 32.5999985, z: -605}
+  m_LocalScale: {x: 25, y: 90, z: 25}
+  m_Children: []
+  m_Father: {fileID: 1375779462}
   m_RootOrder: 0
---- !u!114 &968875912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 968875910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExplosionSounds:
-  - {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  HitExplosionSound: {fileID: 8300000, guid: 7da4f4d7dea8e0542bc97cb9ce472710, type: 3}
-  CollisionSound: {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  PoolExplosionIndex: 3
-  MinGibPoolIndex: 4
-  MaxGibPoolIndex: 6
-  NumberOfGibs: 100
-  CollisionDamage: 0
-  TurnRate: 0
-  Acceleration: 0
-  Deceleration: 0
-  MaxSpeed: 0
-  MaxReverseSpeed: 0
-  MaxHealth: 100
-  Health: 100
-  Armour: 50
-  Alive: 1
-  Speed: 0
-  RollRate: 0
-  ExternalCore: {fileID: 0}
 --- !u!23 &968875913
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2509,6 +2398,12 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 404070, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
   m_PrefabInternal: {fileID: 2036255808}
+--- !u!114 &1033003934 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11416632, guid: e91f651453fa0ee4aaa2f4a808f5bba7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1364193307}
+  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
 --- !u!1 &1046789144
 GameObject:
   m_ObjectHideFlags: 0
@@ -2786,8 +2681,8 @@ GameObject:
   - 33: {fileID: 1216340683}
   - 65: {fileID: 1216340682}
   - 23: {fileID: 1216340681}
-  - 114: {fileID: 1216340680}
   - 114: {fileID: 1216340684}
+  - 114: {fileID: 1216340680}
   m_Layer: 12
   m_Name: PowerGen
   m_TagString: Enemy
@@ -2802,10 +2697,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1216340678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .700000048, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalPosition: {x: -0, y: -.569999933, z: -6.04999971}
+  m_LocalScale: {x: .49999997, y: .899999976, z: .49999997}
   m_Children: []
-  m_Father: {fileID: 968875911}
+  m_Father: {fileID: 1684124551}
   m_RootOrder: 0
 --- !u!114 &1216340680
 MonoBehaviour:
@@ -2826,7 +2721,7 @@ MonoBehaviour:
   MinGibPoolIndex: 4
   MaxGibPoolIndex: 6
   NumberOfGibs: 50
-  CollisionDamage: 0
+  CollisionDamage: .25
   TurnRate: 0
   Acceleration: 0
   Deceleration: 0
@@ -3042,7 +2937,6 @@ GameObject:
   - 33: {fileID: 1303622313}
   - 65: {fileID: 1303622312}
   - 23: {fileID: 1303622311}
-  - 114: {fileID: 1303622310}
   - 114: {fileID: 1303622309}
   m_Layer: 12
   m_Name: PowerShaft (4)
@@ -3058,11 +2952,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1303622307}
   m_LocalRotation: {x: 0, y: .382683456, z: 0, w: .923879504}
-  m_LocalPosition: {x: 4.14960575, y: -.75999999, z: -4.40261316}
-  m_LocalScale: {x: .25, y: .899999976, z: .25}
-  m_Children:
-  - {fileID: 1326080174}
-  m_Father: {fileID: 1323066001}
+  m_LocalPosition: {x: 414.960541, y: 76.6000061, z: -440.261322}
+  m_LocalScale: {x: 25, y: 90, z: 25}
+  m_Children: []
+  m_Father: {fileID: 2101217873}
   m_RootOrder: 0
 --- !u!114 &1303622309
 MonoBehaviour:
@@ -3076,38 +2969,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioChannels: 5
---- !u!114 &1303622310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1303622307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExplosionSounds:
-  - {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  HitExplosionSound: {fileID: 8300000, guid: 7da4f4d7dea8e0542bc97cb9ce472710, type: 3}
-  CollisionSound: {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  PoolExplosionIndex: 3
-  MinGibPoolIndex: 4
-  MaxGibPoolIndex: 6
-  NumberOfGibs: 100
-  CollisionDamage: 0
-  TurnRate: 0
-  Acceleration: 0
-  Deceleration: 0
-  MaxSpeed: 0
-  MaxReverseSpeed: 0
-  MaxHealth: 100
-  Health: 100
-  Armour: 50
-  Alive: 1
-  Speed: 0
-  RollRate: 0
-  ExternalCore: {fileID: 0}
 --- !u!23 &1303622311
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3176,10 +3037,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1303622308}
-  - {fileID: 1684154428}
-  - {fileID: 287845781}
-  - {fileID: 942816488}
+  - {fileID: 1326080174}
+  - {fileID: 1620930793}
+  - {fileID: 288844994}
+  - {fileID: 470998779}
   m_Father: {fileID: 2010002742}
   m_RootOrder: 1
 --- !u!1 &1326080173
@@ -3208,11 +3069,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1326080173}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .700000048, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalRotation: {x: 0, y: .382683456, z: 0, w: .923879504}
+  m_LocalPosition: {x: 4.14960527, y: -.129999995, z: -4.40261316}
+  m_LocalScale: {x: .5, y: .899999976, z: .5}
   m_Children: []
-  m_Father: {fileID: 1303622308}
+  m_Father: {fileID: 1323066001}
   m_RootOrder: 0
 --- !u!114 &1326080175
 MonoBehaviour:
@@ -3457,6 +3318,37 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e91f651453fa0ee4aaa2f4a808f5bba7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1375779461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1375779462}
+  m_Layer: 0
+  m_Name: LowerShafts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1375779462
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1375779461}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 968875911}
+  - {fileID: 1620719430}
+  - {fileID: 1761039709}
+  - {fileID: 67633278}
+  m_Father: {fileID: 1458079431}
+  m_RootOrder: 2
 --- !u!1 &1458079430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3484,6 +3376,9 @@ Transform:
   m_Children:
   - {fileID: 661274931}
   - {fileID: 586420372}
+  - {fileID: 1375779462}
+  - {fileID: 2101217873}
+  - {fileID: 572534998}
   m_Father: {fileID: 70980577}
   m_RootOrder: 2
 --- !u!1 &1459263438
@@ -3808,6 +3703,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1569241109 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11416632, guid: e91f651453fa0ee4aaa2f4a808f5bba7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1529264557}
+  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
 --- !u!1 &1620719429
 GameObject:
   m_ObjectHideFlags: 0
@@ -3819,7 +3720,6 @@ GameObject:
   - 33: {fileID: 1620719435}
   - 65: {fileID: 1620719434}
   - 23: {fileID: 1620719433}
-  - 114: {fileID: 1620719432}
   - 114: {fileID: 1620719431}
   m_Layer: 12
   m_Name: PowerShaft (1)
@@ -3835,11 +3735,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1620719429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -1.20000005, z: 6.04999971}
-  m_LocalScale: {x: .25, y: .899999976, z: .25}
-  m_Children:
-  - {fileID: 1971764816}
-  m_Father: {fileID: 1684124551}
+  m_LocalPosition: {x: 2.17982706e-05, y: 32.5999985, z: 605}
+  m_LocalScale: {x: 25, y: 90, z: 25}
+  m_Children: []
+  m_Father: {fileID: 1375779462}
   m_RootOrder: 1
 --- !u!114 &1620719431
 MonoBehaviour:
@@ -3853,38 +3752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioChannels: 5
---- !u!114 &1620719432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1620719429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExplosionSounds:
-  - {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  HitExplosionSound: {fileID: 8300000, guid: 7da4f4d7dea8e0542bc97cb9ce472710, type: 3}
-  CollisionSound: {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  PoolExplosionIndex: 3
-  MinGibPoolIndex: 4
-  MaxGibPoolIndex: 6
-  NumberOfGibs: 100
-  CollisionDamage: 0
-  TurnRate: 0
-  Acceleration: 0
-  Deceleration: 0
-  MaxSpeed: 0
-  MaxReverseSpeed: 0
-  MaxHealth: 100
-  Health: 100
-  Armour: 50
-  Alive: 1
-  Speed: 0
-  RollRate: 0
-  ExternalCore: {fileID: 0}
 --- !u!23 &1620719433
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3954,12 +3821,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1620930792}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .700000048, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalRotation: {x: 0, y: .382683456, z: 0, w: .923879504}
+  m_LocalPosition: {x: -4.14960527, y: -.129999995, z: 4.40261316}
+  m_LocalScale: {x: .5, y: .899999976, z: .5}
   m_Children: []
-  m_Father: {fileID: 1684154428}
-  m_RootOrder: 0
+  m_Father: {fileID: 1323066001}
+  m_RootOrder: 1
 --- !u!114 &1620930794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4047,6 +3914,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1620930792}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1656320314 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11416632, guid: e91f651453fa0ee4aaa2f4a808f5bba7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1091131834}
+  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
 --- !u!1 &1680632207
 GameObject:
   m_ObjectHideFlags: 0
@@ -4074,11 +3947,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1680632207}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .700000048, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalPosition: {x: -6.04999971, y: -.569999933, z: 0}
+  m_LocalScale: {x: .49999997, y: .899999976, z: .49999997}
   m_Children: []
-  m_Father: {fileID: 1761039709}
-  m_RootOrder: 0
+  m_Father: {fileID: 1684124551}
+  m_RootOrder: 2
 --- !u!114 &1680632209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4191,10 +4064,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 968875911}
-  - {fileID: 1620719430}
-  - {fileID: 1761039709}
-  - {fileID: 67633278}
+  - {fileID: 1216340679}
+  - {fileID: 1971764816}
+  - {fileID: 1680632208}
+  - {fileID: 4229022}
   m_Father: {fileID: 2010002742}
   m_RootOrder: 0
 --- !u!1 &1684154427
@@ -4208,7 +4081,6 @@ GameObject:
   - 33: {fileID: 1684154433}
   - 65: {fileID: 1684154432}
   - 23: {fileID: 1684154431}
-  - 114: {fileID: 1684154430}
   - 114: {fileID: 1684154429}
   m_Layer: 12
   m_Name: PowerShaft (5)
@@ -4224,11 +4096,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1684154427}
   m_LocalRotation: {x: 0, y: .382683456, z: 0, w: .923879504}
-  m_LocalPosition: {x: -4.14960575, y: -.75999999, z: 4.40261316}
-  m_LocalScale: {x: .25, y: .899999976, z: .25}
-  m_Children:
-  - {fileID: 1620930793}
-  m_Father: {fileID: 1323066001}
+  m_LocalPosition: {x: -414.960541, y: 76.6000061, z: 440.261322}
+  m_LocalScale: {x: 25, y: 90, z: 25}
+  m_Children: []
+  m_Father: {fileID: 2101217873}
   m_RootOrder: 1
 --- !u!114 &1684154429
 MonoBehaviour:
@@ -4242,38 +4113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioChannels: 5
---- !u!114 &1684154430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1684154427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExplosionSounds:
-  - {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  HitExplosionSound: {fileID: 8300000, guid: 7da4f4d7dea8e0542bc97cb9ce472710, type: 3}
-  CollisionSound: {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  PoolExplosionIndex: 3
-  MinGibPoolIndex: 4
-  MaxGibPoolIndex: 6
-  NumberOfGibs: 100
-  CollisionDamage: 0
-  TurnRate: 0
-  Acceleration: 0
-  Deceleration: 0
-  MaxSpeed: 0
-  MaxReverseSpeed: 0
-  MaxHealth: 100
-  Health: 100
-  Armour: 50
-  Alive: 1
-  Speed: 0
-  RollRate: 0
-  ExternalCore: {fileID: 0}
 --- !u!23 &1684154431
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4328,7 +4167,6 @@ GameObject:
   - 33: {fileID: 1761039714}
   - 65: {fileID: 1761039713}
   - 23: {fileID: 1761039712}
-  - 114: {fileID: 1761039711}
   - 114: {fileID: 1761039710}
   m_Layer: 12
   m_Name: PowerShaft (2)
@@ -4344,11 +4182,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1761039708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.04999971, y: -1.20000005, z: -0}
-  m_LocalScale: {x: .25, y: .899999976, z: .25}
-  m_Children:
-  - {fileID: 1680632208}
-  m_Father: {fileID: 1684124551}
+  m_LocalPosition: {x: -605, y: 32.5999985, z: 2.17982706e-05}
+  m_LocalScale: {x: 25, y: 90, z: 25}
+  m_Children: []
+  m_Father: {fileID: 1375779462}
   m_RootOrder: 2
 --- !u!114 &1761039710
 MonoBehaviour:
@@ -4362,38 +4199,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioChannels: 5
---- !u!114 &1761039711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1761039708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExplosionSounds:
-  - {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  HitExplosionSound: {fileID: 8300000, guid: 7da4f4d7dea8e0542bc97cb9ce472710, type: 3}
-  CollisionSound: {fileID: 8300000, guid: f3ac8c6e341de8344a9ec767ed270694, type: 3}
-  PoolExplosionIndex: 3
-  MinGibPoolIndex: 4
-  MaxGibPoolIndex: 6
-  NumberOfGibs: 100
-  CollisionDamage: 0
-  TurnRate: 0
-  Acceleration: 0
-  Deceleration: 0
-  MaxSpeed: 0
-  MaxReverseSpeed: 0
-  MaxHealth: 100
-  Health: 100
-  Armour: 50
-  Alive: 1
-  Speed: 0
-  RollRate: 0
-  ExternalCore: {fileID: 0}
 --- !u!23 &1761039712
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4466,6 +4271,12 @@ Transform:
   - {fileID: 301985860}
   m_Father: {fileID: 70980577}
   m_RootOrder: 1
+--- !u!114 &1940315465 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11416632, guid: e91f651453fa0ee4aaa2f4a808f5bba7,
+    type: 2}
+  m_PrefabInternal: {fileID: 383671128}
+  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
 --- !u!1 &1971764815
 GameObject:
   m_ObjectHideFlags: 0
@@ -4493,11 +4304,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1971764815}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .700000048, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalPosition: {x: 0, y: -.569999933, z: 6.04999971}
+  m_LocalScale: {x: .49999997, y: .899999976, z: .49999997}
   m_Children: []
-  m_Father: {fileID: 1620719430}
-  m_RootOrder: 0
+  m_Father: {fileID: 1684124551}
+  m_RootOrder: 1
 --- !u!114 &1971764817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4642,7 +4453,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2010002742}
   m_Layer: 0
-  m_Name: PowerShafts
+  m_Name: PowerGenerators
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4752,6 +4563,43 @@ Prefab:
     - {fileID: 11416292, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2077333694 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11416632, guid: e91f651453fa0ee4aaa2f4a808f5bba7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1167782810}
+  m_Script: {fileID: 11500000, guid: 5ea420742f4d36448a348d40b03ecf38, type: 3}
+--- !u!1 &2101217872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2101217873}
+  m_Layer: 0
+  m_Name: UpperShafts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2101217873
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2101217872}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1303622308}
+  - {fileID: 1684154428}
+  - {fileID: 287845781}
+  - {fileID: 942816488}
+  m_Father: {fileID: 1458079431}
+  m_RootOrder: 3
 --- !u!1 &2122708023
 GameObject:
   m_ObjectHideFlags: 0

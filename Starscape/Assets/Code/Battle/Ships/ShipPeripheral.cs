@@ -37,12 +37,15 @@ public class ShipPeripheral : ShipComponent
     void Disabled()
     {
         Alive = false;
-        m_Core.TurnRate -= TurnRate;
-        m_Core.Acceleration -= Acceleration;
-        m_Core.Deceleration -= Deceleration;
-        m_Core.MaxSpeed -= MaxSpeed;
-        m_Core.MaxReverseSpeed -= MaxReverseSpeed;
-        m_Core.RollRate -= RollRate;
+        if (m_Core != null)
+        {
+            m_Core.TurnRate -= TurnRate;
+            m_Core.Acceleration -= Acceleration;
+            m_Core.Deceleration -= Deceleration;
+            m_Core.MaxSpeed -= MaxSpeed;
+            m_Core.MaxReverseSpeed -= MaxReverseSpeed;
+            m_Core.RollRate -= RollRate;
+        }
         DeathAnimation();
         KillChildren();
     }
