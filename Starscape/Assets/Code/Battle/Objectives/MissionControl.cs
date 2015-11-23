@@ -30,6 +30,7 @@ public class MissionControl : MonoBehaviour
 
     void Update()
     {
+        SetMissionText();
         if (m_CurrentStage <= m_NumberOfStages)
         {
             CheckStageCompletion();
@@ -65,6 +66,11 @@ public class MissionControl : MonoBehaviour
         foreach (Objective obj in m_ActiveObjectives)
         {
             temp += obj.MissionText;
+            temp += "\n";
+            if (obj.TimeLimit > 0f)
+            {
+                temp = temp + " " + Mathf.RoundToInt(obj.TimeLimit) + " seconds remaining.";
+            }
             temp += "\n";
         }
         MissionText.text = temp;

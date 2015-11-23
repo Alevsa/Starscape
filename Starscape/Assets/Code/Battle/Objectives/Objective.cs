@@ -23,12 +23,11 @@ public abstract class Objective : MonoBehaviour, IObjective
         CheckFailure();
     }
 
-    protected IEnumerator Timer()
+    protected void Timer()
     {
         while (TimeLimit >= 0f)
         {
             TimeLimit -= Time.deltaTime;
-            yield return null;
         }
     }
 
