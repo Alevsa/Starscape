@@ -12,7 +12,6 @@ public class SurviveObjective: Objective, IObjective
     {
         if (TimeLimit <= 0f)
         {
-            StopCoroutine(m_Timer);
             Completed = true;
         }
     }

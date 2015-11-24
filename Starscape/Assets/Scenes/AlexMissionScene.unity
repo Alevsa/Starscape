@@ -1258,7 +1258,7 @@ MonoBehaviour:
   - {fileID: 1983821450}
   - {fileID: 947517759}
   BonusObjectives: []
-  m_CurrentStage: 0
+  m_ActiveObjectives: []
   Player: {fileID: 1028899064}
   MissionText: {fileID: 1459263440}
 --- !u!4 &914066717
@@ -1456,7 +1456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385f82ecc4f000b47877ec13a02a7dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeLimit: 120
+  TimeLimit: -1
   Stage: 1
   MissionText: Destroy the Death Star
   Targets:
@@ -2148,7 +2148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30724f75a9252b0429c10321c179f77b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeLimit: 3
+  TimeLimit: 10
   Stage: 0
   MissionText: Survive until reinforcements arrive!
   Focus: {fileID: 133816, guid: ae46958491195d34e84077d3b174bdc5, type: 2}

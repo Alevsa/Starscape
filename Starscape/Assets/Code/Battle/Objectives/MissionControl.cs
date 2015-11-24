@@ -6,11 +6,12 @@ public class MissionControl : MonoBehaviour
 {
     public List<Objective> Objectives;
     public List<Objective> BonusObjectives;
-    private List<Objective> m_ActiveObjectives;
+    public List<Objective> m_ActiveObjectives;
     private int m_NumberOfStages = 0;
-    public int m_CurrentStage = 0;
+    private int m_CurrentStage = 0;
     public GameObject Player;
     public Text MissionText;
+    private bool m_Complete = false;
 
     // TO DO:
     // Implement bonus objectives
@@ -30,12 +31,15 @@ public class MissionControl : MonoBehaviour
 
     void Update()
     {
-        SetMissionText();
         if (m_CurrentStage <= m_NumberOfStages)
         {
             CheckStageCompletion();
         }
         CheckStageFailure();
+        if (!m_Complete)
+        {
+            SetMissionText();
+        }
     }
 
     void SetActiveObjectives()
@@ -52,6 +56,7 @@ public class MissionControl : MonoBehaviour
         }
         if (m_ActiveObjectives.Count == 0)
         {
+            m_Complete = true;
             Win();
         }
         else
@@ -86,6 +91,7 @@ public class MissionControl : MonoBehaviour
                 count++;
             }
         }
+       // Debug.Log(count);
         if (count == m_ActiveObjectives.Count)
         {
             m_CurrentStage++;

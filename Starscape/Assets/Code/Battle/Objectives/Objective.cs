@@ -21,14 +21,15 @@ public abstract class Objective : MonoBehaviour, IObjective
     {
         CheckCompletion();
         CheckFailure();
+        if (m_IsTimed)
+        {
+            Timer();
+        }
     }
 
     protected void Timer()
     {
-        while (TimeLimit >= 0f)
-        {
-            TimeLimit -= Time.deltaTime;
-        }
+        TimeLimit -= Time.deltaTime;
     }
 
     public void Activate()
@@ -38,7 +39,6 @@ public abstract class Objective : MonoBehaviour, IObjective
         if (TimeLimit > 0f)
         {
             m_IsTimed = true;
-            m_Timer = StartCoroutine("Timer");
         }
         else
         {
