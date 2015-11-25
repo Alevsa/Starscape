@@ -85,52 +85,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &52495537
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2077235916}
-    m_Modifications:
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 154016, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_Name
-      value: SimpleEnemyDogFighter (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &99216054
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,14 +116,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
   m_PrefabInternal: {fileID: 1429875185}
---- !u!4 &138670193 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_PrefabInternal: {fileID: 920756609}
---- !u!4 &150158549 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_PrefabInternal: {fileID: 52495537}
 --- !u!1001 &177684953
 Prefab:
   m_ObjectHideFlags: 0
@@ -581,56 +527,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f810ed62b5bc7e408c6c6a682049555, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &404184506 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_PrefabInternal: {fileID: 843713691}
---- !u!1001 &408124335
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 488745351}
-    m_Modifications:
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 154016, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_Name
-      value: SimpleEnemyDogFighter (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &445266739
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,56 +691,8 @@ Transform:
   - {fileID: 1221221410}
   - {fileID: 653471831}
   - {fileID: 1436518162}
-  - {fileID: 848468220}
-  - {fileID: 1388424429}
   m_Father: {fileID: 540505273}
   m_RootOrder: 0
---- !u!1001 &530050333
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1752501752}
-    m_Modifications:
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -192
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 154016, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_Name
-      value: SimpleEnemyDogFighter (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &539339377 stripped
 Transform:
   m_PrefabParentObject: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
@@ -1054,56 +902,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 641ebac92fae78540a9fcd3e4b11320e, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &843713691
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1752501752}
-    m_Modifications:
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 154016, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_Name
-      value: SimpleEnemyDogFighter (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &848468220 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_PrefabInternal: {fileID: 1335929685}
 --- !u!1001 &856917404
 Prefab:
   m_ObjectHideFlags: 0
@@ -1275,144 +1073,6 @@ Transform:
   - {fileID: 947517758}
   m_Father: {fileID: 0}
   m_RootOrder: 5
---- !u!1001 &920756609
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1892926915}
-    m_Modifications:
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -192
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 154016, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_Name
-      value: SimpleEnemyDogFighter (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &922138394
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1892926915}
-    m_Modifications:
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 154016, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_Name
-      value: SimpleEnemyDogFighter (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &935802527
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2077235916}
-    m_Modifications:
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -192
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 154016, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_Name
-      value: SimpleEnemyDogFighter (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &937138447 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 156204, guid: c7da3b9688a021545ae80cf867f3abaa, type: 2}
@@ -1561,10 +1221,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1189348205 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_PrefabInternal: {fileID: 922138394}
 --- !u!114 &1220245554 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11420194, guid: 4f810ed62b5bc7e408c6c6a682049555,
@@ -1575,52 +1231,6 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
   m_PrefabInternal: {fileID: 283281814}
---- !u!1001 &1335929685
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 488745351}
-    m_Modifications:
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -192
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 154016, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-      propertyPath: m_Name
-      value: SimpleEnemyDogFighter (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1336757718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,10 +1329,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!4 &1388424429 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_PrefabInternal: {fileID: 408124335}
 --- !u!1001 &1429875185
 Prefab:
   m_ObjectHideFlags: 0
@@ -1979,10 +1585,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &1597830048 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_PrefabInternal: {fileID: 530050333}
 --- !u!1 &1752501751
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,8 +1613,6 @@ Transform:
   - {fileID: 684688225}
   - {fileID: 1862960755}
   - {fileID: 539339377}
-  - {fileID: 1597830048}
-  - {fileID: 404184506}
   m_Father: {fileID: 540505273}
   m_RootOrder: 3
 --- !u!4 &1862228942 stripped
@@ -2023,10 +1623,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
   m_PrefabInternal: {fileID: 291037079}
---- !u!4 &1883322405 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 484962, guid: f3512e25ca2af1645b6ce66dffbd1f89, type: 2}
-  m_PrefabInternal: {fileID: 935802527}
 --- !u!1 &1892926914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,8 +1651,6 @@ Transform:
   - {fileID: 1547089180}
   - {fileID: 118265674}
   - {fileID: 1862228942}
-  - {fileID: 138670193}
-  - {fileID: 1189348205}
   m_Father: {fileID: 540505273}
   m_RootOrder: 2
 --- !u!4 &1907559916 stripped
@@ -2316,8 +1910,6 @@ Transform:
   - {fileID: 381373612}
   - {fileID: 1907559916}
   - {fileID: 241070399}
-  - {fileID: 1883322405}
-  - {fileID: 150158549}
   m_Father: {fileID: 540505273}
   m_RootOrder: 1
 --- !u!1 &2122708023
