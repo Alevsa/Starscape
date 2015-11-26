@@ -47,7 +47,13 @@ public class BattleSpawner : MonoBehaviour
         {
             ThinkAboutSpawning();
         }
+        cleanUpEnemyList();
         m_SpawnCooldown -= Time.deltaTime;
+    }
+
+    void cleanUpEnemyList()
+    {
+        m_EnemiesInScene.RemoveAll(item => item == null);
     }
 
     void ThinkAboutSpawning()
