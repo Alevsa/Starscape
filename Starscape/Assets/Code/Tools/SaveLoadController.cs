@@ -111,6 +111,15 @@ public static class SaveLoadController
 		else 
 			return false;
 	}
-	
+
+    public static int GetStoryStage()
+    {
+        return PlayerPrefs.GetInt("StoryStage", 0);
+    }
+
+    public static void SetStoryStage(int stage)
+    {
+        PlayerPrefs.SetInt("StoryStage", stage);
+    }
 	
 }
