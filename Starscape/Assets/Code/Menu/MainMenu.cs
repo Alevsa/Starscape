@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
 	
 	void Start()
 	{
+        // What's the point of this loop?
 		for (int i = 0; i < 3; i++)
 		{
 			SaveLoadController.SetSaveSlot(i);
@@ -73,6 +74,7 @@ public class MainMenu : MonoBehaviour
 		SaveLoadController.SetSaveSlot(slot);
 		SaveLoadController.SavePlayerPosition(new Vector3(0,0,0));
 		SaveLoadController.SetPlayerName(PlayInputs[slot].text);
+        SaveLoadController.SetStoryStage(0);
 		InitialisePlayPanel();
 	}
 
