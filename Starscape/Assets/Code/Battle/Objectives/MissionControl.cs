@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class MissionControl : MonoBehaviour
 {
     public GameObject MissionCompleteUI;
+    public GameObject MissionFailedUI;
     public List<Objective> Objectives;
     public List<Objective> BonusObjectives;
     public List<Objective> m_ActiveObjectives;
@@ -122,9 +123,12 @@ public class MissionControl : MonoBehaviour
     void MissionFailed()
     {
         MissionText.text = "Mission failed";
+        
+        MissionFailedUI.SetActive(true);
     }
     void Win()
     {
+        MissionText.text = "Mission complete";
         MissionCompleteUI.SetActive(true);
     }
 }
