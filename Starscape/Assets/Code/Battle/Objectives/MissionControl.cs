@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class MissionControl : MonoBehaviour
 {
+    public GameObject MissionCompleteUI;
     public List<Objective> Objectives;
     public List<Objective> BonusObjectives;
     public List<Objective> m_ActiveObjectives;
@@ -18,6 +19,7 @@ public class MissionControl : MonoBehaviour
     // Make things happen on win/mission failure
     void Start()
     {
+        MissionCompleteUI.SetActive(false);
         m_ActiveObjectives = new List<Objective>();
         foreach (Objective obj in Objectives)
         {
@@ -123,6 +125,6 @@ public class MissionControl : MonoBehaviour
     }
     void Win()
     {
-        MissionText.text = "Mission Complete";
+        MissionCompleteUI.SetActive(true);
     }
 }
