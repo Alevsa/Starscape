@@ -29,14 +29,22 @@ public class PauseMenu : MonoBehaviour
 		{
 			MainPanel.SetActive(false);
 			OptionsPanel.SetActive(false);
-			Time.timeScale = 1f;
+			HandlePause();
 		}
 		else 
 		{
 			MainPanel.SetActive(true);
-			Time.timeScale = 0f;
+			HandlePause();
 		}
-	} 
+	}
+
+	public void HandlePause()
+	{
+		if(Time.timeScale == 1f)
+			Time.timeScale = 0f;
+		else
+			Time.timeScale = 1f;
+	}
 	
 	public void ToggleOptionsPanel()
 	{

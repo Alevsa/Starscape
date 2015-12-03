@@ -65,7 +65,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -85,6 +84,9 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!127 &5
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!1 &43418955
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +334,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 405.5, y: 339}
@@ -837,6 +839,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11468614, guid: 60a1641b634aaf443b78dde7c9ed8b4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22428286, guid: 60a1641b634aaf443b78dde7c9ed8b4f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -918,6 +924,26 @@ Prefab:
       value: '
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468614, guid: 60a1641b634aaf443b78dde7c9ed8b4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468614, guid: 60a1641b634aaf443b78dde7c9ed8b4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468614, guid: 60a1641b634aaf443b78dde7c9ed8b4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1562266548}
+    - target: {fileID: 11468614, guid: 60a1641b634aaf443b78dde7c9ed8b4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468614, guid: 60a1641b634aaf443b78dde7c9ed8b4f, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60a1641b634aaf443b78dde7c9ed8b4f, type: 2}
@@ -2037,7 +2063,7 @@ Transform:
   - {fileID: 2041769563}
   - {fileID: 542263393}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 5
 --- !u!1 &602452824
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,7 +2274,7 @@ Transform:
   - {fileID: 2145014514}
   - {fileID: 1446689556}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 12
 --- !u!1 &698972271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2582,7 +2608,7 @@ Transform:
   - {fileID: 311901701}
   - {fileID: 244905601}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 14
 --- !u!1 &883026832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3920,7 +3946,7 @@ Transform:
   - {fileID: 1392730503}
   - {fileID: 905905209}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
 --- !u!1 &1446689555
 GameObject:
   m_ObjectHideFlags: 0
@@ -4295,7 +4321,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
 --- !u!114 &1562266550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4339,7 +4365,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ForceModuleActive: 0
+  m_AllowActivationOnStandalone: 0
 --- !u!114 &1596828118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4357,7 +4383,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-  m_ForceModuleActive: 0
+  m_AllowActivationOnMobileDevice: 0
 --- !u!114 &1596828119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4383,7 +4409,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
 --- !u!1 &1601511544 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 196742, guid: bb188bf50dd2a8647b2cb3532595b704, type: 2}
@@ -4733,7 +4759,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 10
 --- !u!1 &1757805157
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class OverworldController : MonoBehaviour
     private GameObject m_CurrentPlanet;
     private LoadPlanetInfo m_PlanetInfo;
     private bool m_MainActive;
+	private bool m_Docked;
 
 	void Start () 
 	{
@@ -60,11 +61,38 @@ public class OverworldController : MonoBehaviour
 			PauseMenuController.TogglePauseMenu();
 
         if (Input.GetButtonDown("Dock"))
+		{
             if (m_CurrentPlanet != null)
-                OpenPlanetPane();
+			{
+				if(!m_Docked)
+				{
+					HandleOpen();
+				}
+
+				else
+				{
+					HandleClose ();
+				}
+
+			}
+		}
     }
-    
-    public void SetPlanet(GameObject planet)
+
+	public void HandleOpen()
+	{
+		OpenPlanetPane();
+		PauseMenuController.HandlePause();
+		m_Docked = true;
+	}
+	
+	public void HandleClose()
+	{
+		ClosePlanetPane();
+		PauseMenuController.HandlePause();
+		m_Docked = false;
+	}
+	
+	public void SetPlanet(GameObject planet)
     {
         m_CurrentPlanet = planet;
         m_EnterText.SetText(planet.name);
@@ -88,4 +116,11 @@ public class OverworldController : MonoBehaviour
         DescriptionText.text = m_PlanetInfo.GetPlanetInfo(m_CurrentPlanet.name);
         MainPanel.SetActive(true);
     }
+
+	private void ClosePlanetPane()
+	{
+		m_MainActive = false;
+		EnterPanel.SetActive(true);
+		MainPanel.SetActive(false);
+	}
 }
