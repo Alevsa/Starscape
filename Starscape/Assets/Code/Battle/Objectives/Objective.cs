@@ -3,6 +3,7 @@ using System.Collections;
 
 public abstract class Objective : MonoBehaviour, IObjective
 {
+    public string FailureText = "You failed";
     public float TimeLimit = 120f;
     protected bool m_IsTimed;
     public int Stage;

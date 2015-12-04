@@ -122,12 +122,13 @@ public class MissionControl : MonoBehaviour
 
     void MissionFailed()
     {
+        // Set Mission Failed Text
         MissionText.text = "Mission failed";
-        
         MissionFailedUI.SetActive(true);
     }
     void Win()
     {
+        // Set Mission complete text
         MissionText.text = "Mission complete";
         MissionCompleteUI.SetActive(true);
     }
