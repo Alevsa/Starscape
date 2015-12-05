@@ -488,6 +488,7 @@ GameObject:
   - 223: {fileID: 445266742}
   - 114: {fileID: 445266741}
   - 114: {fileID: 445266740}
+  - 114: {fileID: 445266744}
   m_Layer: 5
   m_Name: MissionUI
   m_TagString: Untagged
@@ -569,6 +570,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &445266744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 445266739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa20cced04526041869261180fd40aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WinText: {fileID: 607355588}
+  LoseText: {fileID: 730424133}
+  WinUI: {fileID: 549425376}
+  LoseUI: {fileID: 1126304804}
 --- !u!1001 &459684543
 Prefab:
   m_ObjectHideFlags: 0
@@ -1296,8 +1312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafa888b27978334c87251ba9e2c9e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MissionCompleteUI: {fileID: 0}
-  MissionFailedUI: {fileID: 0}
+  MissionCompleteText: Mission Accomplished
   Objectives:
   - {fileID: 1983821450}
   - {fileID: 947517759}
@@ -1305,6 +1320,7 @@ MonoBehaviour:
   m_ActiveObjectives: []
   Player: {fileID: 1028899064}
   MissionText: {fileID: 1459263440}
+  MissionUI: {fileID: 0}
 --- !u!4 &914066717
 Transform:
   m_ObjectHideFlags: 0
@@ -1362,6 +1378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385f82ecc4f000b47877ec13a02a7dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FailureText: You failed
   TimeLimit: -1
   Stage: 1
   MissionText: Destroy the Death Star
@@ -1435,7 +1452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1126304805
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2379,6 +2396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30724f75a9252b0429c10321c179f77b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FailureText: You failed
   TimeLimit: 10
   Stage: 0
   MissionText: Survive until reinforcements arrive!

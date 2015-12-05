@@ -4,8 +4,7 @@ using System.Collections.Generic;
 
 public class MissionControl : MonoBehaviour
 {
-    public GameObject MissionCompleteUI;
-    public GameObject MissionFailedUI;
+    public string MissionCompleteText = "Mission Accomplished";
     public List<Objective> Objectives;
     public List<Objective> BonusObjectives;
     public List<Objective> m_ActiveObjectives;
@@ -13,6 +12,7 @@ public class MissionControl : MonoBehaviour
     private int m_CurrentStage = 0;
     public GameObject Player;
     public Text MissionText;
+    public MissionUIController MissionUI;
     private bool m_Complete = false;
 
     // TO DO:
@@ -20,7 +20,6 @@ public class MissionControl : MonoBehaviour
     // Make things happen on win/mission failure
     void Start()
     {
-        MissionCompleteUI.SetActive(false);
         m_ActiveObjectives = new List<Objective>();
         foreach (Objective obj in Objectives)
         {
@@ -122,14 +121,15 @@ public class MissionControl : MonoBehaviour
 
     void MissionFailed()
     {
-        // Set Mission Failed Text
-        MissionText.text = "Mission failed";
-        MissionFailedUI.SetActive(true);
+        string[] temp = new string[m_ActiveObjectives.Count];
+        for (int i = 0; i < temp.Length; i++)
+        {
+            temp[i] = m_ActiveObjectives[i].FailureText;
+        }
+        MissionUI.Lose(temp);
     }
     void Win()
     {
-        // Set Mission complete text
-        MissionText.text = "Mission complete";
-        MissionCompleteUI.SetActive(true);
+        MissionUI.Win(MissionCompleteText);
     }
 }
