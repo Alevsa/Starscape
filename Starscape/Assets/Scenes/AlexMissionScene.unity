@@ -871,14 +871,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '<MISSION NAME HERE> COMPLETE
-
-
-    Time to Complete:
-
-    Enemies destroyed
-
-    Accuracy:'
+  m_Text: 
 --- !u!222 &607355589
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1152,10 +1145,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You have failed.
-
-
-    You were unable to <objective fail text here>.'
+  m_Text: 
 --- !u!222 &730424134
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1320,7 +1310,7 @@ MonoBehaviour:
   m_ActiveObjectives: []
   Player: {fileID: 1028899064}
   MissionText: {fileID: 1459263440}
-  MissionUI: {fileID: 0}
+  MissionUI: {fileID: 445266744}
 --- !u!4 &914066717
 Transform:
   m_ObjectHideFlags: 0
