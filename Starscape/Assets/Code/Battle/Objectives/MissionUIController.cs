@@ -12,6 +12,7 @@ public class MissionUIController : MonoBehaviour
 
     public void Win(string winText)
     {
+        TimeStop();
         if (inProgress)
         {
             inProgress = false;
@@ -23,10 +24,10 @@ public class MissionUIController : MonoBehaviour
 
     public void Lose(string[] loseText)
     {
+        TimeStop();
         if (inProgress)
         {
             inProgress = false;
-            TimeStop();
             LoseUI.SetActive(true);
             foreach (string x in loseText)
             {
@@ -37,9 +38,14 @@ public class MissionUIController : MonoBehaviour
 
     private void TimeStop()
     {
+        Debug.Log(Time.timeScale);
         if (Time.timeScale > 0)
         {
-            Time.timeScale -= Time.deltaTime;
+            Time.timeScale *= 0.01f;
+        }
+        if (Time.timeScale < 0.05f)
+        {
+            Time.timeScale = 0f;
         }
     }
     
