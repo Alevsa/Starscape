@@ -21,5 +21,14 @@ public class StageDirector : MonoBehaviour
         {
             MissionObjects[i].SetActive(true);
         }
+        if (m_ActiveStage = MissionObjects.Length)
+        {
+            GameOver();
+        }
+    }
+
+    void GameOver()
+    {
+        // Go somewhere to see final scene/mission I guess then the game ends
     }
 }
