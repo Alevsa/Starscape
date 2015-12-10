@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DialogueStage : MonoBehaviour {
-
+public class DialogueStage : MonoBehaviour
+{
 	// Use this for initialization
 	void Start () {
 	

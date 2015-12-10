@@ -21,7 +21,7 @@ public class StageDirector : MonoBehaviour
         {
             MissionObjects[i].SetActive(true);
         }
-        if (m_ActiveStage = MissionObjects.Length)
+        if (m_ActiveStage == MissionObjects.Length)
         {
             GameOver();
         }
