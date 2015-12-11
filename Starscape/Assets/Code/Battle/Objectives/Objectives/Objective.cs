@@ -9,7 +9,6 @@ public abstract class Objective : MonoBehaviour, IObjective
     public int Stage;
     private Coroutine m_Timer;
     public string MissionText;
-    public Event[] Events;
 
     public bool Completed { get; set; }
     public bool Failed { get; set; }
