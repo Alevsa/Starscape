@@ -11,7 +11,7 @@ public abstract class Objective : MonoBehaviour, IObjective
     private Coroutine m_Timer;
     public string MissionText;
     public List<MissionEvent> Events;
-    private MissionEvent[] m_SortedEvents;
+    private List<MissionEvent> m_SortedEvents;
     private int ActiveEvent = 0;
 
     public bool Completed { get; set; }
@@ -70,7 +70,7 @@ public abstract class Objective : MonoBehaviour, IObjective
 
     private void SortEvents()
     {
-        m_SortedEvents = new MissionEvent[Events.Count];
+        m_SortedEvents = new List<MissionEvent>();
         foreach (MissionEvent ev in Events)
         {
             if (ev.TriggerTime < -1 || ev.TriggerTime > TimeLimit)
@@ -88,7 +88,8 @@ public abstract class Objective : MonoBehaviour, IObjective
                     min = j;
                 }
             }
-            m_SortedEvents[i] = Events[min];
+            m_SortedEvents.Add(Events[min]);
+            Events.RemoveAt(min);
         }
     }
 }
