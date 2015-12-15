@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpawnEvent : MonoBehaviour, IEvent
+public class SpawnEvent : MissionEvent
 {
     public GameObject[] Spawns;
     public Transform SpawnLocation;
