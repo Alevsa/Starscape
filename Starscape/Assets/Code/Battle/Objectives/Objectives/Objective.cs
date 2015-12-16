@@ -30,7 +30,10 @@ public abstract class Objective : MonoBehaviour, IObjective
 
     protected void Update()
     {
-        CheckEvents();
+        if (ActiveEvent < m_SortedEvents.Count)
+        {
+            CheckEvents();
+        }
         CheckCompletion();
         CheckFailure();
         if (m_IsTimed)
@@ -60,7 +63,7 @@ public abstract class Objective : MonoBehaviour, IObjective
 
     private void CheckEvents()
     {
-        if (m_SortedEvents[ActiveEvent].TriggerTime < m_Time && ActiveEvent < m_SortedEvents.Length)
+        if (m_SortedEvents[ActiveEvent].TriggerTime < m_Time)
         {
             m_SortedEvents[ActiveEvent].Fire();
             ActiveEvent += 1;
