@@ -1897,8 +1897,9 @@ MonoBehaviour:
   FailureText: I guess the controls weren't that easy.
   TimeLimit: -1
   Stage: 0
-  MissionText: Spaceship controlls are pretty simple, you should be able to figure
+  MissionText: ake out that enemy drone.retty simple, you should be able to figure
     out yourself. Take out that enemy drone.
+  Events: []
   Targets:
   - {fileID: 1173034972}
 --- !u!1 &1998846284
