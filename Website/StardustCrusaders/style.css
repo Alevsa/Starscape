@@ -1,0 +1,34 @@
+.title
+{
+	font-size: 50px;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.subtitle
+{
+	font-size: 25px;
+	text-align: center;
+}
+.textBlock
+{
+	padding: 3%;
+	font-size: 20px;
+}
+
+.team
+{
+	float: left;
+	width: 32%;
+	margin: 0 auto;
+}
+
+.name
+{
+	
+}
+
+.teamPortrait
+{
+	max-width:100%;
+	max-height:100%;
+}

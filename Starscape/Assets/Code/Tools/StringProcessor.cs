@@ -23,7 +23,9 @@ public static class StringProcessor : MonoBehaviour
     {
         string output = input;
         output.Replace("@JOY", "Joystick");
-        Input.
+        //Input.
         return output;
     }
+
+    private static string Insert
 }
