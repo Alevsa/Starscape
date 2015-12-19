@@ -1,0 +1,53 @@
+.title
+{
+	font-size: 50px;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.subtitle
+{
+	font-size: 25px;
+	text-align: center;
+}
+.textBlock
+{
+	padding: 3%;
+	font-size: 20px;
+}
+
+.team
+{
+	float: left;
+	width: 33%;
+	margin: 0 auto;
+}
+
+.teamTitle
+{
+    text-align: center;
+}
+
+.name
+{
+	
+}
+
+.teamPortrait
+{
+	max-width:100%;
+	max-height:100%;
+}
+
+.navButton
+{
+    background-color: magenta;
+    padding-left: 5%;
+    margin: 0 auto;
+    float: left;
+    width: auto;
+}
+
+.navBar
+{
+    width: 100%;
+}
