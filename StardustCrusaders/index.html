@@ -7,33 +7,48 @@
 		<script src="Angular/MainApp.js"></script>
 		<script src="Angular/MainController.js"></script>
 		<script src="Angular/TeamController.js"></script>
+		<script src="Angular/GameController.js"></script>
         <script src="jquery-2.1.4.min.js"></script>
 	</head>
 	<body ng-app="MainApp">
-    <div class="bodyWrapper" ng-controller="MainController">
-		<div class="title">Stardust Crusaders</div>
-		<div class="subtitle">  
-			Indie Game Development
-		</div>
-        <div class="navBar">
-            <div class="navButton" ng-click="ToggleTeamView()">Team</div>
-            <div class="navButton" ng-click="ToggleGameView()">Games</div>
+        <div class="bodyWrapper" ng-controller="MainController">
+            
+            <div class="title">Stardust Crusaders</div>
+            <div class="subtitle">  
+                Indie Game Development
+            </div>
+            
+            <div class="navBar">
+                <div class="navButton" ng-click="ToggleTeamView()">Team</div>
+                <div class="navButton" ng-click="ToggleGameView()">Games</div>
+            </div>        
+            <br>
+            
+            <div name="teamWrapper" class="textBlock" ng-controller="TeamController" ng-show="teamShown">
+                <div class="team" ng-repeat="individual in team">
+                    <img class="teamPortrait" src="{{individual.imageUrl}}">
+                    <div class="teamTitle">
+                        {{individual.name}}
+                    </div>
+                    <div class="teamDescription">
+                        {{individual.bio}}
+                    </div>
+                </div>
+            </div>
+            
+            <div name="gameWrapper" ng-controller="GameController" ng-show="gamesShown">
+                <div class="gamesNavBar">
+                    <div class="navButton" ng-repeat="game in Games">
+                        <div class="navButton" ng-click="ToggleGame($index)">
+                            {{game.name}}
+                        </div>
+                    </div>        
+                </div>
+                <div class="textBlock" ng-repeat="game in Games">
+                    <div ng-include src="GamePages/Placeholder.html" ng-show="game.Visible"></div>
+                </div>
+            </div>
+            
         </div>
-        <br>
-		<div name="teamWrapper" class="textBlock" ng-controller="TeamController" ng-show="teamShown">
-			<div class="team" ng-repeat="individual in team">
-				<img class="teamPortrait" src="{{individual.imageUrl}}">
-				<div class="teamTitle">
-					{{individual.name}}
-				</div>
-				<div class="teamDescription">
-					{{individual.bio}}
-				</div>
-			</div>
-		</div>
-        <div name="gameWrapper" class="textBlock" ng-show="gamesShown">
-            PlaceholderText
-        </div>
-    </div>
 	</body>
 </html>
