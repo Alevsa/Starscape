@@ -3,8 +3,7 @@ using System.Collections;
 
 public class Giblets : MonoBehaviour 
 {
-	private Vector3 m_EulerSpin;
-	private Quaternion m_Spin;
+	private Vector3 m_Spin;
 	private Vector3 m_Velocity;
 	private Rigidbody m_Body;
 	public float Force = 10000f;
@@ -15,14 +14,10 @@ public class Giblets : MonoBehaviour
 	void OnEnable () 
 	{
 		m_Body = gameObject.GetComponent<Rigidbody>();
-		//m_EulerSpin = new Vector3(Random.value * Force , Random.value * Force, Random.value * Force);
-
-        m_Spin = Random.rotation;
+        m_Spin = Random.rotation.eulerAngles;
 
         transform.rotation = Random.rotation;
         m_Velocity = Random.rotation * transform.forward * Force;
-        //Debug.Log(m_Velocity);
-        //Debug.Log(m_EulerSpin);
 
         float time = Random.Range(MinTimeTillDestroy, MaxTimeTillDestroy);
         Invoke("Destroy", time);
@@ -31,7 +26,7 @@ public class Giblets : MonoBehaviour
 	void FixedUpdate () 
 	{
 		m_Body.AddForce(m_Velocity);
-		transform.Rotate(m_EulerSpin);
+		transform.Rotate(m_Spin*Force);
 	}
 
     private void Destroy()

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Text.RegularExpressions;
 
-public static class StringProcessor : MonoBehaviour
+public static class StringProcessor
 {
     // Horizontal @JOY+
     // Vertical @JOY-
@@ -27,5 +27,5 @@ public static class StringProcessor : MonoBehaviour
         return output;
     }
 
-    private static string Insert
+ //   private static string Insert
 }
