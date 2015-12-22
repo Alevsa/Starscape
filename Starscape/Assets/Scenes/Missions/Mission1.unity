@@ -946,8 +946,55 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1983821449}
+  - {fileID: 962165276}
+  - {fileID: 1504571519}
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!1 &962165275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 962165276}
+  - 114: {fileID: 962165277}
+  m_Layer: 0
+  m_Name: Targets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &962165276
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962165275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 914066717}
+  m_RootOrder: 1
+--- !u!114 &962165277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962165275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385f82ecc4f000b47877ec13a02a7dce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FailureText: You failed
+  TimeLimit: -1
+  Stage: 1
+  MissionText: Try shooting these targets, they don't shoot back.
+  Events: []
+  Targets: []
 --- !u!1 &1028899064 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 133816, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
@@ -1654,6 +1701,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1459263438}
+--- !u!1 &1504571518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1504571519}
+  - 114: {fileID: 1504571520}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1504571519
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1504571518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 914066717}
+  m_RootOrder: 2
+--- !u!114 &1504571520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1504571518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385f82ecc4f000b47877ec13a02a7dce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FailureText: You failed
+  TimeLimit: -1
+  Stage: 0
+  MissionText: Alright, here's a single enemy, shouldn't be too hard to take him out.
+  Events: []
+  Targets:
+  - {fileID: 1173034972}
 --- !u!1001 &1523381004
 Prefab:
   m_ObjectHideFlags: 0
@@ -1865,7 +1958,7 @@ GameObject:
   - 4: {fileID: 1983821449}
   - 114: {fileID: 1983821450}
   m_Layer: 0
-  m_Name: Objective1
+  m_Name: LearnControls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1891,17 +1984,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1983821448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 385f82ecc4f000b47877ec13a02a7dce, type: 3}
+  m_Script: {fileID: 11500000, guid: a49c00b58fbb7d342852f1a9c4e64a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FailureText: I guess the controls weren't that easy.
+  FailureText: You failed
   TimeLimit: -1
   Stage: 0
-  MissionText: ake out that enemy drone.retty simple, you should be able to figure
-    out yourself. Take out that enemy drone.
+  MissionText: Experiment with the controls, when you've gotten the hang of it head
+    over to the waypoint to begin then next stage.
   Events: []
-  Targets:
-  - {fileID: 1173034972}
 --- !u!1 &1998846284
 GameObject:
   m_ObjectHideFlags: 0
