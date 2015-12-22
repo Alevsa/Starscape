@@ -1742,7 +1742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FailureText: You failed
   TimeLimit: -1
-  Stage: 0
+  Stage: 2
   MissionText: Alright, here's a single enemy, shouldn't be too hard to take him out.
   Events: []
   Targets:
