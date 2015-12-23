@@ -1,19 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class SpawnEvent : MissionEvent
+public class SpawnEvent : MissionEvent, IEvent
 {
     public GameObject[] Spawns;
-    public Transform SpawnLocation;
-    public float SpawnCooldown = 2f;
     public float TriggerTime { get; set; }
-    public void OnTrigger()
+
+    void Start()
     {
-        float i = 0;
-        foreach (GameObject spawn in Spawns)
+        foreach (GameObject Spawn in Spawns)
         {
-            Invoke("Instantiate(spawn, SpawnLocation.position, Quaternion.identity)", i);
-            i += 2f;
+            Spawn.SetActive(false);
+        }
+    }
+
+    public override void Fire()
+    {
+        foreach (GameObject Spawn in Spawns)
+        {
+            Spawn.SetActive(true);
         }
     }
 }

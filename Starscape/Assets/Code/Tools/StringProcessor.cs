@@ -27,5 +27,12 @@ public static class StringProcessor
         return output;
     }
 
- //   private static string Insert
+    private static string InsertPlayerName(string input)
+    {
+        string playerName = "";
+        playerName = SaveLoadController.GetPlayerName();
+        string output = input;
+        output.Replace("charname", playerName);
+        return output;
+    }
 }

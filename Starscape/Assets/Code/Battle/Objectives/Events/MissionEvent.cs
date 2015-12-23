@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MissionEvent : MonoBehaviour, IEvent
+public abstract class MissionEvent : MonoBehaviour
 {
-    public void Fire()
-    {
-    }
-    public float TriggerTime { get; set; }
+    public abstract void Fire();
+    public float TriggerTime = 0f;
 }
