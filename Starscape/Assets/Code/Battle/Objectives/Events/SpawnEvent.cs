@@ -7,7 +7,7 @@ public class SpawnEvent : MissionEvent, IEvent
     public GameObject[] Spawns;
     public float TriggerTime { get; set; }
 
-    void Start()
+    void Awake()
     {
         foreach (GameObject Spawn in Spawns)
         {
