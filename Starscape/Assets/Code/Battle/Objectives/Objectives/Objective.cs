@@ -12,7 +12,6 @@ public abstract class Objective : MonoBehaviour, IObjective
     public string MissionText;
     public List<MissionEvent> Events;
     private List<MissionEvent> m_SortedEvents;
-    private int ActiveEvent = 0;
 
     public bool Completed { get; set; }
     public bool Failed { get; set; }
@@ -30,15 +29,14 @@ public abstract class Objective : MonoBehaviour, IObjective
 
     protected void Update()
     {
-        if (ActiveEvent < m_SortedEvents.Count)
+        if (Active)
         {
-            CheckEvents();
-        }
-        CheckCompletion();
-        CheckFailure();
-        if (m_IsTimed)
-        {
-            Timer();
+            CheckCompletion();
+            CheckFailure();
+            if (m_IsTimed)
+            {
+                Timer();
+            }
         }
     }
 
@@ -51,6 +49,7 @@ public abstract class Objective : MonoBehaviour, IObjective
     {
         Failed = false;
         Completed = false;
+        Active = true;
         if (TimeLimit > 0f)
         {
             m_IsTimed = true;
@@ -59,40 +58,9 @@ public abstract class Objective : MonoBehaviour, IObjective
         {
             m_IsTimed = false;
         }
-    }
-
-    private void CheckEvents()
-    {
-        if (m_SortedEvents[ActiveEvent].TriggerTime < m_Time)
+        foreach (IEvent ev in Events)
         {
-            m_SortedEvents[ActiveEvent].Fire();
-            ActiveEvent += 1;
-            CheckEvents();
-        }
-    }
-
-    private void SortEvents()
-    {
-        m_SortedEvents = new List<MissionEvent>();
-        foreach (MissionEvent ev in Events)
-        {
-            if (ev.TriggerTime < -1 || ev.TriggerTime > TimeLimit)
-            {
-                ev.TriggerTime = TimeLimit;
-            }
-        }
-        for (int i = 0; i < Events.Count; i++)
-        {
-            int min = i;
-            for (int j = i + 1; j < Events.Count; j++)
-            {
-                if (Events[j].TriggerTime < Events[min].TriggerTime)
-                {
-                    min = j;
-                }
-            }
-            m_SortedEvents.Add(Events[min]);
-            Events.RemoveAt(min);
+            ev.Activate();
         }
     }
 }

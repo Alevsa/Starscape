@@ -35,7 +35,7 @@ public class BattleMovement : MonoBehaviour
 	}
 	
 	void FixedUpdate()
-	{	
+	{
 		if (StabiliserActive)
 			SnapRotation();
 		Movement();
