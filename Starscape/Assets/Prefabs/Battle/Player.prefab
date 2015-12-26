@@ -108,7 +108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.6200008, y: 70.3000031, z: 91.8300018}
+  m_LocalPosition: {x: 0, y: 0, z: -16}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 462202}
@@ -122,9 +122,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173254}
-  m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106709}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100.000008, z: 100.000008}
+  m_LocalScale: {x: 100, y: 100.00001, z: 100.00001}
   m_Children: []
   m_Father: {fileID: 462202}
   m_RootOrder: 0
@@ -134,9 +134,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157074}
-  m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106709}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100.000008, z: 100.000008}
+  m_LocalScale: {x: 100, y: 100.00001, z: 100.00001}
   m_Children: []
   m_Father: {fileID: 462202}
   m_RootOrder: 1
@@ -147,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .189999998, y: -.449999988, z: 3.50300002}
+  m_LocalPosition: {x: 0.19, y: -0.45, z: 3.503}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404070}
@@ -173,7 +173,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.219999999, y: -.439999998, z: 3.49300003}
+  m_LocalPosition: {x: -0.22, y: -0.44, z: 3.493}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404070}
@@ -199,8 +199,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -224,8 +226,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -276,8 +280,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: .5, z: 3}
-  m_Center: {x: 0, y: -.5, z: 1.20000005}
+  m_Size: {x: 2, y: 0.5, z: 3}
+  m_Center: {x: 0, y: -0.5, z: 1.2}
 --- !u!114 &11408472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -318,27 +322,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3134ac6274767bf4db09cc749c390af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionSounds:
-  - {fileID: 8300000, guid: b58f4523702840b40b32380813e303dd, type: 3}
-  HitExplosionSound: {fileID: 8300000, guid: 7da4f4d7dea8e0542bc97cb9ce472710, type: 3}
-  CollisionSound: {fileID: 8300000, guid: 9375c372e04fee346b226fee3f37e3ff, type: 3}
+  ExplosionSounds: []
+  HitExplosionSound: {fileID: 0}
+  CollisionSound: {fileID: 0}
   PoolExplosionIndex: 3
   MinGibPoolIndex: 4
   MaxGibPoolIndex: 6
-  NumberOfGibs: 5
-  CollisionDamage: 1
-  TurnRate: 100
-  Acceleration: 4000
-  Deceleration: 8000
-  MaxSpeed: 8000
-  MaxReverseSpeed: 4000
-  MaxHealth: 50
-  Health: 50
-  Armour: 5
-  Alive: 0
+  NumberOfGibs: 4
+  CollisionDamage: 0.25
+  TurnRate: 0
+  Acceleration: 0
+  Deceleration: 0
+  MaxSpeed: 0
+  MaxReverseSpeed: 0
+  MaxHealth: 0
+  Health: 0
+  Armour: 0
+  Alive: 1
   Speed: 0
-  RollRate: 100
+  RollRate: 0
   AdditionalPeripherals: []
+  DeathTime: 0
+  PeripheralHealthContribution: 0.6
 --- !u!114 &11488820
 MonoBehaviour:
   m_ObjectHideFlags: 1

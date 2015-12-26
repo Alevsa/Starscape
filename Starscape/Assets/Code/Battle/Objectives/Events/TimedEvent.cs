@@ -1,30 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public abstract class TimedEvent : MonoBehaviour, IEvent
+public abstract class TimedEvent : MissionEvent, IEvent
 {
     public float TriggerTime { get; set; }
-    private float Time;
+    private float m_Time;
     private bool m_Active = false;
 
     void Update()
     {
         if (m_Active)
+        {
             Timer();
-        if (Time > TriggerTime)
-            Fire();    
+            if (m_Time > TriggerTime)
+            {
+                Fire();
+                m_Active = false;
+            }
+        }
     }
 
-    void Activate()
+    void IEvent.Activate()
     {
         m_Active = true;
     }
 
     void Timer()
     {
-        Time += Time.DeltaTime;
+        m_Time += Time.deltaTime;
     }
-
-    public abstract void Fire();
-
 }

@@ -10,8 +10,7 @@ public abstract class Objective : MonoBehaviour, IObjective
     public int Stage;
     private Coroutine m_Timer;
     public string MissionText;
-    public List<MissionEvent> Events;
-    private List<MissionEvent> m_SortedEvents;
+    public List<IEvent> Events;
 
     public bool Completed { get; set; }
     public bool Failed { get; set; }
@@ -24,7 +23,6 @@ public abstract class Objective : MonoBehaviour, IObjective
     void Start()
     {
         m_Time = TimeLimit;
-        SortEvents();
     }
 
     protected void Update()

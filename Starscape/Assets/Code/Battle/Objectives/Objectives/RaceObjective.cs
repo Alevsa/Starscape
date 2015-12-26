@@ -12,6 +12,7 @@ public class RaceObjective : Objective
         if (FinishLine.bounds.Contains(Racer.position))
         {
             Completed = true;
+            FinishLine.gameObject.SetActive(false);
         }
     }
 
