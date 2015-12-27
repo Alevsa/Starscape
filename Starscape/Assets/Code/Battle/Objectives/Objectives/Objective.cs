@@ -10,7 +10,7 @@ public abstract class Objective : MonoBehaviour, IObjective
     public int Stage;
     private Coroutine m_Timer;
     public string MissionText;
-    public List<IEvent> Events;
+    public IEvent[] Events;
 
     public bool Completed { get; set; }
     public bool Failed { get; set; }
@@ -22,6 +22,7 @@ public abstract class Objective : MonoBehaviour, IObjective
 
     void Start()
     {
+        Events = transform.GetComponents<IEvent>();
         m_Time = TimeLimit;
     }
 
@@ -56,9 +57,12 @@ public abstract class Objective : MonoBehaviour, IObjective
         {
             m_IsTimed = false;
         }
-        foreach (IEvent ev in Events)
+        if (Events != null)
         {
-            ev.Activate();
+            foreach (IEvent ev in Events)
+            {
+                ev.Activate();
+            }
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public abstract class TimedEvent : MissionEvent, IEvent
+public abstract class TimedEvent : MonoBehaviour , IEvent
 {
     public float TriggerTime { get; set; }
     private float m_Time;
@@ -30,4 +30,6 @@ public abstract class TimedEvent : MissionEvent, IEvent
     {
         m_Time += Time.deltaTime;
     }
+
+    public abstract void Fire();
 }

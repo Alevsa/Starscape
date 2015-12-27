@@ -1,13 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
-
-public abstract class MissionEvent : MonoBehaviour, IEvent
+public abstract class MissionEvent : MonoBehaviour
 {
-    // This is a hack that works around me not being able to directly make a list of type IEvent
-    public virtual void Activate()
-    {
-    }
-    public virtual void Fire()
-    {
-    }
+    // This is a hack (that doesnt work) that works around me not being able to directly make a list of type IEvent
 }

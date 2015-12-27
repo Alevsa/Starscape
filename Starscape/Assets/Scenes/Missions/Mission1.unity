@@ -2183,7 +2183,7 @@ RectTransform:
   - {fileID: 549425377}
   - {fileID: 1126304805}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2682,9 +2682,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 722176619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 421024d5d32a14348b271d7b65a72a47, type: 3}
+  m_Script: {fileID: 11500000, guid: 814b104a8f711ef4999b4a855b0a8a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Spawns:
+  - {fileID: 149102278}
 --- !u!114 &722176622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2700,8 +2702,6 @@ MonoBehaviour:
   TimeLimit: 120
   Stage: 3
   MissionText: Try this group of enemies.
-  Events:
-  - {fileID: 0}
   Targets:
   - {fileID: 1986533305}
   - {fileID: 2072887928}
@@ -3157,7 +3157,7 @@ Transform:
   - {fileID: 1504571519}
   - {fileID: 722176620}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &936999278
 GameObject:
   m_ObjectHideFlags: 0
@@ -3277,8 +3277,6 @@ MonoBehaviour:
   TimeLimit: -1
   Stage: 1
   MissionText: Try shooting these targets, they don't shoot back.
-  Events:
-  - {fileID: 0}
   Targets:
   - {fileID: 1677708382}
 --- !u!114 &962165278
@@ -3689,7 +3687,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!82 &1336757720
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4337,6 +4335,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1504571519}
   - 114: {fileID: 1504571520}
+  - 114: {fileID: 1504571521}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -4371,9 +4370,21 @@ MonoBehaviour:
   TimeLimit: -1
   Stage: 2
   MissionText: Alright, here's a single enemy, shouldn't be too hard to take him out.
-  Events: []
   Targets:
   - {fileID: 1173034972}
+--- !u!114 &1504571521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1504571518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814b104a8f711ef4999b4a855b0a8a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawns:
+  - {fileID: 1048601358}
 --- !u!1001 &1523381004
 Prefab:
   m_ObjectHideFlags: 0
@@ -4924,6 +4935,7 @@ GameObject:
   - 65: {fileID: 1677708386}
   - 23: {fileID: 1677708385}
   - 114: {fileID: 1677708384}
+  - 114: {fileID: 1677708388}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -5022,6 +5034,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1677708382}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1677708388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1677708382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159bacb8b37e35c4c9d5aa60f3642401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioChannels: 4
 --- !u!1001 &1720162845
 Prefab:
   m_ObjectHideFlags: 0
@@ -5187,7 +5211,6 @@ MonoBehaviour:
   Stage: 0
   MissionText: Experiment with the controls, when you've gotten the hang of it head
     over to the waypoint to begin then next stage.
-  Events: []
   Racer: {fileID: 1028899065}
   FinishLine: {fileID: 177836868}
 --- !u!1001 &1986533303
