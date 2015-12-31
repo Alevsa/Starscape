@@ -121,5 +121,25 @@ public static class SaveLoadController
     {
         PlayerPrefs.SetInt("StoryStage", stage);
     }
-	
+
+    public static void SetDialogueSpeed(string Speed)
+    {
+        switch (Speed)
+        {
+            case "fast":
+                PlayerPrefs.SetFloat("DialogueSpeed", 0.5f);
+                break;
+            case "normal":
+                PlayerPrefs.SetFloat("DialogueSpeed", 1f);
+                break;
+            case "slow":
+                PlayerPrefs.SetFloat("DialogueSpeed", 2f);
+                break;
+        }
+    }
+
+    public static float GetDialogueSpeed()
+    {
+        return PlayerPrefs.GetFloat("DialogueSpeed");
+    }
 }
