@@ -9,7 +9,7 @@ public class LoadPlanetInfo
     public LoadPlanetInfo()
     {
         m_PlanetInfo = new XmlDocument();
-        m_PlanetInfo.Load("Assets/Text/Planets/PlanetInformation");
+        m_PlanetInfo.Load("Assets/Resources/Text/Planets/PlanetInformation");
     }
 
     public string GetPlanetInfo(string planetName)

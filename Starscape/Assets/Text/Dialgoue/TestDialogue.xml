@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<root>
-<node speakerName="Testman" portait="testman.png">
-  Hello this is Testman speaking.
-</node>
-<node speakerName="TestWoman" portait="testwoman.png">
-  Hello this is TestWoman Speaking.
-</node>
-</root>
