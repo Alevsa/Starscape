@@ -22,7 +22,7 @@ public abstract class Objective : MonoBehaviour, IObjective
 
     void Start()
     {
-        Events = transform.GetComponents<IEvent>();
+        //Events = transform.GetComponents<IEvent>();
         m_Time = TimeLimit;
     }
 
@@ -46,6 +46,7 @@ public abstract class Objective : MonoBehaviour, IObjective
 
     public void Activate()
     {
+        Events = transform.GetComponents<IEvent>();
         Failed = false;
         Completed = false;
         Active = true;
@@ -61,6 +62,7 @@ public abstract class Objective : MonoBehaviour, IObjective
         {
             foreach (IEvent ev in Events)
             {
+                Debug.Log("Activating event");
                 ev.Activate();
             }
         }

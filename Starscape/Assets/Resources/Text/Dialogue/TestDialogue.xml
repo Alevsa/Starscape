@@ -6,4 +6,20 @@
 <line speakerName="TestMan" portrait="testman">
   Talk to the hand
 </line>
+<line speakerName="Niklas" portrait="niklas">
+  Okay, this is a third line, lets make sure the order is correct.
+</line>
+<line speakerName="Niklas" portrait="niklas">
+  This is Niklas twice in a row, checking for problems. Lets try a very long string. 
+</line>
+<line speakerName="Niklas" portrait="niklas">
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque efficitur ultricies aliquet. Duis sed facilisis felis. Fusce nec scelerisque urna. Cras vel sapien nulla. Ut hendrerit ligula quis libero efficitur, non malesuada leo imperdiet. Ut mattis ac neque sed convallis. Donec consequat ligula justo, eget rhoncus mi blandit ac. Ut tempus lectus vitae ipsum facilisis, sit amet tincidunt felis bibendum. In dignissim mauris neque, at tincidunt arcu rhoncus eu. Donec at semper ipsum, non sodales sem. Ut laoreet lectus at gravida vehicula. Phasellus sit amet libero turpis..
+</line>
+<line speakerName="Niklas" portrait="niklas">
+ It 
+ reads 
+ line 
+ breaks
+ too
+</line>
 </root>

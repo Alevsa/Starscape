@@ -4,7 +4,7 @@ using System;
 
 public abstract class TimedEvent : MonoBehaviour , IEvent
 {
-    public float TriggerTime { get; set; }
+    public float TriggerTime = 0f;
     private float m_Time;
     private bool m_Active = false;
 

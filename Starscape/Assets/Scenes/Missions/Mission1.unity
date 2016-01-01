@@ -2487,6 +2487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814b104a8f711ef4999b4a855b0a8a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TriggerTime: 0
   Spawns:
   - {fileID: 149102278}
 --- !u!114 &722176622
@@ -3181,6 +3182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814b104a8f711ef4999b4a855b0a8a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TriggerTime: 0
   Spawns:
   - {fileID: 1035161972}
 --- !u!1 &1028899064 stripped
@@ -4041,6 +4043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814b104a8f711ef4999b4a855b0a8a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TriggerTime: 0
   Spawns:
   - {fileID: 1048601358}
 --- !u!1001 &1523381004
@@ -4680,6 +4683,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1983821449}
   - 114: {fileID: 1983821450}
+  - 114: {fileID: 1983821451}
   m_Layer: 0
   m_Name: LearnControls
   m_TagString: Untagged
@@ -4717,6 +4721,19 @@ MonoBehaviour:
     over to the waypoint to begin then next stage.
   Racer: {fileID: 1028899065}
   FinishLine: {fileID: 177836868}
+--- !u!114 &1983821451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1983821448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13454289abada5f4fbfc8c0a37c1fc40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerTime: -1
+  Dialogue: TestDialogue.xml
 --- !u!1001 &1986533303
 Prefab:
   m_ObjectHideFlags: 0

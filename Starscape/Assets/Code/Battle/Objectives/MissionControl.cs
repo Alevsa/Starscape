@@ -53,6 +53,7 @@ public class MissionControl : MonoBehaviour
             if (obj.Stage == m_CurrentStage)
             {
                 m_ActiveObjectives.Add(obj);
+                Debug.Log("Objective activated");
                 obj.Activate();
             }
         }

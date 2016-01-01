@@ -26,6 +26,12 @@ public class DialogueController : MonoBehaviour
         m_DialogueLines = m_DialogueChain.SelectNodes("/root/line");
     }
 
+    public void LoadDialogue(string path)
+    {
+        DialoguePath = path;
+        PlayDialogue();
+    }
+
     public void PlayDialogue()
     {
         DialogueUI.SetActive(true);
