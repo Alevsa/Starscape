@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<line speakerName="???" portrait="niklas">Greetings. I am Captain Nichols, of the Starship Invincible.</line>
+
+<line speakerName="Cpt. Nichols" portrait="niklas">Welcome to the demo for Starscape!</line>
+
+<line speakerName="Cpt. Nichols" portrait="niklas">Currently the tutorial is a bit up in the air.
+For various reasons.
+Sorry about the models too, they're all placeholders.</line>
+
+<line speakerName="Cpt. Nichols" portrait="niklas">So I'm afraid you're just going to have to experiment with the controls, if you can move and shoot then you're good to go.</line>
+
+<line speakerName="Cpt. Nichols" portrait="niklas">Fly to the waypoint when you're ready to continue.
+That is, the big white particle effect.</line>
+</root>

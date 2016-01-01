@@ -13,17 +13,17 @@ public static class StringProcessor
     // BattleAccelerate @ACC
     // Fire @FIRE
 
-    public static string ProcessMissionString(string input)
+    public static string ProcessString(string input)
     {
-        string output = input;
+        string output = InsertPlayerName(input);
+        Debug.Log(output);
+        //output = InterpretBattleControls(output);
         return output;
     }
 
     private static string InterpretBattleControls(string input)
     {
         string output = input;
-        output.Replace("@JOY", "Joystick");
-        //Input.
         return output;
     }
 
@@ -31,8 +31,12 @@ public static class StringProcessor
     {
         string playerName = "";
         playerName = SaveLoadController.GetPlayerName();
+        if (playerName == "")
+        {
+            playerName = "Isaac";
+        }
         string output = input;
-        output.Replace("charname", playerName);
+        output = output.Replace("@charname", playerName);
         return output;
     }
 }

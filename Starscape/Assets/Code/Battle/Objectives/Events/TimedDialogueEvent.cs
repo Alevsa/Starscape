@@ -7,7 +7,6 @@ public class TimedDialogueEvent : TimedEvent
 
     public override void Fire()
     {
-        Debug.Log("Fired Dialogue Event");
         gameObject.GetComponentInParent<DialogueController>().LoadDialogue(Dialogue);
     }
 }

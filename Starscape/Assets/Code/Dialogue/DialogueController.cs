@@ -42,15 +42,14 @@ public class DialogueController : MonoBehaviour
     IEnumerator PlayDialogueLine(int index)
     {
         XmlNode x = m_DialogueLines[index];
-        string text = x.InnerText;
+        string text = x.InnerXml;
         string portrait = x.Attributes["portrait"].Value;
         portrait = "Art/Portraits/" + portrait;
         Sprite img = Resources.Load<Sprite>(portrait);
-        Debug.Log(img); Debug.Log(portrait);
         CharacterPortrait.sprite = img;
-        DialogueText.text = text;
-        NameText.text = x.Attributes["speakerName"].Value;
-
+        text = StringProcessor.ProcessString(text);
+        NameText.text = StringProcessor.ProcessString(x.Attributes["speakerName"].Value);
+        Debug.Log(img); Debug.Log(portrait);
         for (int i = 0; i < text.Length; i++)
         {
             DialogueText.text = text.Substring(0, i + 1);
