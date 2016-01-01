@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <root>
-<line speakerName="Testman" portrait="testman">
-  Hello this is Testman speaking.
+<line speakerName="Niklas" portrait="niklas">
+  Hello this is Niklas speaking.
 </line>
-<line speakerName="TestWoman" portrait="niklas">
-  Hello this is Niklas Speaking.
+<line speakerName="TestMan" portrait="testman">
+  Talk to the hand
 </line>
 </root>
