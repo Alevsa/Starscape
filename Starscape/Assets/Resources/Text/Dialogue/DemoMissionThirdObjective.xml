@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <root>
-<line speakerName="Cpt. Nichols" portrait="niklas">Alright, get to the end of the asteroid belt without being killed.
-And don't run out of time.
-Hopefully by the time you've done that I'll have thought of another objective.</line>
+<line speakerName="Cpt. Nichols" portrait="niklas">Well done, space is safer with pilots like you around
+I don't have another objective yet.
+I'll have to think a bit.</line>
 
-<line speakerName="Cpt. Nichols" portrait="niklas">The clock is ticking for both of us.</line>
+<line speakerName="Cpt. Nichols" portrait="niklas">...</line>
 </root>

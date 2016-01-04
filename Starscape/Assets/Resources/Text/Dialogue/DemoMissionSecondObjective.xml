@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <root>
-<line speakerName="Cpt. Nichols" portrait="niklas">Alright, well done. Take a moment to collect yourself.
-Finish off any remaining forces.
-Then make your way to that asteroid belt over there.</line>
+<line speakerName="Cpt. Nichols" portrait="niklas">Alright, well done.
+But wait! What's that in the distance?
+Looks like there's no time for you to rest hero!</line>
+
+<line speakerName="Cpt. Nichols" portrait="niklas">Looks like a battle station.
+And it's fully operational!
+Those pylons are powering the core.
+</line>
+
+<line speakerName="Cpt. Nichols" portrait="niklas">If you can destroy them
+it should take the whole station down.
+</line>
 </root>
