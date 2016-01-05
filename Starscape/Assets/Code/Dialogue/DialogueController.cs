@@ -20,15 +20,15 @@ public class DialogueController : MonoBehaviour
     void Start()
     {
         DialogueSpeed = SaveLoadController.GetDialogueSpeed();
-        DialoguePath = "Assets/Resources/Text/Dialogue/" + DialoguePath;
         m_DialogueChain = new XmlDocument();
-        m_DialogueChain.Load(DialoguePath);
-        m_DialogueLines = m_DialogueChain.SelectNodes("/root/line");
     }
 
     public void LoadDialogue(string path)
     {
         DialoguePath = path;
+        DialoguePath = "Assets/Resources/Text/Dialogue/" + DialoguePath;
+        m_DialogueChain.Load(DialoguePath);
+        m_DialogueLines = m_DialogueChain.SelectNodes("/root/line");
         PlayDialogue();
     }
 
