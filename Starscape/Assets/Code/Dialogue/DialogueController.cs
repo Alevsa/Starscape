@@ -49,7 +49,7 @@ public class DialogueController : MonoBehaviour
         CharacterPortrait.sprite = img;
         text = StringProcessor.ProcessString(text);
         NameText.text = StringProcessor.ProcessString(x.Attributes["speakerName"].Value);
-        Debug.Log(img); Debug.Log(portrait);
+        //Debug.Log(img); Debug.Log(portrait);
         for (int i = 0; i < text.Length; i++)
         {
             DialogueText.text = text.Substring(0, i + 1);
