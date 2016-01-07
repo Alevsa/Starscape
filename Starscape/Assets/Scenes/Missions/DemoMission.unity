@@ -244,7 +244,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
+--- !u!1 &370830681 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 178950, guid: c7da3b9688a021545ae80cf867f3abaa, type: 2}
+  m_PrefabInternal: {fileID: 55178665}
 --- !u!1001 &391336594
 Prefab:
   m_ObjectHideFlags: 0
@@ -1103,6 +1107,8 @@ MonoBehaviour:
   MissionCompleteText: Mission Accomplished
   Objectives:
   - {fileID: 1983821450}
+  - {fileID: 1827508102}
+  - {fileID: 1605977394}
   BonusObjectives: []
   m_ActiveObjectives: []
   Player: {fileID: 1028899064}
@@ -1922,7 +1928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1459263439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2123,6 +2129,7 @@ GameObject:
   - 4: {fileID: 1605977392}
   - 114: {fileID: 1605977394}
   - 114: {fileID: 1605977393}
+  - 114: {fileID: 1605977395}
   m_Layer: 0
   m_Name: FinalObjective
   m_TagString: Untagged
@@ -2173,6 +2180,20 @@ MonoBehaviour:
   MissionText: 
   Racer: {fileID: 1028899065}
   FinishLine: {fileID: 275218347}
+--- !u!114 &1605977395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1605977391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b10526fea166847978635dc72eb389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerTime: 0
+  Despawns:
+  - {fileID: 370830681}
 --- !u!1 &1624752297
 GameObject:
   m_ObjectHideFlags: 0

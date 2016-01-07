@@ -17,7 +17,6 @@ public class MissionControl : MonoBehaviour
 
     // TO DO:
     // Implement bonus objectives
-    // Make things happen on win/mission failure
     void Start()
     {
         m_ActiveObjectives = new List<Objective>();
