@@ -35,38 +35,41 @@ public class BattleControl : MonoBehaviour
     //In-game handling
     void InGameInput()
     {
-        if (Input.GetAxisRaw("Battle Accelerate") < 0f)
+        if (!PauseMenuController.Paused)
         {
-            m_HandlerMovement.Decelerate();
-        }
-        else if (Input.GetAxisRaw("Battle Accelerate") > 0f)
-        {
-            m_HandlerMovement.Accelerate();
-        }
-        else if (Input.GetAxisRaw("Hand Brake") == 1f)
-        { 
-            m_HandlerMovement.HandBrake();
-        }	
-		
-		m_HandlerMovement.RollMagnitude = Input.GetAxisRaw("Roll");
-		
-		if (Input.GetButtonDown("Rear View"))
-			m_HandlerCamera.Flip();
-			
-		if (Input.GetButton("Stabilise"))
-			m_HandlerMovement.StabiliserActive = true;
-		else	
-			m_HandlerMovement.StabiliserActive = false;
-		
-		if (SaveLoadController.GetMouseControl())
-			m_HandlerMovement.PitchYaw(MouseXToJoyStickAxis(), MouseYToJoyStickAxis() * SaveLoadController.GetYAxisInversion());
-		else
-			m_HandlerMovement.PitchYaw(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") * SaveLoadController.GetYAxisInversion());
+            if (Input.GetAxisRaw("Battle Accelerate") < 0f)
+            {
+                m_HandlerMovement.Decelerate();
+            }
+            else if (Input.GetAxisRaw("Battle Accelerate") > 0f)
+            {
+                m_HandlerMovement.Accelerate();
+            }
+            else if (Input.GetAxisRaw("Hand Brake") == 1f)
+            {
+                m_HandlerMovement.HandBrake();
+            }
 
-        if (Input.GetButtonDown("Fire"))
-            m_PlayerWeapons.FirePrimaryWeaponTap();
-        if (Input.GetButton("Fire"))
-            m_PlayerWeapons.FirePrimaryWeaponHold();
+            m_HandlerMovement.RollMagnitude = Input.GetAxisRaw("Roll");
+
+            if (Input.GetButtonDown("Rear View"))
+                m_HandlerCamera.Flip();
+
+            if (Input.GetButton("Stabilise"))
+                m_HandlerMovement.StabiliserActive = true;
+            else
+                m_HandlerMovement.StabiliserActive = false;
+
+            if (SaveLoadController.GetMouseControl())
+                m_HandlerMovement.PitchYaw(MouseXToJoyStickAxis(), MouseYToJoyStickAxis() * SaveLoadController.GetYAxisInversion());
+            else
+                m_HandlerMovement.PitchYaw(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") * SaveLoadController.GetYAxisInversion());
+
+            if (Input.GetButtonDown("Fire"))
+                m_PlayerWeapons.FirePrimaryWeaponTap();
+            if (Input.GetButton("Fire"))
+                m_PlayerWeapons.FirePrimaryWeaponHold();
+        }
 
         if (Input.GetButtonDown("Pause"))
 			PauseMenuController.TogglePauseMenu();
