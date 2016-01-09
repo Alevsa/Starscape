@@ -4,7 +4,7 @@ using System.Collections;
 public abstract class CompleteEvent : MonoBehaviour, IEvent
 {
     private IObjective m_Objective;
-
+    private bool m_Fired = false;
     void Start()
     {
         m_Objective = transform.GetComponent<IObjective>();
@@ -12,8 +12,9 @@ public abstract class CompleteEvent : MonoBehaviour, IEvent
 
     void Update()
     {
-        if (m_Objective.Completed)
+        if (m_Objective.Completed && !m_Fired)
         {
+            m_Fired = true;
             Fire();
         }
     }

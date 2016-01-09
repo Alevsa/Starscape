@@ -20,19 +20,23 @@ public class MissionBounds : MonoBehaviour
 
     void Update()
     {
-        if (!m_Bounds.Contains(Player.position) )
+        if (Player != null)
         {
-            if (!m_OutOfBounds)
+            if (!m_Bounds.Contains(Player.position))
             {
-                m_Countdown = StartCoroutine("OutOfBoundsCountdown");
+                if (!m_OutOfBounds)
+                {
+                    m_Countdown = StartCoroutine("OutOfBoundsCountdown");
+                }
+                m_OutOfBounds = true;
             }
-            m_OutOfBounds = true;
+            else
+            {
+                StopAllCoroutines();
+                m_OutOfBounds = false;
+            }
+            SetWarningTextActivity(m_OutOfBounds);
         }
-        else
-        {
-            m_OutOfBounds = false;
-        }
-        SetWarningTextActivity(m_OutOfBounds);
 
     }
 

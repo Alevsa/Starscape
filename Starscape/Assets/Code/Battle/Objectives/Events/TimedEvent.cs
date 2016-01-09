@@ -7,14 +7,16 @@ public abstract class TimedEvent : MonoBehaviour , IEvent
     public float TriggerTime = 0f;
     private float m_Time;
     private bool m_Active = false;
+    private bool m_Fired = false;
 
     void Update()
     {
         if (m_Active)
         {
             Timer();
-            if (m_Time > TriggerTime)
+            if (m_Time > TriggerTime && !m_Fired)
             {
+                m_Fired = true;
                 Fire();
                 m_Active = false;
             }

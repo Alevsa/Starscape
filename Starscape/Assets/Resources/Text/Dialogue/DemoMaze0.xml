@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <root>
-<line speakerName="Cpt. Nichols" portrait="niklas">Alright good, you figured it out, 
+<line speakerName="Cpt. Nichols" portrait="niklas">Alright good, you figured it out, </line>
 
 <line speakerName="Cpt. Nichols" portrait="niklas">Seeing as this is a demo. 
 (Using a very loose definition of the word "demo".)
 There isn't much of a story. I can only apoligise for that.</line>
 
 <line speakerName="Cpt. Nichols" portrait="niklas">So navigate to the end of this maze
-Don't try going over, under or around, you'll be shot.
-The clock is ticking, for both of us.
-</line>
+Don't try going over, under or around, It's not allowed.
+The clock is ticking, for both of us.</line>
 </root>

@@ -511,7 +511,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 494862, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -76.690475
+      value: 155.6
       objectReference: {fileID: 0}
     - target: {fileID: 494862, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
       propertyPath: m_LocalPosition.y
@@ -519,7 +519,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 494862, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -16.020584
+      value: -183.3
       objectReference: {fileID: 0}
     - target: {fileID: 494862, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
       propertyPath: m_LocalRotation.x
@@ -543,7 +543,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 192376, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
       propertyPath: m_Name
-      value: MissionWayPoint
+      value: OpeningWaypoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
@@ -1409,6 +1409,94 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 162907356}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &165402782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 165402783}
+  - 114: {fileID: 165402784}
+  - 114: {fileID: 165402787}
+  - 114: {fileID: 165402786}
+  - 114: {fileID: 165402785}
+  m_Layer: 0
+  m_Name: MazeObjective
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &165402783
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165402782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 914066717}
+  m_RootOrder: 1
+--- !u!114 &165402784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165402782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c00b58fbb7d342852f1a9c4e64a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FailureText: You failed
+  TimeLimit: 120
+  Stage: 1
+  MissionText: Get to the end of the maze
+  Racer: {fileID: 1028899065}
+  FinishLine: {fileID: 1616536569}
+--- !u!114 &165402785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165402782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b10526fea166847978635dc72eb389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerTime: 0
+  Despawns:
+  - {fileID: 2026244289}
+--- !u!114 &165402786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165402782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4761e6dd592d9047ba69d7d737b758d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawn:
+  - {fileID: 1704682273}
+--- !u!114 &165402787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165402782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13454289abada5f4fbfc8c0a37c1fc40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerTime: 0
+  Dialogue: DemoMaze0.xml
 --- !u!1 &168354741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,7 +2270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &368774463
 Transform:
   m_ObjectHideFlags: 0
@@ -2194,12 +2282,11 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 1725722277}
+  - {fileID: 2066100301}
+  - {fileID: 2083724406}
+  - {fileID: 2048290352}
   m_Father: {fileID: 0}
   m_RootOrder: 11
---- !u!1 &370830681 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 178950, guid: c7da3b9688a021545ae80cf867f3abaa, type: 2}
-  m_PrefabInternal: {fileID: 55178665}
 --- !u!1001 &391336594
 Prefab:
   m_ObjectHideFlags: 0
@@ -5308,6 +5395,7 @@ MonoBehaviour:
   MissionCompleteText: Mission Accomplished
   Objectives:
   - {fileID: 1983821450}
+  - {fileID: 165402784}
   - {fileID: 1827508102}
   - {fileID: 1605977394}
   BonusObjectives: []
@@ -5326,6 +5414,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1983821449}
+  - {fileID: 165402783}
   - {fileID: 1827508098}
   - {fileID: 1605977392}
   m_Father: {fileID: 0}
@@ -9049,7 +9138,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 914066717}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1605977393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9077,7 +9166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FailureText: You failed
   TimeLimit: -1
-  Stage: 2
+  Stage: 3
   MissionText: 
   Racer: {fileID: 1028899065}
   FinishLine: {fileID: 275218347}
@@ -9094,7 +9183,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerTime: 0
   Despawns:
-  - {fileID: 370830681}
+  - {fileID: 1704682273}
+--- !u!135 &1616536569 stripped
+SphereCollider:
+  m_PrefabParentObject: {fileID: 13534842, guid: 0d970b4fb275f4741af7198be41d0f30,
+    type: 2}
+  m_PrefabInternal: {fileID: 2048290351}
 --- !u!1 &1619071862
 GameObject:
   m_ObjectHideFlags: 0
@@ -10608,7 +10702,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 914066717}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &1827508099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10635,7 +10729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerTime: 0
   Despawns:
-  - {fileID: 2026244289}
+  - {fileID: 368774462}
 --- !u!114 &1827508102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10649,8 +10743,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FailureText: You failed
   TimeLimit: -1
-  Stage: 1
-  MissionText: 
+  Stage: 2
+  MissionText: Destroy the battle station
   Targets:
   - {fileID: 1113513711}
 --- !u!1 &1856992565
@@ -11102,7 +11196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawn:
-  - {fileID: 1704682273}
+  - {fileID: 368774462}
 --- !u!1 &1991626569
 GameObject:
   m_ObjectHideFlags: 0
@@ -11540,7 +11634,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404070, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 252.4
       objectReference: {fileID: 0}
     - target: {fileID: 404070, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
       propertyPath: m_LocalPosition.y
@@ -11548,7 +11642,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404070, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -16
+      value: -364.9
       objectReference: {fileID: 0}
     - target: {fileID: 404070, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
       propertyPath: m_LocalRotation.x
@@ -11568,7 +11662,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404070, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11488820, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
       propertyPath: Gyroscope
@@ -11696,6 +11790,60 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2047501687}
+--- !u!1001 &2048290351
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 368774463}
+    m_Modifications:
+    - target: {fileID: 494862, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -13.829
+      objectReference: {fileID: 0}
+    - target: {fileID: 494862, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.35962006
+      objectReference: {fileID: 0}
+    - target: {fileID: 494862, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 13.472
+      objectReference: {fileID: 0}
+    - target: {fileID: 494862, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494862, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494862, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494862, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 494862, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 192376, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
+      propertyPath: m_Name
+      value: MazeFinish
+      objectReference: {fileID: 0}
+    - target: {fileID: 13534842, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &2048290352 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 494862, guid: 0d970b4fb275f4741af7198be41d0f30, type: 2}
+  m_PrefabInternal: {fileID: 2048290351}
 --- !u!1 &2054538801
 GameObject:
   m_ObjectHideFlags: 0
@@ -11846,6 +11994,88 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2054609312}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2066100300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2066100301}
+  m_Layer: 0
+  m_Name: Turrets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2066100301
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2066100300}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 368774463}
+  m_RootOrder: 1
+--- !u!1 &2083724405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2083724406}
+  - 65: {fileID: 2083724407}
+  - 114: {fileID: 2083724408}
+  m_Layer: 0
+  m_Name: MazeBounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2083724406
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2083724405}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 368774463}
+  m_RootOrder: 2
+--- !u!65 &2083724407
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2083724405}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 18, y: 1, z: 20}
+  m_Center: {x: -6, y: 0, z: 6}
+--- !u!114 &2083724408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2083724405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a90d6087165dc4693a97281b752bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1028899065}
+  OutOfBoundsWarning: {fileID: 552740233}
+  TimeToDie: 0.5
 --- !u!1 &2122708023
 GameObject:
   m_ObjectHideFlags: 0

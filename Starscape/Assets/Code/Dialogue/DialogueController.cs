@@ -16,6 +16,8 @@ public class DialogueController : MonoBehaviour
     private bool m_DrawingText = false;
     public float Delay = 2f;
     public Text NameText;
+    private Coroutine m_ActiveDialogue;
+    private bool m_Running = false;
 
     void Start()
     {
@@ -25,6 +27,13 @@ public class DialogueController : MonoBehaviour
 
     public void LoadDialogue(string path)
     {
+        if (m_Running)
+        {
+            m_Running = false;
+            ClearDialogue();
+        }
+  
+        m_Running = true;
         DialoguePath = path;
         DialoguePath = "Assets/Resources/Text/Dialogue/" + DialoguePath;
         m_DialogueChain.Load(DialoguePath);
@@ -32,10 +41,18 @@ public class DialogueController : MonoBehaviour
         PlayDialogue();
     }
 
+    public void ClearDialogue()
+    {
+        StopCoroutine(m_ActiveDialogue);
+        DialogueText.text = "";
+        CharacterPortrait.sprite = null;
+        NameText.text = "";
+    }
+
     public void PlayDialogue()
     {
         DialogueUI.SetActive(true);
-        StartCoroutine("PlayDialogueLine", 0);
+        m_ActiveDialogue = StartCoroutine("PlayDialogueLine", 0);
         Resources.UnloadUnusedAssets();
     }
 
@@ -62,10 +79,11 @@ public class DialogueController : MonoBehaviour
 
         if (m_DialogueLines[index + 1] != null)
         {
-            StartCoroutine("PlayDialogueLine", index + 1);
+            m_ActiveDialogue = StartCoroutine("PlayDialogueLine", index + 1);
         }
         else
         {
+            m_Running = false;
             DialogueUI.SetActive(false);
         }
     }
