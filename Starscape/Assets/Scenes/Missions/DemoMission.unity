@@ -12744,6 +12744,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1498152823}
+  - 114: {fileID: 1498152824}
   m_Layer: 0
   m_Name: TerrainContainer
   m_TagString: Untagged
@@ -12826,7 +12827,20 @@ Transform:
   - {fileID: 1054937034}
   - {fileID: 1624922970}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
+--- !u!114 &1498152824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1498152822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8abfd7decddff747a06eeaf28c8bfdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1028899065}
+  DrawDistance: 2000
 --- !u!1 &1502670489
 GameObject:
   m_ObjectHideFlags: 0
@@ -18383,7 +18397,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404070, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -364.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 404070, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
       propertyPath: m_LocalRotation.x
@@ -18403,7 +18417,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404070, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11488820, guid: ae46958491195d34e84077d3b174bdc5, type: 2}
       propertyPath: Gyroscope

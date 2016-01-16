@@ -1,15 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TerrainController : MonoBehaviour {
+public class TerrainController : MonoBehaviour
+{
+    public Transform Player;
+    public float DrawDistance = 2000f;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void Update()
+    {
+        CheckTerrain();
+    }
+
+    void CheckTerrain()
+    {
+        foreach (Transform terrain in transform)
+        {
+            if (Vector3.Distance(terrain.position, Player.position) > DrawDistance)
+            {
+                terrain.gameObject.SetActive(false);
+            }
+            else
+            {
+                terrain.gameObject.SetActive(true);
+            }
+        }
+    }
+    
 }
