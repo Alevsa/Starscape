@@ -1,15 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TerrainGenerator : MonoBehaviour {
+public class TerrainGenerator : MonoBehaviour
+{
+    private GameObject[] m_Terrain;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void Start()
+    {
+        m_Terrain = new GameObject[9];
+    }
+
+    void Update()
+    {
+        SetActiveTerrainBlocks();
+    }
+
+    void SetActiveTerrainBlocks()
+    {
+    }
+
+    void GenerateNewTerrainBlock()
+    {
+    }
+
 }
