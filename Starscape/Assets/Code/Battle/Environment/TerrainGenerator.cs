@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TerrainGenerator : MonoBehaviour
 {
+    public int EdgeSize = 100;
     private GameObject[] m_Terrain;
 
     void Start()
@@ -21,6 +22,9 @@ public class TerrainGenerator : MonoBehaviour
 
     void GenerateNewTerrainBlock()
     {
+        Terrain ter = new Terrain();
+        Texture2D per = new Texture2D(EdgeSize, EdgeSize);
+
     }
 
 }
