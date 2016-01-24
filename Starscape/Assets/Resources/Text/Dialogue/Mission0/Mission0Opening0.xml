@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<line speakerName="@narrator" portrait="">In a distant star system,
+far from the grasp of any planetary goverment,
+far from the influence of any interstellar megacorporations...</line>
+<line speakerName="@narrator" portrait="">Someone is lost.</line>
+<line speakerName="@narrator" portrait="buddy">A woman busies herself at a computer, navigational charts flit across the screen. The steady hum of the ventilators is punctuated only by the tap of her keypresses.</line>
+<line speakerName="@buddy" portrait="buddy">...</line>
+<line speakerName="???" portrait="crew1">Where has it taken us? 
+What does it say?</line>
+<line speakerName="@narrator" portrait="crew1">He stares at the screen, his posture is tense and uncomfortable.</line>
+<line speakerName="???" portrait="buddy">I don't know.</line>
+<line speakerName="???" portrait="crew1">You don't know? 
+There's nothing in the ships log?</line>
+<line speakerName="???" portrait="buddy">Nothing unusual, we were in known space,
+we warped and now we're here.</line>
+<line speakerName="@narrator" portrait="crew1">The man seems to have a series of thoughts cross his mind, but ultimately he does not voice them. Instead tension suddenly dissolves from him and he slumps in a nearby chair.</line>
+<line speakerName="???" portrait="buddy">Take it easy @crew1, might just need a reboot and we'll be fine. No reason to worry yet.
+<line speakerName="???" portrait="buddy">Go get @crew2 while I tinker with this thing, maybe there's something wrong with the reactor.
+<line speakerName="@crew1" portrait="crew1">I hope you're right...</line>
+<line speakerName="@narrator" portrait="crew1">@crew1's footsteps fade into the distance leaving the woman alone at the terminal.</line>
+<line speakerName="???" portrait="buddy"></line>
+just beyond that hulk, </line>
+</root>

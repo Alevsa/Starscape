@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public static class SaveLoadController 
-{	
-	// Playername
-	// Player Position
-	// Player Health
-	// Part health
-	
+{
+    // Playername
+    // Player Position
+    // Player Health
+    // Part health
+
 	public static void SetSaveSlot (int num)
 	{
 		if ((num < 0) || (num > 2))
@@ -36,7 +36,7 @@ public static class SaveLoadController
 	public static string GetPlayerName()
 	{
 		int activeSlot = PlayerPrefs.GetInt ("ActiveSlot");
-		return PlayerPrefs.GetString(activeSlot + "playerName");
+		return PlayerPrefs.GetString(activeSlot + "playerName", "ISAAC");
 	}
 	
 	public static void SavePlayerPosition (Vector3 pos)
@@ -141,5 +141,15 @@ public static class SaveLoadController
     public static float GetDialogueSpeed()
     {
         return PlayerPrefs.GetFloat("DialogueSpeed");
+    }
+    
+    public static Dictionary<string, string> GetCharacterNames()
+    {
+        Dictionary<string ,string>  myDic = new Dictionary<string, string>();
+        myDic.Add("@charname", GetPlayerName());
+        myDic.Add("@buddy", "Melissa");
+        myDic.Add("@crew1", "Mark");
+        myDic.Add("@crew2", "Placeholder");
+        return myDic;
     }
 }

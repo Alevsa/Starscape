@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Xml;
 using UnityEngine.UI;
-
+// TO DO: 
+//
+// Make it so that the font changes when the narrator is speaking, put in an if statement for @narrator in the speakername field.
 public class DialogueController : MonoBehaviour
 {
     private XmlDocument m_DialogueChain;

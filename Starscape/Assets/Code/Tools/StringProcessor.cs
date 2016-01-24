@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 public static class StringProcessor
@@ -29,14 +29,12 @@ public static class StringProcessor
 
     private static string InsertPlayerName(string input)
     {
-        string playerName = "";
-        playerName = SaveLoadController.GetPlayerName();
-        if (playerName == "")
-        {
-            playerName = "Isaac";
-        }
+        Dictionary<string, string> CharNames = SaveLoadController.GetCharacterNames();
         string output = input;
-        output = output.Replace("@charname", playerName);
+        foreach (KeyValuePair<string, string> name in CharNames)
+        {
+            output = output.Replace(name.Key, name.Value);
+        }
         return output;
     }
 }
