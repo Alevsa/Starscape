@@ -19,6 +19,10 @@ public class OverworldController : MonoBehaviour
     private bool m_MainActive;
 	private bool m_Docked;
 
+    public enum State { Running, Pause, Dialogue }
+    public State GameState = State.Running;
+    public DialogueController OverworldDiagloueController;
+
 	void Start () 
 	{
 		Player = GameObject.FindGameObjectWithTag("Player");
@@ -30,9 +34,32 @@ public class OverworldController : MonoBehaviour
 	
 	void Update () 
 	{
-		InGameInput ();
+        if (GameState == State.Running)
+        {
+            InGameInput();
+        }
+        else if (GameState == State.Pause)
+        {
+            PauseInput();
+        }
+        else if (GameState == State.Dialogue)
+        {
+            DialogueInput();
+        }
 	}
-	
+
+    void PauseInput()
+    {
+    }
+
+    void DialogueInput()
+    {
+        if (Input.GetButtonDown("Submit"))
+        {
+            OverworldDiagloueController.HandleInput();
+        }
+    }
+
 	//In-game handling
 	void InGameInput() 
 	{	

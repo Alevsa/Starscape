@@ -11,6 +11,7 @@ public class DialogueController : MonoBehaviour
     public string DialoguePath = "TestDialogue.xml";
     public bool OverworldDialgue = false;
     public float DialogueSpeed = 2f;
+    private float m_DialogueSpeed = 2f;
     private XmlNodeList m_DialogueLines;
     public GameObject DialogueUI;
     public Image CharacterPortrait;
@@ -20,6 +21,7 @@ public class DialogueController : MonoBehaviour
     public Text NameText;
     private Coroutine m_ActiveDialogue;
     private bool m_Running = false;
+    public bool WaitingForInput = false;
 
     void Start()
     {
@@ -60,6 +62,8 @@ public class DialogueController : MonoBehaviour
 
     IEnumerator PlayDialogueLine(int index)
     {
+        m_DialogueSpeed = DialogueSpeed;
+        WaitingForInput = true;
         XmlNode x = m_DialogueLines[index];
         string text = x.InnerXml;
         string portrait = x.Attributes["portrait"].Value;
@@ -72,9 +76,19 @@ public class DialogueController : MonoBehaviour
         for (int i = 0; i < text.Length; i++)
         {
             DialogueText.text = text.Substring(0, i + 1);
-            yield return new WaitForSeconds(DialogueSpeed);
+            yield return new WaitForSeconds(m_DialogueSpeed);
         }
-        yield return new WaitForSeconds(Delay);
+        if (OverworldDialgue)
+        {
+            while (WaitingForInput)
+            {
+                yield return null;
+            }
+        }
+        else
+        {
+            yield return new WaitForSeconds(Delay);
+        }
         DialogueText.text = "";
         CharacterPortrait.sprite = null;
         NameText.text = "";
@@ -88,5 +102,11 @@ public class DialogueController : MonoBehaviour
             m_Running = false;
             DialogueUI.SetActive(false);
         }
+    }
+
+    public void HandleInput()
+    {
+        m_DialogueSpeed -= 0.1f * DialogueSpeed;
+        WaitingForInput = false;
     }
 }
