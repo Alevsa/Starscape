@@ -48,8 +48,23 @@ public class OverworldController : MonoBehaviour
         }
 	}
 
+    public void Pause()
+    {
+        GameState = State.Pause;
+    }
+
     void PauseInput()
     {
+    }
+
+    public void StartDialogue()
+    {
+        GameState = State.Dialogue;
+    }
+
+   public  void NormalPlay()
+    {
+        GameState = State.Running;
     }
 
     void DialogueInput()

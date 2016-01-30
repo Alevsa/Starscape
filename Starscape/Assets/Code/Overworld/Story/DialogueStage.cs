@@ -26,6 +26,6 @@ public class DialogueStage : IStage
 
     void DisableInput()
     {
-        //m_Controller.
+        m_Controller.StartDialogue();
     }
 }
