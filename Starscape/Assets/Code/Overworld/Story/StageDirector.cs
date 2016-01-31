@@ -22,4 +22,9 @@ public class StageDirector : MonoBehaviour
             Stages[i].gameObject.SetActive(true);
         }
     }
+
+    public int GetActiveStage()
+    {
+        return m_ActiveStage;
+    }
 }

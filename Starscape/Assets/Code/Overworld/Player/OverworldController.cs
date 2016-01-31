@@ -11,6 +11,7 @@ public class OverworldController : MonoBehaviour
 
     public GameObject EnterPanel;
     public GameObject MainPanel;
+    public GameObject MissionPanel;
     public Text TitleText;
     public Text DescriptionText;
     private UpdateText m_EnterText;
@@ -156,6 +157,7 @@ public class OverworldController : MonoBehaviour
         EnterPanel.SetActive(false);
         TitleText.text = m_CurrentPlanet.name;
         DescriptionText.text = m_PlanetInfo.GetPlanetInfo(m_CurrentPlanet.name);
+        m_PlanetInfo.PopulateMissions(m_CurrentPlanet.name, ref MissionPanel);
         MainPanel.SetActive(true);
     }
 
