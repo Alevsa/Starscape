@@ -19,7 +19,7 @@ public class LoadPlanetInfo
         return description;
     }
 
-    public void PopulateMissionPanel(string planetName, ref GameObject MissionPanel)
+    public void PopulateMissions(string planetName, ref GameObject MissionPanel)
     {
         int[] missions = GetPlanetMissions(planetName);
         // set up mission panel with proper missions
