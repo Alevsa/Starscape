@@ -5,6 +5,7 @@ public class StageDirector : MonoBehaviour
 {
     private int m_ActiveStage;
     public IStage[] Stages;
+    public GameObject MissionButton;
 
     void Start ()
     {

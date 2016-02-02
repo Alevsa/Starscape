@@ -6,6 +6,7 @@ public class LoadPlanetInfo
 {
     private XmlDocument m_PlanetInfo;
     public StageDirector stageDirector;
+    public Transform[] MissionButtonPosition;
     public LoadPlanetInfo()
     {
         m_PlanetInfo = new XmlDocument();
@@ -32,7 +33,8 @@ public class LoadPlanetInfo
         {
             if (stageDirector.Stages[i].name == planetName)
             {
-                // Add stage to mission list
+                var temp = GameObject.Instantiate(stageDirector.MissionButton, MissionButtonPosition[i].position, Quaternion.identity);
+                // set correct mission to temp
             }
         }
         return new int[0];
