@@ -3006,6 +3006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stage: 0
+  Planet: 
   DialogueUI: {fileID: 0}
   Path: 
   m_Controller: {fileID: 0}
@@ -4905,8 +4906,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stages:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 616279055}
+  - {fileID: 616279055}
+  MissionButton: {fileID: 0}
 --- !u!4 &1329755722
 Transform:
   m_ObjectHideFlags: 0
@@ -6029,6 +6031,7 @@ MonoBehaviour:
   PauseMenuController: {fileID: 83284632}
   EnterPanel: {fileID: 94258234}
   MainPanel: {fileID: 117599951}
+  MissionPanel: {fileID: 0}
   TitleText: {fileID: 1543990151}
   DescriptionText: {fileID: 1690602676}
   GameState: 0
